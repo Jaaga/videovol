@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `footagecheck`
+-- Table structure for table `storytrack`
 --
 
-DROP TABLE IF EXISTS `footagecheck`;
+DROP TABLE IF EXISTS `storytrack`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `footagecheck` (
+CREATE TABLE `storytrack` (
   `fid` int(10) NOT NULL AUTO_INCREMENT,
   `seq` enum('good','bad') DEFAULT NULL,
   `broll` enum('good','bad') DEFAULT NULL,
@@ -32,55 +32,11 @@ CREATE TABLE `footagecheck` (
   `cta` enum('good','bad') DEFAULT NULL,
   `vd` enum('good','bad') DEFAULT NULL,
   `translation` enum('yes','no') DEFAULT NULL,
-  PRIMARY KEY (`fid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `footagecheck`
---
-
-LOCK TABLES `footagecheck` WRITE;
-/*!40000 ALTER TABLE `footagecheck` DISABLE KEYS */;
-/*!40000 ALTER TABLE `footagecheck` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `junioreditor`
---
-
-DROP TABLE IF EXISTS `junioreditor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `junioreditor` (
-  `uniqueno` int(10) NOT NULL AUTO_INCREMENT,
   `ccname` varchar(30) DEFAULT NULL,
   `state` varchar(20) DEFAULT NULL,
   `receiveddate` date DEFAULT NULL,
   `issuetopic` varchar(50) DEFAULT NULL,
   `storydescription` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`uniqueno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `junioreditor`
---
-
-LOCK TABLES `junioreditor` WRITE;
-/*!40000 ALTER TABLE `junioreditor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `junioreditor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `pmanager`
---
-
-DROP TABLE IF EXISTS `pmanager`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pmanager` (
-  `pid` int(10) NOT NULL AUTO_INCREMENT,
   `paymentstatus` enum('ok','hold') DEFAULT NULL,
   `editstatus` enum('edited','incomplete') DEFAULT NULL,
   `editedmonth` date DEFAULT NULL,
@@ -88,43 +44,21 @@ CREATE TABLE `pmanager` (
   `publishplatform` enum('yt','ui','special') DEFAULT NULL,
   `editor` varchar(30) DEFAULT NULL,
   `editorpayment` enum('ok','hold') DEFAULT NULL,
-  PRIMARY KEY (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `pmanager`
---
-
-LOCK TABLES `pmanager` WRITE;
-/*!40000 ALTER TABLE `pmanager` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pmanager` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `senioreditor`
---
-
-DROP TABLE IF EXISTS `senioreditor`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `senioreditor` (
-  `sid` int(10) NOT NULL AUTO_INCREMENT,
   `uploaddate` date DEFAULT NULL,
   `publishdate` date DEFAULT NULL,
   `receivedRO` enum('yes','no') DEFAULT NULL,
   `receivedHQ` enum('yes','no') DEFAULT NULL,
-  PRIMARY KEY (`sid`)
+  PRIMARY KEY (`fid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `senioreditor`
+-- Dumping data for table `storytrack`
 --
 
-LOCK TABLES `senioreditor` WRITE;
-/*!40000 ALTER TABLE `senioreditor` DISABLE KEYS */;
-/*!40000 ALTER TABLE `senioreditor` ENABLE KEYS */;
+LOCK TABLES `storytrack` WRITE;
+/*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
+/*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -136,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-06  8:02:30
+-- Dump completed on 2014-05-08 12:28:56
