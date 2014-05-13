@@ -1,0 +1,23 @@
+<?php
+function dbopen()
+{
+	$host = "localhost";
+	$username = "root";
+	$password ="123";
+	$db_name = "videovol";
+	$db = new mysqli($host,$username,$password,$db_name);
+	if (!$db)
+	  {
+	  die('Could not connect: ' . mysql_error());
+	  }
+	
+	return($db);
+}
+
+
+function close()
+{
+	mysqli_close();
+}
+
+?>
