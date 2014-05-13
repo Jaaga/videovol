@@ -6,7 +6,7 @@
 </head>
 <body>
 		
-<form name="creatStory-form" method="post" action="../public/story.php">
+<form name="creatStory-form" method="post" action="../public/test.php">
 	<h2>Create Story</h2>
 	<table>
 		<tr>

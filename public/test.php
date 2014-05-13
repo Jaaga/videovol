@@ -3,9 +3,10 @@ include '../model/dbcon.php';
 $db=dbopen();
 $ccname=$_POST['ccname'];
 $states=$_POST['states'];
-$ccname=$_POST['ccname'];
-
-$addstory = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription) values (UUID(),'amar','karnataka',now(),'health','myhealth is not well today')";
+$dateReceived=$_POST['dateReceived'];
+$issue=$_POST['issue'];
+$story=$_POST['story'];
+$addstory = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription) values (UUID(),'$ccname','$states','$dateReceived','$issue','$story')";
 $new = $db->query($addstory);
 if(!$new)
 {
