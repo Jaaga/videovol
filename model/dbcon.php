@@ -17,7 +17,7 @@ function dbopen(){
 
 
 function close(){
-	mysqli_close();
+	mysqli_close($db);
 	}
 
 ?>

@@ -13,5 +13,6 @@ if(!$new)
 	echo "story not added";
 }
 else
-	echo "story added";
+	header("location:../public/createstory.html");
+
 ?>
