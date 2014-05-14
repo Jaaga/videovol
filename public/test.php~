@@ -1,0 +1,12 @@
+<?php
+include '../model/dbcon.php';
+$db=dbopen();
+$addstory = mysqli_query("insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription) values (UUID(),'amar','karnataka',now(),'health','myhealth is not well today')");
+//$new = mysqli_query($addstory);
+if(!$addstory)
+{
+	echo "story not added";
+}
+else
+	echo "story added";
+?>
