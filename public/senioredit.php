@@ -1,12 +1,9 @@
-
 <?php
-include '../model/dbcon.php';
-$db=dbopen();
-include ('header.php');
-//$data = "select * from storytrack where datereceived = '1986-12-23'"
+include'../model/dbcon.php';
+$db=$dbopen();
 echo "<table border='1'>
 <tr>
-<th>ccname</th>
+<th></th>
 <th>state</th>
 <th>receiveddate</th>
 <th>issuetopic</th>
@@ -28,3 +25,5 @@ while($row = mysqli_fetch_array($result)) {
 echo "</table>";
 ?>
 
+
+?>

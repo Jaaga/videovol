@@ -24,14 +24,14 @@ DROP TABLE IF EXISTS `storytrack`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `storytrack` (
   `fid` int(10) NOT NULL AUTO_INCREMENT,
-  `seq` enum('good','bad') DEFAULT NULL,
-  `broll` enum('good','bad') DEFAULT NULL,
-  `fint` enum('good','bad') DEFAULT NULL,
-  `vo` enum('good','bad') DEFAULT NULL,
-  `ptc` enum('good','bad') DEFAULT NULL,
-  `cta` enum('good','bad') DEFAULT NULL,
-  `vd` enum('good','bad') DEFAULT NULL,
-  `translation` enum('yes','no') DEFAULT NULL,
+  `seq` varchar(10) DEFAULT NULL,
+  `broll` varchar(10) DEFAULT NULL,
+  `fint` varchar(10) DEFAULT NULL,
+  `vo` varchar(10) DEFAULT NULL,
+  `ptc` varchar(10) DEFAULT NULL,
+  `cta` varchar(10) DEFAULT NULL,
+  `vd` varchar(10) DEFAULT NULL,
+  `translation` varchar(10) DEFAULT NULL,
   `ccname` varchar(30) DEFAULT NULL,
   `state` varchar(20) DEFAULT NULL,
   `receiveddate` date DEFAULT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `storytrack` (
   `receivedRO` enum('yes','no') DEFAULT NULL,
   `receivedHQ` enum('yes','no') DEFAULT NULL,
   PRIMARY KEY (`fid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2147483647 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,4 +70,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-08 12:28:56
+-- Dump completed on 2014-05-14  8:24:10

@@ -1,0 +1,21 @@
+	body{
+		font-family: verdana;
+	}
+	/*---------------
+	Nav-bar content
+	----------------*/
+	.nav{
+		background-color:#11787f ;
+		padding: 10px;
+	}
+	.nav h1{
+		display: inline;
+		color: #eb5826;
+	}
+
+	.nav a{
+		text-decoration: none;
+		
+	}
+	
+	/*------------------------*/
