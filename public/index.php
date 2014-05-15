@@ -9,12 +9,9 @@
 	</div>
 
 	<div>
-<<<<<<< HEAD
 		<a href="viewalldata.php">View Data</a>
-=======
-		<a href="viewalldata.php"><input type="button" value="View alldata" style="background-color: red;"></a>
->>>>>>> fbcb8325fdd87af4fa03aba6b6cd3f5289a132d1
 	</div>
 
 </body>
 </html>
+l
