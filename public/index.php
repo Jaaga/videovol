@@ -8,5 +8,9 @@
 	<a href="pmview.php"><button type="button">Project Manager</button></a>
 	</div>
 
+	<div>
+		<input type="button" value="View" style="background-color: red;">
+	</div>
+
 </body>
 </html>
