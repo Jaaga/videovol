@@ -2,14 +2,14 @@
 ?>
 
 	<div class="user">
-	<a href="createstory.php" class="class="button button-rounded button-flat"">CC Mentor</a>
-	<a href="edit.php"><button type="button">Junior Editor</button></a>
-	<a href="senioreditview.php"><button type="button">Senior Editor</button></a>
-	<a href="pmview.php"><button type="button">Project Manager</button></a>
+	<a href="createstory.php" class="button button-rounded button-flat-action">CC Mentor</a>
+	<a href="edit.php" class="button button-rounded button-flat-action">Junior Editor</a>
+	<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
+	<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager</a>
 	</div>
 
 	<div>
-		<input type="button" value="View" style="background-color: red;">
+		<a href="viewalldata.php">View Data</a>
 	</div>
 
 </body>
