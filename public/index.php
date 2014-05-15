@@ -9,7 +9,7 @@
 	</div>
 
 	<div>
-		<input type="button" value="View" style="background-color: red;">
+		<a href="viewalldata.php"><input type="button" value="View alldata" style="background-color: red;"></a>
 	</div>
 
 </body>
