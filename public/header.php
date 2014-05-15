@@ -6,6 +6,7 @@
 	<title>Header</title>
 </head>
 <link href="./main.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="buttons/css/buttons.css">
 <body>
 	<header>
 		<div class="nav">
