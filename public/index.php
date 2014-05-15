@@ -2,6 +2,7 @@
 ?>
 
 	<div class="user">
+	<br>
 	<a href="createstory.php" class="button button-rounded button-flat-action">CC Mentor</a>
 	<a href="edit.php" class="button button-rounded button-flat-action">Junior Editor</a>
 	<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
@@ -9,9 +10,9 @@
 	</div>
 
 	<div>
-		<a href="viewalldata.php">View Data</a>
+	<br>
+		<a href="viewalldata.php" class="button button-rounded button-flat-primary">View Data</a>
 	</div>
 
 </body>
 </html>
-l
