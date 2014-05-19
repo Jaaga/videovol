@@ -7,6 +7,7 @@
 	<a href="edit.php" class="button button-rounded button-flat-action">Junior Editor</a>
 	<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
 	<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager</a>
+	<a href="login.php" class="button button-rounded button-flat-action">login</a>
 	</div>
 
 	<div>
