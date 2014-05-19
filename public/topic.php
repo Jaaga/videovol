@@ -13,7 +13,7 @@ mysql_select_db('videovol');
 <?php
 $query = mysql_query("SELECT * FROM storytrack"); // Run the query
 
-echo '<label>View By:</label><select name="issuetopic">'; // Opens the drop down box
+echo '<label>View By:</label><select name="issuetopic"><option value="">Select Issue</option>'; // Opens the drop down box
 
 // Loops through the query results, outputing the options one by one
 while ($row = mysql_fetch_array($query)) {
