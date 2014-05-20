@@ -9,7 +9,7 @@ $publishPlatform = $_POST['publishPlatform'];
 $editorNames = $_POST['editorNames'];
 $editorPayment = $_POST['editorPayment'];
 $fid =$_POST['fid'];
-$update = "update storytrack set paymentstatus ='$paymentStatus',editstatus ='$editStatus',editedmonth = '$editMonth',notes = '$notes',publishplatform = '$publishPlatform',editor = '$editorNames', editorpayment = '$editorPayment' where fid ='$fid'";
+$update = "update storytrack set paymentstatus ='$paymentstatus',editstatus ='$editStatus',editedmonth = '$editMonth',notes = '$notes',publishplatform = '$publishPlatform',editor = '$editorNames', editorpayment = '$editorPayment' where fid ='$fid'";
 $pm=$db->query($update);
 if(!$pm)
 {

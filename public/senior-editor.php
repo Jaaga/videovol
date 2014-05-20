@@ -23,8 +23,13 @@ include ('header.php');
   		<label for="receivedRO">Received at RO:</label>
 	</td>
  	<td valign="top">
-  		<input type="radio" name="receivedRO" />yes
-		<input type="radio" name="receivedRO" />no
+ 		<select name="receivedRO">
+				<option value ="0">Select</option>
+				<option value = "Good">yes</option>
+				<option value = "Not Good">No</option>
+			</select>
+  		<!--<input type="radio" name="receivedRO" />yes
+		<input type="radio" name="receivedRO" />no-->
 	</td>
 	</tr>
 
@@ -33,8 +38,13 @@ include ('header.php');
   		<label for="receivedHQ">Received at HQ:</label>
 	</td>
  	<td valign="top">
-  		<input type="radio" name="receivedHQ" />yes
-		<input type="radio" name="receivedHQ" />no
+ 		<select name="receivedHQ">
+				<option value ="0">Select</option>
+				<option value = "Good">yes</option>
+				<option value = "Not Good">No</option>
+			</select>
+  		<!--<input type="radio" name="receivedHQ" />yes
+		<input type="radio" name="receivedHQ" />no-->
 	</td>
 	</tr>
 
