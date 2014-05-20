@@ -1,5 +1,5 @@
 	body{
-		font-family: verdana;
+		font-family: arial;
 	}
 	/*---------------
 	Nav-bar content
@@ -15,7 +15,7 @@
 	.nav h3{
 		display: inline;
 		color: white;
-		margin-left: 900px;
+		float: right;
 	}
 
 	.nav a{
