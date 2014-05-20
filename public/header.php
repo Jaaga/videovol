@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Header</title>
+	<title>Video Volunteer</title>
 </head>
 <link href="./main.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="buttons/css/buttons.css">
