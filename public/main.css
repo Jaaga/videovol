@@ -11,10 +11,11 @@
 	.nav h1{
 		display: inline;
 		color: #eb5826;
+		line-height: 100%;
 	}
 	.nav h3{
 		display: inline;
-		color: white;
+		color: #eb5826;
 		float: right;
 	}
 
@@ -23,4 +24,10 @@
 		
 	}
 	
+	.nav h1:hover{
+		color:white;
+	}
+	.nav h3:hover {
+		color: white;
+	}
 	/*------------------------*/
