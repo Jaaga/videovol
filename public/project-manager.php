@@ -1,5 +1,8 @@
 <?php
 $fid=$_GET['id'];
+include'../model/dbcon.php';
+$db=dbopen();
+include ('header.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,8 +22,13 @@ $fid=$_GET['id'];
   		<label for="paymentStatus">Payment Status:</label>
 	</td>
  	<td valign="top">
-  		<input type="radio" name="paymentStatus" />ok
-		<input type="radio" name="paymentStatus" />hold
+ 		<select name="paymentStatus">
+				<option value ="0">Select</option>
+				<option value = "ok">ok</option>
+				<option value = "Hold">hold</option>
+			</select>
+  		<!--<input type="radio" name="paymentStatus" />ok
+		<input type="radio" name="paymentStatus" />hold-->
 	</td>
 </tr>
  
@@ -30,8 +38,13 @@ $fid=$_GET['id'];
  		 <label for="editStatus">Edit Status:</label>
  	</td>
  	<td valign="top">
-  		<input type="radio" name="editStatus"/>incomplete
-		<input type="radio" name="editStatus"/>edited	
+ 		<select name="editStatus">
+				<option value ="0">Select</option>
+				<option value = "ok">incomplete</option>
+				<option value = "Hold">edited</option>
+			</select>
+  		<!--<input type="radio" name="editStatus"/>incomplete
+		<input type="radio" name="editStatus"/>edited-->	
 	</td>
 </tr>
 
@@ -62,9 +75,15 @@ $fid=$_GET['id'];
   		<label for="publishPlatform">Publish Platform: </label>
  	</td>
  	<td valign="top">
-  		<input type="radio" name="publishPlatform" />IU
+ 		<select name="publishPlatform">
+				<option value ="0">Select</option>
+				<option value = "IU">IU</option>
+				<option value = "YT">YT</option>
+				<option value = "Special">Special</option>
+			</select>
+  		<!--<input type="radio" name="publishPlatform" />IU
 		<input type="radio" name="publishPlatform" />YT
-		<input type="radio" name="publishPlatform" />Special
+		<input type="radio" name="publishPlatform" />Special-->
  	</td>
 </tr>
 
@@ -88,7 +107,11 @@ $fid=$_GET['id'];
   		<label for="editorPayment">Editor Payment:</label>
 	</td>
  	<td valign="top">
-  		<input type="radio" name="editorPayment" />ok
+  		<select name="editorPayment">
+				<option value ="0">Select</option>
+				<option value = "ok">ok</option>
+				<option value = "Hold">hold</option>
+			</select>
 	</td>
 </tr>
 

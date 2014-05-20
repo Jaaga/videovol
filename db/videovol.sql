@@ -37,19 +37,19 @@ CREATE TABLE `storytrack` (
   `receiveddate` date DEFAULT NULL,
   `issuetopic` varchar(50) DEFAULT NULL,
   `storydescription` varchar(300) DEFAULT NULL,
-  `paymentstatus` enum('ok','hold') DEFAULT NULL,
-  `editstatus` enum('edited','incomplete') DEFAULT NULL,
+  `paymentstatus` varchar(10) DEFAULT NULL,
+  `editstatus` varchar(10) DEFAULT NULL,
   `editedmonth` date DEFAULT NULL,
   `notes` varchar(100) DEFAULT NULL,
-  `publishplatform` enum('yt','ui','special') DEFAULT NULL,
+  `publishplatform` varchar(10) DEFAULT NULL,
   `editor` varchar(30) DEFAULT NULL,
-  `editorpayment` enum('ok','hold') DEFAULT NULL,
+  `editorpayment` varchar(10) DEFAULT NULL,
   `uploaddate` date DEFAULT NULL,
   `publishdate` date DEFAULT NULL,
-  `receivedRO` enum('yes','no') DEFAULT NULL,
-  `receivedHQ` enum('yes','no') DEFAULT NULL,
+  `receivedRO` varchar(10) DEFAULT NULL,
+  `receivedHQ` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`fid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2147483647 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=63934 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,6 +58,7 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
+INSERT INTO `storytrack` VALUES (7,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','rajeef','Kerala','2014-05-14','entertainment','every day i will be high on coke','','','2014-05-14','hiiiiiiiiiiiiii','','option3','','2014-05-13','2014-05-14','Not Good','Good'),(959,'Not Good','Good','Good','Not Good','Good','Not Good','Not Good','NO','yatin','Tripura','2014-05-22','social','my social behaviour is to good\r\n','','','2014-05-06','hey wass up','','option2','ok','2014-05-07','2014-05-13','Good','Not Good'),(6832,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','ansal','Andaman and Nicobar ','2014-05-12','health','my health is too good','','Hold','2014-05-22','hi how are you','IU','option2','ok','2014-05-14','2014-05-14','Good','Not Good'),(18721,'Good','Not Good','Good','Good','Good','Good','Good','yes','ramesh','Andaman and Nicobar ','2014-12-31','health','hi','ok','ok','2014-05-14','hello','IU','option2','ok','2014-05-07','2014-05-14','Not Good','Good');
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -70,4 +71,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-14  8:24:10
+-- Dump completed on 2014-05-20  3:32:28
