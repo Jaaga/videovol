@@ -11,6 +11,7 @@
 	<header>
 		<div class="nav">
 			<a href="index.php"><h1>VideoVolunteer</h1></a>
+			<a href="index.php"><h3>go home</h3></a>
 
 		</div>
 	</header>

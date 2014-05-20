@@ -12,6 +12,11 @@
 		display: inline;
 		color: #eb5826;
 	}
+	.nav h3{
+		display: inline;
+		color: white;
+		margin-left: 900px;
+	}
 
 	.nav a{
 		text-decoration: none;
