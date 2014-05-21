@@ -9,7 +9,7 @@ mysql_select_db('videovol');
 	<title>cc</title>
 </head>
 <body>
-<form method="POST" action="viewcc.php">
+<!--<form method="POST" action="viewcc.php">
 	<?php
 	$query = mysql_query("SELECT * FROM storytrack"); // Run the query
 
@@ -22,7 +22,7 @@ mysql_select_db('videovol');
 
 	echo '</select>';// Closes drop down box
 	?>
-<input type="submit">
+<input type="submit">-->
 </form>
 
 </body>
