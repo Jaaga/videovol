@@ -14,7 +14,7 @@ mysql_select_db('videovol');
 	<header>
 		<div class="nav">
 			<a href="index.php"><h1>VideoVolunteers</h1></a>
-			<a href="index.php"><h3>home</h3></a>
-
+			<a href="#"><h3>log in</h3></a>
+			
 		</div>
 	</header>

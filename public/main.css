@@ -35,3 +35,14 @@
 	
 
 	/*------------------------*/
+
+	/*User div*/
+
+	.user{
+		margin-top: 18px;
+		float: right;
+	}
+
+	.stages{
+		display: inline;
+	}
