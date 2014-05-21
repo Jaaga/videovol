@@ -9,18 +9,21 @@ mysql_select_db('videovol');
 	<title>cc</title>
 </head>
 <body>
+<form method="POST" action="viewcc.php">
+	<?php
+	$query = mysql_query("SELECT * FROM storytrack"); // Run the query
 
-<?php
-$query = mysql_query("SELECT * FROM storytrack"); // Run the query
+	echo '<label>View By:</label><select name="ccname"><option value="">Select CC Name</option>'; // Opens the drop down box
 
-echo '<label>View By:</label><select name="cc names"><option value="">Select CC Name</option>'; // Opens the drop down box
+	// Loops through the query results, outputing the options one by one
+	while ($row = mysql_fetch_array($query)) {
+	   echo '<option value="'.$row['ccname'].'">'.$row['ccname'].'</option>';
+	}
 
-// Loops through the query results, outputing the options one by one
-while ($row = mysql_fetch_array($query)) {
-   echo '<option value="'.$row['ccname'].'">'.$row['ccname'].'</option>';
-}
+	echo '</select>';// Closes drop down box
+	?>
+<input type="submit">
+</form>
 
-echo '</select>';// Closes drop down box
-?>
 </body>
 </html>
