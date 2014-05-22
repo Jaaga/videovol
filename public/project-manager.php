@@ -23,10 +23,10 @@ include ('header.php');
 	</td>
  	<td valign="top">
  		<select name="paymentStatus">
-				<option value ="0">Select</option>
-				<option value = "ok">ok</option>
-				<option value = "Hold">hold</option>
-			</select>
+			<option value ="0">Select</option>
+			<option value = "ok">ok</option>
+			<option value = "Hold">hold</option>
+		</select>
   		<!--<input type="radio" name="paymentStatus" />ok
 		<input type="radio" name="paymentStatus" />hold-->
 	</td>
@@ -35,16 +35,14 @@ include ('header.php');
 
 <tr>
  	<td valign="top">
- 		 <label for="editStatus">Edit Status:</label>
+ 		<label for="editStatus">Edit Status:</label>
  	</td>
  	<td valign="top">
  		<select name="editStatus">
-				<option value ="0">Select</option>
-				<option value = "ok">incomplete</option>
-				<option value = "Hold">edited</option>
-			</select>
-  		<!--<input type="radio" name="editStatus"/>incomplete
-		<input type="radio" name="editStatus"/>edited-->	
+			<option value ="0">Select</option>
+			<option value = "ok">incomplete</option>
+			<option value = "Hold">edited</option>
+		</select>
 	</td>
 </tr>
 
@@ -76,14 +74,11 @@ include ('header.php');
  	</td>
  	<td valign="top">
  		<select name="publishPlatform">
-				<option value ="0">Select</option>
-				<option value = "IU">IU</option>
-				<option value = "YT">YT</option>
-				<option value = "Special">Special</option>
-			</select>
-  		<!--<input type="radio" name="publishPlatform" />IU
-		<input type="radio" name="publishPlatform" />YT
-		<input type="radio" name="publishPlatform" />Special-->
+			<option value ="0">Select</option>
+			<option value = "IU">IU</option>
+			<option value = "YT">YT</option>
+			<option value = "Special">Special</option>
+		</select>
  	</td>
 </tr>
 
@@ -98,7 +93,7 @@ include ('header.php');
 			<option value="option3">Option 3</option>
 			<option value="option4">Option 4</option>
 			<option value="option5">Option 5</option>
-		</select><br>
+		</select>
 	</td>
 </tr>
 
@@ -108,22 +103,24 @@ include ('header.php');
 	</td>
  	<td valign="top">
   		<select name="editorPayment">
-				<option value ="0">Select</option>
-				<option value = "ok">ok</option>
-				<option value = "Hold">hold</option>
-			</select>
+			<option value ="0">Select</option>
+			<option value = "ok">ok</option>
+			<option value = "Hold">hold</option>
+		</select>
 	</td>
 </tr>
 
 <tr>
  	<td>
-<input type="submit">
-</td>
+		<input type="submit">
+	</td>
 </tr>
 
 </table>
 
 </form>
+</body>
+</html>
 
 
 
