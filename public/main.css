@@ -46,3 +46,8 @@
 	.stages{
 		display: inline;
 	}
+
+	table,tr{
+		border-collapse: collapse;
+		text-align: center;
+	}
