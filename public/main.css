@@ -36,7 +36,7 @@
 
 	/*------------------------*/
 
-	/*User div*/
+	
 
 	.login{
 		margin-top: 18px;
@@ -52,6 +52,7 @@
 		display: inline;
 	}
 
+<<<<<<< HEAD
 	.login{
 		margin-top: 18px;margin-left: auto;
 		padding-right: 5px;
@@ -66,4 +67,9 @@
 		background-color: #4c9be5;
 		padding: 10px;
 		
+=======
+	table,tr{
+		border-collapse: collapse;
+		text-align: center;
+>>>>>>> 6340f31a983493aa93f34ca856403f85f0ab1017
 	}
