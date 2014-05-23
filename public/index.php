@@ -2,10 +2,12 @@
 <?php include("header.php")
 ?>
 
-		<div class="user">
-	<a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
+	<div class="login">
+	<a href="login.php" class="button button-rounded button-flat-royal">Login/Signup</a>
 	</div>
-
+	<div class="user">
+	<a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
+	</div>	
 	<div class="stages">
 	<br>
 	<a href="createstory.php" class="button button-rounded button-flat-action">CC Mentor</a>
