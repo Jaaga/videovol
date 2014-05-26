@@ -1,4 +1,7 @@
 <?php
+$fid=$_POST['fid'];
+if($_POST['seq'] && $_POST['broll'] && $_POST['fint'] && $_POST['vo'] && $_POST['ptc'] && $_POST['cta'] && $_POST['vd'] && $_POST['translation'] !='0')
+{
 include '../model/dbcon.php';
 $db=dbopen();
 $seq=$_POST['seq'];
@@ -19,6 +22,10 @@ echo "data not inserted";
 }
 else
 header("location:../public/edit.php");
+}
+else
+	echo "please select all the options one or more options not selected";
+	header("Refresh: 3; url=../public/editor.php?id=".$fid);
 //echo "data added";
 //header("Location: "../$extra");
 ?>
