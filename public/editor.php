@@ -13,33 +13,21 @@ $a=$_GET['id'];
 	<input name="fid" type="hidden" value="<?php echo $a; ?>" >
 <h2>Editor's Dashboard</h2>
 	<table>
-		<tr>
-		<td valign="top">
-			<label for="seq">SEQ :</label>
-		</td>
-		<td>
-			<select name="seq">
+		<tr><td valign="top"><label for="seq">SEQ :</label></td>
+		<td><select name="seq">
 				<option value ="0">Select</option>
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="seq" />Good
-			<input type="radio" name="seq" />Not Good-->
 		</td>
 		</tr>
 
-		<tr>
-		<td valign="top">
-			<label for="broll">B-Roll :</label>
-		</td>
-		<td>
-			<select name="broll">
+		<tr><td valign="top"><label for="broll">B-Roll :</label></td>
+		<td><select name="broll">
 				<option value ="0">Select</option>
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="broll" />Good
-			<input type="radio" name="broll" />Not Good-->
 		</td>
 		</tr>
 
@@ -53,8 +41,7 @@ $a=$_GET['id'];
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="fint" />Good
-			<input type="radio" name="fint" />Not Good-->
+
 		</td>
 		</tr>
 
@@ -68,8 +55,7 @@ $a=$_GET['id'];
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="vo" />Good
-			<input type="radio" name="vo" />Not Good-->
+
 		</td>
 		</tr>
 
@@ -83,8 +69,7 @@ $a=$_GET['id'];
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="ptc" />Good
-			<input type="radio" name="ptc" />Not Good--> 
+
 		</td>
 		</tr>
 
@@ -98,8 +83,7 @@ $a=$_GET['id'];
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="cta" />Good
-			<input type="radio" name="cta" />Not Good-->
+
 		</td>
 
 		<tr>
@@ -112,8 +96,7 @@ $a=$_GET['id'];
 				<option value = "Good">Good</option>
 				<option value = "Not Good">Not Good</option>
 			</select>
-			<!--<input type="radio" name="vd" />Good
-			<input type="radio" name="vd" />Not Good-->
+
 		</td>
 		</tr>
 
@@ -128,9 +111,7 @@ $a=$_GET['id'];
 				<option value = "NO">NO</option>
 				<option value = "Not Required">Not Required</option>
 			</select>
-			<!--<input type="radio" name="translation" />Yes
-			<input type="radio" name="translation" />No
-			<input type="radio" name="translation" />Not Required-->
+
 		</td>
 		</tr>
 
