@@ -12,7 +12,7 @@
 <table>
 	<form method="POST" action="viewcc.php">
 		<?php
-		$query = mysql_query("SELECT * FROM storytrack"); // Run the query
+		$query = mysql_query("SELECT DISTINCT ccname FROM storytrack"); // Run the query
 
 		echo '<tr><td valign="top"><label>View By: </label><select name="ccname"><option value="">Select CC Name</option>'; // Opens the drop down box
 
@@ -31,7 +31,7 @@
 	<form method="POST" action="viewtopic.php">
 
 		<?php
-		$query = mysql_query("SELECT * FROM storytrack"); // Run the query
+		$query = mysql_query("SELECT DISTINCT issuetopic FROM storytrack"); // Run the query
 
 		// Opens the drop down box
 		echo '<tr><td valign="top"><label>View By: </label><select name="issuetopic"><option value="">Select Issue</option>'; 
@@ -52,7 +52,7 @@
 	<form method="POST" action="statesview.php">
 
 	<?php
-	$query = mysql_query("SELECT * FROM storytrack"); // Run the query
+	$query = mysql_query("SELECT DISTINCT state  FROM storytrack"); // Run the query
 
 	echo '<tr><td valign="top"><label>View By: </label><select name="state"><option value="">Select State</option>';
 	 // Opens the drop down box</
@@ -71,7 +71,7 @@
 	<form method="POST" action="dateview.php">
 
 	<?php
-	$query = mysql_query("SELECT * FROM storytrack"); // Run the query
+	$query = mysql_query("SELECT DISTINCT receiveddate FROM storytrack"); // Run the query
 
 	echo '<tr><td valign="top"><label>View By: </label><select name="receiveddate"><option value="">Select Date</option>';
 	 // Opens the drop down box
