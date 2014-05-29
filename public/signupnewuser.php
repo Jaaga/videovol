@@ -9,21 +9,20 @@ include ('header.php');
 </head>
 <body>
 <div class = "log">
-<form action="process.php" method = "post">
-	<b> LOGIN </b><br><br>
+<form action="signup.php" method="post">
+	<b> SIGN-UP </b><br><br>
 	<select name="category">
-		<option value="ccmentor">CC MENTOR</option>
+		<option value="ccmentor" selected>CC MENTOR</option>
 		<option value="Junioreditor">JUNIOR EDITOR</option>
 		<option value="Senioreditor">SENIOR EDITOR</option>
 		<option value="Projectmanager">PROJECT MANAGER</option>
 	</select><br><br>
-	Login-id :<input type = "text" name = "login"/></br><br>
-	Password :<input type = "password" name = "password"/></br><br>
-	<input type = "submit" value = "Login"/><br><br>
+	Name :<input type = "text" name = "name"/></br><br>
+	Login-id :<input type = "text" name = "signup"/></br><br>
+	Password :<input type = "password" name = "pass"/></br><br>
+	<input type = "submit" value = "Sign-up"/><br><br>
 </form>
-<a href="signupnewuser.php" class="button button-rounded button-flat-action">Sign-up</a>
 </div>
-
 </body>
 </html>	
-
+?>

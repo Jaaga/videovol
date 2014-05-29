@@ -3,7 +3,7 @@ include '../model/dbcon.php';
 $db=dbopen();
 $category=$_POST['category'];
 $name=$_POST['name'];
-$loginid=$_POST['loginid'];
+$loginid=$_POST['signup'];
 $password=$_POST['pass'];
 //$story=$_POST['story'];
 $signup = "insert into LOGIN(category, name, loginid, password) values ('$category','$name','$loginid','$password')";

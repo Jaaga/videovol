@@ -4,14 +4,21 @@ $db=dbopen();
 $category=$_POST['category'];
 $loginid=$_POST['login'];
 $password=$_POST['password'];
-$query = "SELECT * FROM LOGIN WHERE loginid = '$login' AND password = '$password'";
-$login = $db->query($query);
-$categ = mysqli_fetch_array($login);
-if(!$login)
+//var_dump($_POST);
+//echo $loginid;
+//echo $password;
+$quer = "SELECT * FROM LOGIN WHERE loginid='$loginid' and password='$password'";
+$new = $db->query($quer);
+echo $new;
+echo '123';
+//$log = mysqli_query($quer);
+//$count = mysql_num_rows($log);
+if(!$new)
 {
-	echo "LOGIN not successful";
+	
+	echo "LOGIN not successful";	
 }
-elseif ($category=='ccmentor') {
+/*elseif ($category=='ccmentor') {
 	header("location:../public/createstory.php");
 }
 elseif ($category=='Junioreditor') {
@@ -22,4 +29,5 @@ elseif ($category=='Senioreditor') {
 }
 elseif ($category=='Projectmanager') {
 	header("location:../public/pmview.php");
-}
+}*/
+?>
