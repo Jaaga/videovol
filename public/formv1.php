@@ -14,7 +14,7 @@ include('header.php');
 		}
  .content {
  	display:none;
- 	
+
  	 }
  .show {
  	display: none;
@@ -101,7 +101,7 @@ include('header.php');
 					<td><input type="text" name="issue" /></td>
 				</tr> 
 				<tr><td valign="top"> <label for="story">Story: </label></td>
-				 	<td valign="top"><textarea  name="story" maxlength="1000" cols="25" rows="6"></textarea></td>
+				 	<td valign="top"><textarea  name="story" maxlength="1000" cols="30" rows="6"></textarea></td>
 				</tr>
 				<tr><td><input type="submit"></td>
 				</tr>
