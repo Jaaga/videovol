@@ -1,33 +1,43 @@
 <?php
-include '../model/dbcon.php';
-$db=dbopen();
+$host="localhost"; // Host name 
+$username="root"; // Mysql username 
+$password="123"; // Mysql password 
+$db_name="videovol"; // Database name 
+$tbl_name="LOGIN"; // Table name 
+
+// Connect to server and select databse.
+mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+mysql_select_db("$db_name")or die("cannot select DB");
+
+// username and password sent from form 
 $category=$_POST['category'];
-$loginid=$_POST['login'];
-$password=$_POST['password'];
-//var_dump($_POST);
-//echo $loginid;
-//echo $password;
-$quer = "SELECT * FROM LOGIN WHERE loginid='$loginid' and password='$password'";
-$new = $db->query($quer);
-echo $new;
-echo '123';
-//$log = mysqli_query($quer);
-//$count = mysql_num_rows($log);
-if(!$new)
-{
-	
-	echo "LOGIN not successful";	
+$myusername=$_POST['login']; 
+$mypassword=$_POST['password']; 
+
+$sql="SELECT * FROM $tbl_name WHERE loginid ='$myusername' and password='$mypassword'";
+$result=mysql_query($sql);
+
+// Mysql_num_row is counting table row
+$count=mysql_num_rows($result);
+
+// If result matched $myusername and $mypassword, table row must be 1 row
+if(!$count){
+echo "login not successful";
 }
-/*elseif ($category=='ccmentor') {
+elseif ($category=='ccmentor') {
+	
 	header("location:../public/createstory.php");
 }
 elseif ($category=='Junioreditor') {
+	
 	header("location:../public/edit.php");
 }
 elseif ($category=='Senioreditor') {
+	
 	header("location:../public/senioreditview.php");
 }
 elseif ($category=='Projectmanager') {
+	
 	header("location:../public/pmview.php");
-}*/
+}
 ?>
