@@ -1,9 +1,26 @@
 
-<?php include("header.php")
+<?php 
+include("header.php");
+include("../model/StoryDB.php");
 ?>
 
+<table><tr><th>ID</th><th>CCName</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th></tr>
+
+<?php
+$resultArray = getAllBasicData();
+foreach ($resultArray as $row) {
+		echo "<tr><td>" . $row['fid'] . "</td> <td>" .
+		     $row['ccname'] . "</td> <td>" .
+		     $row['receiveddate'] . "</td> <td>" .
+		     $row['issuetopic'] . "</td> <td>" .
+		     $row['story description'] . "</td></tr>";
+}
+
+?>
+</table>
+
 	<div class="login">
-	<a href="login.php" class="button button-rounded button-flat-royal">Login</a>
+	<a href="login.php" class="button button->rounded button-flat-royal">Login</a>
 	<a href="signupnewuser.php" class="button button-rounded button-flat-royal">Sign-up</a>
 	</div>
 	<div class="user">
