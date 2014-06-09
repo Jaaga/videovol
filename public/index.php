@@ -11,7 +11,7 @@
 	</div>	
 	<div class="stages">
 	<br>
-	<a href="login.php" class="button button-rounded button-flat-action">CC Mentor</a>
+	<a href="createstory1.php" class="button button-rounded button-flat-action">CreateStory</a>
 	<a href="login.php" class="button button-rounded button-flat-action">Junior Editor</a>
 	<a href="login.php" class="button button-rounded button-flat-action">Senior Editor</a>
 	<a href="login.php" class="button button-rounded button-flat-action">Project Manager</a>
