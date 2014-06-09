@@ -54,8 +54,8 @@ CREATE TABLE `impacttracker` (
   `gifttocc` varchar(10) DEFAULT NULL,
   `thankyoucard` varchar(10) DEFAULT NULL,
   KEY `uniquenumber` (`uniquenumber`),
-  CONSTRAINT `impacttracker_ibfk_2` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `impacttracker_ibfk_1` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`)
+  CONSTRAINT `impacttracker_ibfk_1` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`),
+  CONSTRAINT `impacttracker_ibfk_2` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -150,7 +150,7 @@ CREATE TABLE `storytrack` (
   `shootplan` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`fid`),
   UNIQUE KEY `uniquenumber` (`uniquenumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=18723 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47187 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +159,7 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
-INSERT INTO `storytrack` VALUES (7,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','rajeef','Kerala','2014-05-14','entertainment','every day i will be high on coke','','','2014-05-14','hiiiiiiiiiiiiii','','option3','','2014-05-13','2014-05-14','Not Good','Good',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(9,'Not Good','Good','Good','Good','Good','Not Good','Good','NO','hello','Andaman and Nicobar ','2014-05-13','hi','how are u',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(79,'0','0','0','0','0','0','0','0','browne','Lakshadweep','2014-05-20','health','my health is very bad',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2014-05-14','2014-05-13','Not Good','Good',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(934,'Good','Not Good','Good','Not Good','Good','Not Good','Good','Not Requir','hello','Assam','2014-05-14','health','health is improving',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(959,'Not Good','Good','Good','Not Good','Good','Not Good','Not Good','NO','yatin','Tripura','2014-05-22','social','my social behaviour is to good\r\n','','','2014-05-06','hey wass up','','option2','ok','2014-05-07','2014-05-13','Good','Not Good',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6832,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','ansal','Andaman and Nicobar ','2014-05-12','health','my health is too good','','Hold','2014-05-22','hi how are you','IU','option2','ok','2014-05-14','2014-05-14','Good','Not Good',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18721,'Good','Not Good','Good','Good','Good','Good','Good','yes','ramesh','Andaman and Nicobar ','2014-12-31','health','hi','ok','ok','2014-05-14','hello','IU','option2','ok','2014-05-07','2014-05-14','Not Good','Good',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(18722,'Good','Good','Good','Not Good','Not Good','Good','Good','NO','hi','Andaman and Nicobar ','2014-05-13','hello','nkk dv,jhds',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `storytrack` VALUES (47182,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'freeman','Andaman and Nicobar ','2014-06-11','health','hi my health is good ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-06-10','mohan','rajesh','','health','goodmorning','from today'),(47184,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'akshay','Karnataka','2014-12-31','k','jbfskjdishmniuhnkjn;ioh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kA-112','2014-06-10','hfiuhwi','jaaga','freeman','health','goodmorning','from today'),(47185,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hhh','Arunachal Pradesh','2014-06-11','knach','knsj',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'knc','2014-06-12','ksk','dklnklads','nskcnkl','mldkcnlks','dlklk','kdnn'),(47186,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'stephanie','Assam','2014-06-12','aaaaa','dasadfaf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zdvdad','2014-06-12','ffdfd','dsf','df','ffnfg','fbgn','mkj');
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -172,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-02  7:17:38
+-- Dump completed on 2014-06-09  3:23:58
