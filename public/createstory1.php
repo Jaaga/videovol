@@ -10,7 +10,8 @@ include('header.php');
 <body>
 		
 <form name="creatStory-form" method="post" action="../public/story.php">
-	<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	http://www.w3schools.com/php/php_form_validation.asp-->
 	<h2>Create Story</h2>
 	<table>
 		<tr>
