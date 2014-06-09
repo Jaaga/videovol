@@ -178,13 +178,7 @@ include('header.php');
 		</tr>
 
 
-
-
-
-
-
-
-			<tr>
+		<tr>
 		 	<td>
 				<input type="submit">
 			</td>
