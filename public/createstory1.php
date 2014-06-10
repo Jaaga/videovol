@@ -179,6 +179,17 @@ include('header.php');
 			</td>
 		</tr>
 
+		<tr valign="top">
+			<td>
+				<label for="impactpossible">impactpossible</label>
+			</td>
+			<td>
+			<select type="text" name="impactpossible">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+			</select>
+			</td>
+		</tr>
 
 		<tr>
 		 	<td>
