@@ -1,10 +1,61 @@
-<?php include("../header.php")
+<?php 
+include("../header.php")
 ?>
 <head>
 	<link href="../main.css" rel="stylesheet">
+
 </head>
 <body>
+	<form method="get" action="../index.php">
+    <button type="submit">Home</button>
+</form>
+	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
+	<input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<table>
+		
+		<tr>
+			<td valign="top">
+				<label for="impact-process">Targetofficial:</label>
+			</td>
+			<td>
+				<input type="text" name="Targetofficial" >
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label for="impact-status">Desired change(CTA)</label>
+			</td>
+			<td>
+				<input type="text" name="DesiredChange">
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label for="impact-process">CC_Impact_plan</label>
+			</td>
+			<td>
+				<textarea name="CC_Impact_plan" id="" cols="30" rows="10"></textarea>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<label for="impact-process">ImpactFollowUpHappening</label>
+			</td>
+			<td>
+			<select type="text" name="impactfollowup">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label for="impact-status">whyFollowupnot happening</label>
+			</td>
+			<td>
+				<input type="text" name="whynotfollowing">
+			</td>
+		</tr>
 		<tr>
 			<td valign="top">
 				<label for="impact-process">Impact Process</label>
@@ -37,14 +88,14 @@
 				<input type="date" name="date-of-impact">
 			</td>
 		</tr>
-		<tr>
+		<!--<tr>
 			<td valign="top">
 				<label for="reported-date-of-impact">Reported Date of Impact</label>
 			</td>
 			<td>
 				<input type="date" name="reported-date-of-impact">
 			</td>
-		</tr>
+		</tr>-->
 		<tr>
 			<td valign="top">
 			    <label for="time-in-weeks">Time in Weeks</label>
@@ -53,12 +104,15 @@
 				<input type="number" name="time-in-weeks">
 			</td>
 		</tr>
-		<tr>
-			<td valign="top">
+		<tr valign="top">
+			<td>
 				<label for="community-screening-done">Community Screening Done?</label>
 			</td>
 			<td>
-				<input type="number" name="community-screening-done">
+			<select type="text" name="CommunityScreeningDone">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+			</select>
 			</td>
 		</tr>
 		<tr>
@@ -77,12 +131,15 @@
 				<textarea name="details-of-community-screening" id="" cols="30" rows="10"></textarea>
 			</td>
 		</tr>
-		<tr>
-			<td valign="top">
-				<label for="officials-screening-done">Video Shown to Officials?</label>
+		<tr valign="top">
+			<td>
+				<label for="community-screening-done">Video Shown to Officials?</label>
 			</td>
 			<td>
-				<input type="number" name="officials-shown">
+			<select type="text" name="VideoShowntoOfficials">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+			</select>
 			</td>
 		</tr>
 		<tr>
@@ -133,12 +190,16 @@
 				<input type="number" name="number-of-villages-impacted">
 			</td>
 		</tr>
-		<tr>
-			<td valign="top">
-				<label for="impact-video-production-status">Impact Video Production Status?</label>
+		<tr valign="top">
+			<td>
+				<label for="ImpactVideoProductionStatus?">Impact Video Production Status?</label>
 			</td>
 			<td>
-				<input type="text" name="impact-video-production-status">
+			<select type="text" name="ImpactVideoProductionStatus">
+					<option value="Done">Done</option>
+					<option value="NotDone">NotDone</option>
+					<option value="InProgress">InProgress</option>
+			</select>
 			</td>
 		</tr>
 		<tr>
@@ -146,7 +207,10 @@
 				<label for="impact-video-reviewed">Impact Video Reviewed</label>
 			</td>
 			<td>
-				<input type="number" name="impact-video-reviewed">
+				<select type="text" name="ImpactVideoReviewed">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -154,7 +218,10 @@
 				<label for="impact-video-approved-for-payment">Impact Video Approved for Payment?</label>
 			</td>
 			<td>
-				<input type="number" name="impact-video-approved-for-payment">
+				<select type="text" name="ImpactVideoApprovedforPayment">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -162,7 +229,7 @@
 				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="number" name="date-impact-video-approved">
+				<input type="date" name="date-impact-video-approved">
 			</td>
 		</tr>
 		<tr>
@@ -173,20 +240,14 @@
 				<input type="text" name="impact-video-reviewed-by">
 			</td>
 		</tr>
-		<tr>
 			<td valign="top">
-				<label for="impact-video-approved-for-payment">Impact Video Approved for Payment?</label>
+				<label for="Blognotesdone">BlognotesDone</label>
 			</td>
 			<td>
-				<input type="number" name="impact-video-approved-for-payment">
-			</td>
-		</tr>
-		<tr>
-			<td valign="top">
-				<label for="blog-notes-done">Blog Notes done?</label>
-			</td>
-			<td>
-				<input type="number" name="blog-notes-done">
+				<select type="text" name="BlognotesDone">
+					<option value="Done">Done</option>
+					<option value="NotDone">NotDone</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -194,7 +255,10 @@
 				<label for="impact-video-sent-to-CC">Impact Video Sent to CC with gift?</label>
 			</td>
 			<td>
-				<input type="number" name="impact-video-sent-to-CC">
+				<select type="text" name="impactvideosenttocc">
+					<option value="Yes">yes</option>
+					<option value="No">No</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -202,7 +266,10 @@
 				<label for="impact-video-and-thank-you">Impact video and thank you card/letter given to official?</label>
 			</td>
 			<td>
-				<input type="number" name="impact-video-and-thank-you">
+				<select type="text" name="impactthankyou">
+					<option value="yes">yes</option>
+					<option value="No">No</option>
+				</select>
 			</td>
 		</tr>
 
@@ -212,5 +279,6 @@
 			</td>
 		</tr>
 	</table>	
+</form>
 </body>
 </html>
