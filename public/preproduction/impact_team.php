@@ -3,8 +3,12 @@ include("../header.php")
 ?>
 <head>
 	<link href="../main.css" rel="stylesheet">
+
 </head>
 <body>
+	<form method="get" action="../index.php">
+    <button type="submit">Home</button>
+</form>
 	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
 	<input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<table>

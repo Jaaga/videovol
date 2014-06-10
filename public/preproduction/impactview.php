@@ -2,7 +2,11 @@
 include ('../../model/dbcon.php');
 $db=dbopen();
 include ('../header.php');
-//$data = "select * from storytrack where datereceived = '1986-12-23'"
+?>
+<form method="get" action="../index.php">
+    <button type="submit">Home</button>
+</form>
+<?php
 echo "<table border='1'>
 <tr>
 <th>uniqueno</th>
