@@ -1,7 +1,7 @@
 <?php
 include ('../../model/dbcon.php');
 $db=dbopen();
-include ('header.php');
+include ('../header.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
 echo "<table border='1'>
 <tr>
