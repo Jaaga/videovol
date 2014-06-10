@@ -4,7 +4,7 @@ include("header.php");
 include("../model/StoryDB.php");
 ?>
 
-<table><tr><th>ID</th><th>CCName</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
+<table><tr><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
 
 <?php
 
