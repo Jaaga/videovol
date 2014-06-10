@@ -26,7 +26,7 @@ include("../header.php")
 				<label for="impact-status">Desired change(CTA)</label>
 			</td>
 			<td>
-				<input type="text" name="Desired Change">
+				<input type="text" name="DesiredChange">
 			</td>
 		</tr>
 		<tr>
@@ -109,7 +109,7 @@ include("../header.php")
 				<label for="community-screening-done">Community Screening Done?</label>
 			</td>
 			<td>
-			<select type="text" name="Community Screening Done">
+			<select type="text" name="CommunityScreeningDone">
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
 			</select>
@@ -136,7 +136,7 @@ include("../header.php")
 				<label for="community-screening-done">Video Shown to Officials?</label>
 			</td>
 			<td>
-			<select type="text" name="Video Shown to Officials">
+			<select type="text" name="VideoShowntoOfficials">
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
 			</select>
@@ -229,7 +229,7 @@ include("../header.php")
 				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="number" name="date-impact-video-approved">
+				<input type="date" name="date-impact-video-approved">
 			</td>
 		</tr>
 		<tr>
