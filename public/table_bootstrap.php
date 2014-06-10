@@ -1,43 +1,56 @@
 <?php
 include '../model/dbcon.php';
 $db=dbopen();
-include ('header.php');
-//$data = "select * from storytrack where datereceived = '1986-12-23'"
-echo "<table border='1';>
- 
-    <tr>
-    <th>ccname</th>
-    <th>state </th>
-    <th>receiveddate</th>
-    <th>issuetopic</th>
-    <th>storydescription</th>
-    <th>seq</th>
-    <th>broll</th>
-    <th>fint</th>
-    <th>vo</th>
-    <th>ptc</th>
-    <th>cta</th>
-    <th>vd</th>
-    <th>translation</th>
-    <th>paymentstatus</th>
-    <th>editstatus</th>
-    <th>editedmonth</th>
-    <th>notes</th>
-    <th>publishplatform</th>
-    <th>editor</th>
-    <th>editorpayment</th>
-    <th>uploaddate</th>
-    <th>publishdate</th>
-    <th>receivedRO</th>
-    <th>receivedHQ</th>
-    </tr>
-";
+include ('header.php') ?> 
+<body>
+
+
+    <table class="table table-hover">
+
+       <?php echo"<thead>
+
+            <tr>
+
+                
+				<th>Unique No.</th>
+				<th>CC Name</th>
+				<th>State</th>
+				<th>Received On Date</th>
+				<th>Topic</th>
+				<th>Story Description</th>
+				<th>SEQ</th>
+				<th>B-Roll</th>
+				<th>Fint</th>
+				<th>VO</th>
+				<th>PTC</th>
+				<th>CTA</th>
+				<th>VD</th>
+				<th>Translation</th>
+				<th>Payment Status</th>
+				<th>Edit Status</th>
+				<th>Month edited </th>
+				<th>Notes</th>
+				<th>Publish Platform</th>
+				<th>Editor</th>
+				<th>Editor Payment</th>
+				<th>Upload Date</th>
+				<th>Publish Date</th>
+				<th>Received RO</th>
+				<th>Received HQ</th>
+
+
+            </tr>
+
+        </thead>";
+?>
+        <tbody>
+<?php
+
 $statusedit= "select * from storytrack ";
 $result = $db->query($statusedit);
-
 while($row = mysqli_fetch_array($result)) {
-
-
+echo"<tr>";
+  echo "<td>" . $row['uniquenumber'] . "</td>" ;
   echo "<td>" . $row['ccname'] . "</td>" ; 
   echo "<td>" . $row['state'] . "</td>";
   echo "<td>" . $row['receiveddate'] . "</td>";
@@ -63,9 +76,17 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['receivedRO'] . "</td>";
   echo "<td>" . $row['receivedHQ'] . "</td>";
  // echo "<td><a href=\"project-manager.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
-  echo "</tr>";
-}
+ echo"</tr>";}
+ ?>
 
 
-echo "</table>";
-?>
+
+
+
+        </tbody>
+
+    </table>
+
+
+</body>
+</html>

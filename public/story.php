@@ -14,7 +14,8 @@ $mentor = $_POST['mentor'];
 $iu_topic = $_POST['iu_topic'];
 $video_treatment = $_POST['video_treatment'];
 $shoot_plan = $_POST['shoot_plan'];
-$addstory = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan) values (UUID(),'$ccname','$states','$dateReceived','$issue','$story','$Uniqueno','$dateofstory','$ccpair','$program','$mentor','$iu_topic','$video_treatment','$shoot_plan')";
+$impactpossible = $_POST['impactpossible'];
+$addstory = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,impactpossible) values (UUID(),'$ccname','$states','$dateReceived','$issue','$story','$Uniqueno','$dateofstory','$ccpair','$program','$mentor','$iu_topic','$video_treatment','$shoot_plan','$impactpossible')";
 $new = $db->query($addstory);
 if(!$new)
 {

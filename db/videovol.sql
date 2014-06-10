@@ -148,6 +148,8 @@ CREATE TABLE `storytrack` (
   `iutopic` varchar(30) DEFAULT NULL,
   `videotreatment` varchar(30) DEFAULT NULL,
   `shootplan` varchar(30) DEFAULT NULL,
+  `stage` varchar(30) DEFAULT NULL,
+  `impactpossible` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`fid`),
   UNIQUE KEY `uniquenumber` (`uniquenumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47187 DEFAULT CHARSET=latin1;
@@ -159,7 +161,7 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
-INSERT INTO `storytrack` VALUES (2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hi','Andhra Pradesh','2014-12-31','jvb','mnsjkbajk',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bH_222','2014-12-31','sfh','dshfk','dkn','kdfnkl',',ndvkl','vnk'),(47182,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'freeman','Andaman and Nicobar ','2014-06-11','health','hi my health is good ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-06-10','mohan','rajesh','','health','goodmorning','from today'),(47184,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'akshay','Karnataka','2014-12-31','k','jbfskjdishmniuhnkjn;ioh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kA-112','2014-06-10','hfiuhwi','jaaga','freeman','health','goodmorning','from today'),(47185,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hhh','Arunachal Pradesh','2014-06-11','knach','knsj',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'knc','2014-06-12','ksk','dklnklads','nskcnkl','mldkcnlks','dlklk','kdnn'),(47186,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'stephanie','Assam','2014-06-12','aaaaa','dasadfaf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zdvdad','2014-06-12','ffdfd','dsf','df','ffnfg','fbgn','mkj');
+INSERT INTO `storytrack` VALUES (5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'adsfaf','Andaman and Nicobar ','0002-02-22','eee','ee',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'23','0000-00-00','jkl','jlk','jkl','jkl','jkl','jkl','new story',NULL),(6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hello','Andhra Pradesh','2014-06-12','jsdbj','jdnbvjk',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kjdnvk','2014-06-12','kdfnk','dkk','lkdf','lkd','l;f','FK',NULL,'Yes'),(47182,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'freeman','Andaman and Nicobar ','2014-06-11','health','hi my health is good ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-06-10','mohan','rajesh','','health','goodmorning','from today','new story',NULL),(47184,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'akshay','Karnataka','2014-12-31','k','jbfskjdishmniuhnkjn;ioh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kA-112','2014-06-10','hfiuhwi','jaaga','freeman','health','goodmorning','from today','new story',NULL),(47185,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hhh','Arunachal Pradesh','2014-06-11','knach','knsj',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'knc','2014-06-12','ksk','dklnklads','nskcnkl','mldkcnlks','dlklk','kdnn','new story',NULL),(47186,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'stephanie','Assam','2014-06-12','aaaaa','dasadfaf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zdvdad','2014-06-12','ffdfd','dsf','df','ffnfg','fbgn','mkj','new story',NULL);
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -172,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-06-09  5:03:27
+-- Dump completed on 2014-06-10  7:03:35
