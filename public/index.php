@@ -4,16 +4,18 @@ include("header.php");
 include("../model/StoryDB.php");
 ?>
 
-<table><tr><th>ID</th><th>CCName</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th></tr>
+<table><tr><th>ID</th><th>CCName</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th></tr>
 
 <?php
 $resultArray = getAllBasicData();
 foreach ($resultArray as $row) {
-		echo "<tr><td>" . $row['fid'] . "</td> <td>" .
-		     $row['ccname'] . "</td> <td>" .
+		echo "<tr><td>" . $row['fid'] . "</td>" . 
+			 "<td><a href=ccnameview.php?ccname=" . $row['ccname'] . ">" . 
+			 $row['ccname'] . "</a></td>" .
+			 "<td><a href=issueview.php?issue=" . $row['issuetopic'] . ">" .
+		     $row['issuetopic'] . "</a></td> <td>" .
 		     $row['receiveddate'] . "</td> <td>" .
-		     $row['issuetopic'] . "</td> <td>" .
-		     $row['story description'] . "</td></tr>";
+		     $row['storydescription'] . "</td></tr>";
 }
 
 ?>
