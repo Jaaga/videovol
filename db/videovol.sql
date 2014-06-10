@@ -16,6 +16,98 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `impacttracker`
+--
+
+DROP TABLE IF EXISTS `impacttracker`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `impacttracker` (
+  `uniquenumber` varchar(30) DEFAULT NULL,
+  `impactpossible` varchar(30) DEFAULT NULL,
+  `targetofficial` varchar(30) DEFAULT NULL,
+  `desiredchange` varchar(30) DEFAULT NULL,
+  `ccimpactplan` varchar(30) DEFAULT NULL,
+  `impactfollowuphappening` varchar(30) DEFAULT NULL,
+  `ifnowhynot` varchar(30) DEFAULT NULL,
+  `impactprocess` varchar(50) DEFAULT NULL,
+  `impstatacheived` varchar(30) DEFAULT NULL,
+  `milestone` varchar(30) DEFAULT NULL,
+  `dateofimpact` date DEFAULT NULL,
+  `timetakenforimpact` int(10) DEFAULT NULL,
+  `communityscreening` varchar(20) DEFAULT NULL,
+  `noofpeoplesawvideo` int(20) DEFAULT NULL,
+  `detailsofscreening` varchar(50) DEFAULT NULL,
+  `videoshowntoofficials` varchar(10) DEFAULT NULL,
+  `noofofficials` int(10) DEFAULT NULL,
+  `detailsofscreeningofficials` varchar(50) DEFAULT NULL,
+  `collaborations` varchar(30) DEFAULT NULL,
+  `noofpeopleinvolved` int(20) DEFAULT NULL,
+  `noofpeopleimpacted` int(20) DEFAULT NULL,
+  `noofvillagesimpacted` int(20) DEFAULT NULL,
+  `videoproductionstatus` varchar(20) DEFAULT NULL,
+  `videoreviewed` varchar(10) DEFAULT NULL,
+  `approvepayment` varchar(10) DEFAULT NULL,
+  `videoapproveddate` date DEFAULT NULL,
+  `videoreviewedby` varchar(20) DEFAULT NULL,
+  `blognotes` varchar(20) DEFAULT NULL,
+  `gifttocc` varchar(10) DEFAULT NULL,
+  `thankyoucard` varchar(10) DEFAULT NULL,
+  KEY `uniquenumber` (`uniquenumber`),
+  CONSTRAINT `impacttracker_ibfk_1` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`),
+  CONSTRAINT `impacttracker_ibfk_2` FOREIGN KEY (`uniquenumber`) REFERENCES `storytrack` (`uniquenumber`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `impacttracker`
+--
+
+LOCK TABLES `impacttracker` WRITE;
+/*!40000 ALTER TABLE `impacttracker` DISABLE KEYS */;
+/*!40000 ALTER TABLE `impacttracker` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `preproduction`
+--
+
+DROP TABLE IF EXISTS `preproduction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `preproduction` (
+  `uniquenumber` varchar(30) NOT NULL,
+  `dateofstory` date NOT NULL,
+  `state` varchar(30) NOT NULL,
+  `ccname` varchar(30) NOT NULL,
+  `ccpair` varchar(30) DEFAULT NULL,
+  `program` varchar(30) DEFAULT NULL,
+  `mentorname` varchar(30) DEFAULT NULL,
+  `iutopic` varchar(30) DEFAULT NULL,
+  `storyidea` varchar(50) DEFAULT NULL,
+  `videotreatment` varchar(30) DEFAULT NULL,
+  `shootplan` varchar(50) DEFAULT NULL,
+  `impactpossible` varchar(20) DEFAULT NULL,
+  `targetofficial` varchar(20) DEFAULT NULL,
+  `desiredchange` varchar(30) DEFAULT NULL,
+  `ccimpactplan` varchar(50) DEFAULT NULL,
+  `impactfollowup` varchar(10) DEFAULT NULL,
+  `whynot` varchar(30) DEFAULT NULL,
+  `impactvideoidno` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`uniquenumber`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `preproduction`
+--
+
+LOCK TABLES `preproduction` WRITE;
+/*!40000 ALTER TABLE `preproduction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `preproduction` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `storytrack`
 --
 
@@ -48,8 +140,17 @@ CREATE TABLE `storytrack` (
   `publishdate` date DEFAULT NULL,
   `receivedRO` varchar(10) DEFAULT NULL,
   `receivedHQ` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`fid`)
-) ENGINE=InnoDB AUTO_INCREMENT=63934 DEFAULT CHARSET=latin1;
+  `uniquenumber` varchar(30) DEFAULT NULL,
+  `dateofstory` date DEFAULT NULL,
+  `ccpair` varchar(30) DEFAULT NULL,
+  `program` varchar(30) DEFAULT NULL,
+  `mentor` varchar(30) DEFAULT NULL,
+  `iutopic` varchar(30) DEFAULT NULL,
+  `videotreatment` varchar(30) DEFAULT NULL,
+  `shootplan` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`fid`),
+  UNIQUE KEY `uniquenumber` (`uniquenumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=47187 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +159,7 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
-INSERT INTO `storytrack` VALUES (7,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','rajeef','Kerala','2014-05-14','entertainment','every day i will be high on coke','','','2014-05-14','hiiiiiiiiiiiiii','','option3','','2014-05-13','2014-05-14','Not Good','Good'),(959,'Not Good','Good','Good','Not Good','Good','Not Good','Not Good','NO','yatin','Tripura','2014-05-22','social','my social behaviour is to good\r\n','','','2014-05-06','hey wass up','','option2','ok','2014-05-07','2014-05-13','Good','Not Good'),(6832,'Good','Not Good','Good','Not Good','Good','Good','Not Good','Not Requir','ansal','Andaman and Nicobar ','2014-05-12','health','my health is too good','','Hold','2014-05-22','hi how are you','IU','option2','ok','2014-05-14','2014-05-14','Good','Not Good'),(18721,'Good','Not Good','Good','Good','Good','Good','Good','yes','ramesh','Andaman and Nicobar ','2014-12-31','health','hi','ok','ok','2014-05-14','hello','IU','option2','ok','2014-05-07','2014-05-14','Not Good','Good');
+INSERT INTO `storytrack` VALUES (2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hi','Andhra Pradesh','2014-12-31','jvb','mnsjkbajk',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bH_222','2014-12-31','sfh','dshfk','dkn','kdfnkl',',ndvkl','vnk'),(47182,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'freeman','Andaman and Nicobar ','2014-06-11','health','hi my health is good ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-06-10','mohan','rajesh','','health','goodmorning','from today'),(47184,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'akshay','Karnataka','2014-12-31','k','jbfskjdishmniuhnkjn;ioh',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kA-112','2014-06-10','hfiuhwi','jaaga','freeman','health','goodmorning','from today'),(47185,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hhh','Arunachal Pradesh','2014-06-11','knach','knsj',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'knc','2014-06-12','ksk','dklnklads','nskcnkl','mldkcnlks','dlklk','kdnn'),(47186,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'stephanie','Assam','2014-06-12','aaaaa','dasadfaf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zdvdad','2014-06-12','ffdfd','dsf','df','ffnfg','fbgn','mkj');
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -71,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-20  3:32:28
+-- Dump completed on 2014-06-09  5:03:27

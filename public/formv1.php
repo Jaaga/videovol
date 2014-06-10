@@ -50,8 +50,9 @@ include('header.php');
 	<div class="content">
 		<form name="creatStory-form" method="post" action="../public/story.php">
 			
-			<table border="1">
-				<tr><td valign="top"> <label for="name">CC Name :</label></td>
+			<table style="background-color: #99CCCC;padding: 5px;">
+ 
+				<tr><br><td valign="top"> <label for="name">CC Name :</label></td>
 					<td> <input type="text" name="ccname" /></td>
 				</tr>
 				<tr> <td valign="top"><label for="states">State :</label></td>
@@ -101,9 +102,9 @@ include('header.php');
 					<td><input type="text" name="issue" /></td>
 				</tr> 
 				<tr><td valign="top"> <label for="story">Story: </label></td>
-				 	<td valign="top"><textarea  name="story" maxlength="1000" cols="30" rows="6"></textarea></td>
+				 	<td valign="top"><textarea  name="story" maxlength="1000" cols="30" rows="4"></textarea></td>
 				</tr>
-				<tr><td><input type="submit"></td>
+				<td><input type="submit"></td>
 				</tr>
 
 			</table>
