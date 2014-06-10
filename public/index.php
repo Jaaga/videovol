@@ -4,7 +4,7 @@ include("header.php");
 include("../model/StoryDB.php");
 ?>
 
-<table><tr><th>ID</th><th>CCName</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th></tr>
+<table><tr><th>ID</th><th>CCName</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
 
 <?php
 $resultArray = getAllBasicData();
@@ -15,7 +15,9 @@ foreach ($resultArray as $row) {
 			 "<td><a href=issueview.php?issue=" . $row['issuetopic'] . ">" .
 		     $row['issuetopic'] . "</a></td> <td>" .
 		     $row['receiveddate'] . "</td> <td>" .
-		     $row['storydescription'] . "</td></tr>";
+		     $row['storydescription'] . "</td>" .
+		     " <td><a href=stageview.php?stage=" . $row['stage'] . ">" .
+		     $row['stage'] . "</a></td></tr>";
 }
 
 ?>
