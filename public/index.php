@@ -4,7 +4,7 @@ include("header.php");
 include("../model/StoryDB.php");
 ?>
 
-<table><tr><th>ID</th><th>CCName</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
+<table><tr><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
 
 <?php
 
@@ -17,7 +17,10 @@ if ($_GET['issue']) {
 } else if ($_GET['stage']) {
 	echo "<h1>STAGE: " . $_GET['stage'] . "</h1>";
 	$resultArray = getBasicDataByStage($_GET['stage']);	
-} else {
+} else if ($_GET['state']) {
+	echo "<h1>STATE: " . $_GET['state'] . "</h1>";
+	$resultArray = getBasicDataByState($_GET['state']);	
+}else {
     $resultArray = getAllBasicData();
 }
 
@@ -25,6 +28,8 @@ foreach ($resultArray as $row) {
 		echo "<tr><td>" . $row['fid'] . "</td>" . 
 			 "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" . 
 			 $row['ccname'] . "</a></td>" .
+			 "<td><a href=index.php?state=" . urlencode($row['state']) . ">" . 
+			 $row['state'] . "</a></td>" .
 			 "<td><a href=index.php?issue=" . urlencode($row['issuetopic']) . ">" .
 		     $row['issuetopic'] . "</a></td> <td>" .
 		     $row['receiveddate'] . "</td> <td>" .
