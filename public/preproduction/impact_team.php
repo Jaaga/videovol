@@ -1,12 +1,21 @@
+
 <?php 
-include("../header.php")
+
+
+
+include("../header.php");
+include("../../model/ImpactDB.php");
+$impactData = getImpactData($_GET['id']);
 ?>
 <head>
 	<link href="../main.css" rel="stylesheet">
 
 </head>
 <body>
-	<form method="get" action="../index.php">
+
+<h1><?php echo $_GET['id']; ?></h1>
+
+<form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
 	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
@@ -18,7 +27,8 @@ include("../header.php")
 				<label for="impact-process">Targetofficial:</label>
 			</td>
 			<td>
-				<input type="text" name="Targetofficial" >
+				<input type="text" name="Targetofficial" value=
+<?php echo "\"" . $impactData['targetofficial'] . "\""; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -26,7 +36,8 @@ include("../header.php")
 				<label for="impact-status">Desired change(CTA)</label>
 			</td>
 			<td>
-				<input type="text" name="DesiredChange">
+				<input type="text" name="DesiredChange" value=
+<?php echo "\"" . $impactData['desiredchange'] . "\""; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -34,7 +45,9 @@ include("../header.php")
 				<label for="impact-process">CC_Impact_plan</label>
 			</td>
 			<td>
-				<textarea name="CC_Impact_plan" id="" cols="30" rows="10"></textarea>
+				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
+<?php echo $impactData['ccimpactplan']; ?> 					
+				</textarea>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -43,8 +56,16 @@ include("../header.php")
 			</td>
 			<td>
 			<select type="text" name="impactfollowup">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+<?php $followup = $impactData['impactfollowuphappening']; ?>		
+				<option value="Maybe"  	
+<?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
+							           >Maybe</option>
+				<option value="Yes"
+<?php if (strcmp($followup, "Yes") == 0) echo " selected "; ?> 				
+									   >Yes</option>
+				<option value="No" 
+<?php if (strcmp($followup, "No") == 0) echo " selected "; ?> 
+								       >No</option>
 			</select>
 			</td>
 		</tr>
