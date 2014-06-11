@@ -20,12 +20,17 @@ if ($_GET['issue']) {
 } else if ($_GET['state']) {
 	echo "<h1>STATE: " . $_GET['state'] . "</h1>";
 	$resultArray = getBasicDataByState($_GET['state']);	
-}else {
+} else if ($_GET['fid']) {
+	echo "<h1>ID: " . $_GET['fid'] . "</h1>";
+	$resultArray = getBasicDataById($_GET['fid']);
+}
+  else {
     $resultArray = getAllBasicData();
 }
 
 foreach ($resultArray as $row) {
-		echo "<tr><td>" . $row['fid'] . "</td>" . 
+		echo "<tr><td><a href=index.php?fid=" . urlencode($row['fid']) . ">" . 
+			 $row['fid'] . "</a></td>" . 
 			 "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" . 
 			 $row['ccname'] . "</a></td>" .
 			 "<td><a href=index.php?state=" . urlencode($row['state']) . ">" . 
