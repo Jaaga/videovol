@@ -7,6 +7,7 @@
 	.nav{
 		background-color:#11787f ;
 		padding: 10px;
+		width: 128.5%;
 	}
 	.nav h1{
 		display: inline;
@@ -73,6 +74,7 @@ th{
 	color: white;
 	border:#555555 ;
 	text-align: center;
+	background-attachment: fixed;
 }
 
 
