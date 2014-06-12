@@ -29,7 +29,8 @@ if ($_GET['issue']) {
 }
 
 foreach ($resultArray as $row) {
-		echo "<tr><td><a href=index.php?fid=" . urlencode($row['fid']) . ">" . 
+		echo "<tr>
+			 <td><a href=createstory1.php?id=" . urlencode($row['fid']) . ">" . 
 			 $row['fid'] . "</a></td>" . 
 			 "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" . 
 			 $row['ccname'] . "</a></td>" .
