@@ -9,8 +9,9 @@ include('header.php');
 </head>
 <style>
 	.row { 
-		vertical-align: top;
+		
 		 height:auto; 
+
 		}
  .content {
  	display:none;
@@ -44,7 +45,7 @@ include('header.php');
 </style>
 <body>
 <!--createstory.php starts here-->
-<div class="row">
+<div class="row ">
 	<a href="#hide1" class="hide" id="hide1">Expand Create Story</a>
 	<a href="#show1" class="show" id="show1">Collapse Create Story</a>
 	<div class="content">
