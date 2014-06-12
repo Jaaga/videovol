@@ -35,18 +35,11 @@ function getBasicData($query) {
 	$db=dbopen();
 	$result = mysqli_query($db, $query);	
 
-	//$rows = array();
+	$rows = array();
 	while($row = mysqli_fetch_array($result)) {
-    	echo $row;
+    	
     	$rows[] = $row;
 
 	}
 	return $rows;	
 }
-<<<<<<< HEAD
-var_dump($rows);
-$res = getAllBasicData();
-echo $res['ccname'];
-=======
->>>>>>> fb279863c0e3d8e929c239b57d6c96520cc7ea4a
-?>
