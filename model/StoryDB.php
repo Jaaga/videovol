@@ -30,6 +30,12 @@ function getBasicDataByStage($stage) {
 	return getBasicData($sql);	
 }
 
+function getBasicDataByID($fid) {
+	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where fid = '" . 
+		$fid . "'";
+	return getBasicData($sql);	
+}
+
 
 function getBasicData($query) {
 	$db=dbopen();
