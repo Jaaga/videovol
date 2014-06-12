@@ -63,6 +63,7 @@
 
 	.stages{
 		display: inline;
+		
 	}
 
 
@@ -81,6 +82,8 @@
 		padding: 10px;
 	}
 
+/* Table properties*/
+
 th{
 	background-color:#555555;
 	color: white;
@@ -90,7 +93,7 @@ th{
 }
 
 
-	td
+td
 {
 border:1px solid #f1f1f1 ;
 
@@ -100,6 +103,7 @@ tr
 {
 	text-align: center;
 }
+/*-------------------------------*/
 
 
 

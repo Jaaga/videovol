@@ -7,13 +7,17 @@ include('header.php');
 	<meta charset="UTF-8">
 	<title>Create Story</title>
 </head>
+<style>
+
+</style>
 <body>
 		
 <form name="creatStory-form" method="post" action="../public/story.php">
 	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	http://www.w3schools.com/php/php_form_validation.asp-->
 	<h2>Create Story</h2>
-	<table>
+	<table class="table table-hover">
+	<div class="container">
 		<tr>
 			<td valign="top"> 
 				<label for="name">CC Name :</label>
@@ -197,7 +201,7 @@ include('header.php');
 			</td>
 		</tr>
 
-
+	</div>
 		
 	</table>
 </form>
