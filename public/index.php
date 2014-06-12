@@ -3,9 +3,10 @@
 include("header.php");
 include("../model/StoryDB.php");
 ?>
-
-<table><tr><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
-
+<a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a>
+<h2>Summary</h2>
+<table class="table table-hover"><thead><tr><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
+								</thead>
 <?php
 
 if ($_GET['issue']) {

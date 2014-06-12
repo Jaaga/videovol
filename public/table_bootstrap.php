@@ -4,7 +4,8 @@ $db=dbopen();
 include ('header.php') ?> 
 <body>
 
-
+<a href="summary.php" class="button button-rounded button-flat-primary">View Summary</a>
+<h2>All Data</h2>
     <table class="table table-hover">
 
        <?php echo"<thead>

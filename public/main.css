@@ -7,6 +7,7 @@
 	.nav{
 		background-color:#11787f ;
 		padding: 10px;
+		/*width: 128.5%;*/
 	}
 	.nav h1{
 		display: inline;
@@ -32,6 +33,18 @@
 		text-decoration: none;
 		
 	}
+
+	.nav h4{
+		display:inline;
+		float: right;
+		color: #eb5826;
+	}
+
+		.nav h4:hover{
+		color:white;
+	}
+
+
 	
 
 	/*------------------------*/
@@ -73,6 +86,7 @@ th{
 	color: white;
 	border:#555555 ;
 	text-align: center;
+	background-attachment: fixed;
 }
 
 
