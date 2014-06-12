@@ -1,4 +1,3 @@
-
 <?php 
 include("header.php");
 include("../model/StoryDB.php");
