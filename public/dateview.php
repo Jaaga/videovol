@@ -3,23 +3,24 @@ include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
-$receiveddate = $_POST['receiveddate'];
-echo "<table border='1'>
+$receiveddate = $_POST['receiveddate'];?>
+<table class="table table-hover">
 <tr>
-<th>ccname</th>
-<th>state</th>
-<th>receiveddate</th>
-<th>issuetopic</th>
-<th>seq</th>
-<th>broll</th>
-<th>fint</th>
-<th>vo</th>
-<th>ptc</th>
-<th>cta</th>
-<th>vd</th>
-<th>translation</th>
-<th>statusedit</th>
-</tr>";
+<th>CC Name</th>
+<th>State</th>
+<th>Received on Date</th>
+<th>Topic</th>
+<th>SEQ</th>
+<th>B Roll</th>
+<th>Fint</th>
+<th>VO</th>
+<th>PTC</th>
+<th>CTA</th>
+<th>VD</th>
+<th>Translation</th>
+<th>Edit Status</th>
+</tr>
+<?php
 $statusedit= "select * from storytrack where receiveddate = '$receiveddate'";
 $result = $db->query($statusedit);
 while($row = mysqli_fetch_array($result)) {
@@ -38,7 +39,5 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['translation'] . "</td>";     
   echo "</tr>";
 }
-
-
-echo "</table>";
 ?>
+</table>

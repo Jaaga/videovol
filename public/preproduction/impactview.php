@@ -4,20 +4,21 @@ $db=dbopen();
 include ('../header.php');
 ?>
 <form method="get" action="../index.php">
-    <button type="submit">Home</button>
+    
 </form>
+<table class="table table-hover">
 <?php
-echo "<table border='1'>
+echo "<thead>
 <tr>
-<th>uniqueno</th>
-<th>ccname</th>
-<th>state</th>
-<th>receiveddate</th>
-<th>issuetopic</th>
-<th>mentor</th>
-<th>videotreatment</th>
-<th>shootplan</th>
-<th>impactflow</th>
+<th>Unique No.</th>
+<th>CC Name</th>
+<th>State</th>
+<th>Received Date</th>
+<th>Topic</th>
+<th>Mentor</th>
+<th>Video Treatment</th>
+<th>Shoot Plan</th>
+<th>Impact Flow</th>
 </tr>";
 $statusedit= "select * from storytrack where impactpossible ='yes' ";
 $result = $db->query($statusedit);
@@ -36,5 +37,6 @@ while($row = mysqli_fetch_array($result)) {
 }
 
 
-echo "</table>";
+
 ?>
+</table>

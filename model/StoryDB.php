@@ -1,4 +1,4 @@
-<h1>hello</h1>
+
 
 <?php include '../model/dbcon.php';
 
