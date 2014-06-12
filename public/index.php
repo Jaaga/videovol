@@ -5,7 +5,7 @@ include("../model/StoryDB.php");
 ?>
 <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a>
 <h2>Summary</h2>
-<table class="table table-hover"><thead><tr><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
+<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
 								</thead>
 <?php
 
@@ -32,6 +32,7 @@ if ($_GET['issue']) {
 foreach ($resultArray as $row) {
 		echo "<tr>
 			 <td><a href=createstory1.php?id=" . urlencode($row['fid']) . ">" . 
+			 "Edit Story" . "</a></td><td>". 
 			 $row['fid'] . "</a></td>" . 
 			 "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" . 
 			 $row['ccname'] . "</a></td>" .
