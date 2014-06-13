@@ -2,7 +2,6 @@
 include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
-include ('index.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
 $ccnam = $_post['ccname'];
 $stat = $_post['state'];
