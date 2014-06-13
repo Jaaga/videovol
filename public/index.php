@@ -82,7 +82,7 @@ include("../model/StoryDB.php");
 </div>
 
 <h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
-<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
+<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact Possible</th><tr>
 </thead>
 
 <?php
@@ -121,7 +121,8 @@ echo "<tr>
         $row['receiveddate'] . "</td> <td>" .
         $row['storydescription'] . "</td>" .
         " <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td></tr>";
+        $row['stage'] . "</a></td>" .
+        "<td><a href=preproduction/impact_team.php?id=" . ">" . "Create Impact" . "</a></td></tr>";
         }
 
 ?>
