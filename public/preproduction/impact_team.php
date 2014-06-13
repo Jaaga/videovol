@@ -13,7 +13,7 @@ $impactData = getImpactData($_GET['id']);
 </head>
 <body>
 
-<h1><?php echo $_GET['id']; ?></h1>
+<h1><?php echo !empty($_GET['id'])? "Unique No.: ".$_GET['id']: ""; ?></h1>
 
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
