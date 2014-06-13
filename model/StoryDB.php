@@ -7,14 +7,14 @@ function getAllBasicData() {
 	return getBasicData($sql);
 }
 
-function getBasicDataByCCName($ccName) {
+function getBasicDataByCCName($ccname) {
 	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where ccname = '" . 
-	    $ccName . "'";
+	    $ccname . "'";
 	return getBasicData($sql);	
 }
 
-function getBasicDataByIssue($issue) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issue . "'";
+function getBasicDataByIssue($issuetopic) {
+	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issuetopic . "'";
 	return getBasicData($sql);	
 }
 

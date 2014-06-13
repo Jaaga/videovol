@@ -9,6 +9,69 @@ include("../model/StoryDB.php");
 <div class="user">
 <a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
 </div>
+<div><!--container for search option-->
+<table>
+    <form method="POST" action="search.php">
+    
+    <!--form for ccname search-->
+        
+        <?php
+        $query = mysql_query("SELECT DISTINCT ccname FROM storytrack"); // Run the query
+
+        echo '<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="unselected">CC Name</option>'; // Opens the drop down box
+
+        // Loops through the query results, outputing the options one by one
+        while ($search = mysql_fetch_array($query)) {
+           echo '<option value="'.$search['ccname'].'">'.$search['ccname'].'</option>';
+        }
+
+        echo '</select></td>';// Closes drop down box
+        ?>
+    
+    <!--search for state search-->
+
+        
+        <?php
+        $query = mysql_query("SELECT DISTINCT state  FROM storytrack"); // Run the query
+
+        echo '<td valign="top"><select name="state"><option value="unselected">Select State</option>';
+        // Opens the drop down box</
+
+        // Loops through the query results, outputing the options one by one
+        while ($search = mysql_fetch_array($query)) {
+        echo '<option value="'.$search['state'].'">'.$search['state'].'</option>';
+        }
+        echo '</select></td>';// Closes drop down box
+        ?>
+        
+    
+    <!-- search for issuetopic search-->
+
+        <?php
+        $query = mysql_query("SELECT DISTINCT issuetopic FROM storytrack"); // Run the query
+
+        // Opens the drop down box
+        echo '<td valign="top"><select name="issuetopic"><option value="unselected">Issue topic</option>'; 
+
+        // Loops through the query results, outputing the options one by one
+        while ($search = mysql_fetch_array($query)) {
+           echo '<option value="'.$search['issuetopic'].'">'.$search['issuetopic'].'</option>';
+        }
+
+        // Closes drop down box
+        echo '</select></td>';
+        ?>
+        <td><input type="hidden" name="searching" value="yes" /></td>
+        <td><input type="submit" name="search" value="Search" /></td>
+        <!--<td><input type="submit"></td>-->
+    
+    </form>
+
+
+
+</table>
+
+</div>
 <div class="stages">
 <br>
 <a href="createstory1.php" class="button button-rounded button-flat-action">CreateStory</a>
@@ -21,11 +84,12 @@ include("../model/StoryDB.php");
 <h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
 <table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><tr>
 </thead>
+
 <?php
 
-if ($_GET['issue']) {
-echo "<h1>Issue: " . $_GET['issue'] . "</h1>";
-$resultArray = getBasicDataByIssue($_GET['issue']);
+if ($_GET['issuetopic']) {
+echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
+$resultArray = getBasicDataByIssue($_GET['issuetopic']);
 } else if ($_GET['ccname']) {
 echo "<h1>CCNAME: " . $_GET['ccname'] . "</h1>";
 $resultArray = getBasicDataByCCName($_GET['ccname']);	
@@ -52,7 +116,7 @@ echo "<tr>
         $row['ccname'] . "</a></td>" .
         "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
         $row['state'] . "</a></td>" .
-        "<td><a href=index.php?issue=" . urlencode($row['issuetopic']) . ">" .
+        "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
         $row['issuetopic'] . "</a></td> <td>" .
         $row['receiveddate'] . "</td> <td>" .
         $row['storydescription'] . "</td>" .
