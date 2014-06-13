@@ -18,7 +18,7 @@ include("../model/StoryDB.php");
         <?php
         $query = mysql_query("SELECT DISTINCT ccname FROM storytrack"); // Run the query
 
-        echo '<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="unselected">CC Name</option>'; // Opens the drop down box
+        echo '<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>'; // Opens the drop down box
 
         // Loops through the query results, outputing the options one by one
         while ($search = mysql_fetch_array($query)) {
@@ -34,7 +34,7 @@ include("../model/StoryDB.php");
         <?php
         $query = mysql_query("SELECT DISTINCT state  FROM storytrack"); // Run the query
 
-        echo '<td valign="top"><select name="state"><option value="unselected">Select State</option>';
+        echo '<td valign="top"><select name="state"><option value="1">State</option>';
         // Opens the drop down box</
 
         // Loops through the query results, outputing the options one by one
@@ -51,7 +51,7 @@ include("../model/StoryDB.php");
         $query = mysql_query("SELECT DISTINCT issuetopic FROM storytrack"); // Run the query
 
         // Opens the drop down box
-        echo '<td valign="top"><select name="issuetopic"><option value="unselected">Issue topic</option>'; 
+        echo '<td valign="top"><select name="issue"><option value="1">Issue</option>'; 
 
         // Loops through the query results, outputing the options one by one
         while ($search = mysql_fetch_array($query)) {

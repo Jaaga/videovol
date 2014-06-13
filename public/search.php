@@ -3,9 +3,36 @@ include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
-$ccnam = $_post['ccname'];
-$stat = $_post['state'];
-$issuetopi = $_post['issuetopic'];
+$ccname = $_POST['ccname'];
+$state = $_POST['state'];
+$issue = $_POST['issue'];
+
+if ($ccname == "1" && $state == "1" && $issue == "1") {
+  echo "choose atleast one field";
+}
+else if ($ccname == "1" && $state == "1") {
+  $status = "SELECT * FROM storytrack WHERE issuetopic = '$issue'";
+}
+
+else if ($ccname == "1" && $issue == "1") {
+  $status = "SELECT * FROM storytrack WHERE state = '$state'";
+}
+else if ($issue == "1" && $state == "1") {
+  $status = "SELECT * FROM storytrack WHERE ccname = '$ccname'";
+}
+else if ($ccname == "1") {
+  $status = "SELECT * FROM storytrack WHERE state = '$stat' AND issuetopic = '$issue'";
+}
+else if ($state == "1") {
+  $status = "SELECT * FROM storytrack WHERE ccname = '$ccname' AND issuetopic = '$issue'";
+}
+else if ($issue == "1") {
+  $status = "SELECT * FROM storytrack WHERE state = '$state' AND ccname = '$ccname'";
+}
+else {
+  $status = "SELECT * FROM storytrack WHERE ccname = '$ccname' AND state = '$state' AND issuetopic = '$issue'";  
+}
+
 ?>
 <table class="table table-hover">
 <tr>
@@ -23,39 +50,17 @@ $issuetopi = $_post['issuetopic'];
 <th>Translation</th>
 <th>Edit Status</th>
 </tr>
-
 <?php
-if ($ccnam == "unselected" and $stat == "unselected" and $issuetopi = "unselected") {
-  echo "choose atleast one field";
-}
-else if ($ccnam == "unselected" and $stat = "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE issuetopic = '$issuetopi'";
-}
-
-else if ($ccnam == "unselected" and $issuetopi = "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE state = '$stat'";
-}
-else if ($issuetopi == "unselected" and $stat = "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE ccname = '$ccnam'";
-}
-else if ($ccnam == "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE state = '$stat' AND issuetopic = '$issuetopi'";
-}
-else if ($stat == "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE ccname = '$ccnam' AND issuetopic = '$issuetopi'";
-}
-else if ($issuetopi == "unselected") {
-  $statusedi = "SELECT * FROM storytrack WHERE state = '$stat' AND ccname = '$ccnam'";
-}
-else {
-  $statusedi = "SELECT * FROM storytrack WHERE ccname = '$ccnam' AND state = '$stat' AND issuetopic = '$issuetopi'";  
-}
-  $result = $db->query($statusedi);
+$result = $db->query($status);
+//$result = mysql_query($status);
 //if (!$result) {
-//  echo "no matching data";
+//  echo "sdasdsd";
 //}
+//echo "No matches found";
 //else {
-    while($row = mysqli_fetch_array($result)) {
+$i = 0;
+while($row = mysqli_fetch_array($result)) {
+      $i = $i + 1;
       echo "<tr>";
       echo "<td>" . $row['ccname'] . "</td>" ; 
       echo "<td>" . $row['state'] . "</td>";
@@ -70,7 +75,11 @@ else {
       echo "<td>" . $row['vd'] . "</td>";
       echo "<td>" . $row['translation'] . "</td>";     
       echo "</tr>";
-}//}
+}
+if ($i == 0) {
+  echo "<h1>No matches found</h1>";
+}
+//}//}
 
 ?>
 </table>
