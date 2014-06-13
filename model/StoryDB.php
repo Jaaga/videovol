@@ -31,9 +31,13 @@ function getBasicDataByStage($stage) {
 }
 
 function getBasicDataByID($fid) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where fid = '" . 
+	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impact fid, stage, impactpossible from storytrack where fid = '" . 
 		$fid . "'";
-	return getBasicData($sql);	
+	$db=dbopen();
+	$result = mysqli_query($db, $sql);
+	$row = $result;	
+	return $row;
+
 }
 
 
