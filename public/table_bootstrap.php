@@ -5,6 +5,7 @@ include ('header.php') ?>
 <body>
 
 
+<h2>All Data <a href="index.php" class="button button-rounded button-flat-primary">View Summary</a></h2>
     <table class="table table-hover">
 
        <?php echo"<thead>

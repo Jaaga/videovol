@@ -7,6 +7,7 @@
 	.nav{
 		background-color:#11787f ;
 		padding: 10px;
+		/*width: 128.5%;*/
 	}
 	.nav h1{
 		display: inline;
@@ -32,6 +33,18 @@
 		text-decoration: none;
 		
 	}
+
+	.nav h4{
+		display:inline;
+		float: right;
+		color: #eb5826;
+	}
+
+		.nav h4:hover{
+		color:white;
+	}
+
+
 	
 
 	/*------------------------*/
@@ -50,6 +63,7 @@
 
 	.stages{
 		display: inline;
+		
 	}
 
 
@@ -68,15 +82,18 @@
 		padding: 10px;
 	}
 
+/* Table properties*/
+
 th{
 	background-color:#555555;
 	color: white;
 	border:#555555 ;
 	text-align: center;
+	background-attachment: fixed;
 }
 
 
-	td
+td
 {
 border:1px solid #f1f1f1 ;
 
@@ -86,6 +103,7 @@ tr
 {
 	text-align: center;
 }
+/*-------------------------------*/
 
 
 

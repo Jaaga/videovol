@@ -31,7 +31,7 @@ CREATE TABLE `impacttracker` (
   `impactfollowuphappening` varchar(30) DEFAULT NULL,
   `ifnowhynot` varchar(30) DEFAULT NULL,
   `impactprocess` varchar(50) DEFAULT NULL,
-  `impstatacheived` varchar(30) DEFAULT NULL,
+  `impactachieved` varchar(30) DEFAULT NULL,
   `milestone` varchar(30) DEFAULT NULL,
   `dateofimpact` date DEFAULT NULL,
   `timetakenforimpact` int(10) DEFAULT NULL,

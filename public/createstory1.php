@@ -1,5 +1,9 @@
 <?php
+
+
 include('header.php');
+include("../model/StoryDB.php");
+$storyData = getBasicDataByID($_GET['id']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -7,19 +11,26 @@ include('header.php');
 	<meta charset="UTF-8">
 	<title>Create Story</title>
 </head>
+<style>
+
+</style>
 <body>
-		
-<form name="creatStory-form" method="post" action="../public/story.php">
+
+<h1><?php echo !empty($_GET['id'])? "Story ID: ".$_GET['id']: ""; ?></h1>	
+
+<form name="creatStory-form" method="POST" action="../public/story.php">
+<input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	http://www.w3schools.com/php/php_form_validation.asp-->
-	<h2>Create Story</h2>
-	<table>
+	<h2>Story Flow</h2>
+	<table class="table table-hover">
+	<div class="container">
 		<tr>
 			<td valign="top"> 
 				<label for="name">CC Name :</label>
 			</td>
 			<td> 
-				<input type="text" name="ccname" />
+				<input type="text" name="ccname" value=<?php echo "\"" . $storyData['ccname'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -197,7 +208,7 @@ include('header.php');
 			</td>
 		</tr>
 
-
+	</div>
 		
 	</table>
 </form>

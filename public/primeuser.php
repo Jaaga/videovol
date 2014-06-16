@@ -34,7 +34,7 @@
 		$query = mysql_query("SELECT DISTINCT issuetopic FROM storytrack"); // Run the query
 
 		// Opens the drop down box
-		echo '<tr><td valign="top"><label>View By: </label><select name="issuetopic"><option value="">Select Issue</option>'; 
+		echo '<tr><td valign="top"><label>View By: </label><select name="issuetopic"><option value="">Issue topic</option>'; 
 
 		// Loops through the query results, outputing the options one by one
 		while ($row = mysql_fetch_array($query)) {
