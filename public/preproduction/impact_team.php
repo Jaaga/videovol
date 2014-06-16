@@ -15,13 +15,15 @@ $row = getImpactData('23');
 	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
 	<input name ="id" type="hidden" value =<?php echo $id; ?> >
 	<table>
-		<?php var_dump($row);?>
+		<?php var_dump($row);
+		echo $row[targetofficial];
+		?>
 		<tr>
 			<td valign="top">
 				<label for="impact-process">Targetofficial:</label>
 			</td>
 			<td>
-				<input type="text" name="Targetofficial" id ="Targetofficial" value = <?php echo $row['targetofficial']; ?> >
+				<input type="text" name="Targetofficial" value =<?php echo $row["'.	1.'"]; ?> >
 			</td>
 		</tr>
 		<tr>
