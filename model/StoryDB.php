@@ -27,35 +27,35 @@ function getDistinctData($column) {
 
 
 function getAllBasicData() {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
 	return getBasicData($sql);
 }
 
 function getBasicDataByCCName($ccname) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where ccname = '" . 
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where ccname = '" . 
 	    $ccname . "'";
 	return getBasicData($sql);	
 }
 
 function getBasicDataByIssue($issuetopic) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issuetopic . "'";
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issuetopic . "'";
 	return getBasicData($sql);	
 }
 
 function getBasicDataByState($state) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where state = '" . 
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where state = '" . 
 		$state . "'";
 	return getBasicData($sql);	
 }
 
 function getBasicDataByStage($stage) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where stage = '" . 
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where stage = '" . 
 		$stage . "'";
 	return getBasicData($sql);	
 }
 
 function getBasicDataByID($fid) {
-	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impact fid, stage, impactpossible from storytrack where fid = '" . 
+	$sql = "select uniquenumber, fid, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impact fid, stage, impactpossible from storytrack where fid = '" . 
 		$fid . "'";
 	$db=dbopen();
 	$result = mysqli_query($db, $sql);
@@ -67,7 +67,7 @@ function getBasicDataBySearch($ccname, $state, $issue) {
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
 		   "where " . $where;
 	return getBasicData($sql);
 }
