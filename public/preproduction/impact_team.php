@@ -108,7 +108,7 @@ foreach($impactData as $IData)
 				<label for="date-of-impact">Date of Impact</label>
 			</td>
 			<td>
-				<input type="date" name="date-of-impact" value = <?php echo $IData['dateofimpact']; ?> >
+				<input type="text" name="date-of-impact" id="dateofimpact" value = <?php echo $IData['dateofimpact']; ?> >
 			</td>
 		</tr>
 		<!--<tr>
@@ -253,7 +253,7 @@ foreach($impactData as $IData)
 				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="date" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
+				<input type="text" id="impactvideoapproveddate" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -304,5 +304,17 @@ foreach($impactData as $IData)
 		</tr>
 	</table>	
 </form>
+<link rel="stylesheet" href="../jqueryui/css/ui/jquery-ui.css" />
+<script src="../jqueryui/js/jquery.js"></script>
+<script src="../jqueryui/js/jquery-ui.min.js"></script>
+	 <script>
+$(function() {
+$( "#dateofimpact" ).datepicker();
+});
+
+$(function() {
+$( "#impactvideoapproveddate" ).datepicker();
+});
+</script>
 </body>
 </html>
