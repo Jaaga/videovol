@@ -8,7 +8,7 @@ $ccimpactplan=$_POST['CC_Impact_plan'];
 $impactfollowuphappening=$_POST['impactfollowup'];
 $ifnowhynot=$_POST['whynotfollowing'];
 $impactprocess=$_POST['impact-process'];
-$impstatacheived=$_POST['impact-status'];
+$impstatachieved=$_POST['impcatachieved'];
 $milestone=$_POST['milestone'];
 $dateofimpact=$_POST['date-of-impact'];
 $timetakenforimpact=$_POST['time-in-weeks'];
@@ -30,13 +30,14 @@ $videoreviewedby= $_POST['impact-video-reviewed-by'];
 $blognotes = $_POST['BlognotesDone'];
 $gifttocc = $_POST['impactvideosenttocc'];
 $thankyoucard = $_POST['impactthankyou'];
-$impactdata ="insert into impacttracker(uniquenumber,targetofficial,desiredchange,ccimpactplan,impactfollowuphappening,ifnowhynot,impactprocess,impstatacheived,milestone,dateofimpact,timetakenforimpact,communityscreening,noofpeoplesawvideo,detailsofscreening,videoshowntoofficials,noofofficials,detailsofscreeningofficials,collaborations,noofpeopleinvolved,noofpeopleimpacted,noofvillagesimpacted,videoproductionstatus,videoreviewed,approvepayment,videoapproveddate,videoreviewedby,blognotes,gifttocc,thankyoucard) values ('$uno','$targetofficial','$desiredchange','$ccimpactplan','$impactfollowuphappening','$ifnowhynot','$impactprocess','$impstatacheived','$milestone','$dateofimpact','$timetakenforimpact','$communityscreening','$noofpeoplesawvideo','$detailsofscreening','$videoshowntoofficials','$noofofficials','$detailsofscreeningofficials','$collaborations','$noofpeopleinvolved','$noofpeopleimpacted','$noofvillagesimpacted','$videoproductionstatus','$videoreviewed','$approvepayment','$videoapproveddate','$videoreviewedby','$blognotes','$gifttocc','$thankyoucard')";
-$pm=$db->query($impactdata);
+$impactsql ="insert into impacttracker(uniquenumber,targetofficial,desiredchange,ccimpactplan,impactfollowuphappening,ifnowhynot,impactprocess,impactachieved,milestone,dateofimpact,timetakenforimpact,communityscreening,noofpeoplesawvideo,detailsofscreening,videoshowntoofficials,noofofficials,detailsofscreeningofficials,collaborations,noofpeopleinvolved,noofpeopleimpacted,noofvillagesimpacted,videoproductionstatus,videoreviewed,approvepayment,videoapproveddate,videoreviewedby,blognotes,gifttocc,thankyoucard) values ('$uno','$targetofficial','$desiredchange','$ccimpactplan','$impactfollowuphappening','$ifnowhynot','$impactprocess','$impactachieved','$milestone','$dateofimpact','$timetakenforimpact','$communityscreening','$noofpeoplesawvideo','$detailsofscreening','$videoshowntoofficials','$noofofficials','$detailsofscreeningofficials','$collaborations','$noofpeopleinvolved','$noofpeopleimpacted','$noofvillagesimpacted','$videoproductionstatus','$videoreviewed','$approvepayment','$videoapproveddate','$videoreviewedby','$blognotes','$gifttocc','$thankyoucard') on duplicate key update targetofficial ='$targetofficial',
+desiredchange = '$desiredchange',ccimpactplan = '$ccimpactplan',impactfollowuphappening = '$impactfollowuphappening',
+ifnowhynot = '$ifnowhynot',impactprocess = '$impactprocess',impactachieved ='$impstatachieved' ,milestone = '$milestone',dateofimpact ='$dateofimpact',timetakenforimpact = '$timetakenforimpact',communityscreening = '$communityscreening',noofpeoplesawvideo = '$noofpeoplesawvideo',detailsofscreening = '$detailsofscreening',videoshowntoofficials = '$videoshowntoofficials',noofofficials = '$noofofficials',detailsofscreeningofficials = '$detailsofscreeningofficials',collaborations = '$collaborations',noofpeopleinvolved = '$noofpeopleinvolved',noofpeopleimpacted = '$noofpeopleimpacted',noofvillagesimpacted = '$noofvillagesimpacted',videoproductionstatus ='$videoproductionstatus',videoreviewed  = '$videoreviewed',approvepayment = '$approvepayment',videoapproveddate = '$videoapproveddate',videoreviewedby = '$videoreviewedby',blognotes = '$blognotes',gifttocc = '$gifttocc',thankyoucard = '$thankyoucard'";
+$pm=$db->query($impactsql);
 if(!$pm)
 {
 echo "data not inserted";
 }
 else
 header("location:../preproduction/impactview.php");
-?>
 ?>

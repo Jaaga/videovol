@@ -1,11 +1,13 @@
 
 <?php 
-
-
-
 include("../header.php");
 include("../../model/ImpactDB.php");
-$impactData = getImpactData($_GET['id']);
+$id = $_GET['id'];
+$impactData = getImpactDat($id);
+foreach($impactData as $IData)
+{
+
+}
 ?>
 <head>
 	<link href="../main.css" rel="stylesheet">
@@ -13,22 +15,22 @@ $impactData = getImpactData($_GET['id']);
 </head>
 <body>
 
-<h1><?php echo $_GET['id']; ?></h1>
+<h1><?php echo !empty($_GET['id'])? "Unique No.: ".$_GET['id']: ""; ?></h1>
 
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
 	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
-	<input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
+	<input name ="id" type="hidden" value =<?php echo $id; ?> >
 	<table>
-		
+	
 		<tr>
 			<td valign="top">
 				<label for="impact-process">Targetofficial:</label>
 			</td>
 			<td>
 				<input type="text" name="Targetofficial" value=
-<?php echo "\"" . $impactData['targetofficial'] . "\""; ?> >
+<?php echo "\"" . $IData['targetofficial'] . "\""; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -37,7 +39,7 @@ $impactData = getImpactData($_GET['id']);
 			</td>
 			<td>
 				<input type="text" name="DesiredChange" value=
-<?php echo "\"" . $impactData['desiredchange'] . "\""; ?> >
+<?php echo "\"" . $IData['desiredchange'] . "\""; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -46,7 +48,7 @@ $impactData = getImpactData($_GET['id']);
 			</td>
 			<td>
 				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
-<?php echo $impactData['ccimpactplan']; ?> 					
+<?php echo $IData['ccimpactplan']; ?> 					
 				</textarea>
 			</td>
 		</tr>
@@ -56,7 +58,7 @@ $impactData = getImpactData($_GET['id']);
 			</td>
 			<td>
 			<select type="text" name="impactfollowup">
-<?php $followup = $impactData['impactfollowuphappening']; ?>		
+<?php $followup = $IData['impactfollowuphappening']; ?>		
 				<option value="Maybe"  	
 <?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
 							           >Maybe</option>
@@ -74,7 +76,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="impact-status">whyFollowupnot happening</label>
 			</td>
 			<td>
-				<input type="text" name="whynotfollowing">
+				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -82,15 +84,15 @@ $impactData = getImpactData($_GET['id']);
 				<label for="impact-process">Impact Process</label>
 			</td>
 			<td>
-				<textarea name="impact-process" id="" cols="30" rows="10"></textarea>
+				<textarea name="impact-process" id="" cols="30" rows="10" > <?php echo $IData['impactprocess']; ?> </textarea>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-status">Impact Status</label>
+				<label for="impact-status">ImpactAchieved</label>
 			</td>
 			<td>
-				<input type="text" name="impact-status">
+				<input type="text" name="impactachieved" value =<?php echo  $IData['impactachieved']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -98,7 +100,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="milestone">Milestone</label>
 			</td>
 			<td>
-				<input type="text" name="milestone">
+				<input type="text" name="milestone" value =<?php echo $IData['milestone']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -106,7 +108,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="date-of-impact">Date of Impact</label>
 			</td>
 			<td>
-				<input type="date" name="date-of-impact">
+				<input type="date" name="date-of-impact" value = <?php echo $IData['dateofimpact']; ?> >
 			</td>
 		</tr>
 		<!--<tr>
@@ -122,7 +124,7 @@ $impactData = getImpactData($_GET['id']);
 			    <label for="time-in-weeks">Time in Weeks</label>
 			</td>
 			<td>
-				<input type="number" name="time-in-weeks">
+				<input type="number" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -141,7 +143,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="People-shown">No. of People to whom the Video was shown</label>
 			</td>
 			<td>
-				<input type="number" name="People-shown">
+				<input type="number" name="People-shown" value = <?php echo $IData['noofpeoplesawvideo']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -149,7 +151,8 @@ $impactData = getImpactData($_GET['id']);
 				<label for="details-of-community-screening">Details of community Screening</label>
 			</td>
 			<td>
-				<textarea name="details-of-community-screening" id="" cols="30" rows="10"></textarea>
+				<textarea name="details-of-community-screening" id="" cols="30" rows="10" > <?php echo $IData['detailsofscreening']; ?> 
+				</textarea>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -168,7 +171,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="officials-shown">No. of Officials the Video was screened</label>
 			</td>
 			<td>
-				<input type="text" name="officials-shown">
+				<input type="text" name="officials-shown" value = <?php echo $IData['noofofficials']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -176,7 +179,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="details-of-officials-screening">Details of Screening to Officials</label>
 			</td>
 			<td>
-				<textarea name="details-of-officials-screening" id="" cols="30" rows="10"></textarea>
+				<textarea name="details-of-officials-screening" id="" cols="30" rows="10" > <?php echo $IData['detailsofscreeningofficials']; ?> </textarea>
 			</td>
 		</tr>
 		<tr>
@@ -184,7 +187,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="collaboration">Collaboration</label>
 			</td>
 			<td>
-				<input type="text" name="collaboration">
+				<input type="text" name="collaboration" value = <?php echo $IData['collaborations']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -192,7 +195,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="number-of-people-involved">No. of people involved</label>
 			</td>
 			<td>
-				<input type="text" name="number-of-people-involved">
+				<input type="text" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -200,7 +203,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="number-of-people-impacted">No. of people Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-people-impacted">
+				<input type="number" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -208,7 +211,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="number-of-villages-impacted">No. of Villages Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-villages-impacted">
+				<input type="number" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -250,7 +253,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="date" name="date-impact-video-approved">
+				<input type="date" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -258,7 +261,7 @@ $impactData = getImpactData($_GET['id']);
 				<label for="impact-video-reviewed-by">Impact Video Reviewed By?</label>
 			</td>
 			<td>
-				<input type="text" name="impact-video-reviewed-by">
+				<input type="text" name="impact-video-reviewed-by" value = <?php echo $IData['videoreviewedby']; ?>>
 			</td>
 		</tr>
 			<td valign="top">

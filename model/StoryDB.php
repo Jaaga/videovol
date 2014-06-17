@@ -1,21 +1,20 @@
 
 
-<?php
-include '../model/dbcon.php';
+<?php include '../model/dbcon.php';
 
 function getAllBasicData() {
 	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
 	return getBasicData($sql);
 }
 
-function getBasicDataByCCName($ccName) {
+function getBasicDataByCCName($ccname) {
 	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where ccname = '" . 
-	    $ccName . "'";
+	    $ccname . "'";
 	return getBasicData($sql);	
 }
 
-function getBasicDataByIssue($issue) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issue . "'";
+function getBasicDataByIssue($issuetopic) {
+	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issuetopic . "'";
 	return getBasicData($sql);	
 }
 
@@ -32,9 +31,13 @@ function getBasicDataByStage($stage) {
 }
 
 function getBasicDataByID($fid) {
-	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where fid = '" . 
+	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impact fid, stage, impactpossible from storytrack where fid = '" . 
 		$fid . "'";
-	return getBasicData($sql);	
+	$db=dbopen();
+	$result = mysqli_query($db, $sql);
+	$row = $result;	
+	return $row;
+
 }
 
 
@@ -44,8 +47,9 @@ function getBasicData($query) {
 
 	$rows = array();
 	while($row = mysqli_fetch_array($result)) {
+    	
     	$rows[] = $row;
+
 	}
 	return $rows;	
 }
-?>
