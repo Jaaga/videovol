@@ -14,19 +14,13 @@ include("../model/StoryDB.php");
     <form method="POST" action="search.php">
     
     <!--form for ccname search-->
-        
-        <?php
-        $query = mysql_query("SELECT DISTINCT ccname FROM storytrack"); // Run the query
+ 	<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
+<?php	
+	foreach(getCCNames() as $ccname) 
+           echo '<option value="'.$ccname.'">'.$ccname.'</option>';
+?>
 
-        echo '<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>'; // Opens the drop down box
-
-        // Loops through the query results, outputing the options one by one
-        while ($search = mysql_fetch_array($query)) {
-           echo '<option value="'.$search['ccname'].'">'.$search['ccname'].'</option>';
-        }
-
-        echo '</select></td>';// Closes drop down box
-        ?>
+    </select></td>
     
     <!--search for state search-->
 

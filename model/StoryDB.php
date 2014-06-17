@@ -2,6 +2,19 @@
 
 <?php include '../model/dbcon.php';
 
+
+function getCCNames() {
+	$db=dbopen();
+	$ccnames = array();
+	$result = mysqli_query($db, "SELECT DISTINCT ccname FROM storytrack"); // Run the query
+	while ($ccname = mysqli_fetch_array($result)[0]) {
+		echo "<h1>result: " . $ccname . "</h1>";
+		$ccnames[] = $ccname;
+	}
+	return $ccnames;
+}
+
+
 function getAllBasicData() {
 	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
 	return getBasicData($sql);
