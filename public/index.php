@@ -124,7 +124,8 @@ echo "<tr>
         $row['storydescription'] . "</td>" .
         " <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
         $row['stage'] . "</a></td>" .
-        "<td><a href=preproduction/impact_team.php?id=" . ">" . "Create Impact" . "</a></td></tr>";
+        "<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
+        "Create Impact" . "</a></td></tr>";
         }
 
 ?>
