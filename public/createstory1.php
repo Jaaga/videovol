@@ -10,6 +10,7 @@ $storyData = getBasicDataByID($_GET['id']);
 <head>
 	<meta charset="UTF-8">
 	<title>Create Story</title>
+
 </head>
 <style>
 
@@ -83,9 +84,10 @@ $storyData = getBasicDataByID($_GET['id']);
 		<tr>
 			<td valign="top">
 				<label for="dateReceived">Date Received</label>
+				
 			</td>
 			<td>
-				<input type="date" name="dateReceived" />
+				<p><input type="text" id="datepicker"></p>
 			</td>
 		</tr>
 
@@ -126,7 +128,7 @@ $storyData = getBasicDataByID($_GET['id']);
 				<label for="storydate">Date of Story</label>
 			</td>
 			<td>
-				<input type="date" name="storydate" />
+				<p><input type="text" id="datepick"></p>
 			</td>
 		</tr>
 
@@ -212,6 +214,17 @@ $storyData = getBasicDataByID($_GET['id']);
 		
 	</table>
 </form>
-	
+<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
+<script src="jqueryui/js/jquery.js"></script>
+<script src="jqueryui/js/jquery-ui.min.js"></script>
+	 <script>
+$(function() {
+$( "#datepicker" ).datepicker();
+});
+
+$(function() {
+$( "#datepick" ).datepicker();
+});
+</script>
 </body>
 </html>
