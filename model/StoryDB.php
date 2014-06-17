@@ -61,9 +61,25 @@ function getBasicDataByID($fid) {
 	$result = mysqli_query($db, $sql);
 	$row = $result;	
 	return $row;
-
 }
 
+function getBasicDataBySearch($ccname, $state, $issue) {
+	$where = genSearchWhere($where, "ccname", $ccname);
+	$where = genSearchWhere($where, "state", $state);
+	$where = genSearchWhere($where, "issuetopic", $issue);
+	$sql = "select ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
+		   "where " . $where;
+	return getBasicData($sql);
+}
+
+function genSearchWhere($where, $field, $val) {
+    if (!$val) 
+      return $where;
+    if ($where) 
+      $where = $where . " and ";
+    
+    return $where . $field . " = '" . $val . "'";
+}
 
 function getBasicData($query) {
 	$db=dbopen();

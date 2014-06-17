@@ -11,7 +11,7 @@ include("../model/StoryDB.php");
 </div>
 <div><!--container for search option-->
 <table>
-    <form method="POST" action="search.php">
+    <form method="GET" action="index.php">
     
     <!--form for ccname search-->
  	<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
@@ -39,8 +39,6 @@ include("../model/StoryDB.php");
         echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
-        
-        <td><input type="hidden" name="searching" value="yes" /></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -66,23 +64,34 @@ include("../model/StoryDB.php");
 
 <?php
 
-if ($_GET['issuetopic']) {
-echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
-$resultArray = getBasicDataByIssue($_GET['issuetopic']);
+if ($_GET['search']) {
+	echo "<h1>SEARCH</h1>";
+	$ccname = $_GET['ccname'];
+	if ($ccname == "1") 
+		unset($ccname);
+	$state = $_GET['state'];
+	if ($state == "1")
+		unset($state);
+	$issue = $_GET['issue'];
+	if ($issue == "1")
+		unset($issue);
+	$resultArray = getBasicDataBySearch($ccname, $state, $issue);
+} else if ($_GET['issuetopic']) {
+	echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
+	$resultArray = getBasicDataByIssue($_GET['issuetopic']);
 } else if ($_GET['ccname']) {
-echo "<h1>CCNAME: " . $_GET['ccname'] . "</h1>";
-$resultArray = getBasicDataByCCName($_GET['ccname']);	
+	echo "<h1>CCNAME: " . $_GET['ccname'] . "</h1>";
+	$resultArray = getBasicDataByCCName($_GET['ccname']);	
 } else if ($_GET['stage']) {
-echo "<h1>STAGE: " . $_GET['stage'] . "</h1>";
-$resultArray = getBasicDataByStage($_GET['stage']);	
+	echo "<h1>STAGE: " . $_GET['stage'] . "</h1>";
+	$resultArray = getBasicDataByStage($_GET['stage']);	
 } else if ($_GET['state']) {
-echo "<h1>STATE: " . $_GET['state'] . "</h1>";
-$resultArray = getBasicDataByState($_GET['state']);	
+	echo "<h1>STATE: " . $_GET['state'] . "</h1>";
+	$resultArray = getBasicDataByState($_GET['state']);	
 } else if ($_GET['fid']) {
-echo "<h1>ID: " . $_GET['fid'] . "</h1>";
-$resultArray = getBasicDataById($_GET['fid']);
-}
-  else {
+	echo "<h1>ID: " . $_GET['fid'] . "</h1>";
+	$resultArray = getBasicDataById($_GET['fid']);
+} else {
     $resultArray = getAllBasicData();
 }
 
