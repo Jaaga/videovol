@@ -2,11 +2,8 @@
 <?php 
 include("../header.php");
 include("../../model/ImpactDB.php");
-echo $_GET['id'];
-$impactData = getImpactDat(23);
-
-
-
+$id = $_GET['id'];
+$impactData = getImpactDat($id);
 foreach($impactData as $IData)
 {
 
@@ -87,7 +84,7 @@ foreach($impactData as $IData)
 				<label for="impact-process">Impact Process</label>
 			</td>
 			<td>
-				<textarea name="impact-process" id="" cols="30" rows="10" value= <?php echo $IData['impactprocess']; ?> ></textarea>
+				<textarea name="impact-process" id="" cols="30" rows="10" > <?php echo $IData['impactprocess']; ?> </textarea>
 			</td>
 		</tr>
 		<tr>
@@ -154,7 +151,8 @@ foreach($impactData as $IData)
 				<label for="details-of-community-screening">Details of community Screening</label>
 			</td>
 			<td>
-				<textarea name="details-of-community-screening" id="" cols="30" rows="10" value = <?php echo $IData['detailsofscreening']; ?>></textarea>
+				<textarea name="details-of-community-screening" id="" cols="30" rows="10" > <?php echo $IData['detailsofscreening']; ?> 
+				</textarea>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -181,7 +179,7 @@ foreach($impactData as $IData)
 				<label for="details-of-officials-screening">Details of Screening to Officials</label>
 			</td>
 			<td>
-				<textarea name="details-of-officials-screening" id="" cols="30" rows="10"  value = <?php echo $IData['detailsofscreeningofficials']; ?>></textarea>
+				<textarea name="details-of-officials-screening" id="" cols="30" rows="10" > <?php echo $IData['detailsofscreeningofficials']; ?> </textarea>
 			</td>
 		</tr>
 		<tr>
@@ -197,7 +195,7 @@ foreach($impactData as $IData)
 				<label for="number-of-people-involved">No. of people involved</label>
 			</td>
 			<td>
-				<input type="text" name="number-of-people-involved">
+				<input type="text" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -205,7 +203,7 @@ foreach($impactData as $IData)
 				<label for="number-of-people-impacted">No. of people Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-people-impacted">
+				<input type="number" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -213,7 +211,7 @@ foreach($impactData as $IData)
 				<label for="number-of-villages-impacted">No. of Villages Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-villages-impacted">
+				<input type="number" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -255,7 +253,7 @@ foreach($impactData as $IData)
 				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="date" name="date-impact-video-approved">
+				<input type="date" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -263,7 +261,7 @@ foreach($impactData as $IData)
 				<label for="impact-video-reviewed-by">Impact Video Reviewed By?</label>
 			</td>
 			<td>
-				<input type="text" name="impact-video-reviewed-by">
+				<input type="text" name="impact-video-reviewed-by" value = <?php echo $IData['videoreviewedby']; ?>>
 			</td>
 		</tr>
 			<td valign="top">
