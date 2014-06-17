@@ -4,14 +4,25 @@
 
 
 function getCCNames() {
+	return getDistinctData("ccname");
+}
+
+function getStates() {
+	return getDistinctData("state");
+}
+
+function getIssues() {
+	return getDistinctData("issuetopic");
+}
+
+function getDistinctData($column) {
 	$db=dbopen();
-	$ccnames = array();
-	$result = mysqli_query($db, "SELECT DISTINCT ccname FROM storytrack"); // Run the query
-	while ($ccname = mysqli_fetch_array($result)[0]) {
-		echo "<h1>result: " . $ccname . "</h1>";
-		$ccnames[] = $ccname;
+	$data = array();
+	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
+	while ($name = mysqli_fetch_array($result)[0]) {
+		$data[] = $name;
 	}
-	return $ccnames;
+	return $data;
 }
 
 

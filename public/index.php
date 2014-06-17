@@ -25,36 +25,21 @@ include("../model/StoryDB.php");
     <!--search for state search-->
 
         
-        <?php
-        $query = mysql_query("SELECT DISTINCT state  FROM storytrack"); // Run the query
-
-        echo '<td valign="top"><select name="state"><option value="1">State</option>';
-        // Opens the drop down box</
-
-        // Loops through the query results, outputing the options one by one
-        while ($search = mysql_fetch_array($query)) {
-        echo '<option value="'.$search['state'].'">'.$search['state'].'</option>';
-        }
-        echo '</select></td>';// Closes drop down box
-        ?>
+<td valign="top"><select name="state"><option value="1">State</option>
+<?php
+	foreach(getStates() as $state) 
+        echo '<option value="'.$state.'">'.$state.'</option>';
+?>
+	</select></td>
         
-    
-    <!-- search for issuetopic search-->
+<td valign="top"><select name="issue"><option value="1">Issue</option>'; 
 
-        <?php
-        $query = mysql_query("SELECT DISTINCT issuetopic FROM storytrack"); // Run the query
-
-        // Opens the drop down box
-        echo '<td valign="top"><select name="issue"><option value="1">Issue</option>'; 
-
-        // Loops through the query results, outputing the options one by one
-        while ($search = mysql_fetch_array($query)) {
-           echo '<option value="'.$search['issuetopic'].'">'.$search['issuetopic'].'</option>';
-        }
-
-        // Closes drop down box
-        echo '</select></td>';
-        ?>
+<?php
+	foreach(getIssues() as $issue) 
+        echo '<option value="'.$issue.'">'.$issue.'</option>';
+?>
+</select></td>
+        
         <td><input type="hidden" name="searching" value="yes" /></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
