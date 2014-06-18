@@ -93,3 +93,16 @@ function getBasicData($query) {
 	}
 	return $rows;	
 }
+
+function getFootageCheckData() {
+    $sql = "select seq, broll, fint, vo, ptc, cta, vd, translation from storytrack";
+    return getBasicData($sql);
+}
+
+/*
+    $resultArray = getFootageCheckData();
+    foreach ($resultArray as $row) {
+        echo "<h1>seq: " . $row['seq'] . " broll: " . $row['broll'] . " fint: " . $row['fint'] . " vo: " . $row['vo'] . " ptc: " . $row['ptc'] . " cta: " . $row['cta'] . " vd: " .$row['vd'] . " translation: " . $row['translation'] . "</h1>";
+    }
+*/
+?>
