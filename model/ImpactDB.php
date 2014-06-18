@@ -40,8 +40,25 @@ function getImpactData($storyId) {
 function getData($query) {
 	$db=dbopen();
 	$result = mysqli_query($db, $query);
-	$row = mysqli_fetch_assoc($result);	
-	return $row;
+	$row =array();
+	while($row = mysqli_fetch_assoc($result))
+		{
+			$rows[] = $row;
+		}	
+	return ($rows);
 }
-?>
 
+
+function getStoryAndImpact()
+{
+	$db = dbopen();
+	$sql = "select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,it.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack  as st inner join impacttracker as it on  st.uniquenumber = it.uniquenumber";
+	return getData($sql);
+}
+ 
+/*$result = getstoryforImpact();
+foreach($result as $row)
+{
+	echo "<h1> ccname: " . $row['ccname'] . " state: " . $row['state'] . " receiveddate: " . $row['receiveddate'] . " issuetopic: " . $row['issuetopic'] . "</h1>";
+}*/
+?>
