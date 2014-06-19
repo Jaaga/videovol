@@ -19,7 +19,7 @@ function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
 	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
-	while ($name = mysqli_fetch_array($result)[0]) {
+	while ($name = mysqli_fetch_array($result)) {
 		$data[] = $name;
 	}
 	return $data;
