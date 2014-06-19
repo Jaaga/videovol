@@ -2,23 +2,28 @@
 include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
+
+
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
-echo "<table border='1'>
+?>
+<table class="table table-hover">
+<thead>
 <tr>
-<th>ccname</th>
-<th>state</th>
-<th>receiveddate</th>
-<th>issuetopic</th>
-<th>seq</th>
-<th>broll</th>
-<th>fint</th>
-<th>vo</th>
-<th>ptc</th>
-<th>cta</th>
-<th>vd</th>
-<th>translation</th>
-<th>statusedit</th>
-</tr>";
+<th>CC Name</th>
+<th>State</th>
+<th>Received Date</th>
+<th>Issue Topic</th>
+<th>Payment Status</th>
+<th>Edit Status</th>
+<th>Edit Month</th>
+<th>Notes</th>
+<th>Publish Platform</th>
+<th>Editor Name</th>
+<th>Editor Payement</th>
+<th>Status Edit</th>
+</thead>
+</tr>
+<?php 
 $statusedit= "select * from storytrack where seq IS NOT NULL and  paymentstatus IS NULL";
 $result = $db->query($statusedit);
 while($row = mysqli_fetch_array($result)) {
@@ -27,14 +32,13 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['state'] . "</td>";
   echo "<td>" . $row['receiveddate'] . "</td>";
   echo "<td>" . $row['issuetopic'] . "</td>"; 
-  echo "<td>" . $row['seq'] . "</td>"; 
-  echo "<td>" . $row['broll'] . "</td>";
-  echo "<td>" . $row['fint'] . "</td>"; 
-  echo "<td>" . $row['vo'] . "</td>";
-  echo "<td>" . $row['ptc'] . "</td>"; 
-  echo "<td>" . $row['cta'] . "</td>";
-  echo "<td>" . $row['vd'] . "</td>";
-  echo "<td>" . $row['translation'] . "</td>";     
+  echo "<td>" . $row['paymentStatus'] . "</td>"; 
+  echo "<td>" . $row['editStatus'] . "</td>";
+  echo "<td>" . $row['editMonth'] . "</td>"; 
+  echo "<td>" . $row['notes'] . "</td>";
+  echo "<td>" . $row['publishPlatform'] . "</td>"; 
+  echo "<td>" . $row['editorName'] . "</td>";
+  echo "<td>" . $row['editorPayment'] . "</td>";    
   echo "<td><a href=\"project-manager.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
