@@ -1,5 +1,6 @@
 
 <?php
+include("header.php");
 $a=$_GET['id'];
 ?>
 <!doctype html>
