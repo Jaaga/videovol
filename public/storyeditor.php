@@ -3,7 +3,7 @@
 
 include('header.php');
 include("../model/StoryDB.php");
-$storyData = getBasicDataByID($_GET['id']);
+$storyData = getDataByID($_GET['id']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,7 +17,7 @@ $storyData = getBasicDataByID($_GET['id']);
 </style>
 <body>
 
-<h1><?php echo !empty($_GET['id'])? "Story ID: ".$_GET['id']: ""; ?></h1>	
+<h1><?php if ($_GET['id']) echo "Story ID: ".$_GET['id']; ?></h1>	
 
 <form name="creatStory-form" method="POST" action="../public/story.php">
 <input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
@@ -87,7 +87,7 @@ $storyData = getBasicDataByID($_GET['id']);
 				
 			</td>
 			<td>
-				<p><input type="text" id="datepicker"></p>
+				<p><input type="text" name="dateReceived" id="datepicker"></p>
 			</td>
 		</tr>
 
@@ -128,7 +128,7 @@ $storyData = getBasicDataByID($_GET['id']);
 				<label for="storydate">Date of Story</label>
 			</td>
 			<td>
-				<p><input type="text" id="datepick"></p>
+				<p><input type="text" name="storydate" id="datepick"></p>
 			</td>
 		</tr>
 

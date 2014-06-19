@@ -1,7 +1,7 @@
 <?php
 //include '../model/dbcon.php';
 include '../model/ImpactDB.php';
-/*function getImpactDate($id)
+function getImpactDatee($id)
 {
 	$db =dbopen();
 	$sql = "select * from impacttracker where uniquenumber = '".$id."' ";

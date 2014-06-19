@@ -55,10 +55,10 @@ include("../model/StoryDB.php");
 </div>
 <div class="stages">
 <br>
-<a href="createstory1.php" class="button button-rounded button-flat-action">CreateStory</a>
-<a href="login.php" class="button button-rounded button-flat-action">Junior Editor</a>
-<a href="login.php" class="button button-rounded button-flat-action">Senior Editor</a>
-<a href="login.php" class="button button-rounded button-flat-action">Project Manager</a>
+<a href="storyeditor.php" class="button button-rounded button-flat-action">CreateStory</a>
+<a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor</a>
+<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
+<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager</a>
 <a href="../public/preproduction/impactview.php" class="button button-rounded button-flat-action">Impact</a>
 </div>
 
@@ -106,7 +106,7 @@ if ($_GET['search']) {
 
 foreach ($resultArray as $row) {
 echo "<tr>
-        <td><a href=createstory1.php?id=" . urlencode($row['fid']) . ">" . 
+        <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
         "Edit Story" . "</a></td><td>". 
         $row['fid'] . "</a></td>" . 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
