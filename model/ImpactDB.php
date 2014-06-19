@@ -52,10 +52,10 @@ function getData($query) {
 function getStoryAndImpact()
 {
 	$db = dbopen();
-	$sql = "select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,it.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack  as st inner join impacttracker as it on  st.uniquenumber = it.uniquenumber";
+	$sql = "select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,st.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack as st left join impacttracker as it on st.uniquenumber = it.uniquenumber where st.impactpossible = 'yes'";
 	return getData($sql);
 }
- 
+ /* select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,st.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack as st left join impacttracker as it on st.uniquenumber = it.uniquenumber where st.impactpossible = 'yes'*/
 /*$result = getstoryforImpact();
 foreach($result as $row)
 {
