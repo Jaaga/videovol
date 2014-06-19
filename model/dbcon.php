@@ -15,9 +15,29 @@ function dbopen(){
 	return($db);
 }
 
-
-function close(){
+function close() {
 	mysqli_close($db);
+}
+
+function getAsAssocArray($sql) {
+	$db=dbopen();
+	$data = array();
+	$result = mysqli_query($db, $sql); // Run the query
+	$data = mysqli_fetch_assoc($result);
+	return $data;
+}
+
+// TODO: understand whether this should be fetch_assoc
+function getAs2DArray($sql) {
+	$db=dbopen();
+	$result = mysqli_query($db, $sql);	
+
+	$rows = array();
+	while($row = mysqli_fetch_array($result)) {    	
+    	$rows[] = $row;
 	}
+	return $rows;
+}
+
 
 ?>
