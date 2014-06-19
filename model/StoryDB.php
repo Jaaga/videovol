@@ -19,8 +19,8 @@ function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
 	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
-	while ($name = mysqli_fetch_array($result)[0]) {
-		$data[] = $name;
+	while ($name = mysqli_fetch_array($result)) {
+		$data[] = $name[$column];
 	}
 	return $data;
 }
@@ -63,10 +63,14 @@ function getBasicDataByID($fid) {
 	return $row;
 }
 
-function getBasicDataBySearch($ccname, $state, $issue) {
+function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
+	if ($fromdate) {
+		$where = $where . " and ";
+		$where = $where . " receiveddate BETWEEN #" . $fromdate . "# and #" . $todate . "#";
+	}
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
 		   "where " . $where;
 	return getBasicData($sql);
