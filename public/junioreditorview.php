@@ -39,7 +39,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['cta'] . "</td>";  
   echo "<td>" . $row['vd'] . "</td>"; 
   echo "<td>" . $row['translation'] . "</td>"; 
-  echo "<td><a href=\"footageeditor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
+  echo "<td><a href=\"junioreditor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
 
