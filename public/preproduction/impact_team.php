@@ -129,9 +129,12 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="community-screening-done">Community Screening Done?</label>
 			</td>
 			<td>
-			<select type="text" name="CommunityScreeningDone">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+					<select type="text" name="CommunityScreeningDone">
+						<?php $followup = $IData['communityscreening']; ?>	
+					<option value="Yes"
+					<?php if (strcmp($followup, "Yes") == 0) echo " selected "; ?> >Yes</option>
+					<option value="No"
+					<?php if (strcmp($followup, "No") == 0) echo " selected "; ?> >No</option>
 			</select>
 			</td>
 		</tr>
