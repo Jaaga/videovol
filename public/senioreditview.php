@@ -3,6 +3,7 @@ include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
 
+
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
 ?>
 <table class="table table-hover">
@@ -20,6 +21,7 @@ include ('header.php');
 </tr>
 </thead>
 <?php 
+
 $statusedit= "select * from storytrack where seq IS NOT NULL and publishdate IS NULL";
 $result = $db->query($statusedit);
 while($row = mysqli_fetch_array($result)) {

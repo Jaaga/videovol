@@ -19,11 +19,11 @@ $IData = getImpactDataByUniqueNumber($un);
 </form>
 	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
-	<table>
+	<table class="table table-hover">
 	
 		<tr>
 			<td valign="top">
-				<label for="impact-process">Targetofficial:</label>
+				<label for="impact-process">Target official:</label>
 			</td>
 			<td>
 				<input type="text" name="Targetofficial" value=
@@ -41,7 +41,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-process">CC_Impact_plan</label>
+				<label for="impact-process">CC impact plan</label>
 			</td>
 			<td>
 				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
@@ -51,7 +51,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr valign="top">
 			<td>
-				<label for="impact-process">ImpactFollowUpHappening</label>
+				<label for="impact-process">Is Impact follow up happening?</label>
 			</td>
 			<td>
 			<select type="text" name="impactfollowup">
@@ -70,7 +70,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-status">whyFollowupnot happening</label>
+				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
 			<td>
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
@@ -86,7 +86,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-status">ImpactAchieved</label>
+				<label for="impact-status">Impact Achieved</label>
 			</td>
 			<td>
 				<input type="text" name="impactachieved" value =<?php echo  $IData['impactachieved']; ?> >
@@ -121,7 +121,7 @@ $IData = getImpactDataByUniqueNumber($un);
 			    <label for="time-in-weeks">Time in Weeks</label>
 			</td>
 			<td>
-				<input type="number" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
+				<input type="number" min="0" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -129,18 +129,21 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="community-screening-done">Community Screening Done?</label>
 			</td>
 			<td>
-			<select type="text" name="CommunityScreeningDone">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+					<select type="text" name="CommunityScreeningDone">
+						<?php $followup = $IData['communityscreening']; ?>	
+					<option value="Yes"
+					<?php if (strcmp($followup, "Yes") == 0) echo " selected "; ?> >Yes</option>
+					<option value="No"
+					<?php if (strcmp($followup, "No") == 0) echo " selected "; ?> >No</option>
 			</select>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="People-shown">No. of People to whom the Video was shown</label>
+				<label for="People-shown">No. of People the video was shown to</label>
 			</td>
 			<td>
-				<input type="number" name="People-shown" value = <?php echo $IData['noofpeoplesawvideo']; ?> >
+				<input type="number" min="0" name="People-shown" value = <?php echo $IData['noofpeoplesawvideo']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -165,10 +168,10 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="officials-shown">No. of Officials the Video was screened</label>
+				<label for="officials-shown">No. of Officials the Video was screened to</label>
 			</td>
 			<td>
-				<input type="text" name="officials-shown" value = <?php echo $IData['noofofficials']; ?>>
+				<input type="number" min="0" name="officials-shown" value = <?php echo $IData['noofofficials']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -192,7 +195,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-people-involved">No. of people involved</label>
 			</td>
 			<td>
-				<input type="text" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
+				<input type="number" min="0" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -200,7 +203,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-people-impacted">No. of people Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
+				<input type="number" min="0" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -208,7 +211,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-villages-impacted">No. of Villages Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
+				<input type="number" min="0" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -247,7 +250,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
+				<label for="date-impact-video-approved">Date of Impact Video Approved?</label>
 			</td>
 			<td>
 				<input type="text" id="impactvideoapproveddate" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
@@ -262,7 +265,7 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 		</tr>
 			<td valign="top">
-				<label for="Blognotesdone">BlognotesDone</label>
+				<label for="Blognotesdone">Blog notes done</label>
 			</td>
 			<td>
 				<select type="text" name="BlognotesDone">

@@ -21,11 +21,11 @@ if(!$qc)
 echo "data not inserted";
 }
 else
-header("location:../public/edit.php");
+header("location:../public/junioreditorview.php");
 }
 else
 	echo "please select all the options one or more options not selected";
-	header("Refresh: 3; url=../public/editor.php?id=".$fid);
+	header("Refresh: 3; url=../public/footageeditor.php?id=".$fid);
 //echo "data added";
 //header("Location: "../$extra");
 ?>

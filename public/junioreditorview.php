@@ -22,7 +22,7 @@ include ('header.php');
 <th>Quality Check</th>
 </tr>
 <?php
-$toedit= "select uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
+$toedit= "select fid,uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
 $result = $db->query($toedit);
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
