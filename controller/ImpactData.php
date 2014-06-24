@@ -2,14 +2,14 @@
 include '../model/ImpactDB.php';
 //$db = dbopen();
 //var_dump($_POST);
-$uno =$_POST["'.id.'"];
+$uno =$_POST['id'];
 $targetofficial =$_POST['Targetofficial'];
 $desiredchange = $_POST['DesiredChange'];
 $ccimpactplan=$_POST['CC_Impact_plan'];
 $impactfollowuphappening=$_POST['impactfollowup'];
 $ifnowhynot=$_POST['whynotfollowing'];
 $impactprocess=$_POST['impact-process'];
-$impactachieved=$_POST['impcatachieved'];
+$impactachieved=$_POST['impactachieved'];
 $milestone=$_POST['milestone'];
 $dateofimpact=$_POST['date-of-impact'];
 $timetakenforimpact=$_POST['time-in-weeks'];

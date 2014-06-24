@@ -2,7 +2,7 @@
 <?php 
 include("../header.php");
 include("../../model/ImpactDB.php");
-$un = $_GET['un'];
+$un = $_GET['id'];
 
 $IData = getImpactDataByUniqueNumber($un);
 ?>
@@ -12,18 +12,13 @@ $IData = getImpactDataByUniqueNumber($un);
 </head>
 <body>
 
-<h1><?php if($_GET['un']) echo "Unique No.: ".$_GET['un']?></h1>
+<h1><?php if($_GET['id']) echo "Unique No.: ".$_GET['id']?></h1>
 
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
-<<<<<<< HEAD
 	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
-	<input name ="id" type="hidden" value =<?php echo $id; ?> >
-=======
-	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
->>>>>>> ce68be4bb95ccae750835b5c817eb4e66f746882
 	<table>
 	
 		<tr>
