@@ -19,7 +19,7 @@ function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
 	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
-	while ($name = mysqli_fetch_array($result)[0]) {
+	while ($name = mysqli_fetch_array($result)) {
 		$data[] = $name;
 	}
 	return $data;
@@ -28,52 +28,48 @@ function getDistinctData($column) {
 
 function getAllBasicData() {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
-	return getBasicData($sql);
+	return getAs2DArray($sql);
 }
 
 function getBasicDataByCCName($ccname) {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where ccname = '" . 
 	    $ccname . "'";
-	return getBasicData($sql);	
+	return getAs2DArray($sql);	
 }
 
 function getBasicDataByIssue($issuetopic) {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where issuetopic = '" . $issuetopic . "'";
-	return getBasicData($sql);	
+	return getAs2DArray($sql);	
 }
 
 function getBasicDataByState($state) {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where state = '" . 
 		$state . "'";
-	return getBasicData($sql);	
+	return getAs2DArray($sql);	
 }
 
 function getBasicDataByStage($stage) {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack where stage = '" . 
 		$stage . "'";
-	return getBasicData($sql);	
+	return getAs2DArray($sql);	
 }
 
-function getBasicDataByID($fid) {
-	$sql = "select uniquenumber, fid, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impact fid, stage, impactpossible from storytrack where fid = '" . 
-		$fid . "'";
-	$db=dbopen();
-	$result = mysqli_query($db, $sql);
-	$row = $result;	
-	return $row;
-}
+function getDataByID($fid) {
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible from storytrack where fid = '" . $fid . "'";
+ 	return getAsAssocArray($sql);
+ }
 
 function getBasicDataBySearch($ccname, $state, $issue) {
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack " .
 		   "where " . $where;
-	return getBasicData($sql);
+	return getAs2DArray($sql);
 }
 
 function genSearchWhere($where, $field, $val) {
-    if (!$val) 
+    if (!$val)
       return $where;
     if ($where) 
       $where = $where . " and ";
@@ -81,28 +77,23 @@ function genSearchWhere($where, $field, $val) {
     return $where . $field . " = '" . $val . "'";
 }
 
-function getBasicData($query) {
-	$db=dbopen();
-	$result = mysqli_query($db, $query);	
-
-	$rows = array();
-	while($row = mysqli_fetch_array($result)) {
-    	
-    	$rows[] = $row;
-
-	}
-	return $rows;	
+function getAllFootageCheckData() {
+    $sql = "select fid, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack";
+    return getAs2DArray($sql);
 }
 
-function getFootageCheckData() {
-    $sql = "select seq, broll, fint, vo, ptc, cta, vd, translation from storytrack";
-    return getBasicData($sql);
+function getFootageCheckDataById($id) {
+    $sql = "select seq, broll, fint, vo, ptc, cta, vd, translation from storytrack where fid = '" . $id . "'";
+ 	return getAsAssocArray($sql);
 }
 
-/*
-    $resultArray = getFootageCheckData();
-    foreach ($resultArray as $row) {
-        echo "<h1>seq: " . $row['seq'] . " broll: " . $row['broll'] . " fint: " . $row['fint'] . " vo: " . $row['vo'] . " ptc: " . $row['ptc'] . " cta: " . $row['cta'] . " vd: " .$row['vd'] . " translation: " . $row['translation'] . "</h1>";
+ /*
+    $resultArray = getFootageCheckDataById(9);
+    echo "array[0]: " . $resultArray[0];
+    echo "array['seq']: " . $resultArray['seq'];
+
+    foreach ($resultArray as $field) {
+        echo "<h1>QQQQseq: " . $field['seq'] . " broll: " . $field['broll'] . " fint: " . $row['fint'] . " vo: " . $row['vo'] . " ptc: " . $row['ptc'] . " cta: " . $row['cta'] . " vd: " .$row['vd'] . " translation: " . $row['translation'] . "</h1>";
     }
 */
 ?>

@@ -2,12 +2,9 @@
 <?php 
 include("../header.php");
 include("../../model/ImpactDB.php");
-$id = $_GET['id'];
-$impactData = getImpactDat($id);
-foreach($impactData as $IData)
-{
+$un = $_GET['un'];
 
-}
+$IData = getImpactDataByUniqueNumber($un);
 ?>
 <head>
 	<link href="../main.css" rel="stylesheet">
@@ -15,13 +12,18 @@ foreach($impactData as $IData)
 </head>
 <body>
 
-<h1><?php echo !empty($_GET['id'])? "Unique No.: ".$_GET['id']: ""; ?></h1>
+<h1><?php if($_GET['un']) echo "Unique No.: ".$_GET['un']?></h1>
 
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
+<<<<<<< HEAD
 	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
 	<input name ="id" type="hidden" value =<?php echo $id; ?> >
+=======
+	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
+	<input name ="id" type="hidden" value =<?php echo $un; ?> >
+>>>>>>> ce68be4bb95ccae750835b5c817eb4e66f746882
 	<table>
 	
 		<tr>
