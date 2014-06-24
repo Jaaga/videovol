@@ -2,8 +2,8 @@
 include '../model/dbcon.php';
 $db=dbopen();
 include ('header.php');
-//$data = "select * from storytrack where datereceived = '1986-12-23'"
-echo "<table border='1'>
+//$data = "select * from storytrack where datereceived = '1986-12-23'"?>
+<table class="table table-hover">
 <tr>
 <th>ccname</th>
 <th>state</th>
@@ -18,7 +18,8 @@ echo "<table border='1'>
 <th>vd</th>
 <th>translation</th>
 <th>statusedit</th>
-</tr>";
+</tr>
+<?php
 $statusedit= "select * from storytrack where seq IS NOT NULL and publishdate IS NULL";
 $result = $db->query($statusedit);
 while($row = mysqli_fetch_array($result)) {
