@@ -1,6 +1,11 @@
 <?php
-include("header.php");
-include("../model/StoryDB.php");
+include_once("header.php");
+include_once("../model/StoryDB.php");
+
+if($_GET['action']) {
+	echo "ACTION";
+    include_once("../controller/StoryController.php");
+}
 ?>
 
 <div class="login">
@@ -10,46 +15,38 @@ include("../model/StoryDB.php");
 <div class="user">
 <a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
 </div>
-<div><!--container for search option-->
+
+
+<div><!--container for advanced search-->
 <table>
     <form method="GET" action="index.php">
     
-    <!--form for ccname search-->
  	<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
-<?php	
-	foreach(getCCNames() as $ccname) 
-           echo '<option value="'.$ccname.'">'.$ccname.'</option>';
+<?php	foreach(getCCNames() as $ccname) 
+            echo '<option value="'.$ccname.'">'.$ccname.'</option>';
 ?>
-
     </select></td>
     
-    <!--search for state search-->
-
-        
 <td valign="top"><select name="state"><option value="1">State</option>
-<?php
-	foreach(getStates() as $state) 
-        echo '<option value="'.$state.'">'.$state.'</option>';
+<?php   foreach(getStates() as $state) 
+        	echo '<option value="'.$state.'">'.$state.'</option>';
 ?>
 	</select></td>
         
 <td valign="top"><select name="issue"><option value="1">Issue</option>'; 
-
-<?php
-	foreach(getIssues() as $issue) 
-        echo '<option value="'.$issue.'">'.$issue.'</option>';
+<?php 	foreach(getIssues() as $issue) 
+        	echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
+
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
     </form>
-
-
-
 </table>
-
 </div>
+
+
 <div class="stages">
 <br>
 <a href="storyeditor.php" class="button button-rounded button-flat-action">CreateStory</a>
@@ -65,7 +62,7 @@ include("../model/StoryDB.php");
 </thead>
 
 <?php
-
+/*
 if ($_GET['search']) {
 	echo "<h1>SEARCH</h1>";
 	$ccname = $_GET['ccname'];
@@ -96,6 +93,8 @@ if ($_GET['search']) {
 } else {
     $resultArray = getAllBasicData();
 }
+*/
+    $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
 echo "<tr>

@@ -1,6 +1,6 @@
 
 
-<?php include '../model/dbcon.php';
+<?php include_once('../model/dbcon.php');
 
 
 function getCCNames() {
@@ -87,14 +87,18 @@ function getFootageCheckDataById($id) {
  	return getAsAssocArray($sql);
 }
 
-function addStory($ccname, $state, $receiveddate, $issue, $story, $uniquenumber, 
+function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {
-	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,impactpossible) " .
-			"values (UUID(),'" . $ccname . ',' . $states . ',' . $dateReceived . ',' . 
-			$issue . ',' . $story . ',' . $uniquenumber . ',' . $storydate . ',' . $ccpair . ',' .
-			$program . ',' . $mentor . ',' . $iu_topic . ',' . $video_treatment . ',' . 
-			$shoot_plan . ',' . $impactpossible ."')";
+	echo "ADD STORY SQL";
+	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
+		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
+		    "impactpossible) " .
+			"values (UUID(),'" . $ccname . "','" . $state . "','" . $dateReceived . "','" . 
+			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
+			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
+			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
+	echo $sql;
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	dbclose();
