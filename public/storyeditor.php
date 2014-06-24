@@ -19,7 +19,7 @@ $storyData = getDataByID($_GET['id']);
 
 <h1><?php if ($_GET['id']) echo "Story ID: ".$_GET['id']; ?></h1>	
 
-<form name="creatStory-form" method="POST" action="../public/story.php">
+<form name="creatStory-form" method="GET" action="index.php">
 <input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	http://www.w3schools.com/php/php_form_validation.asp-->
@@ -40,7 +40,7 @@ $storyData = getDataByID($_GET['id']);
 			<td valign="top"><label for="states">State :</label>
 			</td>
 			<td>
-				<select name="states">
+				<select name="state">
 					<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 					<option value="Andhra Pradesh">Andhra Pradesh</option>
 					<option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -206,7 +206,8 @@ $storyData = getDataByID($_GET['id']);
 
 		<tr>
 		 	<td>
-				<input type="submit">
+				<input type="submit" name="action" value= 
+<?php if ($_GET['id']) echo "update"; else echo "add"; ?> >
 			</td>
 		</tr>
 

@@ -1,6 +1,6 @@
 
 
-<?php include '../model/dbcon.php';
+<?php include_once('../model/dbcon.php');
 
 
 function getCCNames() {
@@ -85,6 +85,23 @@ function getAllFootageCheckData() {
 function getFootageCheckDataById($id) {
     $sql = "select seq, broll, fint, vo, ptc, cta, vd, translation from storytrack where fid = '" . $id . "'";
  	return getAsAssocArray($sql);
+}
+
+function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
+				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
+				  $shootplan, $impactpossible) {
+	echo "ADD STORY SQL";
+	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
+		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
+		    "impactpossible) " .
+			"values (UUID(),'" . $ccname . "','" . $state . "','" . $dateReceived . "','" . 
+			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
+			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
+			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
+	echo $sql;
+	$db=dbopen();
+	mysqli_query($db, $sql);
+	dbclose();
 }
 
  /*
