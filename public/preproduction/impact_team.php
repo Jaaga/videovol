@@ -20,7 +20,7 @@ foreach($impactData as $IData)
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
-	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
+	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
 	<input name ="id" type="hidden" value =<?php echo $id; ?> >
 	<table>
 	
