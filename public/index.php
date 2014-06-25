@@ -3,7 +3,6 @@ include_once("header.php");
 include_once("../model/StoryDB.php");
 
 if($_GET['action']) {
-	echo "ACTION";
     include_once("../controller/StoryController.php");
 }
 ?>
