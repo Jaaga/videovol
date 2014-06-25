@@ -18,16 +18,20 @@ function getIssues() {
 function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
-	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
+	$sql = "SELECT DISTINCT " . $column . " FROM storytrack";
+	$result = mysqli_query($db, $sql);
+	echo $sql;
 	while ($name = mysqli_fetch_array($result)) {
-		$data[] = $name;
+
+		$data[] = $name[$column];
+				
 	}
 	return $data;
 }
 
 
 function getAllBasicData() {
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack";
 	return getAs2DArray($sql);
 }
 
@@ -59,11 +63,23 @@ function getDataByID($fid) {
  	return getAsAssocArray($sql);
  }
 
-function getBasicDataBySearch($ccname, $state, $issue) {
+function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
+
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
+
+	
+	if ($fromdate and $where) {
+		$where = $where . " and ";
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
+	}
+	elseif ($fromdate and !$where) {
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
+	}
+	
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack " .
+
 		   "where " . $where;
 	return getAs2DArray($sql);
 }
@@ -90,7 +106,6 @@ function getFootageCheckDataById($id) {
 function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {
-	echo "ADD STORY SQL";
 	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
 		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
 		    "impactpossible) " .
@@ -98,7 +113,6 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
 			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
 			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
-	echo $sql;
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	dbclose();
