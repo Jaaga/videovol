@@ -11,16 +11,18 @@ include("../model/ImpactDB.php");
 <a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
 </div>
 
-<h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
-<table class="table table-hover"><thead><tr><th>ID</th><th>CCName</th><th>State</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th><th>UniqueNumber</th><th>Targetofficial</th><th>Desiredchange</th><th>CCImpactplan</th><th>Impactprocess</th><tr>
+<!--<h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>-->
+<table class="table table-hover"><thead><tr><th>Edit</th><th>UniqueNumber</th><th>CCName</th><th>State</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th><th>Targetofficial</th><th>Desiredchange</th><th>CCImpactplan</th><th>Impactprocess</th><tr>
 </thead>
 
 <?php
 $resultArray = getStoryAndImpact();
 foreach ($resultArray as $row) {
 echo "<tr>
-       <td>". 
-        $row['fid'] . "</a></td>" . 
+        
+       <td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) . ">" . 
+        "Edit Impact" . "</a></td> <td>" . 
+        $row['uniquenumber'] . "</td> ". 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
         $row['ccname'] . "</a></td>" .
         "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
@@ -29,15 +31,14 @@ echo "<tr>
         $row['receiveddate'] . "</a></td> <td>" .
         $row['issuetopic'] . "</td> <td>" .
         $row['storydescription'] . "</td> <td>" .
-        $row['uniquenumber'] . "</td> <td>" .
         $row['targetofficial'] . "</td> <td>" .
         $row['desiredchange'] . "</td> <td>" .
         $row['ccimpactplan'] . "</td> <td>" .
-        $row['impactprocess'] . "</td>" .
-        " <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td>" .
-        "<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
-        "Create Impact" . "</a></td></tr>";
+        $row['impactprocess'] . "</td>" 
+        //" <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+        //$row['stage'] . "</a></td>"
+        //"<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
+        /*"Create Impact" . "</a></td></tr>"*/;
         }
 
 ?>

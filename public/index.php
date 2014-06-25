@@ -1,6 +1,10 @@
 <?php
-include("header.php");
-include("../model/StoryDB.php");
+include_once("header.php");
+include_once("../model/StoryDB.php");
+
+if($_GET['action']) {
+    include_once("../controller/StoryController.php");
+}
 ?>
 
 <div class="login">
@@ -10,65 +14,60 @@ include("../model/StoryDB.php");
 <div class="user">
 <a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
 </div>
-<div><!--container for search option-->
+
+
+<div><!--container for advanced search-->
 <table>
     <form method="GET" action="index.php">
     
-    <!--form for ccname search-->
  	<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
-<?php	
-	foreach(getCCNames() as $ccname) 
-           echo '<option value="'.$ccname.'">'.$ccname.'</option>';
+<?php	foreach(getCCNames() as $ccname) 
+            echo '<option value="'.$ccname.'">'.$ccname.'</option>';
 ?>
-
     </select></td>
     
-    <!--search for state search-->
-
-        
 <td valign="top"><select name="state"><option value="1">State</option>
-<?php
-	foreach(getStates() as $state) 
-        echo '<option value="'.$state.'">'.$state.'</option>';
+<?php   foreach(getStates() as $state) 
+        	echo '<option value="'.$state.'">'.$state.'</option>';
 ?>
 	</select></td>
         
 <td valign="top"><select name="issue"><option value="1">Issue</option>'; 
-
-<?php
-	foreach(getIssues() as $issue) 
-        echo '<option value="'.$issue.'">'.$issue.'</option>';
+<?php 	foreach(getIssues() as $issue) 
+        	echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
+<<<<<<< HEAD
          
         <td valign="top">From:<input type="date" name="fromdate"></td>
         <td valign="top">To:<input type="date" name="todate"></td>
+=======
+
+>>>>>>> 636712641a0a34d317783977e706abaff772c87a
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
     </form>
-
-
-
 </table>
-
 </div>
+
+
 <div class="stages">
 <br>
 <a href="storyeditor.php" class="button button-rounded button-flat-action">CreateStory</a>
 <a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor</a>
 <a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
 <a href="pmview.php" class="button button-rounded button-flat-action">Project Manager</a>
-<a href="../public/preproduction/impactview.php" class="button button-rounded button-flat-action">Impact</a>
+<a href="impactview1.php" class="button button-rounded button-flat-action">Impact</a>
 </div>
 
 
-<h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
+<h2>Summary <a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
 <table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact Possible</th><tr>
 </thead>
 
 <?php
-
+/*
 if ($_GET['search']) {
 	echo "<h1>SEARCH</h1>";
 	$ccname = $_GET['ccname'];
@@ -103,6 +102,8 @@ if ($_GET['search']) {
 } else {
     $resultArray = getAllBasicData();
 }
+*/
+    $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
 echo "<tr>
@@ -125,9 +126,5 @@ echo "<tr>
 
 ?>
 </table>
-
-
-
-
 </body>
 </html>

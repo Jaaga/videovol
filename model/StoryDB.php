@@ -1,6 +1,6 @@
 
 
-<?php include '../model/dbcon.php';
+<?php include_once('../model/dbcon.php');
 
 
 function getCCNames() {
@@ -18,11 +18,13 @@ function getIssues() {
 function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
-	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
+	$sql = "SELECT DISTINCT " . $column . " FROM storytrack";
+	$result = mysqli_query($db, $sql);
+	echo $sql;
 	while ($name = mysqli_fetch_array($result)) {
 
 		$data[] = $name[$column];
-
+				
 	}
 	return $data;
 }
@@ -99,6 +101,21 @@ function getAllFootageCheckData() {
 function getFootageCheckDataById($id) {
     $sql = "select seq, broll, fint, vo, ptc, cta, vd, translation from storytrack where fid = '" . $id . "'";
  	return getAsAssocArray($sql);
+}
+
+function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
+				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
+				  $shootplan, $impactpossible) {
+	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
+		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
+		    "impactpossible) " .
+			"values (UUID(),'" . $ccname . "','" . $state . "','" . $dateReceived . "','" . 
+			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
+			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
+			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
+	$db=dbopen();
+	mysqli_query($db, $sql);
+	dbclose();
 }
 
  /*

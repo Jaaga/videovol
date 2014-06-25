@@ -22,7 +22,7 @@ include ('header.php');
 <th>Quality Check</th>
 </tr>
 <?php
-$toedit= "select uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
+$toedit= "select fid,uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
 $result = $db->query($toedit);
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
@@ -39,7 +39,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['cta'] . "</td>";  
   echo "<td>" . $row['vd'] . "</td>"; 
   echo "<td>" . $row['translation'] . "</td>"; 
-  echo "<td><a href=\"footageeditor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
+  echo "<td><a href=\"junioreditor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
 

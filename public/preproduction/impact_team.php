@@ -2,7 +2,7 @@
 <?php 
 include("../header.php");
 include("../../model/ImpactDB.php");
-$un = $_GET['un'];
+$un = $_GET['id'];
 
 $IData = getImpactDataByUniqueNumber($un);
 ?>
@@ -12,18 +12,18 @@ $IData = getImpactDataByUniqueNumber($un);
 </head>
 <body>
 
-<h1><?php if($_GET['un']) echo "Unique No.: ".$_GET['un']?></h1>
+<h1><?php if($_GET['id']) echo "Unique No.: ".$_GET['id']?></h1>
 
 <form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>
-	<form name="impactflow" method="POST" action ="../preproduction/impact.php">
+	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
-	<table>
+	<table class="table table-hover">
 	
 		<tr>
 			<td valign="top">
-				<label for="impact-process">Targetofficial:</label>
+				<label for="impact-process">Target official:</label>
 			</td>
 			<td>
 				<input type="text" name="Targetofficial" value=
@@ -41,7 +41,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-process">CC_Impact_plan</label>
+				<label for="impact-process">CC impact plan</label>
 			</td>
 			<td>
 				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
@@ -51,7 +51,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr valign="top">
 			<td>
-				<label for="impact-process">ImpactFollowUpHappening</label>
+				<label for="impact-process">Is Impact follow up happening?</label>
 			</td>
 			<td>
 			<select type="text" name="impactfollowup">
@@ -70,7 +70,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-status">whyFollowupnot happening</label>
+				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
 			<td>
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
@@ -86,7 +86,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="impact-status">ImpactAchieved</label>
+				<label for="impact-status">Impact Achieved</label>
 			</td>
 			<td>
 				<input type="text" name="impactachieved" value =<?php echo  $IData['impactachieved']; ?> >
@@ -121,7 +121,7 @@ $IData = getImpactDataByUniqueNumber($un);
 			    <label for="time-in-weeks">Time in Weeks</label>
 			</td>
 			<td>
-				<input type="number" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
+				<input type="number" min="0" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -129,18 +129,21 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="community-screening-done">Community Screening Done?</label>
 			</td>
 			<td>
-			<select type="text" name="CommunityScreeningDone">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+					<select type="text" name="CommunityScreeningDone">
+						<?php $communityscreen = $IData['communityscreening']; ?>	
+					<option value="Yes"
+					<?php if (strcmp($communityscreen, "Yes") == 0) echo " selected "; ?> >Yes</option>
+					<option value="No"
+					<?php if (strcmp($communityscreen, "No") == 0) echo " selected "; ?> >No</option>
 			</select>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="People-shown">No. of People to whom the Video was shown</label>
+				<label for="People-shown">No. of People the video was shown to</label>
 			</td>
 			<td>
-				<input type="number" name="People-shown" value = <?php echo $IData['noofpeoplesawvideo']; ?> >
+				<input type="number" min="0" name="People-shown" value = <?php echo $IData['noofpeoplesawvideo']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -158,17 +161,20 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 			<select type="text" name="VideoShowntoOfficials">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+				<?php $videoshown = $IData['videoshowntoofficials']; ?>
+					<option value="Yes" 
+					<?php if (strcmp($videoshown , "Yes") == 0) echo "selected"; ?> >Yes</option>
+					<option value="No"
+					<?php if (strcmp($videoshown, "No" )== 0) echo "selected" ; ?> >No</option>
 			</select>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="officials-shown">No. of Officials the Video was screened</label>
+				<label for="officials-shown">No. of Officials the Video was screened to</label>
 			</td>
 			<td>
-				<input type="text" name="officials-shown" value = <?php echo $IData['noofofficials']; ?>>
+				<input type="number" min="0" name="officials-shown" value = <?php echo $IData['noofofficials']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -192,7 +198,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-people-involved">No. of people involved</label>
 			</td>
 			<td>
-				<input type="text" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
+				<input type="number" min="0" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -200,7 +206,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-people-impacted">No. of people Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
+				<input type="number" min="0" name="number-of-people-impacted" value = <?php echo $IData['noofpeopleimpacted']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -208,7 +214,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="number-of-villages-impacted">No. of Villages Impacted</label>
 			</td>
 			<td>
-				<input type="number" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
+				<input type="number" min="0" name="number-of-villages-impacted" value = <?php echo $IData['noofvillagesimpacted']; ?>>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -217,9 +223,13 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 			<select type="text" name="ImpactVideoProductionStatus">
-					<option value="Done">Done</option>
-					<option value="NotDone">NotDone</option>
-					<option value="InProgress">InProgress</option>
+				<?php $videoprod = $IData['videoproductionstatus'];?>
+					<option value="Done"
+					<?php if(strcmp($videoprod, "Done") == 0 ) echo "selected"; ?>>Done</option>
+					<option value="NotDone"
+					<?php if(strcmp($videoprod, "NotDone") == 0 ) echo "selected"; ?>>NotDone</option>
+					<option value="InProgress"
+					<?php if(strcmp($videoprod, "InProgress") == 0 ) echo "selected"; ?>>InProgress</option>
 			</select>
 			</td>
 		</tr>
@@ -229,8 +239,11 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 				<select type="text" name="ImpactVideoReviewed">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+					<?php $videoreview = $IData['videoreviewed']; ?>
+					<option value="Yes"
+					<?php if(strcmp($videoreview,"Yes")==0)echo "selected";?>>Yes</option>
+					<option value="No" 
+					<?php if(strcmp($videoreview,"No")==0)echo "selected";?> >No</option>
 				</select>
 			</td>
 		</tr>
@@ -240,14 +253,17 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 				<select type="text" name="ImpactVideoApprovedforPayment">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
+					<?php $payment = $IData['approvepayment']; ?>
+					<option value="Yes"
+					<?php if(strcmp($payment,"Yes")==0)echo "selected";?>>Yes</option>
+					<option value="No"
+					<?php if(strcmp($videoreview,"No")==0)echo "selected";?>>No</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="date-impact-video-approved">Date Impact Video Approved?</label>
+				<label for="date-impact-video-approved">Date of Impact Video Approved?</label>
 			</td>
 			<td>
 				<input type="text" id="impactvideoapproveddate" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
@@ -262,12 +278,13 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 		</tr>
 			<td valign="top">
-				<label for="Blognotesdone">BlognotesDone</label>
+				<label for="Blognotesdone">Blog notes done</label>
 			</td>
 			<td>
 				<select type="text" name="BlognotesDone">
-					<option value="Done">Done</option>
-					<option value="NotDone">NotDone</option>
+					<?php $bnotes = $IData['blognotes']; ?>
+					<option value="Done"<?php if(strcmp($bnotes,"Done")==0)echo"selected"; ?> >Done</option>
+					<option value="NotDone"<?php if(strcmp($bnotes,"NotDone")==0)echo"selected"; ?> >NotDone</option>
 				</select>
 			</td>
 		</tr>
@@ -277,8 +294,9 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 				<select type="text" name="impactvideosenttocc">
-					<option value="Yes">yes</option>
-					<option value="No">No</option>
+					<?php $gifttocc = $IData['gifttocc']; ?>
+					<option value="Yes"<?php if(strcmp($gifttocc,"Yes") == 0) echo "selected"; ?> >yes</option>
+					<option value="No"<?php if(strcmp($gifttocc,"No") == 0) echo "selected"; ?> >No</option>
 				</select>
 			</td>
 		</tr>
@@ -288,8 +306,9 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 				<select type="text" name="impactthankyou">
-					<option value="yes">yes</option>
-					<option value="No">No</option>
+					<?php $thankyoucard = $IData['thankyoucard']; ?>
+					<option value="yes" <?php if(strcmp($thankyoucard,"Yes") == 0) echo "selected"; ?> >yes</option>
+					<option value="No" <?php if(strcmp($thankyoucard,"Yes") == 0) echo "selected"; ?> >No</option>
 				</select>
 			</td>
 		</tr>

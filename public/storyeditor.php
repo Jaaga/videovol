@@ -19,7 +19,7 @@ $storyData = getDataByID($_GET['id']);
 
 <h1><?php if ($_GET['id']) echo "Story ID: ".$_GET['id']; ?></h1>	
 
-<form name="creatStory-form" method="POST" action="../public/story.php">
+<form name="creatStory-form" method="GET" action="index.php">
 <input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	http://www.w3schools.com/php/php_form_validation.asp-->
@@ -40,7 +40,7 @@ $storyData = getDataByID($_GET['id']);
 			<td valign="top"><label for="states">State :</label>
 			</td>
 			<td>
-				<select name="states">
+				<select name="state">
 					<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 					<option value="Andhra Pradesh">Andhra Pradesh</option>
 					<option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -87,7 +87,7 @@ $storyData = getDataByID($_GET['id']);
 				
 			</td>
 			<td>
-				<p><input type="text" name="dateReceived" id="datepicker"></p>
+				<p><input type="text" name="dateReceived" id="datepicker" value=<?php echo "\"" . $storyData['receiveddate'] . "\""; ?>></p>
 			</td>
 		</tr>
 
@@ -97,7 +97,7 @@ $storyData = getDataByID($_GET['id']);
 				<label for="issue">Issue/Topic</label>
 			</td>
 			<td>
-				<input type="text" name="issue" />
+				<input type="text" name="issue" value=<?php echo "\"" . $storyData['issuetopic'] . "\""; ?> />
 			</td>
 		</tr> 
 
@@ -107,7 +107,9 @@ $storyData = getDataByID($_GET['id']);
 		 		 <label for="story">Story: </label>
 		 	</td>
 		 	<td valign="top">
-		  		<textarea  name="story" maxlength="1000" cols="25" rows="6"></textarea>
+		  		<textarea  name="story" maxlength="1000" cols="25" rows="6">
+<?php echo $storyData['storydescription']; ?>
+		  		</textarea>
 		 	</td>
 		</tr>
 
@@ -119,7 +121,7 @@ $storyData = getDataByID($_GET['id']);
 				
 			</td>
 			<td>
-				<input type="text" name="unique_no" />
+				<input type="text" name="unique_no" value=<?php echo "\"" . $storyData['uniquenumber'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -128,7 +130,7 @@ $storyData = getDataByID($_GET['id']);
 				<label for="storydate">Date of Story</label>
 			</td>
 			<td>
-				<p><input type="text" name="storydate" id="datepick"></p>
+				<p><input type="text" name="storydate" id="datepick" value=<?php echo "\"" . $storyData['dateofstory'] . "\""; ?>></p>
 			</td>
 		</tr>
 
@@ -138,7 +140,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="cc_pair" />
+				<input type="text" name="cc_pair" value=<?php echo "\"" . $storyData['ccpair'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -148,7 +150,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="program" />
+				<input type="text" name="program" value=<?php echo "\"" . $storyData['program'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -158,7 +160,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="mentor" />
+				<input type="text" name="mentor" value=<?php echo "\"" . $storyData['mentor'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -168,7 +170,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="iu_topic" />
+				<input type="text" name="iu_topic" value=<?php echo "\"" . $storyData['iutopic'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -178,7 +180,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="video_treatment" />
+				<input type="text" name="video_treatment" value=<?php echo "\"" . $storyData['videotreatment'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -188,7 +190,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="shoot_plan" />
+				<input type="text" name="shoot_plan" value=<?php echo "\"" . $storyData['shootplan'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -206,7 +208,8 @@ $storyData = getDataByID($_GET['id']);
 
 		<tr>
 		 	<td>
-				<input type="submit">
+				<input type="submit" name="action" value= 
+<?php if ($_GET['id']) echo "update"; else echo "add"; ?> >
 			</td>
 		</tr>
 

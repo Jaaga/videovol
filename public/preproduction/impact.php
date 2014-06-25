@@ -39,5 +39,5 @@ if(!$pm)
 echo "data not inserted";
 }
 else
-header("location:../preproduction/impactview.php");
+header("location:../impactview1.php");
 ?>
