@@ -7,6 +7,7 @@ if($_GET['action']) {
 }
 ?>
 
+<!--
 <div class="login">
 <a href="login.php" class="button button->rounded button-flat-royal">Login</a>
 <a href="signupnewuser.php" class="button button-rounded button-flat-royal">Sign-up</a>
@@ -14,7 +15,7 @@ if($_GET['action']) {
 <div class="user">
 <a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
 </div>
-
+-->
 
 <div><!--container for advanced search-->
 <table>
@@ -48,15 +49,15 @@ if($_GET['action']) {
 
 <div class="stages">
 <br>
-<a href="storyeditor.php" class="button button-rounded button-flat-action">CreateStory</a>
-<a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor</a>
-<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor</a>
-<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager</a>
-<a href="impactview1.php" class="button button-rounded button-flat-action">Impact</a>
+<a href="storyeditor.php" class="button button-rounded button-flat-action">Create New Story</a>
+<a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor View</a>
+<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
+<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>
+<a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
+<a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a>
 </div>
 
 
-<h2>Summary <a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
 <table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact Possible</th><tr>
 </thead>
 
