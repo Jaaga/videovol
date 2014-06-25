@@ -30,7 +30,7 @@ function getDistinctData($column) {
 
 
 function getAllBasicData() {
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack";
 	return getAs2DArray($sql);
 }
 

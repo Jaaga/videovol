@@ -57,7 +57,7 @@ if($_GET['action']) {
 
 
 <h2>Summary <a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
-<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact Possible</th><tr>
+<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
 </thead>
 
 <?php
@@ -96,23 +96,43 @@ if ($_GET['search']) {
     $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
+if ($row['impactpossible']=="Yes"){
 echo "<tr>
         <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
-        "Edit Story" . "</a></td><td>". 
-        $row['fid'] . "</a></td>" . 
+        "Edit Story" . "</a></td>
+        <td>". $row['fid'] . "</td>" . 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
         $row['ccname'] . "</a></td>" .
         "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
         $row['state'] . "</a></td>" .
         "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
-        $row['issuetopic'] . "</a></td> <td>" .
-        $row['receiveddate'] . "</td> <td>" .
-        $row['storydescription'] . "</td>" .
-        " <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td>" .
+        $row['issuetopic'] . "</a></td> 
+        <td>" .$row['receiveddate'] . "</td> 
+        <td>" .$row['storydescription'] . "</td>" .
+        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+        $row['stage'] . "</a></td>".
         "<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
-        "Create Impact" . "</a></td></tr>";
+        "Impact" . "</a></td></tr>";
         }
+
+ else {
+ echo "<tr>
+        <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
+        "Edit Story" . "</a></td>
+        <td>". $row['fid'] . "</td>" . 
+        "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
+        $row['ccname'] . "</a></td>" .
+        "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
+        $row['state'] . "</a></td>" .
+        "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
+        $row['issuetopic'] . "</a></td> 
+        <td>" .$row['receiveddate'] . "</td> 
+        <td>" .$row['storydescription'] . "</td>" .
+        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+        $row['stage'] . "</a></td>
+        <td>" .$row['impactpossible'] . "</td></tr>";
+        }   
+ }       
 
 ?>
 </table>
