@@ -22,15 +22,16 @@ function getDistinctData($column) {
 	$result = mysqli_query($db, $sql);
 	echo $sql;
 	while ($name = mysqli_fetch_array($result)) {
-		echo $name;
-		$data[] = $name[0];
+
+		$data[] = $name[$column];
+				
 	}
 	return $data;
 }
 
 
 function getAllBasicData() {
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack";
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack";
 	return getAs2DArray($sql);
 }
 
@@ -62,11 +63,23 @@ function getDataByID($fid) {
  	return getAsAssocArray($sql);
  }
 
-function getBasicDataBySearch($ccname, $state, $issue) {
+function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
+
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
+
+	
+	if ($fromdate and $where) {
+		$where = $where . " and ";
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
+	}
+	elseif ($fromdate and !$where) {
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
+	}
+	
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack " .
+
 		   "where " . $where;
 	return getAs2DArray($sql);
 }
@@ -103,6 +116,15 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	dbclose();
+}
+
+function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fid){
+	
+	$sql = "update storytrack set seq='$seq',broll='$broll',fint='$fint',vo='$vo',ptc='$ptc',cta='$cta',vd='$vd',translation='$translation' where fid ='$fid'";
+	$db = dbopen();
+	$result= $db->query($sql);
+	//dbclose();
+	return $result;
 }
 
  /*

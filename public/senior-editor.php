@@ -14,9 +14,9 @@ include ('header.php');
 	<form name="senioreditor-form" method="post" action="../public/seupdate.php">
 		<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
 		<label for="uploaddate">Upload Date</label>
-		<input type="date" name="uploaddate" />
+		<input type="text" name="uploaddate" id="datepicker"/>
 		<label for="publishdate">Publish Date</label>
-		<input type="date" name="publishdate" />
+		<input type="text" name="publishdate" id="datepick"/>
 
 	<tr>
  	<td valign="top">
@@ -50,6 +50,17 @@ include ('header.php');
 
 		<input type="submit">
 	</form>
-	
+<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
+<script src="jqueryui/js/jquery.js"></script>
+<script src="jqueryui/js/jquery-ui.min.js"></script>
+	 <script>
+$(function() {
+$( "#datepicker" ).datepicker();
+});
+
+$(function() {
+$( "#datepick" ).datepicker();
+});
+</script>	
 </body>
 </html>

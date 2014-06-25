@@ -10,7 +10,7 @@ $a=$_GET['id'];
 	<title>Editor's Dashboard</title>
 </head>
 <body>
-<form name="editor-form" method="post"action="../public/junioredit.php">
+<form name="editor-form" method="post"action="../controller/junioreditorcontroller.php">
 	<input name="fid" type="hidden" value="<?php echo $a; ?>" >
 <h2>Editor's Dashboard</h2>
 	<table>
