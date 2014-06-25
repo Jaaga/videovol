@@ -18,9 +18,12 @@ function getIssues() {
 function getDistinctData($column) {
 	$db=dbopen();
 	$data = array();
-	$result = mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack"); // Run the query
+	$sql = "SELECT DISTINCT " . $column . " FROM storytrack";
+	$result = mysqli_query($db, $sql);
+	echo $sql;
 	while ($name = mysqli_fetch_array($result)) {
-		$data[] = $name;
+		echo $name;
+		$data[] = $name[0];
 	}
 	return $data;
 }
@@ -90,7 +93,6 @@ function getFootageCheckDataById($id) {
 function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {
-	echo "ADD STORY SQL";
 	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
 		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
 		    "impactpossible) " .
@@ -98,7 +100,6 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
 			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
 			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
-	echo $sql;
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	dbclose();
