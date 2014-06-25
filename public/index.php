@@ -37,13 +37,10 @@ if($_GET['action']) {
         	echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
-<<<<<<< HEAD
+
          
         <td valign="top">From:<input type="date" name="fromdate"></td>
         <td valign="top">To:<input type="date" name="todate"></td>
-=======
-
->>>>>>> 636712641a0a34d317783977e706abaff772c87a
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
