@@ -22,7 +22,7 @@ include ('header.php');
 </thead>
 <?php 
 
-$statusedit= "select * from storytrack where seq IS NOT NULL and publishdate IS NULL";
+$statusedit= "select * from storytrack where seq IS NOT NULL";
 $result = $db->query($statusedit);
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
