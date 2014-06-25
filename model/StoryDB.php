@@ -17,7 +17,15 @@ function getIssues() {
 
 function getDistinctData($column) {
 	$db=dbopen();
-	return mysqli_fetch_array(mysqli_query($db, "SELECT DISTINCT " . $column . " FROM storytrack")); // Run the query
+	$data = array();
+	$sql = "SELECT DISTINCT " . $column . " FROM storytrack";
+	$result = mysqli_query($db, $sql);
+	echo $sql;
+	while ($name = mysqli_fetch_array($result)) {
+		echo $name;
+		$data[] = $name[0];
+	}
+	return $data;
 }
 
 
