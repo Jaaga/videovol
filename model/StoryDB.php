@@ -104,6 +104,15 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 	dbclose();
 }
 
+function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fid){
+	
+	$sql = "update storytrack set seq='$seq',broll='$broll',fint='$fint',vo='$vo',ptc='$ptc',cta='$cta',vd='$vd',translation='$translation' where fid ='$fid'";
+	$db = dbopen();
+	$result= $db->query($sql);
+	//dbclose();
+	return $result;
+}
+
  /*
     $resultArray = getFootageCheckDataById(9);
     echo "array[0]: " . $resultArray[0];
