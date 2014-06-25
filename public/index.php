@@ -52,22 +52,19 @@ if($_GET['action']) {
 
 <div class="stages">
 <br>
-<a href="storyeditor.php" class="button button-rounded button-flat-action">Create New Story</a>
+<a href="storyeditor.php" class="button button-rounded button-flat-primary">Create New Story</a>
+<a href="viewalldata.php" class="button button-rounded button-flat-action">View All Data</a>
 <a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor View</a>
 <a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
 <a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>
 <a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
-<a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a>
 </div>
 
-
-<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact Possible</th><tr>
-<h2>Summary <a href="viewalldata.php" class="button button-rounded button-flat-primary">View All Data</a></h2>
 <table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
 </thead>
 
 <?php
-/*
+
 if ($_GET['search']) {
 	echo "<h1>SEARCH</h1>";
 	$ccname = $_GET['ccname'];
@@ -84,7 +81,10 @@ if ($_GET['search']) {
     if ($fromdate == "1" or $todate == "1")
         unset($fromdate, $todate);
 	$resultArray = getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate);
-} else if ($_GET['issuetopic']) {
+} else {
+    $resultArray = getAllBasicData();
+}
+/*else if ($_GET['issuetopic']) {
 	echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
 	$resultArray = getBasicDataByIssue($_GET['issuetopic']);
 } else if ($_GET['ccname']) {
@@ -103,7 +103,7 @@ if ($_GET['search']) {
     $resultArray = getAllBasicData();
 }
 */
-    $resultArray = getAllBasicData();
+//    $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
 if ($row['impactpossible']=="Yes"){
