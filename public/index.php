@@ -38,6 +38,9 @@ if($_GET['action']) {
 ?>
 </select></td>
 
+         
+        <td valign="top">From:<input type="date" name="fromdate"></td>
+        <td valign="top">To:<input type="date" name="todate"></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -73,7 +76,11 @@ if ($_GET['search']) {
 	$issue = $_GET['issue'];
 	if ($issue == "1")
 		unset($issue);
-	$resultArray = getBasicDataBySearch($ccname, $state, $issue);
+    $fromdate = $_GET['fromdate'];
+    $todate = $_GET['todate'];
+    if ($fromdate == "1" or $todate == "1")
+        unset($fromdate, $todate);
+	$resultArray = getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate);
 } else if ($_GET['issuetopic']) {
 	echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
 	$resultArray = getBasicDataByIssue($_GET['issuetopic']);
