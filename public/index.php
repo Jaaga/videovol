@@ -39,6 +39,9 @@ if($_GET['action']) {
 ?>
 </select></td>
 
+         
+        <td valign="top">From:<input type="date" name="fromdate"></td>
+        <td valign="top">To:<input type="date" name="todate"></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -74,7 +77,11 @@ if ($_GET['search']) {
 	$issue = $_GET['issue'];
 	if ($issue == "1")
 		unset($issue);
-	$resultArray = getBasicDataBySearch($ccname, $state, $issue);
+    $fromdate = $_GET['fromdate'];
+    $todate = $_GET['todate'];
+    if ($fromdate == "1" or $todate == "1")
+        unset($fromdate, $todate);
+	$resultArray = getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate);
 } else if ($_GET['issuetopic']) {
 	echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
 	$resultArray = getBasicDataByIssue($_GET['issuetopic']);
@@ -97,23 +104,43 @@ if ($_GET['search']) {
     $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
+if ($row['impactpossible']=="Yes"){
 echo "<tr>
         <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
-        "Edit Story" . "</a></td><td>". 
-        $row['fid'] . "</a></td>" . 
+        "Edit Story" . "</a></td>
+        <td>". $row['fid'] . "</td>" . 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
         $row['ccname'] . "</a></td>" .
         "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
         $row['state'] . "</a></td>" .
         "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
-        $row['issuetopic'] . "</a></td> <td>" .
-        $row['receiveddate'] . "</td> <td>" .
-        $row['storydescription'] . "</td>" .
-        " <td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td>" .
+        $row['issuetopic'] . "</a></td> 
+        <td>" .$row['receiveddate'] . "</td> 
+        <td>" .$row['storydescription'] . "</td>" .
+        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+        $row['stage'] . "</a></td>".
         "<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
-        "Create Impact" . "</a></td></tr>";
+        "Impact" . "</a></td></tr>";
         }
+
+ else {
+ echo "<tr>
+        <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
+        "Edit Story" . "</a></td>
+        <td>". $row['fid'] . "</td>" . 
+        "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
+        $row['ccname'] . "</a></td>" .
+        "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
+        $row['state'] . "</a></td>" .
+        "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
+        $row['issuetopic'] . "</a></td> 
+        <td>" .$row['receiveddate'] . "</td> 
+        <td>" .$row['storydescription'] . "</td>" .
+        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+        $row['stage'] . "</a></td>
+        <td>" .$row['impactpossible'] . "</td></tr>";
+        }   
+ }       
 
 ?>
 </table>
