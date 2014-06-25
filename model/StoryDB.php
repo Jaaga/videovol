@@ -62,18 +62,22 @@ function getDataByID($fid) {
  }
 
 function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
+
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
-<<<<<<< HEAD
-	if ($fromdate) {
+
+	
+	if ($fromdate and $where) {
 		$where = $where . " and ";
-		$where = $where . " receiveddate BETWEEN #" . $fromdate . "# and #" . $todate . "#";
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
 	}
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage from storytrack " .
-=======
+	elseif ($fromdate and !$where) {
+		$where = $where . " receiveddate BETWEEN '" . $fromdate . "' and '" . $todate . "'";
+	}
+	
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack " .
->>>>>>> ce68be4bb95ccae750835b5c817eb4e66f746882
+
 		   "where " . $where;
 	return getAs2DArray($sql);
 }
