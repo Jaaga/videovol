@@ -1,10 +1,7 @@
 <?php
 include_once('../model/StoryDB.php');
 
-echo "<h1>StoryController</h1>";
-
-echo "state: " . $_GET['state'] . " \n";
-echo "dateReceived: " . $_GET['dateReceived'] . "\n";
+echo $_GET['dateReceived'];
 
 addStory($_GET['ccname'], $_GET['state'], $_GET['dateReceived'], $_GET['issue'], 
 		 $_GET['story'], $_GET['unique_no'], $_GET['storydate'], $_GET['cc_pair'],

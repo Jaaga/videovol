@@ -1,7 +1,5 @@
 <?php
 include '../model/ImpactDB.php';
-//$db = dbopen();
-//var_dump($_POST);
 $uno =$_POST['id'];
 $targetofficial =$_POST['Targetofficial'];
 $desiredchange = $_POST['DesiredChange'];
