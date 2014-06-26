@@ -220,10 +220,12 @@ $storyData = getDataByID($_GET['id']);
 	 <script>
 $(function() {
 $( "#datepicker" ).datepicker();
+ <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
 });
 
 $(function() {
 $( "#datepick" ).datepicker();
+ <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
 });
 </script>
 </body>
