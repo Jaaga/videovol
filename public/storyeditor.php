@@ -20,7 +20,7 @@ $storyData = getDataByID($_GET['id']);
 <h1><?php if ($_GET['id']) echo "Story ID: ".$_GET['id']; ?></h1>	
 
 <form name="creatStory-form" method="GET" action="index.php">
-<input name ="id" type="hidden" value =<?php echo $_GET['id']; ?> >
+<input name ="fid" type="hidden" value =<?php echo $_GET['id']; ?> >
 	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	http://www.w3schools.com/php/php_form_validation.asp-->
 	<h2>Story Flow</h2>

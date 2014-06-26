@@ -115,7 +115,23 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
 	$db=dbopen();
 	mysqli_query($db, $sql);
-	dbclose();
+	mysqli_close($db);
+}
+
+function updateStory($fid, $ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
+				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
+				  $shootplan, $impactpossible) {
+	$sql =  "update storytrack set ccname = '" . $ccname . "', state = '" . $state . "',".
+			" receiveddate = '" . $dateReceived . "', issuetopic = '" . $issue . "',".
+			" storydescription = '" . $story . "', uniquenumber = '" . $uniquenumber . "'," .
+			" dateofstory = '" . $storydate . "', ccpair = '" . $ccpair . "'," .
+			" program = '" . $program . "', mentor = '" . $mentor . "', " .
+			" iutopic = '" . $iutopic . "', videotreatment = '" . $videotreatment . "'," .
+			" shootplan = '" . $shootplan . "', impactpossible = '" . $impactpossible ."'" .
+			" where fid = '" . $fid . "'";
+	$db=dbopen();
+	mysqli_query($db, $sql);
+	mysqli_close($db);
 }
 
 function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fid){
@@ -123,7 +139,7 @@ function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fi
 	$sql = "update storytrack set seq='$seq',broll='$broll',fint='$fint',vo='$vo',ptc='$ptc',cta='$cta',vd='$vd',translation='$translation' where fid ='$fid'";
 	$db = dbopen();
 	$result= $db->query($sql);
-	//dbclose();
+	mysqli_close($db);
 	return $result;
 }
 
