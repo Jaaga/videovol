@@ -40,8 +40,8 @@ if($_GET['action']) {
 </select></td>
 
          
-        <td valign="top">From:<input type="date" name="fromdate" id="dateSearchFrom"></td>
-        <td valign="top">To:<input type="date" name="todate" id="searchToDate"></td>
+        <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
+        <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -150,13 +150,15 @@ echo "<tr>
 <script src="./jqueryui/js/jquery.js"></script>
 <script src="./jqueryui/js/jquery-ui.min.js"></script>
 <script>
-$(function() {
-$( "#dateSearchFrom" ).datepicker();
-});
-
-$(function() {
-$( "#searchToDate" ).datepicker();
-});
+ $(function(){
+        $("#dateSearchFrom").datepicker({ dateFormat: 'yy-mm-dd' });
+        $("#searchToDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
+            var minValue = $(this).val();
+            minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+            minValue.setDate(minValue.getDate()+1);
+            $("#searchToDate").datepicker( "option", "minDate", minValue );
+        })
+    });
 </script>
 </table>
 </body>
