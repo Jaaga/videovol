@@ -40,8 +40,8 @@ if($_GET['action']) {
 </select></td>
 
          
-        <td valign="top">From:<input type="date" name="fromdate"></td>
-        <td valign="top">To:<input type="date" name="todate"></td>
+        <td valign="top">From:<input type="date" name="fromdate" id="dateSearchFrom"></td>
+        <td valign="top">To:<input type="date" name="todate" id="searchToDate"></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -145,6 +145,19 @@ echo "<tr>
  }       
 
 ?>
+
+<link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
+<script src="./jqueryui/js/jquery.js"></script>
+<script src="./jqueryui/js/jquery-ui.min.js"></script>
+<script>
+$(function() {
+$( "#dateSearchFrom" ).datepicker();
+});
+
+$(function() {
+$( "#searchToDate" ).datepicker();
+});
+</script>
 </table>
 </body>
 </html>
