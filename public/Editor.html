@@ -1,8 +1,10 @@
-<?php
-$fid = $_GET['id'];
-include ('header.php');
-?>
-
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Editor</title>
+</head>
+<body>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,24 +12,21 @@ include ('header.php');
 	<title>Senior Editor</title>
 </head>
 <body>
+	
 <form name="senioreditor-form" method="post" action="../public/seupdate.php">
-		<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
-		
-	<h2>Senior Editor's Dashboard</h2>
-
+<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
+	
+<h2>Senior Editor's Dashboard</h2>
 <table>
-	<tr><td valign="top">  
+
+	<tr><td valign="top">		
 		<label for="uploaddate">Upload Date</label>
-	</td>
-	<td valign="top">		
 		<input type="text" name="uploaddate" id="datepicker"/>
 	</td>
 	</tr>
 
-	<tr><td valign="top"> 
+	<tr><td valign="top">
 		<label for="publishdate">Publish Date</label>
-	</td>
-	<td valign="top">	
 		<input type="text" name="publishdate" id="datepick"/>
 	</td>
 	</tr>
@@ -36,7 +35,6 @@ include ('header.php');
  	<td valign="top">
   		<label for="receivedRO">Received at RO:</label>
 	</td>
-
  	<td valign="top">
  		<select name="receivedRO">
 				<option value ="0">Select</option>
@@ -67,19 +65,8 @@ include ('header.php');
 		<input type="submit">
 	</td>
 	</tr>
-</table>	
+</table>
 </form>
-<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
-<script src="jqueryui/js/jquery.js"></script>
-<script src="jqueryui/js/jquery-ui.min.js"></script>
-	 <script>
-$(function() {
-$( "#datepicker" ).datepicker();
-});
-
-$(function() {
-$( "#datepick" ).datepicker();
-});
-</script>	
+	
 </body>
 </html>
