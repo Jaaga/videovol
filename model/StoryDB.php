@@ -132,10 +132,16 @@ function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fi
 	return $result;
 }
 
-function seniorEditorUpdate(){
+function seniorEditorUpdate($uploaddate,$publishdate,$receivedRO,$receivedHQ,$fid){
 	$sql = "update storytrack set uploaddate = '$uploaddate',publishdate = '$publishdate',receivedRO = '$receivedRO',receivedHQ  = '$receivedHQ' where fid='$fid'";
 	$db = dbopen();
-	return $db->query($sql);
+	$result= $db->query($sql);
+	return $result;
+}
+
+function getDataForSeniorEditor(){
+	$sql = "select * from storytrack where seq IS NOT NULL";
+	return getAs2DArray($sql);
 }
  /*
     $resultArray = getFootageCheckDataById(9);
