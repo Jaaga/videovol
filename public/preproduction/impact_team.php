@@ -54,7 +54,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="impact-process">Is Impact follow up happening?</label>
 			</td>
 			<td>
-			<select type="text" name="impactfollowup">
+			<select type="text" name="impactfollowup" id="browsers" onchange="showstuff()">
 <?php $followup = $IData['impactfollowuphappening']; ?>		
 				<option value="Maybe"  	
 <?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
@@ -68,11 +68,12 @@ $IData = getImpactDataByUniqueNumber($un);
 			</select>
 			</td>
 		</tr>
+	
 		<tr>
-			<td valign="top">
+			<td valign="top" id="showlabel">
 				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
-			<td>
+			<td id="show">
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
 			</td>
 		</tr>
@@ -323,7 +324,7 @@ $IData = getImpactDataByUniqueNumber($un);
 <link rel="stylesheet" href="../jqueryui/css/ui/jquery-ui.css" />
 <script src="../jqueryui/js/jquery.js"></script>
 <script src="../jqueryui/js/jquery-ui.min.js"></script>
-	 <script>
+<script>
 $(function() {
 $( "#dateofimpact" ).datepicker();
 });
@@ -331,6 +332,17 @@ $( "#dateofimpact" ).datepicker();
 $(function() {
 $( "#impactvideoapproveddate" ).datepicker();
 });
+
+function showstuff(e){
+   var browsers = document.getElementById('browsers');
+   if(browsers.options[browsers.selectedIndex].value=="No"){
+      document.getElementById("show").style.display="block";
+   }
+   else {
+   	  document.getElementById("show").style.display="none";
+   }
+
+}
 </script>
 </body>
 </html>
