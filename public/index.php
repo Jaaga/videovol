@@ -55,7 +55,7 @@ if($_GET['action']) {
 <a href="storyeditor.php" class="button button-rounded button-flat-primary">Create New Story</a>
 <a href="junioreditorview.php" class="button button-rounded button-flat-action">Mentor View</a>
 <a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
-<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>
+<!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
 <a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
 <small><a href="viewalldata.php">View All Data</a></small>
 </div>
