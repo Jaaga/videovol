@@ -1,7 +1,8 @@
 
 <?php
-include '../model/dbcon.php';
-$db=dbopen();
+include '../model/StoryDB.php';
+//include '../model/dbcon.php';
+//$db=dbopen();
 include ('header.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
 <table class= "table table-hover">
@@ -22,9 +23,9 @@ include ('header.php');
 <th>Quality Check</th>
 </tr>
 <?php
-$toedit= "select fid,uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
-$result = $db->query($toedit);
-while($row = mysqli_fetch_array($result)) {
+$junioreditorview = getDataForJuniorEditor();
+foreach($junioreditorview as $row)
+{
   echo "<tr>";
   echo "<td>" . $row['uniquenumber'] . "</td>" ; 
   echo "<td>" . $row['ccname'] . "</td>" ; 

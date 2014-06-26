@@ -10,7 +10,9 @@ $a=$_GET['id'];
 	<title>Editor's Dashboard</title>
 </head>
 <body>
-<form name="editor-form" method="post" action="../public/junioredit.php" onsubmit="javaScript:return validate_dropdown1();"> 
+
+<form name="editor-form" method="post"action="../controller/junioreditorcontroller.php" onsubmit="javaScript:return validate_dropdown1();">
+
 	<input name="fid" type="hidden" value="<?php echo $a; ?>" >
 <h2>Editor's Dashboard</h2>
 	<table class= "table table-hover">

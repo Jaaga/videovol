@@ -15,7 +15,7 @@ function dbopen(){
 	return($db);
 }
 
-function close() {
+function dbclose() {
 	mysqli_close($db);
 }
 
