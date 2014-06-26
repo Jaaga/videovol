@@ -40,8 +40,8 @@ if($_GET['action']) {
 </select></td>
 
          
-        <td valign="top">From:<input type="date" name="fromdate"></td>
-        <td valign="top">To:<input type="date" name="todate"></td>
+        <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
+        <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
         <td><input type="submit" name="search" value="Search" /></td>
         <!--<td><input type="submit"></td>-->
     
@@ -53,11 +53,11 @@ if($_GET['action']) {
 <div class="stages">
 <br>
 <a href="storyeditor.php" class="button button-rounded button-flat-primary">Create New Story</a>
-<a href="viewalldata.php" class="button button-rounded button-flat-action">View All Data</a>
-<a href="junioreditorview.php" class="button button-rounded button-flat-action">Junior Editor View</a>
+<a href="junioreditorview.php" class="button button-rounded button-flat-action">Mentor View</a>
 <a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
 <a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>
 <a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
+<small><a href="viewalldata.php">View All Data</a></small>
 </div>
 
 <table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
@@ -84,26 +84,6 @@ if ($_GET['search']) {
 } else {
     $resultArray = getAllBasicData();
 }
-/*else if ($_GET['issuetopic']) {
-	echo "<h1>Issue: " . $_GET['issuetopic'] . "</h1>";
-	$resultArray = getBasicDataByIssue($_GET['issuetopic']);
-} else if ($_GET['ccname']) {
-	echo "<h1>CCNAME: " . $_GET['ccname'] . "</h1>";
-	$resultArray = getBasicDataByCCName($_GET['ccname']);	
-} else if ($_GET['stage']) {
-	echo "<h1>STAGE: " . $_GET['stage'] . "</h1>";
-	$resultArray = getBasicDataByStage($_GET['stage']);	
-} else if ($_GET['state']) {
-	echo "<h1>STATE: " . $_GET['state'] . "</h1>";
-	$resultArray = getBasicDataByState($_GET['state']);	
-} else if ($_GET['fid']) {
-	echo "<h1>ID: " . $_GET['fid'] . "</h1>";
-	$resultArray = getBasicDataById($_GET['fid']);
-} else {
-    $resultArray = getAllBasicData();
-}
-*/
-//    $resultArray = getAllBasicData();
 
 foreach ($resultArray as $row) {
 if ($row['impactpossible']=="Yes"){
@@ -145,6 +125,21 @@ echo "<tr>
  }       
 
 ?>
+
+<link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
+<script src="./jqueryui/js/jquery.js"></script>
+<script src="./jqueryui/js/jquery-ui.min.js"></script>
+<script>
+ $(function(){
+        $("#dateSearchFrom").datepicker({ dateFormat: 'yy-mm-dd' });
+        $("#searchToDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
+            var minValue = $(this).val();
+            minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+            minValue.setDate(minValue.getDate()+1);
+            $("#searchToDate").datepicker( "option", "minDate", minValue );
+        })
+    });
+</script>
 </table>
 </body>
 </html>
