@@ -1,7 +1,9 @@
 
 <?php
 include("header.php");
+include "../model/StoryDB.php";
 $a=$_GET['id'];
+$result = getDataByUniqueNumber($a); 
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,18 +18,26 @@ $a=$_GET['id'];
 	<table>
 		<tr><td valign="top"><label for="seq">SEQ :</label></td>
 		<td><select name="seq">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+			<?php $selection = $result['seq']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection, "0")==0) echo "selected"; ?>>Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection, "Good")==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection, "Not Good")==0) echo "selected"; ?>>Not Good</option>
 			</select>
 		</td>
 		</tr>
 
 		<tr><td valign="top"><label for="broll">B-Roll :</label></td>
 		<td><select name="broll">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+			<?php $selection = $result['broll']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?> >Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
 		</td>
 		</tr>
@@ -38,9 +48,13 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="fint">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+				<?php $selection = $result['fint']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?> >Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?> >Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?> >Not Good</option>
 			</select>
 
 		</td>
@@ -52,9 +66,13 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="vo">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+				<?php $selection = $result['vo']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
 
 		</td>
@@ -66,9 +84,13 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="ptc">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+				<?php $selection = $result['ptc']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
 
 		</td>
@@ -80,9 +102,13 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="cta">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+				<?php $selection = $result['cta']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
 
 		</td>
@@ -93,9 +119,13 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="vd">
-				<option value ="0">Select</option>
-				<option value = "Good">Good</option>
-				<option value = "Not Good">Not Good</option>
+				<?php $selection = $result['vd']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
+				<option value = "Good"
+				<?php if(strcmp($selection,"Good") ==0) echo "selected"; ?>>Good</option>
+				<option value = "Not Good"
+				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
 
 		</td>
@@ -107,10 +137,15 @@ $a=$_GET['id'];
 		</td>
 		<td>
 			<select name="translation">
-				<option value ="0">Select</option>
-				<option value = "yes">YES</option>
-				<option value = "NO">NO</option>
-				<option value = "Not Required">Not Required</option>
+				<?php $selection = $result['translation']; ?>
+				<option value ="0"
+				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
+				<option value = "yes"
+				<?php if(strcmp($selection,"yes") ==0) echo "selected"; ?>>YES</option>
+				<option value = "NO"
+				<?php if(strcmp($selection,"NO") ==0) echo "selected"; ?>>NO</option>
+				<option value = "Not Required"
+				<?php if(strcmp($selection,"Not Required") ==0) echo "selected"; ?>>Not Required</option>
 			</select>
 
 		</td>
