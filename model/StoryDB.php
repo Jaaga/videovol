@@ -117,6 +117,11 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 	mysqli_query($db, $sql);
 	dbclose();
 }
+function getDataForJuniorEditor(){
+	$sql ="select fid,uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
+	return getAs2DArray($sql);
+
+}
 
 function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fid){
 	
@@ -127,6 +132,11 @@ function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fi
 	return $result;
 }
 
+function seniorEditorUpdate(){
+	$sql = "update storytrack set uploaddate = '$uploaddate',publishdate = '$publishdate',receivedRO = '$receivedRO',receivedHQ  = '$receivedHQ' where fid='$fid'";
+	$db = dbopen();
+	return $db->query($sql);
+}
  /*
     $resultArray = getFootageCheckDataById(9);
     echo "array[0]: " . $resultArray[0];
