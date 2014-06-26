@@ -11,7 +11,7 @@ include ('header.php');
 </head>
 <body>
 	<h1>Senior Editor's Dashboard</h1>
-	<form name="senioreditor-form" method="post" action="../public/seupdate.php">
+	<form name="senioreditor-form" method="post" action="../controller/senioreditorcontroller.php">
 		<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
 		<label for="uploaddate">Upload Date</label>
 		<input type="text" name="uploaddate" id="datepicker"/>
