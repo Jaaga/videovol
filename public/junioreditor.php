@@ -12,10 +12,12 @@ $result = getDataByUniqueNumber($a);
 	<title>Editor's Dashboard</title>
 </head>
 <body>
-<form name="editor-form" method="post"action="../controller/junioreditorcontroller.php">
+
+<form name="editor-form" method="post"action="../controller/junioreditorcontroller.php" onsubmit="javaScript:return validate_dropdown1();">
+
 	<input name="fid" type="hidden" value="<?php echo $a; ?>" >
 <h2>Editor's Dashboard</h2>
-	<table>
+	<table class= "table table-hover">
 		<tr><td valign="top"><label for="seq">SEQ :</label></td>
 		<td><select name="seq">
 			<?php $selection = $result['seq']; ?>
@@ -26,7 +28,10 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection, "Not Good")==0) echo "selected"; ?>>Not Good</option>
 			</select>
+			<!-- <p><span>field cannot be left empty</span></p> -->
+		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
 		</td>
+
 		</tr>
 
 		<tr><td valign="top"><label for="broll">B-Roll :</label></td>
@@ -39,6 +44,10 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
+			<br><label id="brollHint" style="color: red; font-style: italic;"></label>
+		</td>
+				<td>
+		
 		</td>
 		</tr>
 
@@ -56,6 +65,7 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?> >Not Good</option>
 			</select>
+		<br><label id="fintHint" style="color: red; font-style: italic;"></label>
 
 		</td>
 		</tr>
@@ -74,7 +84,7 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
-
+		<br><label id="voHint" style="color: red; font-style: italic;"></label>
 		</td>
 		</tr>
 
@@ -92,6 +102,7 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
+			<br><label id="ptcHint" style="color: red; font-style: italic;"></label>
 
 		</td>
 		</tr>
@@ -100,7 +111,6 @@ $result = getDataByUniqueNumber($a);
 		<td valign="top">
 			<label for="cta">CTA :</label>
 		</td>
-		<td>
 			<select name="cta">
 				<?php $selection = $result['cta']; ?>
 				<option value ="0"
@@ -110,9 +120,9 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
-
+		<br><label id="ctaHint" style="color: red; font-style: italic;"></label>
 		</td>
-
+	</tr>
 		<tr>
 		<td valign="top">
 			<label for="vd">VD :</label>
@@ -127,7 +137,7 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Good"
 				<?php if(strcmp($selection,"Not Good") ==0) echo "selected"; ?>>Not Good</option>
 			</select>
-
+		<br><label id="vdHint" style="color: red; font-style: italic;"></label>
 		</td>
 		</tr>
 
@@ -135,7 +145,7 @@ $result = getDataByUniqueNumber($a);
 		<td valign="top">
 			<label for="translation">Translation :</label>
 		</td>
-		<td>
+		<td>s
 			<select name="translation">
 				<?php $selection = $result['translation']; ?>
 				<option value ="0"
@@ -147,18 +157,20 @@ $result = getDataByUniqueNumber($a);
 				<option value = "Not Required"
 				<?php if(strcmp($selection,"Not Required") ==0) echo "selected"; ?>>Not Required</option>
 			</select>
-
+		<br><label id="translationHint" style="color: red; font-style: italic;"></label>
 		</td>
 		</tr>
 
 		<tr>
-		<td>
-			<input type="submit">
-		</td>
+		<td> 
+<input name="btnSubmit" type="submit" value="Submit" id="btnSubmit"/>
+</td>
 		</tr>
 
 	</table>
 </form>
-	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="script.js" type="text/javascript" charset="utf-8"></script>
+
 </body>
 </html>

@@ -159,6 +159,10 @@ function getDataForSeniorEditor(){
 	$sql = "select * from storytrack where seq IS NOT NULL";
 	return getAs2DArray($sql);
 }
+function getDataByUniqueNumber($fid){
+	$sql = "select * from storytrack where fid = '".$fid."'";
+	return getAsAssocArray($sql);
+}
  /*
     $resultArray = getFootageCheckDataById(9);
     echo "array[0]: " . $resultArray[0];
