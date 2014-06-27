@@ -1,5 +1,7 @@
 <?php
+include '../model/StoryDB.php';
 $fid = $_GET['id'];
+$result= getDataByUniqueNumber($fid);
 include ('header.php');
 ?>
 
@@ -22,7 +24,7 @@ include ('header.php');
 		<label for="uploaddate">Upload Date</label>
 	</td>
 	<td valign="top">		
-		<input type="text" name="uploaddate" id="datepicker"/>
+		<input type="text" name="uploaddate" value="<?php echo $result['uploaddate']; ?> " id="datepicker"/>
 	</td>
 	</tr>
 
@@ -30,7 +32,7 @@ include ('header.php');
 		<label for="publishdate">Publish Date</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="publishdate" id="datepick"/>
+		<input type="text" name="publishdate" value="<?php echo $result['publishdate']; ?> "id="datepick"/>
 	</td>
 	</tr>
 
@@ -41,9 +43,13 @@ include ('header.php');
 
  	<td valign="top">
  		<select name="receivedRO">
-				<option value ="0">Select</option>
-				<option value = "Good">yes</option>
-				<option value = "Not Good">No</option>
+ 			<?php $value = $result['receivedRO'];?>
+				<option value ="0"
+				<?php if(strcmp($value, 0)==0) echo "selected"; ?>>Select</option>
+				<option value = "yes"
+				<?php if(strcmp($value, "yes")==0) echo "selected"; ?>>yes</option>
+				<option value = "No"
+				<?php if(strcmp($value, "No")==0) echo "selected"; ?>>No</option>
 			</select>
   		<!--<input type="radio" name="receivedRO" />yes
 		<input type="radio" name="receivedRO" />no-->
@@ -56,9 +62,13 @@ include ('header.php');
 	</td>
  	<td valign="top">
  		<select name="receivedHQ">
-				<option value ="0">Select</option>
-				<option value = "Good">yes</option>
-				<option value = "Not Good">No</option>
+ 			<?php $value = $result['receivedHQ'];?>
+				<option value ="0"
+				<?php if(strcmp($value, 0)==0) echo "selected"; ?>>Select</option>
+				<option value = "yes"
+				<?php if(strcmp($value, "yes")==0) echo "selected"; ?>>yes</option>
+				<option value = "No"
+				<?php if(strcmp($value, "No")==0) echo "selected"; ?>>No</option>
 			</select>
   		<!--<input type="radio" name="receivedHQ" />yes
 		<input type="radio" name="receivedHQ" />no-->

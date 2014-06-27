@@ -154,7 +154,12 @@ function seniorEditorUpdate($uploaddate,$publishdate,$receivedRO,$receivedHQ,$fi
 	$result= $db->query($sql);
 	return $result;
 }
-
+function projectManagerUpdate($paymentstatus,$editStatus,$editMonth,$notes,$publishPlatform,$editorNames,$editorPayment,$fid ){
+	$sql = "update storytrack set paymentstatus ='$paymentstatus',editstatus ='$editStatus',editedmonth = '$editMonth',notes = '$notes',publishplatform = '$publishPlatform',editor = '$editorNames', editorpayment = '$editorPayment' where fid ='$fid'";
+	$db = dbopen();
+	$result = $db->query($sql);
+	return $result;
+}
 function getDataForSeniorEditor(){
 	$sql = "select * from storytrack where seq IS NOT NULL";
 	return getAs2DArray($sql);
@@ -162,6 +167,10 @@ function getDataForSeniorEditor(){
 function getDataByUniqueNumber($fid){
 	$sql = "select * from storytrack where fid = '".$fid."'";
 	return getAsAssocArray($sql);
+}
+function getDataForProjectManager(){
+	$sql ="select * from storytrack where seq IS NOT NULL and  paymentstatus IS NULL";
+	return getAs2DArray($sql);
 }
  /*
     $resultArray = getFootageCheckDataById(9);

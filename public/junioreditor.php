@@ -151,7 +151,7 @@ $result = getDataByUniqueNumber($a);
 				<option value ="0"
 				<?php if(strcmp($selection,"0") ==0) echo "selected"; ?>>Select</option>
 				<option value = "yes"
-				<?php if(strcmp($selection,"yes") ==0) echo "selected"; ?>>YES</option>
+				<?php if(strcmp($selection,"YES") ==0) echo "selected"; ?>>YES</option>
 				<option value = "NO"
 				<?php if(strcmp($selection,"NO") ==0) echo "selected"; ?>>NO</option>
 				<option value = "Not Required"

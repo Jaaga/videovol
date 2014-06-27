@@ -1,10 +1,6 @@
 <?php
-include '../model/dbcon.php';
-$db=dbopen();
+include '../model/StoryDB.php';
 include ('header.php');
-
-
-//$data = "select * from storytrack where datereceived = '1986-12-23'"
 ?>
 <table class="table table-hover">
 <thead>
@@ -24,21 +20,21 @@ include ('header.php');
 </thead>
 </tr>
 <?php 
-$statusedit= "select * from storytrack where seq IS NOT NULL and  paymentstatus IS NULL";
-$result = $db->query($statusedit);
-while($row = mysqli_fetch_array($result)) {
+$rows = getDataForProjectManager();
+foreach($rows as $row)
+ {
   echo "<tr>";
   echo "<td>" . $row['ccname'] . "</td>" ; 
   echo "<td>" . $row['state'] . "</td>";
   echo "<td>" . $row['receiveddate'] . "</td>";
   echo "<td>" . $row['issuetopic'] . "</td>"; 
-  echo "<td>" . $row['paymentStatus'] . "</td>"; 
-  echo "<td>" . $row['editStatus'] . "</td>";
-  echo "<td>" . $row['editMonth'] . "</td>"; 
+  echo "<td>" . $row['paymentstatus'] . "</td>"; 
+  echo "<td>" . $row['editstatus'] . "</td>";
+  echo "<td>" . $row['editedmonth'] . "</td>"; 
   echo "<td>" . $row['notes'] . "</td>";
-  echo "<td>" . $row['publishPlatform'] . "</td>"; 
-  echo "<td>" . $row['editorName'] . "</td>";
-  echo "<td>" . $row['editorPayment'] . "</td>";    
+  echo "<td>" . $row['publishplatform'] . "</td>"; 
+  echo "<td>" . $row['editor'] . "</td>";
+  echo "<td>" . $row['editorpayment'] . "</td>";    
   echo "<td><a href=\"project-manager.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
