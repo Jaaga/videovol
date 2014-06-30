@@ -1,15 +1,7 @@
 <?php
-include("header.php");
-include("../model/ImpactDB.php");
+include_once("header.php");
+include_once("../model/ImpactDB.php");
 ?>
-
-<div class="login">
-<a href="login.php" class="button button->rounded button-flat-royal">Login</a>
-<a href="signupnewuser.php" class="button button-rounded button-flat-royal">Sign-up</a>
-</div>
-<div class="user">
-<a href="primeuser.php" class="button button-rounded button-flat-royal">Prime User</a>
-</div>
 
 <!--<h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>-->
 <table class="table table-hover"><thead><tr><th>Edit</th><th>UniqueNumber</th><th>CCName</th><th>State</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th><th>Targetofficial</th><th>Desiredchange</th><th>CCImpactplan</th><th>Impactprocess</th><tr>

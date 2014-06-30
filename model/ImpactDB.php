@@ -1,5 +1,5 @@
 <?php
-include 'dbcon.php';
+include_once ('dbcon.php');
 
 function getImpactDataByUniqueNumber($un)
 {

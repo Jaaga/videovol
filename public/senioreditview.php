@@ -1,6 +1,6 @@
 <?php
-include '../model/StoryDB.php';
-include ('header.php');
+include_once ('../model/StoryDB.php');
+include_once ('header.php');
 ?>
 <table class="table table-hover">
 <thead>
