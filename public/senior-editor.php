@@ -86,11 +86,11 @@ include ('header.php');
 <script src="jqueryui/js/jquery-ui.min.js"></script>
 	 <script>
 $(function() {
-$( "#datepicker" ).datepicker();
+var date = $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
 
 $(function() {
-$( "#datepick" ).datepicker();
+var datepick = $('#datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
 </script>	
 </body>
