@@ -56,6 +56,7 @@
 <br>
 <a href="index.php" class="button button-rounded button-flat-primary">Story View</a>
 <a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a>
+<a href="editview.php" class="button button-rounded button-flat-action">Editor View</a>
 <a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
 <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
 <a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
