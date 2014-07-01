@@ -31,12 +31,12 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['state'] . "</td>";
   echo "<td>" . $row['receiveddate'] . "</td>";
   echo "<td>" . $row['issuetopic'] . "</td>"; 
-  echo "<td>" . $row['editrecieve'] . "</td>"; 
-  echo "<td>" . $row['editorName'] . "</td>";
+  echo "<td>" . $row['editreceived'] . "</td>"; 
+  echo "<td>" . $row['editor'] . "</td>";
   echo "<td>" . $row['editcomplete'] . "</td>"; 
-  echo "<td>" . $row['subtitleStatus'] . "</td>";   
+  echo "<td>" . $row['subtitlestatus'] . "</td>";   
   echo "<td>" . $row['videosent'] . "</td>";  
-  echo "<td>" . $row['notes'] . "</td>";  
+  echo "<td>" . $row['edtiornotes'] . "</td>";  
   echo "<td><a href=\"editor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
