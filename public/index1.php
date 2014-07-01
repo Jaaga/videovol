@@ -7,22 +7,6 @@ if($_GET['action']) {
 include_once("header.php");
 
 ?>
-<!-- tabs  -->
-<div class="stages"  > <!-- button tabs for different views -->
-<br>
-    <ul id="tabs">
-        <li><a href="index.php" class="button button-rounded button-flat-primary">Story View</a></li>
-        <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
-        <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
-        <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
-        <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
-        <li><a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a></li>
-        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
-        <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
-    </ul>
-</div>
-  
-
 
 <!--
 <div class="login">
@@ -113,6 +97,7 @@ echo "<tr>
             $("#searchToDate").datepicker( "option", "minDate", minValue );
         })
     });
+ 
 </script>
 </table>
 </body>

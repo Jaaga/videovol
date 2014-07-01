@@ -3,6 +3,21 @@ include_once("header.php");
 include_once("../model/ImpactDB.php");
 ?>
 
+<!-- tabs  -->
+<div class="stages"  > <!-- button tabs for different views -->
+<br>
+    <ul id="tabs">
+        <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
+        <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
+        <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
+        <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
+        <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
+        <li><a href="impactview1.php" class="button button-rounded button-flat-primary">Impact View</a></li>
+        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
+        <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
+    </ul>
+</div>
+
 <!--<h2>Summary <a href="table_bootstrap.php" class="button button-rounded button-flat-primary">View All Data</a></h2>-->
 <table class="table table-hover"><thead><tr><th>Edit</th><th>UniqueNumber</th><th>CCName</th><th>State</th><th>Received Date</th><th>Issue Topic</th><th>Story Description</th><th>Targetofficial</th><th>Desiredchange</th><th>CCImpactplan</th><th>Impactprocess</th><tr>
 </thead>
