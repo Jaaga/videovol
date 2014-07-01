@@ -2,11 +2,12 @@
 
 function getJuniorEditorDataByUniqueNumber($uniquenumber) {
     $sql = "select uniquenumber, footagereceived , wherereceived, reviewedby, seq, broll," .
-    	   " fint, vo, ptc, cta, vd, translation from storytrack where uniquenumber = '" . 
+    	   " fint, vo, ptc, cta, vd, translation from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
    	echo $sql;
  	$array = getAsAssocArray($sql);
  	echo "\nreviewed by: " . $array['reviewedby'];
+ 	return $array;
 }
 
 function getJuniorEditorData() {
