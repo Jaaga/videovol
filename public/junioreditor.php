@@ -8,7 +8,7 @@ echo "edit UN: " . $un;
 include_once("../model/PostDB.php");
 
 $data = getJuniorEditorDataByUniqueNumber($un); 
-echo 'sec: ' . $data['sec'];
+echo 'seq: ' . $data['seq'];
 echo '  reviewedby: ' . $data['reviewedby'];
 ?>
 <!doctype html>
@@ -20,10 +20,11 @@ echo '  reviewedby: ' . $data['reviewedby'];
 </head>
 <body>
 
-<form name="editor-form" method="post" action="../controller/junioreditorcontroller.php" 
+<form name="editor-form" method="get" action="junioreditorview.php" 
 		onsubmit="javaScript:return validate_dropdown1();">
 
 	<input name="un" type="hidden" value=<?php echo $un; ?> > 
+	<input name="action" type="hidden" value="update" > 
 	<table class= "table table-hover">
 		<tr><td valign="top"><label for="footage received">Footage Received :</label></td>
 			<td>
@@ -44,104 +45,38 @@ echo '  reviewedby: ' . $data['reviewedby'];
 			</td>
 		</tr>
 
-		<tr><td valign="top"><label for="seq">SEQ : <?php echo $data['seq']; ?> : </label></td>
-		<td><select name="seq">
-			<?php $selection = $data['seq']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
+<?php 
 
-		<tr><td valign="top"><label for="seq">BROLL : <?php echo $data['broll']; ?> : </label></td>
-		<td><select name="broll">
-			<?php $selection = $data['broll']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
+function echoSelect($label, $column) {
+	echo "<h2>data[seq] : " . $data['seq'] . "</h2>";
 
-		<tr><td valign="top"><label for="fint">INT : <?php echo $data['fint']; ?> : </label></td>
-		<td><select name="fint">
-			<?php $selection = $data['fint']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
+/*	$val = $data['seq'];
+	echo "<h2>" . $label . " : " . $val . "</h2>";
+	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
+		$label . " : " . $value . "</label></td>" .
+		"<td><select name='" . $column . "'>";
+	if (isset($value) == FALSE) 
+		echo "<option value='0'>Select</option>";
+	echo "<option value = 'Good'";
+	if($value == "Good") 
+		echo " selected"; 
+	echo ">Good</option>";
+	echo "<option value = 'Not Good'";
+	if($value == "Not Good")  
+		echo "selected";
+	echo ">Not Good</option>";
+	echo "
+		<br><label id='seqHint' style='color: red; font-style: italic;'></label>	
 		</td>
-		</tr>
+		</tr>";
+*/
+}
 
-		<tr><td valign="top"><label for="vo">VO : <?php echo $data['vo']; ?> : </label></td>
-		<td><select name="vo">
-			<?php $selection = $data['vo']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
-
-		<tr><td valign="top"><label for="ptc">PTC : <?php echo $data['ptc']; ?> : </label></td>
-		<td><select name="ptc">
-			<?php $selection = $data['ptc']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
-
-		<tr><td valign="top"><label for="cta">CTA : <?php echo $data['cta']; ?> : </label></td>
-		<td><select name="cta">
-			<?php $selection = $data['cta']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
-
-		<tr><td valign="top"><label for="vd">VD : <?php echo $data['vd']; ?> : </label></td>
-		<td><select name="vd">
-			<?php $selection = $data['vd']; ?>
-				<option value = "Good"
-				<?php if($selection == "Good") { echo "selected"; ?>>Good</option>
-				<option value = "Not Good"
-				<?php } else if($selection == "Not Good") { echo "selected"; ?>>Not Good</option>
-				<option value ="0"
-				<?php } else echo "selected"; ?>>Select</option>
-			</select>
-		<br><label id="seqHint" style="color: red; font-style: italic;"></label>	
-		</td>
-		</tr>
-
+echoSelect('SEQ', 'seq');
+echoSelect('VO', 'vo');
+echoSelect('PTC', 'ptc');
+echoSelect('VD', 'vd');
+?>
 		<tr><td valign="top"><label for="translation">Translation :</label></td>
 			<td>
 				<input type="text" name="translation" 
@@ -161,11 +96,12 @@ echo '  reviewedby: ' . $data['reviewedby'];
 			</td>
 		</tr>
 
-
+		<tr><td><input type=submit></td><tr>
 	</table>
 </form>
+<!--
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="script.js" type="text/javascript" charset="utf-8"></script>
-
+-->
 </body>
 </html>
