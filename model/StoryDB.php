@@ -133,20 +133,6 @@ function updateStory($fid, $ccname, $state, $dateReceived, $issue, $story, $uniq
 	mysqli_query($db, $sql);
 	mysqli_close($db);
 }
-function getDataForJuniorEditor(){
-	$sql ="select fid,uniquenumber, ccname , state , receiveddate , issuetopic, seq, broll, fint, vo, ptc, cta, vd, translation from storytrack ";
-	return getAs2DArray($sql);
-
-}
-
-function juniorEditorUpdate($seq,$broll,$fint,$vo,$ptc,$cta,$vd,$translation,$fid){
-	
-	$sql = "update storytrack set seq='$seq',broll='$broll',fint='$fint',vo='$vo',ptc='$ptc',cta='$cta',vd='$vd',translation='$translation' where fid ='$fid'";
-	$db = dbopen();
-	$result= $db->query($sql);
-	mysqli_close($db);
-	return $result;
-}
 
 function seniorEditorUpdate($uploaddate,$publishdate,$receivedRO,$receivedHQ,$fid){
 	$sql = "update storytrack set uploaddate = '$uploaddate',publishdate = '$publishdate',receivedRO = '$receivedRO',receivedHQ  = '$receivedHQ' where fid='$fid'";

@@ -1,9 +1,9 @@
 
 <?php
-include '../model/StoryDB.php';
+include_once ('../model/PostDB.php');
 //include '../model/dbcon.php';
 //$db=dbopen();
-include ('header.php');
+include_once ('header.php');
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
 <!-- tabs  -->
 <div class="stages"  > <!-- button tabs for different views -->
@@ -22,10 +22,9 @@ include ('header.php');
 <table class= "table table-hover">
 <tr>
 <th>Unique Number</th>
-<th>CC Name</th>
-<th>State</th>
-<th>Received Date</th>
-<th>Topic</th>
+<th>Footage Received</th>
+<th>Where Received</th>
+<th>Reviewed By</th>
 <th>SEQ</th>
 <th>B-Roll</th>
 <th>Fint</th>
@@ -34,18 +33,18 @@ include ('header.php');
 <th>CTA</th>
 <th>VD</th>
 <th>Translation</th>
-<th>Quality Check</th>
+<th>Approved For Payment</th>
+<th>Approved On</th>
 </tr>
 <?php
-$junioreditorview = getDataForJuniorEditor();
-foreach($junioreditorview as $row)
+$jdata = getJuniorEditorData();
+foreach($jdata as $row)
 {
   echo "<tr>";
   echo "<td>" . $row['uniquenumber'] . "</td>" ; 
-  echo "<td>" . $row['ccname'] . "</td>" ; 
-  echo "<td>" . $row['state'] . "</td>";
-  echo "<td>" . $row['receiveddate'] . "</td>";
-  echo "<td>" . $row['issuetopic'] . "</td>"; 
+  echo "<td>" . $row['footagereceived'] . "</td>";
+  echo "<td>" . $row['wherereceived'] . "</td>"; 
+  echo "<td>" . $row['reviewedby'] . "</td>"; 
   echo "<td>" . $row['seq'] . "</td>"; 
   echo "<td>" . $row['broll'] . "</td>"; 
   echo "<td>" . $row['fint'] . "</td>"; 
@@ -54,7 +53,9 @@ foreach($junioreditorview as $row)
   echo "<td>" . $row['cta'] . "</td>";  
   echo "<td>" . $row['vd'] . "</td>"; 
   echo "<td>" . $row['translation'] . "</td>"; 
-  echo "<td><a href=\"junioreditor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
+  echo "<td>" . $row['paymentapproved'] . "</td>"; 
+  echo "<td>" . $row['approvedon'] . "</td>"; 
+  echo "<td><a href='junioreditor.php?un=" . $row['uniquenumber'] . "'><input type='submit' value='Edit' /></a></td>";
   echo "</tr>";
 }
 
@@ -63,3 +64,19 @@ echo "</table>";
 ?>
 </body>
 
+<link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
+<script src="./jqueryui/js/jquery.js"></script>
+<script src="./jqueryui/js/jquery-ui.min.js"></script>
+<script>
+ $(function(){
+        $("#dateSearchFrom").datepicker({ dateFormat: 'yy-mm-dd' });
+        $("#searchToDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
+            var minValue = $(this).val();
+            minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+            minValue.setDate(minValue.getDate()+1);
+            $("#searchToDate").datepicker( "option", "minDate", minValue );
+        })
+    });
+</script>
+</body>
+</html>

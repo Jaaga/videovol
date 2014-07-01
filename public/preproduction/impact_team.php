@@ -326,11 +326,11 @@ $IData = getImpactDataByUniqueNumber($un);
 <script src="../jqueryui/js/jquery-ui.min.js"></script>
 <script>
 $(function() {
-$( "#dateofimpact" ).datepicker();
+var date = $('#dateofimpact').datepicker({ dateFormat: 'dd-mm-yy' }).val();
 });
 
 $(function() {
-$( "#impactvideoapproveddate" ).datepicker();
+var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'dd-mm-yy' }).val();
 });
 
 function showstuff(e){
