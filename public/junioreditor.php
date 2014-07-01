@@ -47,11 +47,7 @@ echo '  reviewedby: ' . $data['reviewedby'];
 
 <?php 
 
-function echoSelect($label, $column) {
-	echo "<h2>data[seq] : " . $data['seq'] . "</h2>";
-
-/*	$val = $data['seq'];
-	echo "<h2>" . $label . " : " . $val . "</h2>";
+function echoSelect($label, $column, $value) {
 	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
 		$label . " : " . $value . "</label></td>" .
 		"<td><select name='" . $column . "'>";
@@ -69,13 +65,12 @@ function echoSelect($label, $column) {
 		<br><label id='seqHint' style='color: red; font-style: italic;'></label>	
 		</td>
 		</tr>";
-*/
 }
 
-echoSelect('SEQ', 'seq');
-echoSelect('VO', 'vo');
-echoSelect('PTC', 'ptc');
-echoSelect('VD', 'vd');
+echoSelect('SEQ', 'seq', $data['seq']);
+echoSelect('VO', 'vo', $data['vo']);
+echoSelect('PTC', 'ptc', $data['ptc']);
+echoSelect('VD', 'vd', $data['vd']);
 ?>
 		<tr><td valign="top"><label for="translation">Translation :</label></td>
 			<td>
