@@ -19,19 +19,19 @@ $a=$_GET['id'];
 
 <table>
 	<tr><td valign="top">  
-		<label for="editrecieve">Received for Editing</label>
+		<label for="editreceived">Received for Editing</label>
 	</td>
 	<td valign="top">		
-		<input type="text" name="editrecieve" id="datepicker"/>
+		<input type="text" name="editreceived" id="datepicker"/>
 	</td>
 	</tr>
 	
 	<tr>
 	<td valign="top"> 
-				<label for="editorName">Editor :</label>
+				<label for="editor">Editor :</label>
 			</td>
 			<td> 
-				<input type="text" name="editorName">
+				<input type="text" name="editor">
 	</td>
 	</tr>
 	
@@ -43,21 +43,12 @@ $a=$_GET['id'];
 	</td>
 	</tr>
 
-	<td valign="top">
- 		<select name="editcomplete">
-				<option value ="0">Select</option>
-				<option value = "Good">yes</option>
-				<option value = "Not Good">No</option>
-		</select>
-	</td>
-	</tr>
-
 	<tr>
  	<td valign="top">
- 		<label for="subtitleStatus">Subtitling Status:</label>
+ 		<label for="subtitlestatus">Subtitling Status:</label>
  	</td>
  	<td valign="top">
- 		<select name="subtitleStatus">
+ 		<select name="subtitlestatus">
 			<option value ="0">Select</option>
 			<option value = "Done">Done</option>
 			<option value = "Not Done">Not Done</option>
@@ -75,10 +66,10 @@ $a=$_GET['id'];
 
 	<tr>
  	<td valign="top">
- 		 <label for="notes">Notes: </label>
+ 		 <label for="editornotes">Notes: </label>
  	</td>
  	<td valign="top">
-  		<textarea  name="notes" maxlength="1000" cols="25" rows="6"></textarea>
+  		<textarea  name="editornotes" maxlength="1000" cols="25" rows="6"></textarea>
  	</td>
 	</tr>
  	

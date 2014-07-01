@@ -105,20 +105,14 @@ tr
 }
 /*-------------------------------*/
 
-
-/*----------------------------------
-jQuery magic goes here
-----------------------*/
-
-/* span {
-  border-radius: 5px;
-  text-align: center;
-  background: #FF0000;
-  width: 160px;
-  padding: 7px 10px;
-  color: #fff;
-  
-} */
-
-
+li{
+	display: inline;
+}
+ @media (max-width: 1000px) {
+      
+      li {
+        display: block;
+        padding: 5px;
+      }
+    }
 
