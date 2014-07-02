@@ -1,5 +1,25 @@
 <?php 
 
+function labeledDatePicker($label, $name, $value) {
+	echo "
+		<tr><td valign=\"top\"><label for=\"goareceived\">" . $label . " :</label></td>
+			<td>
+				<p><input type=\"text\" name=\"" . $name . "\" id=\"datepick\" 
+					value=\"" . $value . "\"></p>
+			</td>
+		</tr>";
+}
+
+function labeledTextBox($label, $name, $value) {
+	echo "
+		<tr><td valign=\"top\"><label for=\"goareceived\">" . $label . " :</label></td>
+			<td>
+				<p><input type=\"text\" name=\"" . $name . 
+					"\" value=\"" . $value . "\"></p>
+			</td>
+		</tr>";
+}
+
 function goodNotGoodSelect($label, $column, $value) {
 	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
 		$label . " : " . $value . "</label></td>" .

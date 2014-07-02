@@ -1,4 +1,4 @@
-<?php include_once('../model/StoryDB.php'); ?>
+
 
 <!doctype html>
 <head>

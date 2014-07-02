@@ -1,7 +1,7 @@
 
 <?php 
-include("../header.php");
-include("../../model/ImpactDB.php");
+include("header.php");
+include("../model/ImpactDB.php");
 $un = $_GET['id'];
 
 $IData = getImpactDataByUniqueNumber($un);

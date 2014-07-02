@@ -1,6 +1,7 @@
 <?php
 include_once ('../model/PostDB.php');
 include_once ('header.php');
+include_once ('../controller/SeniorEditorController.php');
 ?>
 
 <!-- tabs  -->
@@ -52,7 +53,7 @@ foreach($senioreditordata as $row)
   echo "<td>" . $row['uploaded'] . "</td>";   
   echo "<td>" . $row['published'] . "</td>";   
   echo "<td>" . $row['publishplatform'] . "</td>";   
-  echo "<td><a href=\"senior-editor.php?un=" . $row[uniquenumber] . 
+  echo "<td><a href=\"senioreditor.php?un=" . $row['uniquenumber'] . 
        "\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
@@ -62,4 +63,4 @@ echo "</table>";
 
 <?php 
     include_once ('footer.php');
-?>>
+?>
