@@ -16,6 +16,13 @@ function getJuniorEditorData() {
 	return getAs2DArray($sql);
 }
 
+function getSeniorEditorData() {
+	$sql ="select uniquenumber, goareceived, subtitlerequired, subtitledone, cleaningrequired,".
+		  "cleaningdone, feedback, seniornotes, uploaded, published, publishplatform " .
+		  "from posttrack";
+	return getAs2DArray($sql);	
+}
+
 function addJuniorEditorData($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {

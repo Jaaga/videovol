@@ -1,5 +1,5 @@
 <?php
-include_once ('../model/StoryDB.php');
+include_once ('../model/PostDB.php');
 include_once ('header.php');
 ?>
 
@@ -21,31 +21,39 @@ include_once ('header.php');
 <table class="table table-hover">
 <thead>
 <tr>
-<th>CC Name</th>
-<th>State</th>
-<th>Received Date</th>
-<th>Issue Topic</th>
-<th>Upload Date</th>
-<th>Publish Date</th>
-<th>Recieved at RO</th>
-<th>Recieved at HQ</th>
-<th>Upload Edit</th>
+<th>Unique Number</th>
+<th>Received in Goa</th>
+<th>Subtitling Required</th>
+<th>Subtitling Completed On</th>
+<th>Cleaning Required</th>
+<th>Cleaning Completed On</th>
+<th>Feedback</th>
+<th>Notes</th>
+<th>Uploaded On</th>
+<th>Published On</th>
+<th>Publish Platform</th>
+<th><!-- edit --></th>
 </tr>
 </thead>
+
 <?php 
-$senioreditordata = getDataForSeniorEditor();
+$senioreditordata = getSeniorEditorData();
 foreach($senioreditordata as $row)
 {
   echo "<tr>";
-  echo "<td>" . $row['ccname'] . "</td>" ; 
-  echo "<td>" . $row['state'] . "</td>";
-  echo "<td>" . $row['receiveddate'] . "</td>";
-  echo "<td>" . $row['issuetopic'] . "</td>"; 
-  echo "<td>" . $row['uploaddate'] . "</td>"; 
-  echo "<td>" . $row['publishdate'] . "</td>";
-  echo "<td>" . $row['receivedRO'] . "</td>"; 
-  echo "<td>" . $row['receivedHQ'] . "</td>";   
-  echo "<td><a href=\"senior-editor.php?id=$row[fid]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
+  echo "<td>" . $row['uniquenumber'] . "</td>" ; 
+  echo "<td>" . $row['goareceived'] . "</td>";
+  echo "<td>" . $row['subtitlerequired'] . "</td>";
+  echo "<td>" . $row['subtitledone'] . "</td>"; 
+  echo "<td>" . $row['cleaningrequired'] . "</td>"; 
+  echo "<td>" . $row['cleaningdone'] . "</td>";
+  echo "<td>" . $row['feedback'] . "</td>"; 
+  echo "<td>" . $row['seniornotes'] . "</td>";   
+  echo "<td>" . $row['uploaded'] . "</td>";   
+  echo "<td>" . $row['published'] . "</td>";   
+  echo "<td>" . $row['publishplatform'] . "</td>";   
+  echo "<td><a href=\"senior-editor.php?un=" . $row[uniquenumber] . 
+       "\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
   echo "</tr>";
 }
 

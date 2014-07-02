@@ -1,8 +1,8 @@
 <?php
 
 
-include('header.php');
-include("../model/StoryDB.php");
+//include('header.php');
+include_once("../model/StoryDB.php");
 $storyData = getDataByID($_GET['id']);
 ?>
 <!doctype html>

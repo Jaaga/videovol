@@ -1,7 +1,5 @@
 <?php 
 
-echo "<h1>in JEC</h1>";
-
 include_once '../model/PostDB.php';
 if($_GET['action'] == 'update') {
 	juniorEditorUpdate($_GET['un'], $_GET['footagereceived'], $_GET['wherereceived'], $_GET['reviewedby'], 
