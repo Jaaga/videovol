@@ -1,5 +1,5 @@
 <?php
-include_once("header.php");
+//include_once("header.php");
 include_once("../model/ImpactDB.php");
 ?>
 
@@ -27,7 +27,7 @@ $resultArray = getStoryAndImpact();
 foreach ($resultArray as $row) {
 echo "<tr>
         
-       <td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) . ">" . 
+       <td><a href=impactEditor.php?id=" . urlencode($row['uniquenumber']) . ">" . 
         "Edit Impact" . "</a></td> <td>" . 
         $row['uniquenumber'] . "</td> ". 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
