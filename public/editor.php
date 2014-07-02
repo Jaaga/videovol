@@ -1,7 +1,7 @@
 
 <?php
 include("header.php");
-$a=$_GET['id'];
+$un=$_GET['un'];
 ?>
 
 <!doctype html>
@@ -13,7 +13,7 @@ $a=$_GET['id'];
 <body>
 	
 <form name="editor-form" method="post" >
-		<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
+		<input name="fid" type="hidden" value="<?php echo $un; ?>" >
 		
 	<h2>Editor's Dashboard</h2>
 
@@ -22,7 +22,7 @@ $a=$_GET['id'];
 		<label for="editreceived">Received for Editing</label>
 	</td>
 	<td valign="top">		
-		<input type="text" name="editreceived" id="datepicker"/>
+		<input type="text" name="editreceived" id="datepick1"/>
 	</td>
 	</tr>
 	
@@ -39,7 +39,7 @@ $a=$_GET['id'];
 		<label for="editcomplete">Editing Completed</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="editcomplete" id="datepick"/>
+		<input type="text" name="editcomplete" id="datepick2"/>
 	</td>
 	</tr>
 
@@ -60,16 +60,16 @@ $a=$_GET['id'];
 		<label for="videosent">Complete Video Sent</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="videosent" id="datepick"/>
+		<input type="text" name="videosent" id="datepick3"/>
 	</td>
 	</tr>
 
 	<tr>
  	<td valign="top">
- 		 <label for="editornotes">Notes: </label>
+ 		 <label for="editnotes">Notes: </label>
  	</td>
  	<td valign="top">
-  		<textarea  name="editornotes" maxlength="1000" cols="25" rows="6"></textarea>
+  		<textarea  name="editnotes" maxlength="1000" cols="25" rows="6"></textarea>
  	</td>
 	</tr>
  	
@@ -81,7 +81,23 @@ $a=$_GET['id'];
 
 </table>	
 </form>
+<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
+<script src="jqueryui/js/jquery.js"></script>
+<script src="jqueryui/js/jquery-ui.min.js"></script>
+	 <script>
+$(function() {
+var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
 
+$(function() {
+var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+
+$(function() {
+var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+
+</script>
 	
 </body>
 </html>
