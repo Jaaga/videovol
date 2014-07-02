@@ -24,20 +24,20 @@
    <form method="GET" action="index.php">
    
     <tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
-<?php    foreach(getCCNames() as $ccname) 
-           echo '<option value="'.$ccname.'">'.$ccname.'</option>';
+<?php    //foreach(getCCNames() as $ccname) 
+          // echo '<option value="'.$ccname.'">'.$ccname.'</option>';
 ?>
    </select></td>
    
 <td valign="top"><select name="state"><option value="1">State</option>
-<?php   foreach(getStates() as $state) 
-           echo '<option value="'.$state.'">'.$state.'</option>';
+<?php   //foreach(getStates() as $state) 
+          // echo '<option value="'.$state.'">'.$state.'</option>';
 ?>
    </select></td>
        
 <td valign="top"><select name="issue"><option value="1">Issue</option>'; 
-<?php     foreach(getIssues() as $issue) 
-           echo '<option value="'.$issue.'">'.$issue.'</option>';
+<?php   //  foreach(getIssues() as $issue) 
+           //echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
 
