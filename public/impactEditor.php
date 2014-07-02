@@ -14,9 +14,9 @@ $IData = getImpactDataByUniqueNumber($un);
 
 <h1><?php if($_GET['id']) echo "Unique No.: ".$_GET['id']?></h1>
 
-<form method="get" action="../index.php">
+<!--<form method="get" action="../index.php">
     <button type="submit">Home</button>
-</form>
+</form>-->
 	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
 	<table class="table table-hover">
@@ -326,11 +326,11 @@ $IData = getImpactDataByUniqueNumber($un);
 <script src="../jqueryui/js/jquery-ui.min.js"></script>
 <script>
 $(function() {
-var date = $('#dateofimpact').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+var date = $('#dateofimpact').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
 
 $(function() {
-var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
 
 function showstuff(e){
