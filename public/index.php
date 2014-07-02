@@ -59,7 +59,7 @@ include_once("header.php");
         <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
         <li><a href="senioreditorview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
-        <li><a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a></li>
+        <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
         <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
@@ -104,46 +104,29 @@ if ($_GET['search']) {
 }
 
 foreach ($resultArray as $row) {
-if ($row['impactpossible']=="Yes"){
-echo "<tr>
-        <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
-        "Edit Story" . "</a></td>
-        <td>". $row['fid'] . "</td>" . 
-        "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
-        $row['ccname'] . "</a></td>" .
-        "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
-        $row['state'] . "</a></td>" .
-        "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
-        $row['issuetopic'] . "</a></td> 
-        <td>" .$row['receiveddate'] . "</td> 
-        <td>" .$row['storydescription'] . "</td>" .
-        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td>".
-        "<td><a href=impactEditor.php?id=" . urlencode($row['uniquenumber']) .">" . 
-        "Impact" . "</a></td></tr>";
-        }
+	echo "<tr>
+	    <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
+	    "Edit Story" . "</a></td>
+	    <td>". $row['fid'] . "</td>" . 
+	    "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
+	    $row['ccname'] . "</a></td>" .
+	    "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
+	    $row['state'] . "</a></td>" .
+	    "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
+	    $row['issuetopic'] . "</a></td> 
+	    <td>" .$row['receiveddate'] . "</td> 
+	    <td>" .$row['storydescription'] . "</td>" .
+	    "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
+	    $row['stage'] . "</a></td>
+	    <td>";
 
- else {
- echo "<tr>
-        <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
-        "Edit Story" . "</a></td>
-        <td>". $row['fid'] . "</td>" . 
-        "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
-        $row['ccname'] . "</a></td>" .
-        "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
-        $row['state'] . "</a></td>" .
-        "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
-        $row['issuetopic'] . "</a></td> 
-        <td>" .$row['receiveddate'] . "</td> 
-        <td>" .$row['storydescription'] . "</td>" .
-        "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
-        $row['stage'] . "</a></td>
-        <td>" .$row['impactpossible'] . "</td></tr>";
-        }   
- }       
+	if ($row['impactpossible']=="Yes") {
+		echo "<a href=impacteditor.php?un=" . urlencode($row['uniquenumber']) .
+			 ">Impact</a><br>";
+	} 
 
-?>
-
-<?php 
-    include_once ('footer.php');
+	echo "<a href=junioreditor.php?un=" . urlencode($row['uniquenumber']) .">" . 
+	        	"Footage" . "</a></td></tr>";
+}
+include_once ('footer.php');
 ?>

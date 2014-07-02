@@ -1,8 +1,6 @@
 
 <?php
 include_once ('../model/PostDB.php');
-//include '../model/dbcon.php';
-//$db=dbopen();
 include_once ('header.php');
 include ('../controller/JuniorEditorController.php')
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>

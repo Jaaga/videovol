@@ -17,7 +17,7 @@ $IData = getImpactDataByUniqueNumber($un);
 <!--<form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>-->
-	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
+	<form name="impactflow" method="POST" action ="impactview.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
 	<table class="table table-hover">
 	
