@@ -75,7 +75,7 @@ echo "<tr>
         <td>" .$row['storydescription'] . "</td>" .
         "<td><a href=index.php?stage=" . urlencode($row['stage']) . ">" .
         $row['stage'] . "</a></td>".
-        "<td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) .">" . 
+        "<td><a href=impactEditor.php?id=" . urlencode($row['uniquenumber']) .">" . 
         "Impact" . "</a></td></tr>";
         }
 
