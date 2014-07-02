@@ -1,7 +1,5 @@
 <?php
-
-
-//include('header.php');
+include('header.php');
 include_once("../model/StoryDB.php");
 $storyData = getDataByID($_GET['id']);
 ?>
