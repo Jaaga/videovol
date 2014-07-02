@@ -7,9 +7,52 @@ if($_GET['action']) {
 include_once("header.php");
 
 ?>
+<br>
+<div><!-- container for advanced search -->
+    <table class="table table-bordered">
+        <form method="GET" action="index.php">
+             <tr><td valign="top"><label>Search : </label></td>
+             <td>
+                <select name="ccname">
+                    <option value="1">CCname</option>
+                        <?php foreach(getCCNames() as $ccname) 
+                            echo '<option value="'.$ccname.'">'.$ccname.'
+                    </option>';
+                        ?>
+                </select>
+                </td>
+
+    
+                <td valign="top">
+                    <select name="state">
+                        <option value="1">State</option>
+                             <?php   foreach(getStates() as $state) 
+                            echo '<option value="'.$state.'">'.$state.'</option>';
+                            ?>
+                    </select>
+                </td>
+        
+                <td valign="top">
+                    <select name="issue"><option value="1">Issue</option>'; 
+                        <?php foreach(getIssues() as $issue) 
+                            echo '<option value="'.$issue.'">'.$issue.'</option>';
+                        ?>
+                    </select>
+                </td>
+
+         
+                <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
+                <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
+                <td><input type="submit" name="search" value="Search" /></td>
+                <td><input type="submit"></td>
+            </tr>
+    
+        </form>
+    </table>
+</div>
 <!-- tabs  -->
 <div class="stages"  > <!-- button tabs for different views -->
-<br>
+
     <ul id="tabs">
         <li><a href="index.php" class="button button-rounded button-flat-primary">Story View</a></li>
         <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
@@ -34,8 +77,9 @@ include_once("header.php");
 </div>
 -->
 
-<table class="table table-hover"><thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
-</thead>
+<table class="table table-hover">
+    <thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
+    </thead>
 
 <?php
 

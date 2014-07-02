@@ -5,7 +5,7 @@ include_once ('header.php');
 
 <!-- tabs  -->
 <div class="stages"  > <!-- button tabs for different views -->
-<br>
+
     <ul id="tabs">
         <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
         <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
