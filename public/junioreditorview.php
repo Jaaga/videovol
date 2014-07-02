@@ -3,8 +3,23 @@
 include_once ('../model/PostDB.php');
 //include '../model/dbcon.php';
 //$db=dbopen();
-include_once ('header.php');
+//include_once ('header.php');
+include ('../controller/JuniorEditorController.php')
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
+<!-- tabs  -->
+<div class="stages"  > <!-- button tabs for different views -->
+<br>
+    <ul id="tabs">
+        <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
+        <li><a href="junioreditorview.php" class="button button-rounded button-flat-primary">Footage Check</a></li>
+        <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
+        <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
+        <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
+        <li><a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a></li>
+        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
+        <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
+    </ul>
+</div>
 <table class= "table table-hover">
 <tr>
 <th>Unique Number</th>
@@ -49,19 +64,7 @@ foreach($jdata as $row)
 echo "</table>";
 ?>
 
-<link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
-<script src="./jqueryui/js/jquery.js"></script>
-<script src="./jqueryui/js/jquery-ui.min.js"></script>
-<script>
- $(function(){
-        $("#dateSearchFrom").datepicker({ dateFormat: 'yy-mm-dd' });
-        $("#searchToDate").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
-            var minValue = $(this).val();
-            minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
-            minValue.setDate(minValue.getDate()+1);
-            $("#searchToDate").datepicker( "option", "minDate", minValue );
-        })
-    });
-</script>
-</body>
-</html>
+<?php 
+    include_once ('footer.php');
+?>
+

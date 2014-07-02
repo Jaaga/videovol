@@ -2,11 +2,12 @@
 
 function getJuniorEditorDataByUniqueNumber($uniquenumber) {
     $sql = "select uniquenumber, footagereceived , wherereceived, reviewedby, seq, broll," .
-    	   " fint, vo, ptc, cta, vd, translation from storytrack where uniquenumber = '" . 
+    	   " fint, vo, ptc, cta, vd, translation from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
    	echo $sql;
  	$array = getAsAssocArray($sql);
  	echo "\nreviewed by: " . $array['reviewedby'];
+ 	return $array;
 }
 
 function getJuniorEditorData() {
@@ -38,7 +39,8 @@ function juniorEditorUpdate($uniquenumber, $footagereceived, $wherereceived, $re
 		   "', wherereceived='" . $wherereceived . "',reviewedby='" . $reviewedby .
 		   "', seq='" . $seq . "', broll='" . $broll . "', fint='" . $fint . 
 		   "',vo='" . $vo . "',ptc='" . $ptc . "',cta='" . $cta . "',vd='" . $vd .
-		   "',translation='" . $translation . "' where uniquenumber = '" . $uniquenumber . "'";
+		   "',translation='" . $translation . "', paymentapproved='" . $paymentapproved . 
+		   "',approvedon='" . $approvedon . "' where uniquenumber = '" . $uniquenumber . "'";
 	$db = dbopen();
 	$result= $db->query($sql);
 	mysqli_close($db);

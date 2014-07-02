@@ -52,15 +52,20 @@
 </div>
 
 
-<div class="stages"> <!-- button tabs for different views -->
+<!-- <div class="stages"  > button tabs for different views
 <br>
-<a href="index.php" class="button button-rounded button-flat-primary">Story View</a>
-<a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a>
-<a href="editview.php" class="button button-rounded button-flat-action">Editor View</a>
-<a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a>
-<!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
-<a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a>
-<small><a href="viewalldata.php">View All Data</a></small>
-<a href="storyeditor.php" class="button button-rounded button-flat-primary">Create New Story</a>
+    <ul id="tabs">
+        <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
+        <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
+        <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
+        <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
+        <a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>
+        <li><a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a></li>
+        <li><a href="storyeditor.php" class="button button-rounded button-flat-primary">Create New Story</a></li>
+        <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
+    </ul>
 </div>
+   -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
 
