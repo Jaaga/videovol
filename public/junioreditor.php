@@ -1,16 +1,16 @@
 
 <?php
-$un=$_GET['un'];
-echo "edit UN: " . $un;
+include_once("header.php");
 
-
-//include_once("header.php");
-include_once("../model/PostDB.php");
-
-$data = getJuniorEditorDataByUniqueNumber($un); 
-echo 'seq: ' . $data['seq'];
-echo '  reviewedby: ' . $data['reviewedby'];
+if (isset($_GET['un'])) {
+	$un=$_GET['un'];
+	echo "edit UN: " . $un;
+	include_once("../model/PostDB.php");
+	$data = getJuniorEditorDataByUniqueNumber($un); 
+	$edit = TRUE;
+} else $edit = FALSE;
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,8 +68,11 @@ function echoSelect($label, $column, $value) {
 }
 
 echoSelect('SEQ', 'seq', $data['seq']);
+echoSelect('B-ROLL', 'broll', $data['broll']);
+echoSelect('INT', 'fint', $data['fint']);
 echoSelect('VO', 'vo', $data['vo']);
 echoSelect('PTC', 'ptc', $data['ptc']);
+echoSelect('CTA', 'cta', $data['cta']);
 echoSelect('VD', 'vd', $data['vd']);
 ?>
 		<tr><td valign="top"><label for="translation">Translation :</label></td>
