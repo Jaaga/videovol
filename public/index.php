@@ -1,6 +1,6 @@
 <?php
 include_once("../model/StoryDB.php");
-if($_GET['action']) {
+if(isset($_GET['action'])) {
     include_once("../controller/StoryController.php");
 }
 
@@ -78,12 +78,12 @@ include_once("header.php");
 -->
 
 <table class="table table-hover">
-    <thead><tr><th></th><th>ID</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
+    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
     </thead>
 
 <?php
 
-if ($_GET['search']) {
+if (isset($_GET['search'])) {
 	echo "<h1>SEARCH</h1>";
 	$ccname = $_GET['ccname'];
 	if ($ccname == "1") 
@@ -105,9 +105,9 @@ if ($_GET['search']) {
 
 foreach ($resultArray as $row) {
 	echo "<tr>
-	    <td><a href=storyeditor.php?id=" . urlencode($row['fid']) . ">" . 
+	    <td><a href=storyeditor.php?un=" . urlencode($row['uniquenumber']) . ">" . 
 	    "Edit Story" . "</a></td>
-	    <td>". $row['fid'] . "</td>" . 
+	    <td>". $row['uniquenumber'] . "</td>" . 
 	    "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
 	    $row['ccname'] . "</a></td>" .
 	    "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
