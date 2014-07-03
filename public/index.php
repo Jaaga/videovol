@@ -44,7 +44,7 @@ include_once("header.php");
                 <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
                 <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
                 <td><input type="submit" name="search" value="Search" /></td>
-                <td><input type="submit"></td>
+               
             </tr>
     
         </form>
