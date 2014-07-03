@@ -2,8 +2,10 @@
 include('header.php');
 include_once("../model/StoryDB.php");
 
-if (isset($_GET['id']))
-	$storyData = getDataByID($_GET['id']);
+$un = $_GET['un'];
+if (isset($_GET['un'])) {
+	$storyData = getDataByUniqueNumber($un);
+}
 ?>
 
 <!doctype html>
@@ -18,15 +20,25 @@ if (isset($_GET['id']))
 </style>
 <body>
 
-<h1><?php if (isset($_GET['id'])) echo "Story ID: ".$_GET['id']; ?></h1>	
+<h1><?php if (isset($un)) echo "Story Unique Number: ". $un; ?></h1>	
 
 <form name="creatStory-form" method="GET" action="index.php">
-<input name ="fid" type="hidden" value =<?php if (isset($storyData)) echo $_GET['id']; ?> >
-	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	http://www.w3schools.com/php/php_form_validation.asp-->
+	<?php if (isset($un)) echo "<input type=hidden name=un value= \"" . $un . "\"";?>
 	<h2>Story Flow</h2>
 	<table class="table table-hover">
 	<div class="container">
+
+		<tr>
+			<td valign="top">
+				<label for="unique_no">Unique No. :</label>
+				
+			</td>
+			<td>
+				<input type="text" name="uniquenumber" 
+<?php if (isset($storyData)) echo "value= \"" . $un . "\""; ?> />
+			</td>
+		</tr>
+
 		<tr>
 			<td valign="top"> 
 				<label for="name">CC Name :</label>
@@ -113,19 +125,6 @@ if (isset($_GET['id']))
 <?php if (isset($storyData)) echo $storyData['storydescription']; ?>
 		  		</textarea>
 		 	</td>
-		</tr>
-
-
-
-		<tr>
-			<td valign="top">
-				<label for="unique_no">Unique No. :</label>
-				
-			</td>
-			<td>
-				<input type="text" name="unique_no" 
-<?php if (isset($storyData)) echo "value= \"" . $storyData['uniquenumber'] . "\""; ?> />
-			</td>
 		</tr>
 
 		<tr>
@@ -220,7 +219,7 @@ if (isset($_GET['id']))
 		<tr>
 		 	<td>
 				<input type="submit" name="action" value= 
-<?php if (isset($_GET['id'])) echo "update"; else echo "add"; ?> >
+<?php if (isset($_GET['un'])) echo "update"; else echo "add"; ?> >
 			</td>
 		</tr>
 
