@@ -69,11 +69,9 @@ function getDataByUniqueNumber($un) {
  }
 
 function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
-
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
-
 	
 	if ($fromdate and $where) {
 		$where = $where . " and ";
@@ -90,10 +88,11 @@ function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
 }
 
 function genSearchWhere($where, $field, $val) {
-    if (!$val)
+    if (!$val) {
       return $where;
-    if ($where) 
+    } if ($where) {
       $where = $where . " and ";
+    }
     
     return $where . $field . " = '" . $val . "'";
 }
