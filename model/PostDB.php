@@ -44,7 +44,7 @@ function juniorEditorAddOrUpdate($uniquenumber, $footagereceived, $wherereceived
 		   "',vo='" . $vo . "',ptc='" . $ptc . "',cta='" . $cta . "',vd='" . $vd .
 		   "',translation='" . $translation . "', paymentapproved='" . $paymentapproved . 
 		   "',approvedon='" . $approvedon . "'";
-echo $sql;
+
 	$db = dbopen();
 	$result= $db->query($sql);
 	mysqli_close($db);
