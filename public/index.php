@@ -1,6 +1,6 @@
 <?php
 include_once("../model/StoryDB.php");
-if($_GET['action']) {
+if(isset($_GET['action'])) {
     include_once("../controller/StoryController.php");
 }
 
@@ -83,7 +83,7 @@ include_once("header.php");
 
 <?php
 
-if ($_GET['search']) {
+if (isset($_GET['search'])) {
 	echo "<h1>SEARCH</h1>";
 	$ccname = $_GET['ccname'];
 	if ($ccname == "1") 
