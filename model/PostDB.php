@@ -30,16 +30,21 @@ function getSeniorEditorData() {
 	return getAs2DArray($sql);	
 }
 
-function juniorEditorUpdate($uniquenumber, $footagereceived, $wherereceived, $reviewedby, 
+function juniorEditorAddOrUpdate($uniquenumber, $footagereceived, $wherereceived, $reviewedby, 
 							$seq, $broll, $fint, $vo, $ptc, $cta, $vd, $translation, $paymentapproved, 
 							$approvedon) {
-	
-	$sql = "update posttrack set footagereceived = '" . $footagereceived .
+	$sql =  "insert into posttrack (uniquenumber, footagereceived, wherereceived, reviewedby, " .
+		   	"seq, broll, fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon) values ('".
+ 			$uniquenumber . "', '" . $footagereceived . "', '" . $wherereceived . "', '" . $reviewedby .
+ 			"', '" . $seq . "', '" . $broll . "', '" . $fint . "', '" . $vo . "', '" . $ptc . "', '" . 
+ 			$cta . "', '" . $vd . "', '" . $translation . "', '" . $paymentapproved . "', '" . $approvedon . 
+			"') on duplicate key update footagereceived = '" . $footagereceived .
 		   "', wherereceived='" . $wherereceived . "',reviewedby='" . $reviewedby .
 		   "', seq='" . $seq . "', broll='" . $broll . "', fint='" . $fint . 
 		   "',vo='" . $vo . "',ptc='" . $ptc . "',cta='" . $cta . "',vd='" . $vd .
 		   "',translation='" . $translation . "', paymentapproved='" . $paymentapproved . 
-		   "',approvedon='" . $approvedon . "' where uniquenumber = '" . $uniquenumber . "'";
+		   "',approvedon='" . $approvedon . "'";
+echo $sql;
 	$db = dbopen();
 	$result= $db->query($sql);
 	mysqli_close($db);
