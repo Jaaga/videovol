@@ -73,7 +73,7 @@ $IData = getImpactDataByUniqueNumber($un);
 			<td valign="top" id="showlabel">
 				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
-			<td id="show">
+			<td id="show" hidden>
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
 			</td>
 		</tr>
@@ -106,7 +106,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="date-of-impact">Date of Impact</label>
 			</td>
 			<td>
-				<input type="text" name="date-of-impact" id="dateofimpact" value = <?php echo $IData['dateofimpact']; ?> >
+				<input type="text" name="date-of-impact" id="dateOfImpactDatePick" value =<?php echo $IData['dateofimpact']; ?> >
 			</td>
 		</tr>
 		<!--<tr>
@@ -326,10 +326,7 @@ $IData = getImpactDataByUniqueNumber($un);
 <script src="../jqueryui/js/jquery-ui.min.js"></script>
 <script>
 $(function() {
-var date = $('#dateofimpact').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-
-$(function() {
+var date = $('#dateOfImpactDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
 

@@ -1,7 +1,7 @@
 <?php
 
 
-//include('header.php');
+include('header.php');
 include_once("../model/StoryDB.php");
 
 if (isset($_GET['id']))
@@ -90,7 +90,7 @@ if (isset($_GET['id']))
 				
 			</td>
 			<td>
-				<p><input type="text" name="dateReceived" id="datepicker" 
+				<p><input type="text" name="dateReceived" id="dateReceivedDatePick" 
 				          <?php if (isset($storyData)) echo "value= \"" . $storyData['receiveddate'] . "\""; ?>></p>
 			</td>
 		</tr>
@@ -135,7 +135,7 @@ if (isset($_GET['id']))
 				<label for="storydate">Date of Story</label>
 			</td>
 			<td>
-				<p><input type="text" name="storydate" id="datepick" 
+				<p><input type="text" name="storydate" id="dateOfStoryDatePick" 
 <?php if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\""; ?> />
 				</p>
 			</td>
@@ -230,19 +230,6 @@ if (isset($_GET['id']))
 		
 	</table>
 </form>
-<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
-<script src="jqueryui/js/jquery.js"></script>
-<script src="jqueryui/js/jquery-ui.min.js"></script>
-	 <script>
-$(function() {
-$( "#datepicker" ).datepicker();
- <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
-});
-
-$(function() {
-$( "#datepick" ).datepicker();
- <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
-});
-</script>
-</body>
-</html>
+<?php
+include ('footer.php'); 
+?>

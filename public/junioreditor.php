@@ -28,7 +28,7 @@ if (isset($_GET['un'])) {
 	<table class= "table table-hover">
 		<tr><td valign="top"><label for="footage received">Footage Received :</label></td>
 			<td>
-				<p><input type="text" name="footagereceived" id="datepick" 
+				<p><input type="text" name="footagereceived" id="footageReceivedDatePick" 
 					value=<?php echo "\"" . $data['footagereceived'] . "\""; ?>></p>
 			</td>
 		</tr>
@@ -90,16 +90,13 @@ echoSelect('VD', 'vd', $data['vd']);
 		<tr><td valign="top"><label for="approvedon">Approved On :</label></td>
 			<td>
 				<input type="text" name="approvedon" 
-					value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
+					id="approvedOnDatePick" value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
 			</td>
 		</tr>
 
 		<tr><td><input type=submit></td><tr>
 	</table>
 </form>
-<!--
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="script.js" type="text/javascript" charset="utf-8"></script>
--->
-</body>
-</html>
+<?php
+include ('footer.php'); 
+?>

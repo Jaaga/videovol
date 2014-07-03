@@ -17,12 +17,12 @@ $a=$_GET['id'];
 		
 	<h2>Editor's Dashboard</h2>
 
-<table>
+<table class="table table-hover">
 	<tr><td valign="top">  
 		<label for="editreceived">Received for Editing</label>
 	</td>
 	<td valign="top">		
-		<input type="text" name="editreceived" id="datepicker"/>
+		<input type="text" name="editreceived" id="editRecievedDatePick"/>
 	</td>
 	</tr>
 	
@@ -39,7 +39,7 @@ $a=$_GET['id'];
 		<label for="editcomplete">Editing Completed</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="editcomplete" id="datepick"/>
+		<input type="text" name="editcomplete" id="editCompletedDatePick"/>
 	</td>
 	</tr>
 
@@ -60,7 +60,7 @@ $a=$_GET['id'];
 		<label for="videosent">Complete Video Sent</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="videosent" id="datepick"/>
+		<input type="text" name="videosent" id="videoSentDatePick"/>
 	</td>
 	</tr>
 
@@ -82,6 +82,6 @@ $a=$_GET['id'];
 </table>	
 </form>
 
-	
-</body>
-</html>
+<?php
+include ('footer.php'); 
+?>
