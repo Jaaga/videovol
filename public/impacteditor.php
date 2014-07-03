@@ -2,7 +2,7 @@
 <?php 
 include("header.php");
 include("../model/ImpactDB.php");
-$un = $_GET['id'];
+$un = $_GET['un'];
 
 $IData = getImpactDataByUniqueNumber($un);
 ?>

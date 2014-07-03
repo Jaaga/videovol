@@ -30,7 +30,7 @@ $resultArray = getStoryAndImpact();
 foreach ($resultArray as $row) {
 echo "<tr>
         
-       <td><a href=impacteditor.php?id=" . urlencode($row['uniquenumber']) . ">" . 
+       <td><a href=impacteditor.php?un=" . urlencode($row['uniquenumber']) . ">" . 
         "Edit Impact" . "</a></td> <td>" . 
         $row['uniquenumber'] . "</td> ". 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
