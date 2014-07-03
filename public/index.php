@@ -1,7 +1,14 @@
 <?php
 include_once("../model/StoryDB.php");
-if(isset($_GET['action'])) {
-    include_once("../controller/StoryController.php");
+
+if(isset($_GET['search'])) {
+    include_once("../controller/SearchController.php");
+    // $resultArray gets set by SearchController
+} else {
+	if(isset($_GET['action'])) {
+        include_once("../controller/StoryController.php");
+    }
+    $resultArray = getAllBasicData();
 }
 
 include_once("header.php");
@@ -82,36 +89,16 @@ include_once("header.php");
 
 <?php
 
-if (isset($_GET['search'])) {
-	echo "<h1>SEARCH</h1>";
-	$ccname = $_GET['ccname'];
-	if ($ccname == "1") 
-		unset($ccname);
-	$state = $_GET['state'];
-	if ($state == "1")
-		unset($state);
-	$issue = $_GET['issue'];
-	if ($issue == "1")
-		unset($issue);
-    $fromdate = $_GET['fromdate'];
-    $todate = $_GET['todate'];
-    if ($fromdate == "1" or $todate == "1")
-        unset($fromdate, $todate);
-	$resultArray = getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate);
-} else {
-    $resultArray = getAllBasicData();
-}
-
 foreach ($resultArray as $row) {
 	echo "<tr>
 	    <td><a href=storyeditor.php?un=" . urlencode($row['uniquenumber']) . ">" . 
 	    "Edit Story" . "</a></td>
 	    <td>". $row['uniquenumber'] . "</td>" . 
-	    "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
+	    "<td><a href=index.php?search=true&ccname=" . urlencode($row['ccname']) . ">" .
 	    $row['ccname'] . "</a></td>" .
-	    "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
+	    "<td><a href=index.php?search=true&state=" . urlencode($row['state']) . ">" .
 	    $row['state'] . "</a></td>" .
-	    "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
+	    "<td><a href=index.php?search=true&issue=" . urlencode($row['issuetopic']) . ">" .
 	    $row['issuetopic'] . "</a></td> 
 	    <td>" .$row['receiveddate'] . "</td> 
 	    <td>" .$row['storydescription'] . "</td>" .
