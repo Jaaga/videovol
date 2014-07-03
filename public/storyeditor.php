@@ -2,8 +2,8 @@
 include('header.php');
 include_once("../model/StoryDB.php");
 
+$un = $_GET['un'];
 if (isset($_GET['un'])) {
-	$un = $_GET['un'];
 	$storyData = getDataByUniqueNumber($un);
 }
 ?>
@@ -23,7 +23,7 @@ if (isset($_GET['un'])) {
 <h1><?php if (isset($un)) echo "Story Unique Number: ". $un; ?></h1>	
 
 <form name="creatStory-form" method="GET" action="index.php">
-	<input type=hidden name=un value=<?php echo "\"" . $un . "\"";?>
+	<?php if (isset($un)) echo "<input type=hidden name=un value= \"" . $un . "\"";?>
 	<h2>Story Flow</h2>
 	<table class="table table-hover">
 	<div class="container">
