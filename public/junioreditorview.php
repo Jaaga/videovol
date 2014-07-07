@@ -18,7 +18,7 @@ include ('../controller/JuniorEditorController.php')
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
 </div>
-<table class= "table table-hover">
+<table class= "table">
 <tr>
 <th>Unique Number</th>
 <th>Footage Received</th>

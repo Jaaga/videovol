@@ -19,7 +19,7 @@ include_once ('../controller/SeniorEditorController.php');
     </ul>
 </div>
 
-<table class="table table-hover">
+<table class="table">
 <thead>
 <tr>
 <th>Unique Number</th>

@@ -22,7 +22,7 @@ include ('header.php');
     </ul>
 </div>
 
-<table class="table table-hover">
+<table class="table">
 <thead>
 <tr>
 <th>CC Name</th>
