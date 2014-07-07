@@ -11,7 +11,7 @@ include_once ('../controller/SeniorEditorController.php');
         <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
         <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
         <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
-        <li><a href="senioreditview.php" class="button button-rounded button-flat-primary">Senior Editor View</a></li>
+        <li><a href="senioreditorview.php" class="button button-rounded button-flat-primary">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
         <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
         <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>

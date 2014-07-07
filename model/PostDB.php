@@ -12,7 +12,6 @@ function getSeniorEditorDataByUniqueNumber($uniquenumber) {
     $sql = "select goareceived , subtitlerequired, subtitledone, cleaningrequired, cleaningdone," .
     	   " feedback, seniornotes, uploaded, published, publishplatform from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
-   	echo $sql;
  	$array = getAsAssocArray($sql);
  	return $array;
 }
