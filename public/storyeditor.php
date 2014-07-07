@@ -1,10 +1,14 @@
 <?php
 
-
 include('header.php');
-include("../model/StoryDB.php");
-$storyData = getDataByID($_GET['id']);
+include_once("../model/StoryDB.php");
+
+$un = $_GET['un'];
+if (isset($_GET['un'])) {
+	$storyData = getDataByUniqueNumber($un);
+}
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,21 +21,31 @@ $storyData = getDataByID($_GET['id']);
 </style>
 <body>
 
-<h1><?php if ($_GET['id']) echo "Story ID: ".$_GET['id']; ?></h1>	
+<h1><?php if (isset($un)) echo "Story Unique Number: ". $un; ?></h1>	
 
 <form name="creatStory-form" method="GET" action="index.php">
-<input name ="fid" type="hidden" value =<?php echo $_GET['id']; ?> >
-	<!--<form name="createStory-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	http://www.w3schools.com/php/php_form_validation.asp-->
+	<?php if (isset($un)) echo "<input type=hidden name=un value= \"" . $un . "\"";?>
 	<h2>Story Flow</h2>
 	<table class="table table-hover">
 	<div class="container">
+
+		<tr>
+			<td valign="top">
+				<label for="unique_no">Unique No. :</label>
+				
+			</td>
+			<td>
+				<input type="text" name="uniquenumber" 
+<?php if (isset($storyData)) echo "value= \"" . $un . "\""; ?> />
+			</td>
+		</tr>
+
 		<tr>
 			<td valign="top"> 
 				<label for="name">CC Name :</label>
 			</td>
 			<td> 
-				<input type="text" name="ccname" value=<?php echo "\"" . $storyData['ccname'] . "\""; ?> />
+				<input type="text" name="ccname" <?php if (isset($storyData)) echo "value= \"" . $storyData['ccname'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -87,7 +101,8 @@ $storyData = getDataByID($_GET['id']);
 				
 			</td>
 			<td>
-				<p><input type="text" name="dateReceived" id="datepicker" value=<?php echo "\"" . $storyData['receiveddate'] . "\""; ?>></p>
+				<p><input type="text" name="dateReceived" id="dateReceivedDatePick" 
+				          <?php if (isset($storyData)) echo "value= \"" . $storyData['receiveddate'] . "\""; ?>></p>
 			</td>
 		</tr>
 
@@ -97,7 +112,7 @@ $storyData = getDataByID($_GET['id']);
 				<label for="issue">Issue/Topic</label>
 			</td>
 			<td>
-				<input type="text" name="issue" value=<?php echo "\"" . $storyData['issuetopic'] . "\""; ?> />
+				<input type="text" name="issue" <?php if (isset($storyData)) echo "value= \"" . $storyData['issuetopic'] . "\""; ?> />
 			</td>
 		</tr> 
 
@@ -108,21 +123,9 @@ $storyData = getDataByID($_GET['id']);
 		 	</td>
 		 	<td valign="top">
 		  		<textarea  name="story" maxlength="1000" cols="25" rows="6">
-<?php echo $storyData['storydescription']; ?>
+<?php if (isset($storyData)) echo $storyData['storydescription']; ?>
 		  		</textarea>
 		 	</td>
-		</tr>
-
-
-
-		<tr>
-			<td valign="top">
-				<label for="unique_no">Unique No. :</label>
-				
-			</td>
-			<td>
-				<input type="text" name="unique_no" value=<?php echo "\"" . $storyData['uniquenumber'] . "\""; ?> />
-			</td>
 		</tr>
 
 		<tr>
@@ -130,7 +133,9 @@ $storyData = getDataByID($_GET['id']);
 				<label for="storydate">Date of Story</label>
 			</td>
 			<td>
-				<p><input type="text" name="storydate" id="datepick" value=<?php echo "\"" . $storyData['dateofstory'] . "\""; ?>></p>
+				<p><input type="text" name="storydate" id="dateOfStoryDatePick" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\""; ?> />
+				</p>
 			</td>
 		</tr>
 
@@ -140,7 +145,8 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="cc_pair" value=<?php echo "\"" . $storyData['ccpair'] . "\""; ?> />
+				<input type="text" name="cc_pair" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['ccpair'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -150,7 +156,8 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="program" value=<?php echo "\"" . $storyData['program'] . "\""; ?> />
+				<input type="text" name="program" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['program'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -160,7 +167,8 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="mentor" value=<?php echo "\"" . $storyData['mentor'] . "\""; ?> />
+				<input type="text" name="mentor" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['mentor'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -170,7 +178,8 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="iu_topic" value=<?php echo "\"" . $storyData['iutopic'] . "\""; ?> />
+				<input type="text" name="iu_topic" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['iutopic'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -180,7 +189,8 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="video_treatment" value=<?php echo "\"" . $storyData['videotreatment'] . "\""; ?> />
+				<input type="text" name="video_treatment" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['videotreatment'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -190,7 +200,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 
-				<input type="text" name="shoot_plan" value=<?php echo "\"" . $storyData['shootplan'] . "\""; ?> />
+				<input type="text" name="shoot_plan" <?php if (isset($storyData)) echo "value= \"" . $storyData['shootplan'] . "\""; ?> />
 			</td>
 		</tr>
 
@@ -200,6 +210,7 @@ $storyData = getDataByID($_GET['id']);
 			</td>
 			<td>
 			<select type="text" name="impactpossible">
+					<option value="Select">Yes</option>
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
 			</select>
@@ -209,7 +220,7 @@ $storyData = getDataByID($_GET['id']);
 		<tr>
 		 	<td>
 				<input type="submit" name="action" value= 
-<?php if ($_GET['id']) echo "update"; else echo "add"; ?> >
+<?php if (isset($_GET['un'])) echo "update"; else echo "add"; ?> >
 			</td>
 		</tr>
 
@@ -217,19 +228,6 @@ $storyData = getDataByID($_GET['id']);
 		
 	</table>
 </form>
-<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
-<script src="jqueryui/js/jquery.js"></script>
-<script src="jqueryui/js/jquery-ui.min.js"></script>
-	 <script>
-$(function() {
-$( "#datepicker" ).datepicker();
- <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
-});
-
-$(function() {
-$( "#datepick" ).datepicker();
- <option value="yy-mm-dd">ISO 8601 - yy-mm-dd</option>
-});
-</script>
-</body>
-</html>
+<?php
+include ('footer.php'); 
+?>

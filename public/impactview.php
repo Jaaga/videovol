@@ -1,18 +1,21 @@
 <?php
+
 include_once("header.php");
+
+include '../controller/ImpactController.php';
 include_once("../model/ImpactDB.php");
 ?>
 
 <!-- tabs  -->
 <div class="stages"  > <!-- button tabs for different views -->
-<br>
+
     <ul id="tabs">
         <li><a href="index.php" class="button button-rounded button-flat-action">Story View</a></li>
         <li><a href="junioreditorview.php" class="button button-rounded button-flat-action">Footage Check</a></li>
         <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
         <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
-        <li><a href="impactview1.php" class="button button-rounded button-flat-primary">Impact View</a></li>
+        <li><a href="impactview.php" class="button button-rounded button-flat-primary">Impact View</a></li>
         <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
@@ -27,7 +30,7 @@ $resultArray = getStoryAndImpact();
 foreach ($resultArray as $row) {
 echo "<tr>
         
-       <td><a href=preproduction/impact_team.php?id=" . urlencode($row['uniquenumber']) . ">" . 
+       <td><a href=impacteditor.php?un=" . urlencode($row['uniquenumber']) . ">" . 
         "Edit Impact" . "</a></td> <td>" . 
         $row['uniquenumber'] . "</td> ". 
         "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .

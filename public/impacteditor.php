@@ -1,8 +1,8 @@
 
 <?php 
-include("../header.php");
-include("../../model/ImpactDB.php");
-$un = $_GET['id'];
+include("header.php");
+include("../model/ImpactDB.php");
+$un = $_GET['un'];
 
 $IData = getImpactDataByUniqueNumber($un);
 ?>
@@ -14,10 +14,10 @@ $IData = getImpactDataByUniqueNumber($un);
 
 <h1><?php if($_GET['id']) echo "Unique No.: ".$_GET['id']?></h1>
 
-<form method="get" action="../index.php">
+<!--<form method="get" action="../index.php">
     <button type="submit">Home</button>
-</form>
-	<form name="impactflow" method="POST" action ="../../controller/ImpactData.php">
+</form>-->
+	<form name="impactflow" method="POST" action ="impactview.php">
 	<input name ="id" type="hidden" value =<?php echo $un; ?> >
 	<table class="table table-hover">
 	
@@ -54,7 +54,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="impact-process">Is Impact follow up happening?</label>
 			</td>
 			<td>
-			<select type="text" name="impactfollowup" id="browsers" onchange="showstuff()">
+			<select type="text" name="impactfollowup">
 <?php $followup = $IData['impactfollowuphappening']; ?>		
 				<option value="Maybe"  	
 <?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
@@ -70,10 +70,10 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 	
 		<tr>
-			<td valign="top" id="showlabel">
+			<td valign="top">
 				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
-			<td id="show">
+			<td>
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
 			</td>
 		</tr>
@@ -106,7 +106,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="date-of-impact">Date of Impact</label>
 			</td>
 			<td>
-				<input type="text" name="date-of-impact" id="dateofimpact" value = <?php echo $IData['dateofimpact']; ?> >
+				<input type="text" name="date-of-impact" id="dateOfImpactDatePick" value =<?php echo $IData['dateofimpact']; ?> >
 			</td>
 		</tr>
 		<!--<tr>
@@ -326,23 +326,9 @@ $IData = getImpactDataByUniqueNumber($un);
 <script src="../jqueryui/js/jquery-ui.min.js"></script>
 <script>
 $(function() {
-var date = $('#dateofimpact').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+var date = $('#dateOfImpactDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
-
-$(function() {
-var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-});
-
-function showstuff(e){
-   var browsers = document.getElementById('browsers');
-   if(browsers.options[browsers.selectedIndex].value=="No"){
-      document.getElementById("show").style.display="block";
-   }
-   else {
-   	  document.getElementById("show").style.display="none";
-   }
-
-}
 </script>
 </body>
 </html>

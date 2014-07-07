@@ -1,16 +1,16 @@
 
 <?php
-$un=$_GET['un'];
-echo "edit UN: " . $un;
+include_once("header.php");
 
-
-//include_once("header.php");
-include_once("../model/PostDB.php");
-
-$data = getJuniorEditorDataByUniqueNumber($un); 
-echo 'seq: ' . $data['seq'];
-echo '  reviewedby: ' . $data['reviewedby'];
+if (isset($_GET['un'])) {
+	$un=$_GET['un'];
+	echo "edit UN: " . $un;
+	include_once("../model/PostDB.php");
+	$data = getJuniorEditorDataByUniqueNumber($un); 
+	$edit = TRUE;
+} else $edit = FALSE;
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@ echo '  reviewedby: ' . $data['reviewedby'];
 	<table class= "table table-hover">
 		<tr><td valign="top"><label for="footage received">Footage Received :</label></td>
 			<td>
-				<p><input type="text" name="footagereceived" id="datepick" 
+				<p><input type="text" name="footagereceived" id="footageReceivedDatePick" 
 					value=<?php echo "\"" . $data['footagereceived'] . "\""; ?>></p>
 			</td>
 		</tr>
@@ -68,8 +68,11 @@ function echoSelect($label, $column, $value) {
 }
 
 echoSelect('SEQ', 'seq', $data['seq']);
+echoSelect('B-ROLL', 'broll', $data['broll']);
+echoSelect('INT', 'fint', $data['fint']);
 echoSelect('VO', 'vo', $data['vo']);
 echoSelect('PTC', 'ptc', $data['ptc']);
+echoSelect('CTA', 'cta', $data['cta']);
 echoSelect('VD', 'vd', $data['vd']);
 ?>
 		<tr><td valign="top"><label for="translation">Translation :</label></td>
@@ -87,16 +90,13 @@ echoSelect('VD', 'vd', $data['vd']);
 		<tr><td valign="top"><label for="approvedon">Approved On :</label></td>
 			<td>
 				<input type="text" name="approvedon" 
-					value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
+					id="approvedOnDatePick" value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
 			</td>
 		</tr>
 
 		<tr><td><input type=submit></td><tr>
 	</table>
 </form>
-<!--
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="script.js" type="text/javascript" charset="utf-8"></script>
--->
-</body>
-</html>
+<?php
+include ('footer.php'); 
+?>

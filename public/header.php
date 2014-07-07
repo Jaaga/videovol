@@ -1,4 +1,4 @@
-<?php include_once('../model/StoryDB.php'); ?>
+
 
 <!doctype html>
 <head>
@@ -19,37 +19,37 @@
 	</div>
 </header>
 
-<div><!--container for advanced search-->
+<!--  <div>container for advanced search
 <table>
-    <form method="GET" action="index.php">
-    
- 	<tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
-<?php	foreach(getCCNames() as $ccname) 
-            echo '<option value="'.$ccname.'">'.$ccname.'</option>';
+   <form method="GET" action="index.php">
+   
+    <tr><td valign="top"><label>Search : </label><select name="ccname"><option value="1">CCname</option>
+<?php    //foreach(getCCNames() as $ccname) 
+          // echo '<option value="'.$ccname.'">'.$ccname.'</option>';
 ?>
-    </select></td>
-    
+   </select></td>
+   
 <td valign="top"><select name="state"><option value="1">State</option>
-<?php   foreach(getStates() as $state) 
-        	echo '<option value="'.$state.'">'.$state.'</option>';
+<?php   //foreach(getStates() as $state) 
+          // echo '<option value="'.$state.'">'.$state.'</option>';
 ?>
-	</select></td>
-        
+   </select></td>
+       
 <td valign="top"><select name="issue"><option value="1">Issue</option>'; 
-<?php 	foreach(getIssues() as $issue) 
-        	echo '<option value="'.$issue.'">'.$issue.'</option>';
+<?php   //  foreach(getIssues() as $issue) 
+           //echo '<option value="'.$issue.'">'.$issue.'</option>';
 ?>
 </select></td>
 
-         
-        <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
-        <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
-        <td><input type="submit" name="search" value="Search" /></td>
-        <!--<td><input type="submit"></td>-->
-    
-    </form>
+        
+       <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
+       <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
+       <td><input type="submit" name="search" value="Search" /></td>
+       <td><input type="submit"></td>
+   
+   </form>
 </table>
-</div>
+</div> -->
 
 
 <!-- <div class="stages"  > button tabs for different views
@@ -66,6 +66,5 @@
     </ul>
 </div>
    -->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="script.js" type="text/javascript" charset="utf-8"></script>
 

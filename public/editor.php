@@ -23,12 +23,13 @@ $data = getEditorDataByUniqueNumber($un);
 		
 	<h2>Editor's Dashboard</h2>
 
-<table >
+<table class="table table-hover">
 	<tr><td valign="top">  
 		<label for="editreceived">Received for Editing</label>
 	</td>
 	<td valign="top">		
 		<input type="text" name="editreceived" id="datepick1" value="<?php echo $data['editreceived']; ?>">
+
 	</td>
 	</tr>
 	
@@ -102,8 +103,11 @@ var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 $(function() {
 var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
-
 </script>
 	
 </body>
 </html>
+<?php
+include ('footer.php'); 
+?>
+

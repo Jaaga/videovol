@@ -1,9 +1,7 @@
 
 <?php
 include_once ('../model/PostDB.php');
-//include '../model/dbcon.php';
-//$db=dbopen();
-//include_once ('header.php');
+include_once ('header.php');
 include ('../controller/JuniorEditorController.php')
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
 <!-- tabs  -->
@@ -15,7 +13,7 @@ include ('../controller/JuniorEditorController.php')
         <li><a href="editview.php" class="button button-rounded button-flat-action">Editor View</a></li>
         <li><a href="senioreditview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
-        <li><a href="impactview1.php" class="button button-rounded button-flat-action">Impact View</a></li>
+        <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
         <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
