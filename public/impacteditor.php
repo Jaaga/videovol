@@ -54,7 +54,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="impact-process">Is Impact follow up happening?</label>
 			</td>
 			<td>
-			<select type="text" name="impactfollowup" id="browsers" onchange="showstuff()">
+			<select type="text" name="impactfollowup">
 <?php $followup = $IData['impactfollowuphappening']; ?>		
 				<option value="Maybe"  	
 <?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
@@ -70,10 +70,10 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 	
 		<tr>
-			<td valign="top" id="showlabel">
+			<td valign="top">
 				<label for="impact-status">Why is impact follow up not happening?</label>
 			</td>
-			<td id="show" hidden>
+			<td>
 				<input type="text" name="whynotfollowing" value = <?php echo $IData['ifnowhynot']; ?> >
 			</td>
 		</tr>
@@ -329,17 +329,6 @@ $(function() {
 var date = $('#dateOfImpactDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
-
-function showstuff(e){
-   var browsers = document.getElementById('browsers');
-   if(browsers.options[browsers.selectedIndex].value=="No"){
-      document.getElementById("show").style.display="block";
-   }
-   else {
-   	  document.getElementById("show").style.display="none";
-   }
-
-}
 </script>
 </body>
 </html>

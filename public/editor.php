@@ -1,7 +1,12 @@
 
 <?php
-include("header.php");
-$a=$_GET['id'];
+include_once("header.php");
+$un=$_GET['un'];
+echo "edit UN: " . $un;
+
+include_once("../model/PostDB.php");
+
+$data = getEditorDataByUniqueNumber($un);
 ?>
 
 <!doctype html>
@@ -12,8 +17,9 @@ $a=$_GET['id'];
 </head>
 <body>
 	
-<form name="editor-form" method="post" >
-		<input name="fid" type="hidden" value="<?php echo $fid; ?>" >
+<form name="editor-form" method="get" action="editview.php" onsubmit="javaScript:return validate_dropdown1();">
+		<input name="un" type="hidden" value=<?php echo $un; ?> > 
+		<input name="action" type="hidden" value="update" > 
 		
 	<h2>Editor's Dashboard</h2>
 
@@ -22,16 +28,16 @@ $a=$_GET['id'];
 		<label for="editreceived">Received for Editing</label>
 	</td>
 	<td valign="top">		
-		<input type="text" name="editreceived" id="editRecievedDatePick"/>
+		<input type="text" name="editreceived" id="datepick1" value="<?php echo $data['editreceived']; ?>">
+
 	</td>
 	</tr>
 	
-	<tr>
-	<td valign="top"> 
-				<label for="editor">Editor :</label>
-			</td>
-			<td> 
-				<input type="text" name="editor">
+	<tr><td valign="top"> 
+		<label for="editor"> Editor :</label>
+	</td>
+	<td> 
+		<input type="text" name="editor" value="<?php echo $data['editor']; ?>">
 	</td>
 	</tr>
 	
@@ -39,7 +45,7 @@ $a=$_GET['id'];
 		<label for="editcomplete">Editing Completed</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="editcomplete" id="editCompletedDatePick"/>
+		<input type="text" name="editcomplete" id="datepick2" value="<?php echo $data['editcomplete']; ?>">
 	</td>
 	</tr>
 
@@ -49,6 +55,7 @@ $a=$_GET['id'];
  	</td>
  	<td valign="top">
  		<select name="subtitlestatus">
+ 		<?php $value = $data['subtitlestatus'];?>
 			<option value ="0">Select</option>
 			<option value = "Done">Done</option>
 			<option value = "Not Done">Not Done</option>
@@ -60,16 +67,16 @@ $a=$_GET['id'];
 		<label for="videosent">Complete Video Sent</label>
 	</td>
 	<td valign="top">	
-		<input type="text" name="videosent" id="videoSentDatePick"/>
+		<input type="text" name="videosent" id="datepick3" value="<?php echo $data['videosent']; ?>">
 	</td>
 	</tr>
 
 	<tr>
  	<td valign="top">
- 		 <label for="editornotes">Notes: </label>
+ 		 <label for="editnotes">Notes: </label>
  	</td>
  	<td valign="top">
-  		<textarea  name="editornotes" maxlength="1000" cols="25" rows="6"></textarea>
+  		<textarea  name="editnotes" maxlength="1000" cols="25" rows="6" value="<?php echo $data['editnotes']; ?>"></textarea>
  	</td>
 	</tr>
  	
@@ -81,7 +88,26 @@ $a=$_GET['id'];
 
 </table>	
 </form>
+<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
+<script src="jqueryui/js/jquery.js"></script>
+<script src="jqueryui/js/jquery-ui.min.js"></script>
+	 <script>
+$(function() {
+var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
 
+$(function() {
+var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+
+$(function() {
+var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+</script>
+	
+</body>
+</html>
 <?php
 include ('footer.php'); 
 ?>
+
