@@ -65,7 +65,6 @@ CREATE TABLE `impacttracker` (
 
 LOCK TABLES `impacttracker` WRITE;
 /*!40000 ALTER TABLE `impacttracker` DISABLE KEYS */;
-INSERT INTO `impacttracker` VALUES ('23','$targetofficial','$desiredchange','$ccimpactplan','$impactfollowuphappening','$ifnowhynot','$impactprocess','$impstatachieved','$milestone','0000-00-00',0,'$communityscreening',0,'$detailsofscreening','$videoshow',0,'$detailsofscreeningofficials','$collaborations',0,0,0,'$videoproductionstat','$videorevi','$approvepa','0000-00-00','$videoreviewedby','$blognotes','$gifttocc','$thankyouc'),('KA_331','DC','yes','now 					\r\n				 					\r\n				','Maybe','yes','done','','30','2014-12-31',3,'Yes',4,'hi','Yes',20,'it was done today','jdkj',22,12,1,'Done','Yes','Yes','2014-12-31','nandan','Done','Yes','yes');
 /*!40000 ALTER TABLE `impacttracker` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,47 +116,7 @@ CREATE TABLE `posttrack` (
 
 LOCK TABLES `posttrack` WRITE;
 /*!40000 ALTER TABLE `posttrack` DISABLE KEYS */;
-INSERT INTO `posttrack` VALUES ('45','0000-00-00','goa','freeman',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `posttrack` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `preproduction`
---
-
-DROP TABLE IF EXISTS `preproduction`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `preproduction` (
-  `uniquenumber` varchar(30) NOT NULL,
-  `dateofstory` date NOT NULL,
-  `state` varchar(30) NOT NULL,
-  `ccname` varchar(30) NOT NULL,
-  `ccpair` varchar(30) DEFAULT NULL,
-  `program` varchar(30) DEFAULT NULL,
-  `mentorname` varchar(30) DEFAULT NULL,
-  `iutopic` varchar(30) DEFAULT NULL,
-  `storyidea` varchar(50) DEFAULT NULL,
-  `videotreatment` varchar(30) DEFAULT NULL,
-  `shootplan` varchar(50) DEFAULT NULL,
-  `impactpossible` varchar(20) DEFAULT NULL,
-  `targetofficial` varchar(20) DEFAULT NULL,
-  `desiredchange` varchar(30) DEFAULT NULL,
-  `ccimpactplan` varchar(50) DEFAULT NULL,
-  `impactfollowup` varchar(10) DEFAULT NULL,
-  `whynot` varchar(30) DEFAULT NULL,
-  `impactvideoidno` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`uniquenumber`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `preproduction`
---
-
-LOCK TABLES `preproduction` WRITE;
-/*!40000 ALTER TABLE `preproduction` DISABLE KEYS */;
-/*!40000 ALTER TABLE `preproduction` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -206,7 +165,6 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
-INSERT INTO `storytrack` VALUES (5,'qqq 999','Andaman and Nicobar ','0002-02-22','qqq','ee		  				  				  				  		','done','ok','0000-00-00','afaf','IU','option3','ok','0000-00-00','0000-00-00','Good','Not Good','23','0000-00-00','pair','jlk','jkl','jkl','jkl','jkl','new story','Yes'),(6,'hello goober','Andaman and Nicobar ','2014-06-12','jsdbj','jdnbvjk		  		','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kjdnvk','2014-06-12','kdfnk','dkk','lkdf','lkd','l;f','FK',NULL,'Yes'),(9,'hemanth goober','Andaman and Nicobar ','2014-06-11','health','hello there is  water problem due to which there is health problem		  		','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'KA_331','2014-12-31','madhu','horrible','shivu','good','under process','now',NULL,'Yes'),(803,'n','Andaman and Nicobar ','0000-00-00','w','w		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'w','0000-00-00','w','w','w','w','w','w',NULL,'Yes'),(7451,'free','Andaman and Nicobar ','0000-00-00','aaa',' \r\n		  		 \r\n		  		k','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kkhhh','0000-00-00','','','','','','',NULL,'Yes'),(7592,'k','','0000-00-00','k','k',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'k','0000-00-00','k','k','k','k','k','k',NULL,'Yes'),(8616,'a','Andaman and Nicobar ','0000-00-00','d','d','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'dddd','0000-00-00','w','w','w','w','w','w',NULL,'No'),(47182,'freeman','Andaman and Nicobar ','2014-06-11','health','hi my health is good ','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'','2014-06-10','mohan','rajesh','','health','goodmorning','from today','new story','No'),(47184,'akshay','Karnataka','2014-12-31','k','jbfskjdishmniuhnkjn;ioh','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kA-112','2014-06-10','hfiuhwi','jaaga','freeman','health','goodmorning','from today','new story','No'),(47185,'hhh','Arunachal Pradesh','2014-06-11','knach','knsj','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'knc','2014-06-12','ksk','dklnklads','nskcnkl','mldkcnlks','dlklk','kdnn','new story','No'),(47186,'stephanie','Assam','2014-06-12','aaaaa','dasadfaf','done',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'zdvdad','2014-06-12','ffdfd','dsf','df','ffnfg','fbgn','mkj','new story','No'),(47187,'m','','0000-00-00','m','mm',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'m','0000-00-00','m','m','m','m','m','m',NULL,'Yes'),(47188,'p','Andaman and Nicobar ','0000-00-00','p','p',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'p','0000-00-00','p','p','p','p','p','p',NULL,'Yes'),(47189,'9','Andaman and Nicobar ','0000-00-00','9','9',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'9','0000-00-00','9','9','9','9','9','9',NULL,'Yes'),(47190,'foo',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'un',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(47191,'foo2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'un1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -219,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-03  5:44:55
+-- Dump completed on 2014-07-08  7:27:16
