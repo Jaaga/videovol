@@ -4,7 +4,7 @@ function labeledDatePicker($label, $name, $value) {
 	echo "
 		<tr><td valign=\"top\"><label for=\"goareceived\">" . $label . " :</label></td>
 			<td>
-				<p><input type=\"text\" name=\"" . $name . "\" id=\"datepick\" 
+				<p><input type=\"text\" name=\"" . $name . "\" class=\"datepick\" 
 					value=\"" . $value . "\"></p>
 			</td>
 		</tr>";

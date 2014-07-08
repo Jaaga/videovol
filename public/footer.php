@@ -21,8 +21,8 @@
     var date = $('#dateReceivedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateOfStoryDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 
-    var date = $('#datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-   var date = $('#datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+  // var date = $('#datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
    // var date = $('#datePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
    // var date = $('#datePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
    // var date = $('#datePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
