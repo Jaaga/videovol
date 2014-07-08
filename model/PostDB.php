@@ -13,7 +13,6 @@ function getEditorDataByUniqueNumber($uniquenumber) {
 			"subtitlestatus, videosent, editnotes from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
  	$array = getAsAssocArray($sql);
- 	echo "\neditornotes is: " . $array['editnotes'];
  	return $array;
 }
 
