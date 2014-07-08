@@ -9,18 +9,6 @@ if (isset($_GET['un'])) {
 }
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Create Story</title>
-
-</head>
-<style>
-
-</style>
-<body>
-
 <h1><?php if (isset($un)) echo "Story Unique Number: ". $un; ?></h1>	
 
 <form name="creatStory-form" method="GET" action="index.php">
@@ -227,6 +215,5 @@ if (isset($_GET['un'])) {
 		
 	</table>
 </form>
-<?php
-include ('footer.php'); 
-?>
+</body>
+</html>

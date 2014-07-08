@@ -89,26 +89,7 @@ $data = getEditorDataByUniqueNumber($un);
 
 </table>	
 </form>
-<link rel="stylesheet" href="jqueryui/css/ui/jquery-ui.css" />
-<script src="jqueryui/js/jquery.js"></script>
-<script src="jqueryui/js/jquery-ui.min.js"></script>
-	 <script>
-$(function() {
-var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-
-$(function() {
-var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-
-$(function() {
-var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-</script>
 	
 </body>
 </html>
-<?php
-include ('footer.php'); 
-?>
 

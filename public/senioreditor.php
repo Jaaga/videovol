@@ -49,4 +49,3 @@ labeledTextBox('Published Platform', 'publishplatform', $data['publishplatform']
 
 </body>
 </html>
-<?php include("footer.php"); ?>

@@ -119,9 +119,8 @@ include ('header.php');
 </table>
 
 </form>
-<?php
-include ('footer.php'); 
-?>
+</body>
+</html>
 
 
 

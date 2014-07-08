@@ -1,15 +1,41 @@
-
-
 <!doctype html>
 <head>
 	<meta charset="UTF-8">
 	<title>VV Workflow Tracker</title>
-</head>
 <link href="./main.css" rel="stylesheet">
 <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="script.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="buttons/css/buttons.css">
+<link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
+<script src="./jqueryui/js/jquery.js"></script>
+<script src="./jqueryui/js/jquery-ui.min.js"></script>
+<script>
+  $(function() {
+  var date = $('#editRecievedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#editCompletedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#videoSentDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#footageReceivedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#approvedOnDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#editMonthDate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#dateReceivedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#dateOfStoryDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 
+    var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+  $(function() {
+var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
 
+$(function() {
+var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+
+$(function() {
+var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+});
+</script>
+</head>
+<body>
 <header>
 	<div class="nav">
 		<a href="index.php"><h1>VideoVolunteers</h1></a>
@@ -66,5 +92,5 @@
     </ul>
 </div>
    -->
-    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+    
 

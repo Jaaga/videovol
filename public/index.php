@@ -114,5 +114,4 @@ foreach ($resultArray as $row) {
 	echo "<a href=junioreditor.php?un=" . urlencode($row['uniquenumber']) .">" . 
 	        	"Footage" . "</a></td></tr>";
 }
-include ('footer.php');
 ?>

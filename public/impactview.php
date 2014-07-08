@@ -53,6 +53,6 @@ echo "<tr>
 
 ?>
 
-<?php 
-    include_once ('footer.php');
-?>
+</table>
+</body>
+</html>
