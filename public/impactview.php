@@ -16,7 +16,6 @@ include_once("../model/ImpactDB.php");
         <li><a href="senioreditorview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
         <li><a href="impactview.php" class="button button-rounded button-flat-primary">Impact View</a></li>
-        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
 </div>

@@ -92,5 +92,4 @@ var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     </ul>
 </div>
    -->
-    
 

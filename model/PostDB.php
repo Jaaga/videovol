@@ -13,7 +13,6 @@ function getEditorDataByUniqueNumber($uniquenumber) {
 			"subtitlestatus, videosent, editnotes from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
  	$array = getAsAssocArray($sql);
- 	echo "\neditornotes is: " . $array['editnotes'];
  	return $array;
 }
 
@@ -72,7 +71,6 @@ function editorUpdate($uniquenumber, $editreceived, $editor, $editcomplete,
 		   "', editor='" . $editor . "',editcomplete='" . $editcomplete .
 		   "', subtitlestatus='" . $subtitlestatus . "', videosent='" . $videosent . 
 		   "',editnotes='" . $editnotes . "' where uniquenumber = '" . $uniquenumber . "'";
-	echo $sql;
 	$db = dbopen();
 	$result= $db->query($sql);
 	mysqli_close($db);

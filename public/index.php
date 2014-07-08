@@ -66,7 +66,7 @@ include_once("header.php");
         <li><a href="senioreditorview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
         <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
-        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight" style="margin-left:3em;">Create New Story</a></li>
+        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight" style="margin-left:3em;">New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
 </div>
@@ -84,7 +84,7 @@ include_once("header.php");
 -->
 
 <table class="table table-hover">
-    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
+    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact / Footage</th><tr>
     </thead>
 
 <?php
