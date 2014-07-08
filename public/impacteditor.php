@@ -106,7 +106,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="date-of-impact">Date of Impact</label>
 			</td>
 			<td>
-				<input type="text" name="date-of-impact" id="dateOfImpactDatePick" value =<?php echo $IData['dateofimpact']; ?> >
+				<input type="text" name="date-of-impact" class="datepick" value =<?php echo $IData['dateofimpact']; ?> >
 			</td>
 		</tr>
 		<!--<tr>
@@ -267,7 +267,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="date-impact-video-approved">Date of Impact Video Approved?</label>
 			</td>
 			<td>
-				<input type="text" id="impactvideoapproveddate" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
+				<input type="text" class="datepick" name="date-impact-video-approved"value = <?php echo $IData['videoapproveddate']; ?>>
 			</td>
 		</tr>
 		<tr>
@@ -321,14 +321,6 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 	</table>	
 </form>
-<link rel="stylesheet" href="../jqueryui/css/ui/jquery-ui.css" />
-<script src="../jqueryui/js/jquery.js"></script>
-<script src="../jqueryui/js/jquery-ui.min.js"></script>
-<script>
-$(function() {
-var date = $('#dateOfImpactDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-var date = $('#impactvideoapproveddate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-});
-</script>
-</body>
-</html>
+<?php
+include ('footer.php');
+?>
