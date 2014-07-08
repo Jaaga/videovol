@@ -210,7 +210,6 @@ if (isset($_GET['un'])) {
 			</td>
 			<td>
 			<select type="text" name="impactpossible">
-					<option value="Select">Yes</option>
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
 			</select>

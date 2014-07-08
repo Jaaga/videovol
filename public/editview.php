@@ -1,7 +1,7 @@
 <?php
 include_once ('../model/PostDB.php');
 include_once ('header.php');
-include ('../../controller/editorcontroller.php')
+include ('../controller/editorcontroller.php')
 
 
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
@@ -34,7 +34,6 @@ include ('../../controller/editorcontroller.php')
 </tr>
 </thead>
 <?php 
-
 $editordata = getEditorData();
 foreach($editordata as $row)
 { 
