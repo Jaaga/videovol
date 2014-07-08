@@ -9,8 +9,8 @@ function getJuniorEditorDataByUniqueNumber($uniquenumber) {
 }
 
 function getEditorDataByUniqueNumber($uniquenumber) {
-    $sql = "select uniquenumber, editreceived, editor, editcomplete, 
-			subtitlestatus, videosent, editnotes from posttrack where uniquenumber = '" . 
+    $sql = "select uniquenumber, editreceived, editor, editcomplete," . 
+			"subtitlestatus, videosent, editnotes from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
    	echo $sql;
  	$array = getAsAssocArray($sql);
@@ -33,8 +33,8 @@ function getJuniorEditorData() {
 }
 
 function getEditorData() {
-	$sql ="uniquenumber, editreceived, editor, editcomplete, 
-			subtitlestatus, videosent, editnotes from posttrack";
+	$sql ="select uniquenumber, editreceived, editor, editcomplete," . 
+		  "subtitlestatus, videosent, editnotes from posttrack";
 	return getAs2DArray($sql);
 }
 

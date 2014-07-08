@@ -1,7 +1,7 @@
 <?php
-include '../model/dbcon.php';
-$db=dbopen();
-include ('header.php');
+include_once ('../model/PostDB.php');
+include_once ('header.php');
+include ('../../controller/editorcontroller.php')
 
 
 //$data = "select * from storytrack where datereceived = '1986-12-23'"
@@ -36,9 +36,9 @@ include ('header.php');
 </thead>
 <?php 
 
-$statusedit= "select * from storytrack where seq IS NOT NULL";
-$result = $db->query($statusedit);
-while($row = mysqli_fetch_array($result)) {
+$editordata = getEditorData();
+foreach($editordata as $row)
+{ 
   echo "<tr>";
   echo "<td>" . $row['uniquenumber'] . "</td>" ; 
   echo "<td>" . $row['editreceived'] . "</td>"; 
@@ -47,7 +47,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>" . $row['subtitlestatus'] . "</td>";   
   echo "<td>" . $row['videosent'] . "</td>";  
   echo "<td>" . $row['editnotes'] . "</td>";  
-  echo "<td><a href=\"editor.php?un=$row[uniquenumber]\" ><input type=\"submit\" value=\"Edit\" /></a></td>";
+  echo "<td><a href='editor.php?un=". $row['uniquenumber']."' ><input type='submit' value='Edit' /></a></td>";
   echo "</tr>";
 }
 

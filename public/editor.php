@@ -17,7 +17,7 @@ $data = getEditorDataByUniqueNumber($un);
 </head>
 <body>
 	
-<form name="editor-form" method="get" action="editview.php" onsubmit="javaScript:return validate_dropdown1();">
+<form name="editor-form" method="GET" action="editview.php" onsubmit="javaScript:return validate_dropdown1();">
 		<input name="un" type="hidden" value=<?php echo $un; ?> > 
 		<input name="action" type="hidden" value="update" > 
 		
