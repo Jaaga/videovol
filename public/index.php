@@ -84,7 +84,7 @@ include_once("header.php");
 -->
 
 <table class="table table-hover">
-    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
+    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact / Footage</th><tr>
     </thead>
 
 <?php
