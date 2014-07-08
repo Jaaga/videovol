@@ -1,6 +1,5 @@
 <?php 
 
-echo "<h1>in EC</h1>";
 
 include_once '../model/PostDB.php';
 if($_GET['action'] == 'update') {

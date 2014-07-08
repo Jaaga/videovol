@@ -7,6 +7,7 @@ echo "edit UN: " . $un;
 include_once("../model/PostDB.php");
 
 $data = getEditorDataByUniqueNumber($un);
+
 ?>
 
 <!doctype html>
@@ -76,7 +77,7 @@ $data = getEditorDataByUniqueNumber($un);
  		 <label for="editnotes">Notes: </label>
  	</td>
  	<td valign="top">
-  		<textarea  name="editnotes" maxlength="1000" cols="25" rows="6" value="<?php echo $data['editnotes']; ?>"></textarea>
+  		<textarea  name="editnotes" maxlength="1000" cols="25" rows="6" ><?php echo $data['editnotes']; ?></textarea>
  	</td>
 	</tr>
  	
