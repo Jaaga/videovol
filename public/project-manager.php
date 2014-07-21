@@ -14,7 +14,7 @@ include ('header.php');
 <form name="projectmanager-form" method="post" action = "../public/pmupdate.php">
 	<input name="fid" type="hidden" value="<?php echo $fid ?>">
 <h2>Project Manager's Dashboard</h2>
-<table>
+<table class="table table-hover">
 
 
 <tr>
@@ -52,7 +52,7 @@ include ('header.php');
   		<label for="editMonth">Edit Month: </label>
  	</td>
  	<td valign="top">
-  		<input  type="date" name="editMonth">
+  		<input  type="text" name="editMonth" id="editMonthDatePick">
  	</td>
  
 </tr>

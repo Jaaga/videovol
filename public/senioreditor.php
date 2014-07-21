@@ -1,15 +1,15 @@
 
 <?php
 $un=$_GET['un'];
-echo "edit UN: " . $un;
+//echo "edit UN: " . $un;
 
-
+include("header.php");
 include_once("util.php");
 include_once("../model/PostDB.php");
 
 $data = getSeniorEditorDataByUniqueNumber($un); 
-echo 'seq: ' . $data['seq'];
-echo '  reviewedby: ' . $data['reviewedby'];
+//echo 'seq: ' . $data['seq'];
+//echo '  reviewedby: ' . $data['reviewedby'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +29,7 @@ echo '  reviewedby: ' . $data['reviewedby'];
 
 
 <?php 
-labeledDatePicker("Received In Goa Office", goareceived, $data['goareceived']);
+labeledDatePicker("Received In Goa Office", 'goareceived', $data['goareceived']);
 yesNoSelect('Subtitling Required', 'subtitlerequired', $data['subtitlerequired']); 
 labeledDatePicker('Subtitling Completed On', 'subtitledone', $data['subtitledone']);
 yesNoSelect('Cleaning Required', 'cleaningrequired', $data['cleaningrequired']); 
@@ -45,7 +45,6 @@ labeledTextBox('Published Platform', 'publishplatform', $data['publishplatform']
 	</table>
 </form>
 
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="script.js" type="text/javascript" charset="utf-8"></script>
 
 </body>

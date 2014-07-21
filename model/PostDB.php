@@ -8,11 +8,18 @@ function getJuniorEditorDataByUniqueNumber($uniquenumber) {
  	return $array;
 }
 
+function getEditorDataByUniqueNumber($uniquenumber) {
+    $sql = "select uniquenumber, editreceived, editor, editcomplete," . 
+			"subtitlestatus, videosent, editnotes from posttrack where uniquenumber = '" . 
+    	   $uniquenumber . "'";
+ 	$array = getAsAssocArray($sql);
+ 	return $array;
+}
+
 function getSeniorEditorDataByUniqueNumber($uniquenumber) {
     $sql = "select goareceived , subtitlerequired, subtitledone, cleaningrequired, cleaningdone," .
     	   " feedback, seniornotes, uploaded, published, publishplatform from posttrack where uniquenumber = '" . 
     	   $uniquenumber . "'";
-   	echo $sql;
  	$array = getAsAssocArray($sql);
  	return $array;
 }
@@ -20,6 +27,12 @@ function getSeniorEditorDataByUniqueNumber($uniquenumber) {
 function getJuniorEditorData() {
 	$sql ="select uniquenumber, footagereceived , wherereceived, reviewedby, seq, broll," .
 	      " fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon from posttrack";
+	return getAs2DArray($sql);
+}
+
+function getEditorData() {
+	$sql ="select uniquenumber, editreceived, editor, editcomplete," . 
+		  "subtitlestatus, videosent, editnotes from posttrack";
 	return getAs2DArray($sql);
 }
 
@@ -45,6 +58,19 @@ function juniorEditorAddOrUpdate($uniquenumber, $footagereceived, $wherereceived
 		   "',translation='" . $translation . "', paymentapproved='" . $paymentapproved . 
 		   "',approvedon='" . $approvedon . "'";
 
+	$db = dbopen();
+	$result= $db->query($sql);
+	mysqli_close($db);
+	return $result;
+}
+
+function editorUpdate($uniquenumber, $editreceived, $editor, $editcomplete, 
+					   $subtitlestatus, $videosent, $editnotes) {
+	
+	$sql = "update posttrack set editreceived = '" . $editreceived .
+		   "', editor='" . $editor . "',editcomplete='" . $editcomplete .
+		   "', subtitlestatus='" . $subtitlestatus . "', videosent='" . $videosent . 
+		   "',editnotes='" . $editnotes . "' where uniquenumber = '" . $uniquenumber . "'";
 	$db = dbopen();
 	$result= $db->query($sql);
 	mysqli_close($db);
@@ -82,5 +108,10 @@ function addJuniorEditorData($ccname, $state, $dateReceived, $issue, $story, $un
 	mysqli_query($db, $sql);
 	mysqli_close($db);
 }
+
+
+
+
+
 
 ?>

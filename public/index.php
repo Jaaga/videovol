@@ -1,7 +1,14 @@
 <?php
 include_once("../model/StoryDB.php");
-if(isset($_GET['action'])) {
-    include_once("../controller/StoryController.php");
+
+if(isset($_GET['search'])) {
+    include_once("../controller/SearchController.php");
+    // $resultArray gets set by SearchController
+} else {
+	if(isset($_GET['action'])) {
+        include_once("../controller/StoryController.php");
+    }
+    $resultArray = getAllBasicData();
 }
 
 include_once("header.php");
@@ -41,10 +48,10 @@ include_once("header.php");
                 </td>
 
          
-                <td valign="top">From:<input type="text" name="fromdate" id="dateSearchFrom"></td>
-                <td valign="top">To:<input type="text" name="todate" id="searchToDate"></td>
+                <td valign="top">From:<input type="text" name="fromdate" class="datepick"></td>
+                <td valign="top">To:<input type="text" name="todate" class="datepick"></td>
                 <td><input type="submit" name="search" value="Search" /></td>
-               
+
             </tr>
     
         </form>
@@ -60,7 +67,7 @@ include_once("header.php");
         <li><a href="senioreditorview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
         <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
-        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight">Create New Story</a></li>
+        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight" style="margin-left:3em;">New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
 </div>
@@ -78,41 +85,21 @@ include_once("header.php");
 -->
 
 <table class="table table-hover">
-    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>View Impact</th><tr>
+    <thead><tr><th></th><th>Unique Number</th><th>CCName</th><th>State</th><th>Issue Topic</th><th>Received Date</th><th>Story Description</th><th>Stage</th><th>Impact / Footage</th><tr>
     </thead>
 
 <?php
-
-if (isset($_GET['search'])) {
-	echo "<h1>SEARCH</h1>";
-	$ccname = $_GET['ccname'];
-	if ($ccname == "1") 
-		unset($ccname);
-	$state = $_GET['state'];
-	if ($state == "1")
-		unset($state);
-	$issue = $_GET['issue'];
-	if ($issue == "1")
-		unset($issue);
-    $fromdate = $_GET['fromdate'];
-    $todate = $_GET['todate'];
-    if ($fromdate == "1" or $todate == "1")
-        unset($fromdate, $todate);
-	$resultArray = getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate);
-} else {
-    $resultArray = getAllBasicData();
-}
 
 foreach ($resultArray as $row) {
 	echo "<tr>
 	    <td><a href=storyeditor.php?un=" . urlencode($row['uniquenumber']) . ">" . 
 	    "Edit Story" . "</a></td>
 	    <td>". $row['uniquenumber'] . "</td>" . 
-	    "<td><a href=index.php?ccname=" . urlencode($row['ccname']) . ">" .
+	    "<td><a href=index.php?search=true&ccname=" . urlencode($row['ccname']) . ">" .
 	    $row['ccname'] . "</a></td>" .
-	    "<td><a href=index.php?state=" . urlencode($row['state']) . ">" .
+	    "<td><a href=index.php?search=true&state=" . urlencode($row['state']) . ">" .
 	    $row['state'] . "</a></td>" .
-	    "<td><a href=index.php?issuetopic=" . urlencode($row['issuetopic']) . ">" .
+	    "<td><a href=index.php?search=true&issue=" . urlencode($row['issuetopic']) . ">" .
 	    $row['issuetopic'] . "</a></td> 
 	    <td>" .$row['receiveddate'] . "</td> 
 	    <td>" .$row['storydescription'] . "</td>" .
@@ -128,5 +115,4 @@ foreach ($resultArray as $row) {
 	echo "<a href=junioreditor.php?un=" . urlencode($row['uniquenumber']) .">" . 
 	        	"Footage" . "</a></td></tr>";
 }
-include_once ('footer.php');
 ?>

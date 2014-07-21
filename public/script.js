@@ -108,9 +108,9 @@
 
 	}
 
-	/*-----------------------------------
+/*	-----------------------------------
 	Hints for junioreditor.php ends here
-	-------------------------------------*/
+	-------------------------------------
 
 	//Problem: It looks gross in smaller browser and small devices.
 //Solution: To hide the text links and swap them out with more appropriate navigation.
@@ -140,7 +140,7 @@ if($anchor.parent().hasClass("selected")){
 
 
 //Bind change listener to the select
-$select.change(function(){
+$select.change(function(){*/
 
 
 

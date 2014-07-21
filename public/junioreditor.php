@@ -22,13 +22,23 @@ if (isset($_GET['un'])) {
 
 <form name="editor-form" method="get" action="junioreditorview.php" 
 		onsubmit="javaScript:return validate_dropdown1();">
-
-	<input name="un" type="hidden" value=<?php echo $un; ?> > 
-	<input name="action" type="hidden" value="update" > 
+<?php if ($edit) {
+	echo "<input name='un' type='hidden' value=\"" . $un . "\"> 
+	    <input name='action' type='hidden' value='update' >"; 
+} else {
+	echo "<input name='action' type='hidden' value='add' >";
+} ?>
 	<table class= "table table-hover">
+<?php if ($edit == FALSE) {
+	echo "<tr><td valign='top'><label for='un'>Unique Number :</label></td>
+			<td>
+				<p><input type='text' name='un'></p>
+			</td>
+		</tr>";
+} ?>
 		<tr><td valign="top"><label for="footage received">Footage Received :</label></td>
 			<td>
-				<p><input type="text" name="footagereceived" id="datepick" 
+				<p><input type="text" name="footagereceived" id="footageReceivedDatePick" 
 					value=<?php echo "\"" . $data['footagereceived'] . "\""; ?>></p>
 			</td>
 		</tr>
@@ -90,16 +100,12 @@ echoSelect('VD', 'vd', $data['vd']);
 		<tr><td valign="top"><label for="approvedon">Approved On :</label></td>
 			<td>
 				<input type="text" name="approvedon" 
-					value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
+					id="approvedOnDatePick" value=<?php echo "\"" . $data['approvedon'] . "\""; ?> />
 			</td>
 		</tr>
 
-		<tr><td><input type=submit></td><tr>
+		<tr><td><input type=submit></td></tr>
 	</table>
 </form>
-<!--
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="script.js" type="text/javascript" charset="utf-8"></script>
--->
 </body>
 </html>

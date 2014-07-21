@@ -63,12 +63,15 @@ function getDataByID($fid) {
  	return getAsAssocArray($sql);
  }
 
-function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
+function getDataByUniqueNumber($un) {
+	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible from storytrack where uniquenumber = '" . $un . "'";
+ 	return getAsAssocArray($sql);
+ }
 
+function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
 	$where = genSearchWhere($where, "ccname", $ccname);
 	$where = genSearchWhere($where, "state", $state);
 	$where = genSearchWhere($where, "issuetopic", $issue);
-
 	
 	if ($fromdate and $where) {
 		$where = $where . " and ";
@@ -85,10 +88,11 @@ function getBasicDataBySearch($ccname, $state, $issue, $fromdate, $todate) {
 }
 
 function genSearchWhere($where, $field, $val) {
-    if (!$val)
+    if (!$val) {
       return $where;
-    if ($where) 
+    } if ($where) {
       $where = $where . " and ";
+    }
     
     return $where . $field . " = '" . $val . "'";
 }
@@ -103,7 +107,7 @@ function getFootageCheckDataById($id) {
  	return getAsAssocArray($sql);
 }
 
-function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
+function addStory($uniquenumber, $ccname, $state, $dateReceived, $issue, $story,  
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {
 	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
@@ -118,17 +122,17 @@ function addStory($ccname, $state, $dateReceived, $issue, $story, $uniquenumber,
 	mysqli_close($db);
 }
 
-function updateStory($fid, $ccname, $state, $dateReceived, $issue, $story, $uniquenumber, 
+function updateStory($un, $uniquenumber, $ccname, $state, $dateReceived, $issue, $story, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
 				  $shootplan, $impactpossible) {
-	$sql =  "update storytrack set ccname = '" . $ccname . "', state = '" . $state . "',".
+	$sql =  "update storytrack set uniquenumber = '" . $uniquenumber . "', ccname = '" . $ccname . "', state = '" . $state . "',".
 			" receiveddate = '" . $dateReceived . "', issuetopic = '" . $issue . "',".
-			" storydescription = '" . $story . "', uniquenumber = '" . $uniquenumber . "'," .
+			" storydescription = '" . $story . "'," .
 			" dateofstory = '" . $storydate . "', ccpair = '" . $ccpair . "'," .
 			" program = '" . $program . "', mentor = '" . $mentor . "', " .
 			" iutopic = '" . $iutopic . "', videotreatment = '" . $videotreatment . "'," .
 			" shootplan = '" . $shootplan . "', impactpossible = '" . $impactpossible ."'" .
-			" where fid = '" . $fid . "'";
+			" where uniquenumber = '" . $un . "'";
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	mysqli_close($db);
@@ -150,21 +154,10 @@ function getDataForSeniorEditor(){
 	$sql = "select * from storytrack where seq IS NOT NULL";
 	return getAs2DArray($sql);
 }
-function getDataByUniqueNumber($fid){
-	$sql = "select * from storytrack where fid = '".$fid."'";
-	return getAsAssocArray($sql);
-}
+
 function getDataForProjectManager(){
 	$sql ="select * from storytrack where seq IS NOT NULL and  paymentstatus IS NULL";
 	return getAs2DArray($sql);
 }
- /*
-    $resultArray = getFootageCheckDataById(9);
-    echo "array[0]: " . $resultArray[0];
-    echo "array['seq']: " . $resultArray['seq'];
 
-    foreach ($resultArray as $field) {
-        echo "<h1>QQQQseq: " . $field['seq'] . " broll: " . $field['broll'] . " fint: " . $row['fint'] . " vo: " . $row['vo'] . " ptc: " . $row['ptc'] . " cta: " . $row['cta'] . " vd: " .$row['vd'] . " translation: " . $row['translation'] . "</h1>";
-    }
-*/
 ?>
