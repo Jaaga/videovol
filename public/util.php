@@ -59,4 +59,29 @@ function yesNoSelect($label, $column, $value) {
 		</td>
 		</tr>";
 }
+
+function goodAverageBadSelect($label, $column, $value) {
+	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
+		$label . " : " . $value . "</label></td>" .
+		"<td><select name='" . $column . "'>";
+	if (isset($value) == FALSE) 
+		echo "<option value='0'>Select</option>";
+	echo "<option value = 'Good'";
+	if($value == "Good") 
+		echo " selected"; 
+	echo ">Good</option>";
+	echo "<option value = 'Average'";
+	if($value == "Average")  
+		echo "selected";
+	echo ">Average</option>";
+		echo "<option value = 'Bad'";
+	if($value == "Bad")  
+		echo "selected";
+	echo ">Bad</option>";
+	echo "
+		<br><label id='seqHint' style='color: red; font-style: italic;'></label>	
+		</td>
+		</tr>";
+}
+
 ?>

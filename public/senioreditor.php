@@ -34,7 +34,7 @@ yesNoSelect('Subtitling Required', 'subtitlerequired', $data['subtitlerequired']
 labeledDatePicker('Subtitling Completed On', 'subtitledone', $data['subtitledone']);
 yesNoSelect('Cleaning Required', 'cleaningrequired', $data['cleaningrequired']); 
 labeledDatePicker('Cleaning Completed On', 'cleaningdone', $data['cleaningdone']);
-labeledTextBox('Feedback', 'feedback', $data['feedback']);
+goodAverageBadSelect('Feedback', 'feedback', $data['feedback']);
 labeledTextBox('Senior Editor Notes', 'seniornotes', $data['seniornotes']);
 labeledDatePicker('Uploaded On', 'uploaded', $data['uploaded']);
 labeledDatePicker('Published On', 'published', $data['published']);
