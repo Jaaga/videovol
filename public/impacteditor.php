@@ -56,9 +56,9 @@ $IData = getImpactDataByUniqueNumber($un);
 			<td>
 			<select type="text" name="impactfollowup">
 <?php $followup = $IData['impactfollowuphappening']; ?>		
-				<option value="Maybe"  	
-<?php if (strcmp($followup, "Maybe") == 0) echo " selected "; ?> 
-							           >Maybe</option>
+				<option value="Select"  	
+<?php if (strcmp($followup, "Select") == 0) echo " selected "; ?> 
+							           >Select</option>
 				<option value="Yes"
 <?php if (strcmp($followup, "Yes") == 0) echo " selected "; ?> 				
 									   >Yes</option>
@@ -78,66 +78,66 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 		</tr>
 		<tr>
-			<td valign="top">
+		<td valign="top">
 				<label for="impact-process">Impact Process</label>
 			</td>
 			<td>
 				<textarea name="impact-process" id="" cols="30" rows="10" > <?php echo $IData['impactprocess']; ?> </textarea>
 			</td>
 		</tr>
-		<tr>
-			<td valign="top">
+<!-- 		<tr>
+	<td valign="top">
+		<label for="impact-status">Impact Achieved</label>
+	</td>
+	<td>
+		<input type="text" name="impactachieved" value =<?php/* echo  $IData['impactachieved'];*/ ?> >
+	</td>
+</tr> -->
+
+				<tr valign="top">
+			<td>
 				<label for="impact-status">Impact Achieved</label>
 			</td>
 			<td>
-				<input type="text" name="impactachieved" value =<?php echo  $IData['impactachieved']; ?> >
+			<select type="text" name="impactachieved">
+<?php $achieved = $IData['impactachieved']; ?>		
+				<option value="Select"  	
+<?php if (strcmp($achieved, "Select") == 0) echo " selected "; ?> 
+							           >Select</option>
+				<option value="Yes"
+<?php if (strcmp($achieved, "Yes") == 0) echo " selected "; ?> 				
+									   >Yes</option>
+				<option value="No" 
+<?php if (strcmp($achieved, "No") == 0) echo " selected "; ?> 
+								       >No</option>
+			</select>
 			</td>
 		</tr>
-		<tr>
-			<td valign="top">
-				<label for="milestone">Milestone</label>
-			</td>
-			<td>
-				<input type="text" name="milestone" value =<?php echo $IData['milestone']; ?> >
-			</td>
+
+
+
+
+
+
+
+		<tr><td valign="top"><label for="milestone">Milestone</label></td>
+			<td><input type="text" name="milestone" value =<?php echo $IData['milestone']; ?> ></td>
 		</tr>
-		<tr>
-			<td valign="top">
-				<label for="date-of-impact">Date of Impact</label>
-			</td>
-			<td>
-				<input type="text" name="date-of-impact" class="datepick" value =<?php echo $IData['dateofimpact']; ?> >
-			</td>
+		<tr><td valign="top"><label for="date-of-impact">Date of Impact</label></td>
+			<td><input type="text" name="date-of-impact" class="datepick" value =<?php echo $IData['dateofimpact']; ?> ></td>
 		</tr>
-		<!--<tr>
-			<td valign="top">
-				<label for="reported-date-of-impact">Reported Date of Impact</label>
-			</td>
-			<td>
-				<input type="date" name="reported-date-of-impact">
-			</td>
-		</tr>-->
-		<tr>
-			<td valign="top">
-			    <label for="time-in-weeks">Time in Weeks</label>
-			</td>
-			<td>
-				<input type="number" min="0" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>>
-			</td>
+
+		<tr><td valign="top"><label for="time-in-weeks">No. of weeks taken to create the Impact?</label></td>
+			<td><input type="number" min="0" name="time-in-weeks" value =<?php echo $IData['timetakenforimpact']; ?>></td>
 		</tr>
-		<tr valign="top">
-			<td>
-				<label for="community-screening-done">Community Screening Done?</label>
-			</td>
-			<td>
-					<select type="text" name="CommunityScreeningDone">
+		<tr valign="top"><td><label for="community-screening-done">Community Screening Done?</label></td>
+			<td><select type="text" name="CommunityScreeningDone">
 						<?php $communityscreen = $IData['communityscreening']; ?>	
 					<option value="Yes"
 					<?php if (strcmp($communityscreen, "Yes") == 0) echo " selected "; ?> >Yes</option>
 					<option value="No"
 					<?php if (strcmp($communityscreen, "No") == 0) echo " selected "; ?> >No</option>
-			</select>
-			</td>
+			</select></td>
 		</tr>
 		<tr>
 			<td valign="top">
