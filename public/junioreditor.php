@@ -1,6 +1,8 @@
 
 <?php
-include_once("header.php");
+include("header.php");
+include_once("util.php");
+
 
 if (isset($_GET['un'])) {
 	$un=$_GET['un'];
@@ -57,46 +59,41 @@ if (isset($_GET['un'])) {
 
 <?php 
 
-function echoSelect($label, $column, $value) {
-	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
-		$label . " : " . $value . "</label></td>" .
-		"<td><select name='" . $column . "'>";
-	if (isset($value) == FALSE) 
-		echo "<option value='0'>Select</option>";
-	echo "<option value = 'Good'";
-	if($value == "Good") 
-		echo " selected"; 
-	echo ">Good</option>";
-	echo "<option value = 'Not Good'";
-	if($value == "Not Good")  
-		echo "selected";
-	echo ">Not Good</option>";
-	echo "
-		<br><label id='seqHint' style='color: red; font-style: italic;'></label>	
-		</td>
-		</tr>";
-}
 
-echoSelect('SEQ', 'seq', $data['seq']);
-echoSelect('B-ROLL', 'broll', $data['broll']);
-echoSelect('INT', 'fint', $data['fint']);
-echoSelect('VO', 'vo', $data['vo']);
-echoSelect('PTC', 'ptc', $data['ptc']);
-echoSelect('CTA', 'cta', $data['cta']);
-echoSelect('VD', 'vd', $data['vd']);
+
+
+
+
+
+
+/*---------------------------------------*/
+
+goodNotGoodNotSentSelect('SEQ', 'seq', $data['seq']);
+goodNotGoodNotSentSelect('B-ROLL', 'broll', $data['broll']);
+goodNotGoodNotSentSelect('INT', 'fint', $data['fint']);
+goodNotGoodNotSentSelect('VO', 'vo', $data['vo']);
+goodNotGoodNotSentSelect('PTC', 'ptc', $data['ptc']);
+goodNotGoodNotSentSelect('CTA', 'cta', $data['cta']);
+goodNotGoodNotSentSelect('VD', 'vd', $data['vd']);
+yesNoNotRequiredSelect ('Translation', 'translation', $data['translation']);
+yesNoSelect('Payment Approved', 'paymentapproved', $data['paymentapproved']);
 ?>
-		<tr><td valign="top"><label for="translation">Translation :</label></td>
+
+
+		<!-- <tr><td valign="top"><label for="translation">Translation :</label></td>
 			<td>
 				<input type="text" name="translation" 
-					value=<?php echo "\"" . $data['translation'] . "\""; ?> />
+					value=<?php /*echo "\"" . $data['translation'] . "\""; */?> />
 			</td>
-		</tr>
-		<tr><td valign="top"><label for="paymentapproved">Payment Approved :</label></td>
-			<td>
-				<input type="text" name="paymentapproved" 
-					value=<?php echo "\"" . $data['paymentapproved'] . "\""; ?> />
-			</td>
-		</tr>
+		</tr> -->
+<!-- 		<tr><td valign="top"><label for="paymentapproved">Payment Approved :</label></td>
+	<td>
+		<input type="text" name="paymentapproved" 
+			value=<?php /*echo "\"" . $data['paymentapproved'] . "\"";*/ ?> />
+	</td>
+</tr>
+ -->
+
 		<tr><td valign="top"><label for="approvedon">Approved On :</label></td>
 			<td>
 				<input type="text" name="approvedon" 
