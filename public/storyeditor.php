@@ -95,14 +95,14 @@ if (isset($_GET['un'])) {
 		</tr>
 
 
-		<tr>
-			<td valign="top">
-				<label for="issue">Issue/Topic</label>
-			</td>
-			<td>
-				<input type="text" name="issue" <?php if (isset($storyData)) echo "value= \"" . $storyData['issuetopic'] . "\""; ?> />
-			</td>
-		</tr> 
+<!-- 		<tr>
+	<td valign="top">
+		<label for="issue">Issue/Topic</label>
+	</td>
+	<td>
+		<input type="text" name="issue" <?php /*if (isset($storyData)) echo "value= \"" . $storyData['issuetopic'] . "\"";*/ ?> />
+	</td>
+</tr>  -->
 
 
 		<tr>
@@ -116,16 +116,16 @@ if (isset($_GET['un'])) {
 		 	</td>
 		</tr>
 
-		<tr>
-			<td valign="top">
-				<label for="storydate">Date of Story</label>
-			</td>
-			<td>
-				<p><input type="text" name="storydate" id="dateOfStoryDatePick" 
-<?php if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\""; ?> />
-				</p>
-			</td>
-		</tr>
+<!-- 		<tr>
+	<td valign="top">
+		<label for="storydate">Date of Story</label>
+	</td>
+	<td>
+		<p><input type="text" name="storydate" id="dateOfStoryDatePick" 
+<?php/* if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\"";*/ ?> />
+		</p>
+	</td>
+</tr> -->
 
 		<tr valign="top">
 			<td>
