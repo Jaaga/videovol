@@ -186,10 +186,15 @@ if (isset($_GET['un'])) {
 			<td>
 				<label for="shoot_plan">Shoot Plan</label>
 			</td>
-			<td>
+<!-- 			<td>
 
-				<input type="text" name="shoot_plan" <?php if (isset($storyData)) echo "value= \"" . $storyData['shootplan'] . "\""; ?> />
-			</td>
+	<input type="text" name="shoot_plan" <?php /*if (isset($storyData)) echo "value= \"" . $storyData['shootplan'] . "\""*/; ?> />
+</td> -->
+		 	<td valign="top">
+		  		<textarea  name="shoot_plan" maxlength="1000" cols="25" rows="6">
+<?php if (isset($storyData)) echo $storyData['shootplan']; ?>
+		  		</textarea>
+		 	</td>
 		</tr>
 
 		<tr valign="top">
