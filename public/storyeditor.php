@@ -194,7 +194,7 @@ if (isset($_GET['un'])) {
 
 		<tr valign="top">
 			<td>
-				<label for="impactpossible">impactpossible</label>
+				<label for="impactpossible">Impact Possible</label>
 			</td>
 			<td>
 			<select type="text" name="impactpossible">
@@ -203,6 +203,34 @@ if (isset($_GET['un'])) {
 			</select>
 			</td>
 		</tr>
+
+		<tr>
+			<td valign="top">
+				<label for="impact-process">Target official:</label>
+			</td>
+			<td>
+				<input type="text" name="Targetofficial" value=
+<?php echo "\"" . $IData['targetofficial'] . "\""; ?> >
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label for="impact-status">Desired change(CTA)</label>
+			</td>
+			<td>
+				<input type="text" name="DesiredChange" value=
+<?php echo "\"" . $IData['desiredchange'] . "\""; ?> >
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label for="impact-process">CC impact plan</label>
+			</td>
+			<td>
+				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
+<?php echo $IData['ccimpactplan']; ?> 					
+				</textarea>
+			</td>
 
 		<tr>
 		 	<td>
