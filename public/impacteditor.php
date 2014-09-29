@@ -14,18 +14,14 @@ $IData = getImpactDataByUniqueNumber($un);
 
 <h1><?php if($_GET['un']) echo "Unique No.: ".$_GET['un']?></h1>
 
-<!--<form method="get" action="../index.php">
-    <button type="submit">Home</button>
-</form>-->
-	<form name="impactflow" method="POST" action ="impactview.php">
+
+	<form name="impactflow" method="GET" action ="impactview.php">
 	<input name ="un" type="hidden" value =<?php echo $un; ?> >
 	<table class="table table-hover">
 	
-		
-		</tr>
 		<tr valign="top">
 			<td>
-				<label for="impact-process">Is Impact follow up happening?</label>
+				<label for="impact-process">Is Impact Follow up Happening?</label>
 			</td>
 			<td>
 			<select type="text" name="impactfollowup">
@@ -57,6 +53,31 @@ $IData = getImpactDataByUniqueNumber($un);
 			</td>
 			<td>
 				<textarea name="impact-process" id="" cols="30" rows="10" > <?php echo $IData['impactprocess']; ?> </textarea>
+			</td>
+		</tr>
+		<tr>
+		<td valign="top">
+				<label for="Targetofficial">Target Official</label>
+			</td>
+			<td>
+				<input type="text" name="targetofficial" value = <?php echo $IData['targetofficial']; ?> >
+			</td>
+		</tr>
+		<tr>
+		<td valign="top">
+				<label for="DesiredChange">Desired Change</label>
+			</td>
+			<td>
+				<input type="text" name="desiredChange" value = <?php echo $IData['desiredchange']; ?> >
+			</td>
+		</tr>
+
+		<tr>
+		<td valign="top">
+				<label for="CC_Impact_plan">CC impact plan</label>
+			</td>
+			<td>
+				<input type="text" name="ccimpactplan" value = <?php echo $IData['ccimpactplan']; ?> >
 			</td>
 		</tr>
 <!-- 		<tr>
