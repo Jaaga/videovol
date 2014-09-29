@@ -1,5 +1,6 @@
 <?php
 include '../model/ImpactDB.php';
+
 $un =$_GET['un'];
 $targetofficial =$_GET['targetofficial'];
 $desiredchange = $_GET['desiredChange'];

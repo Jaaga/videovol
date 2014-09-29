@@ -2,7 +2,6 @@
 
 include_once("header.php");
 include'../controller/ImpactController.php';
-
 include_once("../model/ImpactDB.php");
 ?>
 
