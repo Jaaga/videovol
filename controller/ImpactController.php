@@ -1,9 +1,9 @@
 <?php
 include '../model/ImpactDB.php';
-$uno =$_POST['id'];
-$targetofficial =$_POST['Targetofficial'];
-$desiredchange = $_POST['DesiredChange'];
-$ccimpactplan=$_POST['CC_Impact_plan'];
+$un =$_POST['un'];
+$targetofficial =$_POST['targetofficial'];
+$desiredchange = $_POST['desiredchange'];
+$ccimpactplan=$_POST['ccimpactplan'];
 $impactfollowuphappening=$_POST['impactfollowup'];
 $ifnowhynot=$_POST['whynotfollowing'];
 $impactprocess=$_POST['impact-process'];
@@ -29,5 +29,5 @@ $videoreviewedby= $_POST['impact-video-reviewed-by'];
 $blognotes = $_POST['BlognotesDone'];
 $gifttocc = $_POST['impactvideosenttocc'];
 $thankyoucard = $_POST['impactthankyou'];
-insertAndUpdateImpact($uno,$targetofficial,$desiredchange,$ccimpactplan,$impactfollowuphappening,$ifnowhynot,$impactprocess,$impactachieved,$milestone,$dateofimpact,$timetakenforimpact,$communityscreening,$noofpeoplesawvideo,$detailsofscreening,$videoshowntoofficials,$noofofficials,$detailsofscreeningofficials,$collaborations,$noofpeopleinvolved,$noofpeopleimpacted,$noofvillagesimpacted,$videoproductionstatus,$videoreviewed,$approvepayment,$videoapproveddate,$videoreviewedby,$blognotes,$gifttocc,$thankyoucard);
+insertAndUpdateImpact($un,$targetofficial,$desiredchange,$ccimpactplan,$impactfollowuphappening,$ifnowhynot,$impactprocess,$impactachieved,$milestone,$dateofimpact,$timetakenforimpact,$communityscreening,$noofpeoplesawvideo,$detailsofscreening,$videoshowntoofficials,$noofofficials,$detailsofscreeningofficials,$collaborations,$noofpeopleinvolved,$noofpeopleimpacted,$noofvillagesimpacted,$videoproductionstatus,$videoreviewed,$approvepayment,$videoapproveddate,$videoreviewedby,$blognotes,$gifttocc,$thankyoucard);
 ?>

@@ -1,15 +1,15 @@
 <?php
 include_once("../model/StoryDB.php");
 
-if(isset($_GET['search'])) {
+if (isset($_POST['login'])) {
+    include_once("../controller/UserController.php");
+} else if (isset($_GET['search'])) {
     include_once("../controller/SearchController.php");
     // $resultArray gets set by SearchController
-} else {
-	if(isset($_GET['action'])) {
-        include_once("../controller/StoryController.php");
-    }
-    $resultArray = getAllBasicData();
+} else if(isset($_GET['action'])) {
+    include_once("../controller/StoryController.php");
 }
+$resultArray = getAllBasicData();
 
 include_once("header.php");
 
