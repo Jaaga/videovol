@@ -2,10 +2,13 @@
 
 include('header.php');
 include_once("../model/StoryDB.php");
+include_once("../model/ImpactDB.php");
 
-$un = $_GET['un'];
 if (isset($_GET['un'])) {
+    $un = $_GET['un'];
+	echo "isset un";
 	$storyData = getDataByUniqueNumber($un);
+	$impactData = getImpactDataByUniqueNumber($un);
 }
 ?>
 
@@ -96,14 +99,14 @@ if (isset($_GET['un'])) {
 		</tr>
 
 
-<!-- 		<tr>
+ 		<tr>
 	<td valign="top">
-		<label for="issue">Issue/Topic</label>
+		<label for="issue">Issue Topic</label>
 	</td>
 	<td>
-		<input type="text" name="issue" <?php /*if (isset($storyData)) echo "value= \"" . $storyData['issuetopic'] . "\"";*/ ?> />
+		<input type="text" name="issuetopic" <?php if (isset($storyData)) echo "value= \"" . $storyData['issuetopic'] . "\""; ?> />
 	</td>
-</tr>  -->
+</tr> 
 
 
 		<tr>
@@ -117,16 +120,16 @@ if (isset($_GET['un'])) {
 		 	</td>
 		</tr>
 
-<!-- 		<tr>
+ 		<tr>
 	<td valign="top">
 		<label for="storydate">Date of Story</label>
 	</td>
 	<td>
-		<p><input type="text" name="storydate" id="dateOfStoryDatePick" 
-<?php/* if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\"";*/ ?> />
+		<p><input type="text" name="dateofstory" id="dateOfStoryDatePick" 
+<?php if (isset($storyData)) echo "value= \"" . $storyData['dateofstory'] . "\""; ?> />
 		</p>
 	</td>
-</tr> -->
+</tr> 
 
 		<tr valign="top">
 			<td>
@@ -215,8 +218,8 @@ if (isset($_GET['un'])) {
 				<label for="impact-process">Target official:</label>
 			</td>
 			<td>
-				<input type="text" name="Targetofficial" value=
-<?php echo "\"" . $IData['targetofficial'] . "\""; ?> >
+				<input type="text" name="targetofficial" value=
+<?php if (isset($impactData)) echo $impactData['targetofficial']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -224,8 +227,8 @@ if (isset($_GET['un'])) {
 				<label for="impact-status">Desired change(CTA)</label>
 			</td>
 			<td>
-				<input type="text" name="DesiredChange" value=
-<?php echo "\"" . $IData['desiredchange'] . "\""; ?> >
+				<input type="text" name="desiredchange" value=
+<?php if (isset($impactData)) echo $impactData['desiredchange']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -233,8 +236,8 @@ if (isset($_GET['un'])) {
 				<label for="impact-process">CC impact plan</label>
 			</td>
 			<td>
-				<textarea name="CC_Impact_plan" id="" cols="30" rows="10">
-<?php echo $IData['ccimpactplan']; ?> 					
+				<textarea name="ccimpactplan" id="" cols="30" rows="10">
+<?php if (isset($impactData)) echo $impactData['ccimpactplan']; ?>
 				</textarea>
 			</td>
 
