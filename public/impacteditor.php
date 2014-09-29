@@ -12,13 +12,13 @@ $IData = getImpactDataByUniqueNumber($un);
 </head>
 <body>
 
-<h1><?php if($_GET['id']) echo "Unique No.: ".$_GET['id']?></h1>
+<h1><?php if($_GET['un']) echo "Unique No.: ".$_GET['un']?></h1>
 
 <!--<form method="get" action="../index.php">
     <button type="submit">Home</button>
 </form>-->
 	<form name="impactflow" method="POST" action ="impactview.php">
-	<input name ="id" type="hidden" value =<?php echo $un; ?> >
+	<input name ="un" type="hidden" value =<?php echo $un; ?> >
 	<table class="table table-hover">
 	
 		
