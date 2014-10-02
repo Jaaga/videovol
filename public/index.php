@@ -132,15 +132,18 @@ foreach ($resultArray as $row) {
 #$sql = "SELECT * FROM storytrack"; 
 #$rs_result = mysql_query($sql); //run the query
 #$total_records = mysql_num_rows($rs_result);  //count number of records
-$total_records = getnumofrec();  //count number of records
-$total_pages = ceil($total_records / $num_rec_per_page); 
+$total_pages = getnumofrec($num_rec_per_page);  //count number of records
+#$total_pages = ceil($total_records / $num_rec_per_page); 
 #echo $total_pages;
-echo "<a href='index.php?page=1'>".'|<'."</a> "; // Goto 1st page  
+?>
+<div class = "pagination-icon" style="text-align:center;">
+<?php echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=1'>".'|<'."</a> "; // Goto 1st page  
 
 for ($i=1; $i<=$total_pages; $i++) { 
             
-            echo "<a href='index.php?page=".$i."'>".$i."</a> "; 
+            echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=".$i."'>".$i."</a> "; 
             
 } 
-echo "<a href='index.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
+echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=$total_pages'>".'>|'."</a> "; // Goto last page
 ?>
+</div>

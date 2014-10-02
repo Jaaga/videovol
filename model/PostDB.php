@@ -24,9 +24,17 @@ function getSeniorEditorDataByUniqueNumber($uniquenumber) {
  	return $array;
 }
 
-function getJuniorEditorData() {
+function getnumofrec($num_rec_per_page){
+	$db = dbopen();
+	$sql = "select * from posttrack";
+	$result = mysqli_query($db,$sql);
+	$total_records = mysqli_num_rows($result);
+	$total_pages = ceil($total_records / $num_rec_per_page); 
+	return $total_pages;
+}
+function getJuniorEditorData($num_rec_per_page, $start_from) {
 	$sql ="select uniquenumber, footagereceived , wherereceived, reviewedby, seq, broll," .
-	      " fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon from posttrack";
+	      " fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon from posttrack limit $start_from , $num_rec_per_page";
 	return getAs2DArray($sql);
 }
 

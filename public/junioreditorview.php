@@ -2,7 +2,17 @@
 <?php
 include_once ('../model/PostDB.php');
 include_once ('header.php');
-include ('../controller/JuniorEditorController.php')
+include ('../controller/JuniorEditorController.php');
+
+if(isset($_GET['page'])){ 
+    $page = $_GET['page']; 
+} 
+else { 
+    $page = 1;
+};
+$num_rec_per_page = 1;
+$start_from = ($page -1) * $num_rec_per_page;
+$total_pages = getnumofrec($num_rec_per_page);
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
 <!-- tabs  -->
 <div class="stages"  > <!-- button tabs for different views -->
@@ -36,7 +46,7 @@ include ('../controller/JuniorEditorController.php')
 <th>Approved On</th>
 </tr>
 <?php
-$jdata = getJuniorEditorData();
+$jdata = getJuniorEditorData($num_rec_per_page, $start_from);
 foreach($jdata as $row)
 {
   echo "<tr>";
@@ -62,5 +72,16 @@ foreach($jdata as $row)
 echo "</table>";
 ?>
 
+<div class = "pagination-icon" style="text-align:center;">
+<?php echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=1'>".'|<'."</a> "; // Goto 1st page  
+
+for ($i=1; $i<=$total_pages; $i++) { 
+            
+            echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=".$i."'>".$i."</a> "; 
+            
+} 
+echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
+</div>
 </body>
 </html>

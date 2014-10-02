@@ -28,12 +28,13 @@ function getDistinctData($column) {
 	}
 	return $data;
 }
-function getnumofrec(){
+function getnumofrec($num_rec_per_page){
 	$db = dbopen();
 	$sql = "select * from storytrack";
 	$result = mysqli_query($db,$sql);
 	$total_records = mysqli_num_rows($result);
-	return $total_records;
+	$total_pages = ceil($total_records / $num_rec_per_page); 
+	return $total_pages;
 }
 
 function getAllBasicData($num_rec_per_page,$start_from) {
