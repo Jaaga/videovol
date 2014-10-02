@@ -1,6 +1,8 @@
 <?php
 include_once("../model/StoryDB.php");
-
+$num_rec_per_page = 1;
+#mysql_connect('localhost','root','123');
+#mysql_select_db('videovol');
 if (isset($_POST['login'])) {
     include_once("../controller/UserController.php");
 } else if (isset($_GET['search'])) {
@@ -9,7 +11,16 @@ if (isset($_POST['login'])) {
 } else if(isset($_GET['action'])) {
     include_once("../controller/StoryController.php");
 }
-$resultArray = getAllBasicData();
+if(isset($_GET['page'])){ 
+    $page = $_GET['page']; 
+} 
+else { 
+    $page = 1;
+};
+
+$start_from = ($page -1) * $num_rec_per_page;
+
+$resultArray = getAllBasicData($num_rec_per_page, $start_from);
 
 include_once("header.php");
 
@@ -114,5 +125,22 @@ foreach ($resultArray as $row) {
 
 	echo "<a href=junioreditor.php?un=" . urlencode($row['uniquenumber']) .">" . 
 	        	"Footage" . "</a></td></tr>";
-}
+};
+?>
+</table>
+<?php
+#$sql = "SELECT * FROM storytrack"; 
+#$rs_result = mysql_query($sql); //run the query
+#$total_records = mysql_num_rows($rs_result);  //count number of records
+$total_records = getnumofrec();  //count number of records
+$total_pages = ceil($total_records / $num_rec_per_page); 
+#echo $total_pages;
+echo "<a href='index.php?page=1'>".'|<'."</a> "; // Goto 1st page  
+
+for ($i=1; $i<=$total_pages; $i++) { 
+            
+            echo "<a href='index.php?page=".$i."'>".$i."</a> "; 
+            
+} 
+echo "<a href='index.php?page=$total_pages'>".'>|'."</a> "; // Goto last page
 ?>

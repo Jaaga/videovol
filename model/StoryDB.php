@@ -28,10 +28,16 @@ function getDistinctData($column) {
 	}
 	return $data;
 }
+function getnumofrec(){
+	$db = dbopen();
+	$sql = "select * from storytrack";
+	$result = mysqli_query($db,$sql);
+	$total_records = mysqli_num_rows($result);
+	return $total_records;
+}
 
-
-function getAllBasicData() {
-	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack";
+function getAllBasicData($num_rec_per_page,$start_from) {
+	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, fid, stage, impactpossible from storytrack limit $start_from , $num_rec_per_page";
 	return getAs2DArray($sql);
 }
 

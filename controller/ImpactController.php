@@ -1,7 +1,6 @@
 <?php
 include '../model/ImpactDB.php';
-
-$un =$_GET['un'];
+/*$un =$_GET['un'];
 $targetofficial =$_GET['targetofficial'];
 $desiredchange = $_GET['desiredChange'];
 $ccimpactplan=$_GET['ccimpactplan'];
@@ -29,6 +28,6 @@ $videoapproveddate = $_GET['date-impact-video-approved'];
 $videoreviewedby= $_GET['impact-video-reviewed-by'];
 $blognotes = $_GET['BlognotesDone'];
 $gifttocc = $_GET['impactvideosenttocc'];
-$thankyoucard = $_GET['impactthankyou'];
-insertAndUpdateImpact($un,$targetofficial,$desiredchange,$ccimpactplan,$impactfollowuphappening,$ifnowhynot,$impactprocess,$impactachieved,$milestone,$dateofimpact,$timetakenforimpact,$communityscreening,$noofpeoplesawvideo,$detailsofscreening,$videoshowntoofficials,$noofofficials,$detailsofscreeningofficials,$collaborations,$noofpeopleinvolved,$noofpeopleimpacted,$noofvillagesimpacted,$videoproductionstatus,$videoreviewed,$approvepayment,$videoapproveddate,$videoreviewedby,$blognotes,$gifttocc,$thankyoucard);
+$thankyoucard = $_GET['impactthankyou'];*/
+insertAndUpdateImpact($_GET['un'],$_GET['targetofficial'],$_GET['desiredchange'],$_GET['ccimpactplan'],$_GET['impactfollowup'],$_GET['whynotfollowing'],$_GET['impact-process'],$_GET['impactachieved'],$_GET['milestone'],$_GET['date-of-impact'],$_GET['time-in-weeks'],$_GET['CommunityScreeningDone'],$_GET['People-shown'],$_GET['details-of-community-screening'],$_GET['VideoShowntoOfficials'],$_GET['officials-shown'],$_GET['details-of-officials-screening'],$_GET['collaboration'],$_GET['number-of-people-involved'],$_GET['number-of-people-impacted'],$_GET['number-of-villages-impacted'],$_GET['ImpactVideoProductionStatus'],$_GET['ImpactVideoReviewed'],$_GET['ImpactVideoApprovedforPayment'],$_GET['date-impact-video-approved'],$_GET['impact-video-reviewed-by'],$_GET['BlognotesDone'],$_GET['impactvideosenttocc'],$_GET['impactthankyou']);
 ?>

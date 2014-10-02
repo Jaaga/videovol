@@ -38,6 +38,11 @@ function getAs2DArray($sql) {
 	}
 	return $rows;
 }
-
+/*function getNumberOfRows($sql) {
+	$db = dbopen();
+	$data = mysqli_query($db, $sql);
+	$result = mysqli_num_rows($data);
+	return ;
+}*/
 
 ?>

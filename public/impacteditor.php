@@ -24,7 +24,7 @@ $IData = getImpactDataByUniqueNumber($un);
 				<label for="impact-process">Is Impact Follow up Happening?</label>
 			</td>
 			<td>
-			<select type="text" name="impactfollowup">
+			<select type="text" name="impactfollowup" class >
 <?php $followup = $IData['impactfollowuphappening']; ?>		
 				<option value="Select"  	
 <?php if (strcmp($followup, "Select") == 0) echo " selected "; ?> 
