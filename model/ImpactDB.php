@@ -19,11 +19,19 @@ function getImpactDataByStoryId($fid) {
 	return getAsAssocArray($sql);	
 }
 
+function getnumofrec($num_rec_per_page){
+	$db = dbopen();
+	$sql = "select * from impacttracker";
+	#$result = mysqli_query($db,$sql);
+	#$total_records = mysqli_num_rows($result);
+	#$total_pages = ceil($total_records / $num_rec_per_page); 
+	return getNumberOfPages($num_rec_per_page,$sql);
+}
 
-function getStoryAndImpact()
+function getStoryAndImpact($num_rec_per_page, $start_from)
 {
 	$db = dbopen();
-	$sql = "select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,st.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack as st left join impacttracker as it on st.uniquenumber = it.uniquenumber where st.impactpossible = 'yes'";
+	$sql = "select st.fid,st.ccname , st.state , st.receiveddate,st.issuetopic,st.storydescription,st.uniquenumber,it.targetofficial,it.desiredchange,it.ccimpactplan ,it.impactprocess from storytrack as st left join impacttracker as it on st.uniquenumber = it.uniquenumber where st.impactpossible = 'yes' limit $start_from , $num_rec_per_page";
 	return getAs2DArray($sql);
 }
 

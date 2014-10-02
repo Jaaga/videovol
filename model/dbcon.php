@@ -38,11 +38,12 @@ function getAs2DArray($sql) {
 	}
 	return $rows;
 }
-/*function getNumberOfRows($sql) {
+function getNumberOfPages($num_rec_per_page,$sql) {
 	$db = dbopen();
-	$data = mysqli_query($db, $sql);
-	$result = mysqli_num_rows($data);
-	return ;
-}*/
+	$result = mysqli_query($db,$sql);
+	$total_records = mysqli_num_rows($result);
+	$total_pages = ceil($total_records / $num_rec_per_page);
+	return $total_pages;
+}
 
 ?>

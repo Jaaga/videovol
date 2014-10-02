@@ -3,6 +3,15 @@
 include_once("header.php");
 include'../controller/ImpactController.php';
 include_once("../model/ImpactDB.php");
+if(isset($_GET['page'])){ 
+    $page = $_GET['page']; 
+} 
+else { 
+    $page = 1;
+};
+$num_rec_per_page = 1;
+$start_from = ($page -1) * $num_rec_per_page;
+$total_pages = getnumofrec($num_rec_per_page);
 ?>
 
 <!-- tabs  -->
@@ -24,7 +33,7 @@ include_once("../model/ImpactDB.php");
 </thead>
 
 <?php
-$resultArray = getStoryAndImpact();
+$resultArray = getStoryAndImpact($num_rec_per_page, $start_from);
 foreach ($resultArray as $row) {
 echo "<tr>
         
@@ -52,5 +61,16 @@ echo "<tr>
 ?>
 
 </table>
+<div class = "pagination-icon" style="text-align:center;">
+<?php echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=1'>".'|<'."</a> "; // Goto 1st page  
+
+for ($i=1; $i<=$total_pages; $i++) { 
+            
+            echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=".$i."'>".$i."</a> "; 
+            
+} 
+echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
+</div>
 </body>
 </html>

@@ -27,10 +27,10 @@ function getSeniorEditorDataByUniqueNumber($uniquenumber) {
 function getnumofrec($num_rec_per_page){
 	$db = dbopen();
 	$sql = "select * from posttrack";
-	$result = mysqli_query($db,$sql);
-	$total_records = mysqli_num_rows($result);
-	$total_pages = ceil($total_records / $num_rec_per_page); 
-	return $total_pages;
+	#$result = mysqli_query($db,$sql);
+	#$total_records = mysqli_num_rows($result);
+	#$total_pages = ceil($total_records / $num_rec_per_page); 
+	return getNumberOfPages($num_rec_per_page,$sql);
 }
 function getJuniorEditorData($num_rec_per_page, $start_from) {
 	$sql ="select uniquenumber, footagereceived , wherereceived, reviewedby, seq, broll," .
@@ -38,16 +38,16 @@ function getJuniorEditorData($num_rec_per_page, $start_from) {
 	return getAs2DArray($sql);
 }
 
-function getEditorData() {
+function getEditorData($num_rec_per_page, $start_from) {
 	$sql ="select uniquenumber, editreceived, editor, editcomplete," . 
-		  "subtitlestatus, videosent, editnotes from posttrack";
+		  "subtitlestatus, videosent, editnotes from posttrack limit $start_from , $num_rec_per_page";
 	return getAs2DArray($sql);
 }
 
-function getSeniorEditorData() {
+function getSeniorEditorData($num_rec_per_page, $start_from) {
 	$sql ="select uniquenumber, goareceived, subtitlerequired, subtitledone, cleaningrequired,".
 		  "cleaningdone, feedback, seniornotes, uploaded, published, publishplatform " .
-		  "from posttrack";
+		  "from posttrack limit $start_from , $num_rec_per_page";
 	return getAs2DArray($sql);	
 }
 

@@ -31,10 +31,10 @@ function getDistinctData($column) {
 function getnumofrec($num_rec_per_page){
 	$db = dbopen();
 	$sql = "select * from storytrack";
-	$result = mysqli_query($db,$sql);
-	$total_records = mysqli_num_rows($result);
-	$total_pages = ceil($total_records / $num_rec_per_page); 
-	return $total_pages;
+	#$result = mysqli_query($db,$sql);
+	#$total_records = mysqli_num_rows($result);
+	#$total_pages = ceil($total_records / $num_rec_per_page); 
+	return getNumberOfPages($num_rec_per_page,$sql);
 }
 
 function getAllBasicData($num_rec_per_page,$start_from) {

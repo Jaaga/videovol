@@ -2,6 +2,15 @@
 include_once ('../model/PostDB.php');
 include_once ('header.php');
 include_once ('../controller/SeniorEditorController.php');
+if(isset($_GET['page'])){ 
+    $page = $_GET['page']; 
+} 
+else { 
+    $page = 1;
+};
+$num_rec_per_page = 1;
+$start_from = ($page -1) * $num_rec_per_page;
+$total_pages = getnumofrec($num_rec_per_page);
 ?>
 
 <!-- tabs  -->
@@ -37,7 +46,7 @@ include_once ('../controller/SeniorEditorController.php');
 </thead>
 
 <?php 
-$senioreditordata = getSeniorEditorData();
+$senioreditordata = getSeniorEditorData($num_rec_per_page, $start_from);
 foreach($senioreditordata as $row)
 {
   echo "<tr>";
@@ -59,6 +68,16 @@ foreach($senioreditordata as $row)
 
 echo "</table>";
 ?>
+<div class = "pagination-icon" style="text-align:center;">
+<?php echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=1'>".'|<'."</a> "; // Goto 1st page  
 
+for ($i=1; $i<=$total_pages; $i++) { 
+            
+            echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=".$i."'>".$i."</a> "; 
+            
+} 
+echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=$total_pages'>".'>|'."</a> "; // Goto last page
+?>
+</div>
 </body>
 </html>
