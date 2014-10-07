@@ -24,12 +24,9 @@ function getSeniorEditorDataByUniqueNumber($uniquenumber) {
  	return $array;
 }
 
-function getnumofrec($num_rec_per_page){
+function footAndJuniorPagi($num_rec_per_page){
 	$db = dbopen();
 	$sql = "select * from posttrack";
-	#$result = mysqli_query($db,$sql);
-	#$total_records = mysqli_num_rows($result);
-	#$total_pages = ceil($total_records / $num_rec_per_page); 
 	return getNumberOfPages($num_rec_per_page,$sql);
 }
 function getJuniorEditorData($num_rec_per_page, $start_from) {

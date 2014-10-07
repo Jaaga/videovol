@@ -12,10 +12,10 @@ if ($_GET['action'] == 'update') {
 			$_GET['program'], $_GET['mentor'], $_GET['iu_topic'], $_GET['video_treatment'],
 		 	$_GET['shoot_plan'], $_GET['impactpossible']);
 } else {
-	addStory($_GET['uniquenumber'], $_GET['ccname'], $_GET['state'], $_GET['dateReceived'], $_GET['issuetopic'], 
+	addStory(htmlspecialchars($_GET['uniquenumber'], $_GET['ccname'], $_GET['state'], $_GET['dateReceived'], $_GET['issuetopic'], 
 			$_GET['story'], $_GET['dateofstory'], $_GET['cc_pair'],
 			$_GET['program'], $_GET['mentor'], $_GET['iu_topic'], $_GET['video_treatment'],
-		 	$_GET['shoot_plan'], $_GET['impactpossible']);
+		 	$_GET['shoot_plan'], $_GET['impactpossible']));
 }
 echo "impact?";
 if ($_GET['impactpossible'] == 'Yes') {

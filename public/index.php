@@ -129,12 +129,7 @@ foreach ($resultArray as $row) {
 ?>
 </table>
 <?php
-#$sql = "SELECT * FROM storytrack"; 
-#$rs_result = mysql_query($sql); //run the query
-#$total_records = mysql_num_rows($rs_result);  //count number of records
-$total_pages = getnumofrec($num_rec_per_page);  //count number of records
-#$total_pages = ceil($total_records / $num_rec_per_page); 
-#echo $total_pages;
+$total_pages = storyPaginate($num_rec_per_page);  //count number of records
 ?>
 <div class = "pagination-icon" style="text-align:center;">
 <?php echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=1'>".'|<'."</a> "; // Goto 1st page  

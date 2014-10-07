@@ -9,9 +9,9 @@ if(isset($_GET['page'])){
 else { 
     $page = 1;
 };
-$num_rec_per_page = 1;
+$num_rec_per_page = 1;// declaring number of records to be shown in a page 
 $start_from = ($page -1) * $num_rec_per_page;
-$total_pages = getnumofrec($num_rec_per_page);
+$total_pages = impactPagi($num_rec_per_page);//function to retrive the number of pages 
 ?>
 
 <!-- tabs  -->

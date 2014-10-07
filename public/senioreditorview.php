@@ -10,7 +10,7 @@ else {
 };
 $num_rec_per_page = 1;
 $start_from = ($page -1) * $num_rec_per_page;
-$total_pages = getnumofrec($num_rec_per_page);
+$total_pages = footAndJuniorPagi($num_rec_per_page);
 ?>
 
 <!-- tabs  -->
