@@ -2,13 +2,13 @@
 
 include('header.php');
 include_once("../model/StoryDB.php");
-include_once("../model/ImpactDB.php");
+#include_once("../model/ImpactDB.php");
 
 if (isset($_GET['un'])) {
     $un = $_GET['un'];
 	echo "isset un";
 	$storyData = getDataByUniqueNumber($un);
-	$impactData = getImpactDataByUniqueNumber($un);
+	#$impactData = getImpactDataByUniqueNumber($un);
 }
 ?>
 
@@ -394,7 +394,7 @@ if (isset($_GET['un'])) {
 			</td>
 			<td>
 				<input type="text" name="targetofficial" value=
-<?php if (isset($impactData)) echo $impactData['targetofficial']; ?> >
+<?php if (isset($storyData)) echo $storyData['targetofficial']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -403,7 +403,7 @@ if (isset($_GET['un'])) {
 			</td>
 			<td>
 				<input type="text" name="desiredchange" value=
-<?php if (isset($impactData)) echo $impactData['desiredchange']; ?> >
+<?php if (isset($storyData)) echo $storyData['desiredchange']; ?> >
 			</td>
 		</tr>
 		<tr>
@@ -412,7 +412,7 @@ if (isset($_GET['un'])) {
 			</td>
 			<td>
 				<textarea name="ccimpactplan" id="" cols="30" rows="10">
-<?php if (isset($impactData)) echo $impactData['ccimpactplan']; ?>
+<?php if (isset($storyData)) echo $storyData['ccimpactplan']; ?>
 				</textarea>
 			</td>
 

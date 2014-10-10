@@ -68,7 +68,7 @@ function getDataByID($fid) {
  }
 
 function getDataByUniqueNumber($un) {
-	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible from storytrack where uniquenumber = '" . $un . "'";
+	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible,targetofficial,desiredchange,ccimpactplan from storytrack where uniquenumber = '" . $un . "'";
  	return getAsAssocArray($sql);
  }
 
@@ -113,14 +113,15 @@ function getFootageCheckDataById($id) {
 
 function addStory($uniquenumber, $ccname, $state, $dateReceived, $issue, $story,  
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
-				  $shootplan, $impactpossible) {
+				  $shootplan, $impactpossible,$targetofficial,$desiredchange,$ccimpactplan) {
 	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
 		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
-		    "impactpossible) " .
+		    "impactpossible,targetofficial,desiredchange,ccimpactplan) " .
 			"values (UUID(),'" . $ccname . "','" . $state . "','" . $dateReceived . "','" . 
 			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
 			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
-			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."')";
+			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."','" .
+			$targetofficial . "','" . $desiredchange . "','" . $ccimpactplan . "')";
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	mysqli_close($db);
@@ -128,14 +129,15 @@ function addStory($uniquenumber, $ccname, $state, $dateReceived, $issue, $story,
 
 function updateStory($un, $uniquenumber, $ccname, $state, $dateReceived, $issue, $story, 
 				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
-				  $shootplan, $impactpossible) {
+				  $shootplan, $impactpossible,$targetofficial,$desiredchange,$ccimpactplan) {
 	$sql =  "update storytrack set uniquenumber = '" . $uniquenumber . "', ccname = '" . $ccname . "', state = '" . $state . "',".
 			" receiveddate = '" . $dateReceived . "', issuetopic = '" . $issue . "',".
 			" storydescription = '" . $story . "'," .
 			" dateofstory = '" . $storydate . "', ccpair = '" . $ccpair . "'," .
 			" program = '" . $program . "', mentor = '" . $mentor . "', " .
 			" iutopic = '" . $iutopic . "', videotreatment = '" . $videotreatment . "'," .
-			" shootplan = '" . $shootplan . "', impactpossible = '" . $impactpossible ."'" .
+			" shootplan = '" . $shootplan . "', targetofficial= '" .$targetofficial . "'," .
+			"desiredchange = '" . $desiredchange . "',ccimpactplan = '" . $ccimpactplan . "', ". "impactpossible = '" . $impactpossible ."'" .
 			" where uniquenumber = '" . $un . "'";
 	$db=dbopen();
 	mysqli_query($db, $sql);
