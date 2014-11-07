@@ -1,5 +1,9 @@
-	body{
-		font-family: arial;
+	*{
+		font-family: Helvetica;
+	}
+	h1{
+		font-family: Georgia;
+	/* 	color: #dd5826; */
 	}
 	/*---------------
 	Nav-bar content
@@ -99,10 +103,10 @@ border:1px solid #f1f1f1 ;
 
 }
 
-tr
+/* tr
 {
 	text-align: center;
-}
+} */
 /*-------------------------------*/
 
 li{
