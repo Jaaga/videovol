@@ -29,9 +29,9 @@ include_once("header.php");
 <div><!-- container for advanced search -->
     <table class="table table-bordered">
         <form method="GET" action="index.php">
-             <tr><td valign="top"><label>Search : </label></td>
+             <tr><td><label>Search : </label></td>
              <td>
-                <select name="ccname">
+                <select name="ccname" class="form-control form-color">
                     <option value="1">CCname</option>
                         <?php foreach(getCCNames() as $ccname) 
                             echo '<option value="'.$ccname.'">'.$ccname.'
@@ -42,7 +42,7 @@ include_once("header.php");
 
     
                 <td valign="top">
-                    <select name="state">
+                    <select name="state" class="form-control form-color">
                         <option value="1">State</option>
                              <?php   foreach(getStates() as $state) 
                             echo '<option value="'.$state.'">'.$state.'</option>';
@@ -51,7 +51,7 @@ include_once("header.php");
                 </td>
         
                 <td valign="top">
-                    <select name="issue"><option value="1">Issue</option>'; 
+                    <select name="issue" class="form-control form-color"><option value="1">Issue</option>'; 
                         <?php foreach(getIssues() as $issue) 
                             echo '<option value="'.$issue.'">'.$issue.'</option>';
                         ?>
@@ -59,9 +59,9 @@ include_once("header.php");
                 </td>
 
          
-                <td valign="top">From:<input type="text" name="fromdate" class="datepick"></td>
-                <td valign="top">To:<input type="text" name="todate" class="datepick"></td>
-                <td><input type="submit" name="search" value="Search" /></td>
+                <td valign="top"><input type="text" name="fromdate" class="datepick form-control form-color" placeholder="From (enter Date)"></td>
+                <td valign="top"><input type="text" name="todate" class="datepick form-control form-color" placeholder="To (enter Date)"></td>
+                <td><input type="submit" name="search" value="Search" class="form-control form-color" /></td>
 
             </tr>
     
