@@ -81,7 +81,7 @@ include('header.php');
 			<td valign="top"><label for="">If this story is related <br> to a previous story, please<br> enter the Unique Id. of<br> the previous story here :</label>
 			</td>
 
-			<td><input type="text" class="form-control form-color" placeholder="enter unique ID of previous story">
+			<td><input type="text" class="form-control form-color" placeholder="enter unique ID of previous story"></td>
 		</tr>
 
 		<tr>
@@ -838,3 +838,4 @@ include('header.php');
 	</div>
 	</div>
 </body>
+<!-- In the story type there should be -issue, impact, profile, special project and documentary -->

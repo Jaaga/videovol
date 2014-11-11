@@ -32,6 +32,7 @@
     var date = $('#dateFootageReceivedBySc').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014)
     var date = $('#dateFootageReceivedByScForReview').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    var date = $('#dateStoryPitched').datepicker({ dateFormat: 'yy-mm-dd' }).val();//in newStoryView.php
 });
   $(function() {
 var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
@@ -59,6 +60,9 @@ var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 
           return;
         }
+//------------------------------------------------------
+
+
 
 </script>
 
