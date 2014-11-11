@@ -17,6 +17,7 @@ function dbopen(){
 
 function dbclose() {
 	mysqli_close($db);
+	
 }
 
 function getAsAssocArray($sql) {

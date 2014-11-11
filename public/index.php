@@ -1,6 +1,6 @@
 <?php
 include_once("../model/StoryDB.php");
-$num_rec_per_page = 1;
+$num_rec_per_page = 8;
 #mysql_connect('localhost','root','123');
 #mysql_select_db('videovol');
 if (isset($_POST['login'])) {
@@ -25,6 +25,7 @@ $resultArray = getAllBasicData($num_rec_per_page, $start_from);
 include_once("header.php");
 
 ?>
+<html manifest="cache.manifest">
 <br>
 <div><!-- container for advanced search -->
     <table class="table table-bordered">
@@ -142,3 +143,4 @@ for ($i=1; $i<=$total_pages; $i++) {
 echo "<a href='" .htmlentities($_SERVER['PHP_SELF']). "?page=$total_pages'>".'>|'."</a> "; // Goto last page
 ?>
 </div>
+</html>
