@@ -148,3 +148,18 @@ $select.change(function(){*/
 	// go to select's location
 	window.location = $select.val(); 
 }) ;
+
+//This is from story-and-impact-tracker.php
+// which displays a text box when a particular select option is selected
+
+	
+		function showOther(fieldObj, otherFieldID)
+				{
+                    
+					var fieldValue = fieldObj.options[fieldObj.selectedIndex].value;
+					var otherFieldObj = document.getElementById(otherFieldID);
+
+					otherFieldObj.style.visibility = (fieldValue=='other') ? '' : 'hidden';
+
+					return;
+				}

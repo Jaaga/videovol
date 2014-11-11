@@ -7,6 +7,15 @@
 <script src="script.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="buttons/css/buttons.css">
 <link rel="stylesheet" href="./jqueryui/css/ui/jquery-ui.css" />
+<style>
+  .form-color{
+    background-color:#e7e6dd;
+;
+
+  }
+
+
+</style>
 <script src="./jqueryui/js/jquery.js"></script>
 <script src="./jqueryui/js/jquery-ui.min.js"></script>
 <script>
@@ -19,7 +28,9 @@
     var date = $('#editMonthDate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateReceivedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateOfStoryDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-
+    var date = $('#impactMonthOrYearOfImpactDatepick').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014)
+    var date = $('#dateFootageReceivedBySc').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014)
+    var date = $('#dateFootageReceivedByScForReview').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
   $(function() {
@@ -33,7 +44,27 @@ var datepick = $('#datepick2').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 $(function() {
 var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 });
+
+//This is from story-and-impact-tracker.php
+// which displays a text box when a particular select option is selected
+
+  
+    function showOther(fieldObj, otherFieldID)
+        {
+                    
+          var fieldValue = fieldObj.options[fieldObj.selectedIndex].value;
+          var otherFieldObj = document.getElementById(otherFieldID);
+
+          otherFieldObj.style.visibility = (fieldValue=='other') ? '' : 'hidden';
+
+          return;
+        }
+
 </script>
+
+
+
+
 </head>
 <body>
 <header>

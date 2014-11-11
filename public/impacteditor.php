@@ -191,7 +191,7 @@ $IData = getImpactDataByUniqueNumber($un);
 		</tr>
 		<tr>
 			<td valign="top">
-				<label for="number-of-people-involved">No. of people involved</label>
+				<label for="number-of-people-involved">No. of People Involved</label>
 			</td>
 			<td>
 				<input type="number" min="0" name="number-of-people-involved" value = <?php echo $IData['noofpeopleinvolved']; ?>>
