@@ -51,8 +51,7 @@ function getSeniorEditorData($num_rec_per_page, $start_from) {
 function juniorEditorAddOrUpdate($uniquenumber, $footagereceived, $wherereceived, $reviewedby, 
 							$seq, $broll, $fint, $vo, $ptc, $cta, $vd, $translation, $paymentapproved, 
 							$approvedon) {
-	$sql =  "insert into posttrack (uniquenumber, footagereceived, wherereceived, reviewedby, " .
-		   	"seq, broll, fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon) values ('".
+	$sql =  "insert into posttrack (uniquenumber, footagereceived, wherereceived, reviewedby, seq, broll, fint, vo, ptc, cta, vd, translation, paymentapproved, approvedon) values ('".
  			$uniquenumber . "', '" . $footagereceived . "', '" . $wherereceived . "', '" . $reviewedby .
  			"', '" . $seq . "', '" . $broll . "', '" . $fint . "', '" . $vo . "', '" . $ptc . "', '" . 
  			$cta . "', '" . $vd . "', '" . $translation . "', '" . $paymentapproved . "', '" . $approvedon . 

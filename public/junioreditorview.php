@@ -10,7 +10,7 @@ if(isset($_GET['page'])){
 else { 
     $page = 1;
 };
-$num_rec_per_page = 1;
+$num_rec_per_page = 8;
 $start_from = ($page -1) * $num_rec_per_page;
 $total_pages = footAndJuniorPagi($num_rec_per_page);
 //$data = "select * from storytrack where datereceived = '1986-12-23'"?>
