@@ -6,7 +6,6 @@
 function getCCNames() {
 	return getDistinctData("ccname");
 }
-
 function getStates() {
 	return getDistinctData("state");
 }
@@ -14,6 +13,7 @@ function getStates() {
 function getIssues() {
 	return getDistinctData("issuetopic");
 }
+
 
 function getDistinctData($column) {
 	$db=dbopen();
@@ -111,17 +111,12 @@ function getFootageCheckDataById($id) {
  	return getAsAssocArray($sql);
 }
 
-function addStory($uniquenumber, $ccname, $state, $dateReceived, $issue, $story,  
-				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
-				  $shootplan, $impactpossible,$targetofficial,$desiredchange,$ccimpactplan) {
-	$sql = "insert into storytrack(fid,ccname,state,receiveddate,issuetopic,storydescription,".
-		    "uniquenumber,dateofstory,ccpair,program,mentor,iutopic,videotreatment,shootplan,".
-		    "impactpossible,targetofficial,desiredchange,ccimpactplan) " .
-			"values (UUID(),'" . $ccname . "','" . $state . "','" . $dateReceived . "','" . 
-			$issue . "','" . $story . "','" . $uniquenumber . "','" . $storydate . "','" . 
-			$ccpair . "','" . $program . "','" . $mentor . "','" . $iutopic . "','" . 
-			$videotreatment . "','" . $shootplan . "','" . $impactpossible ."','" .
-			$targetofficial . "','" . $desiredchange . "','" . $ccimpactplan . "')";
+function addStory($uniquenumber, $ccname, $state, $program,$iutheme,$storydescription, $dateofstorypitched,$ccpair,$mentor,$storytype,$shootplan,$impactpossible,$targetofficial,$desiredchange,$impactplan) {
+	$sql = "insert into tracker(UID,ccname,state,program,iutheme,description,storydate,ccpair,mentor,storytype,shootplan,impactpossible,targetofficial,desiredchange,impactplan) " .
+	"values (UUID(),'" . $ccname . "','" . $state . "','" . $program . "','" . $iutheme . "',
+		'". $storydescription . "','" . $dateofstorypitched . "','" . $ccpair . "',
+		'" . $mentor . "','" . $storytype . "','" . $shootplan . "','" . $impactpossible . "'
+		,'" . $targetofficial . "','" . $desiredchange. "','" . $impactplan . "')";
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	mysqli_close($db);
