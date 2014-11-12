@@ -25,7 +25,7 @@ $resultArray = getAllBasicData($num_rec_per_page, $start_from);
 include_once("header.php");
 
 ?>
-<html manifest="cache.manifest">
+
 <br>
 <div><!-- container for advanced search -->
     <table class="table table-bordered">
@@ -79,7 +79,7 @@ include_once("header.php");
         <li><a href="senioreditorview.php" class="button button-rounded button-flat-action">Senior Editor View</a></li>
         <!--<a href="pmview.php" class="button button-rounded button-flat-action">Project Manager View</a>-->
         <li><a href="impactview.php" class="button button-rounded button-flat-action">Impact View</a></li>
-        <li><a href="storyeditor.php" class="button button-rounded button-flat-highlight" style="margin-left:3em;">New Story</a></li>
+        <li><a href="newStoryView.php" class="button button-rounded button-flat-highlight" style="margin-left:3em;">New Story</a></li>
         <li><small><a href="viewalldata.php" style="float:right">View All Data</a></small></li>
     </ul>
 </div>
