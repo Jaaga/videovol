@@ -1,15 +1,25 @@
 <?php
 
 include('header.php');
-
+include_once("../model/StoryDB.php");
+include("../model/ccDB.php");
+if (isset($_GET['un'])) {
+    $un = $_GET['un'];
+	echo "isset un";
+	$storyData = getDataByUniqueNumber($un);
+	#$impactData = getImpactDataByUniqueNumber($un);
+}
 ?>
-
+<h1><?php if (isset($un)) echo "Story Unique Number: ". $un; ?></h1>
 <body>
 		<div class="col-md-12">
 			<div class="col-md-3">
 			</div>
 			<div class="col-md-6" >
+				
 				<table class="table table-hover">
+				<form name="creatStory-form" method="GET" action="index.php">
+					<?php if (isset($un)) echo "<input type=hidden name=un value= \"" . $un . "\"";?>
 					<thead><tr><th>New Story View</th><th>To Be Filled By State Coordinators and Mentors</th><tr>
     				</thead>
 					<tr>
@@ -17,7 +27,7 @@ include('header.php');
 						</td>
 
 						<td>
-							<input type="text" class="form-control form-color" placeholder="enter Unique ID here">
+							<input name="uniquenumber" type="text" class="form-control form-color" placeholder="enter Unique ID here">
 						</td>
 					</tr>
 
@@ -26,12 +36,13 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
-									<option value="" >Select a CC</option>
-									<option value="">a</option>
-									<option value="">b</option>
-									<option value="">c</option> <!-- javaScript for this is in header.js -->
-							</select>
+							<select name="ccname" class="form-control form-color">
+                    <option value="1">CCname</option>
+                        <?php foreach(getNames() as $ccname) 
+                            echo '<option value="'.$ccname.'">'.$ccname.'
+                    </option>';
+                        ?>
+                </select>
 						</td>
 					</tr>
 
@@ -40,12 +51,12 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
-									<option value="" >Select a State</option>
-									<option value="">a</option>
-									<option value="">b</option>
-									<option value="">c</option> <!-- javaScript for this is in header.js -->
-							</select>
+							<select name="state" class="form-control form-color">
+								<option value="1">state</option>
+								<?php foreach(getstate() as $location)
+								echo '<option value ="'.$location.'">'.$location.'
+							</option>';?>
+						</select>
 						</td>
 					</tr>
 
@@ -54,11 +65,11 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
+							<select name="program" class="form-control form-color">
 									<option value="" >Select a Program</option>
-									<option value="">PACS</option>
-									<option value="">OAKS</option>
-									<option value="">IU</option> <!-- javaScript for this is in header.js -->
+									<option value="PACS">PACS</option>
+									<option value="OAK">OAK</option>
+									<option value="IU">IU</option> <!-- javaScript for this is in header.js -->
 							</select>
 						</td>
 					</tr>
@@ -68,20 +79,20 @@ include('header.php');
 						</td>
 
 						<td>
-							<select class="form-control form-color">
+							<select name = "iutheme"class="form-control form-color">
 								<option value="">Select an IU Theme</option>
-								<option value ="">Caste & Identity</option>
-								<option value ="">Gender</option>
-								<option value ="">Infrastructure</option>
-								<option value ="">Education</option>
-								<option value ="">Forced Eviction</option>
-								<option value ="">Conflict</option>
-								<option value ="">Health</option>
-								<option value ="">Art & Culture</option>
-								<option value ="">Environment</option>
-								<option value ="">Development</option>
-								<option value ="">Corruption</option>
-								<option value ="">Technology</option>
+								<option value ="Caste/Identity">Caste & Identity</option>
+								<option value ="Gender">Gender</option>
+								<option value ="Infrastructure">Infrastructure</option>
+								<option value ="Education">Education</option>
+								<option value ="Forced Eviction">Forced Eviction</option>
+								<option value ="Conflict">Conflict</option>
+								<option value ="Health">Health</option>
+								<option value ="Art/Culture">Art & Culture</option>
+								<option value ="Environment">Environment</option>
+								<option value ="Development">Development</option>
+								<option value ="Corruption">Corruption</option>
+								<option value ="Technology">Technology</option>
 							</select>
 						</td>
 
@@ -92,7 +103,7 @@ include('header.php');
 						</td>
 
 						<td>
-							<textarea class="form-control" rows="2" placeholder="One Line Description for Story Idea"></textarea>
+							<textarea name="storydescription" class="form-control" rows="2" placeholder="One Line Description for Story Idea"></textarea>
 						</td>
 
 					</tr>
@@ -112,12 +123,13 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
-									<option value="" >Select Working with CC</option>
-									<option value="">a</option>
-									<option value="">b</option>
-									<option value="">c</option> 
-							</select>
+							<select name="ccpair" class="form-control form-color">
+                    <option value="1">CCname</option>
+                        <?php foreach(getNames() as $ccname) 
+                            echo '<option value="'.$ccname.'">'.$ccname.'
+                    </option>';
+                        ?>
+                </select>
 						</td>
 
 					</tr>
@@ -127,12 +139,13 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
-									<option value="" >Select Mentor</option>
-									<option value="">a</option>
-									<option value="">b</option>
-									<option value="">c</option> 
-							</select>
+							<select name="mentor" class="form-control form-color">
+                    <option value="1">CCname</option>
+                        <?php foreach(getNames() as $ccname) 
+                            echo '<option value="'.$ccname.'">'.$ccname.'
+                    </option>';
+                        ?>
+                </select>
 						</td>
 
 					</tr>
@@ -142,14 +155,14 @@ include('header.php');
 						</td>
 
 						<td>
-							<select name="select" class="form-control form-color">
+							<select name="storytype" class="form-control form-color">
 									<option value="" >Select Story Type</option>
-									<option value="">Issue</option>
-									<option value="">Impact</option>
-									<option value="">Special Project</option> 
-									<option value="">Profile Video</option>
-									<option value="">Documentary</option> 
-									<option value="">Follow Up Video</option>  
+									<option value="Issue">Issue</option>
+									<option value="Impact">Impact</option>
+									<option value="Special Project">Special Project</option> 
+									<option value="Profile Video">Profile Video</option>
+									<option value="Documentary">Documentary</option> 
+									<option value="Follow Up Video">Follow Up Video</option>  
 							</select>
 						</td>
 
@@ -160,7 +173,7 @@ include('header.php');
 						</td>
 
 						<td>
-							<textarea class="form-control" rows="2" placeholder="Shoot Plan"></textarea>
+							<textarea name = "shootplan"class="form-control" rows="2" placeholder="Shoot Plan"></textarea>
 						</td>
 
 
@@ -170,6 +183,9 @@ include('header.php');
 					<tr>
 						<td valign="top"><label for="">Related Story UID :</label>
 						</td>
+						<td>
+
+						</td>
 
 					</tr>
 
@@ -178,11 +194,12 @@ include('header.php');
 						</td>
 
 						<td>
-							<select class="form-control form-color">
+							<select name="impactpossible"class="form-control form-color">
 								<option value="">Select an Option</option>
-								<option value="">Yes</option>
-								<option value="">No</option>
+								<option value="Yes">Yes</option>
+								<option value="No">No</option>
 							</select>
+							
 						</td>
 
 					</tr>
@@ -192,7 +209,7 @@ include('header.php');
 						</td>
 
 						<td>
-							<textarea class="form-control" rows="2" placeholder="One Line Description for Target Official"></textarea>
+							<textarea name="targetofficial"class="form-control" rows="2" placeholder="One Line Description for Target Official"></textarea>
 						</td>
 
 					</tr>
@@ -202,7 +219,7 @@ include('header.php');
 						</td>
 
 						<td>
-							<textarea class="form-control" rows="2" placeholder="One Line Description for Desired Change"></textarea>
+							<textarea name = "desiredchange"class="form-control" rows="2" placeholder="One Line Description for Desired Change"></textarea>
 						</td>
 
 					</tr>
@@ -212,17 +229,20 @@ include('header.php');
 						</td>
 
 						<td>
-							<textarea class="form-control" rows="4" placeholder="CC's Impact Plan (in brief)"></textarea>
+							<textarea name = "impactplan"class="form-control" rows="4" placeholder="CC's Impact Plan (in brief)"></textarea>
 						</td>
 
 					</tr>
 				</table>
 				<div style="text-align: center">
 		<div><p>Please check your entries carefully before submitting</p></div>
-		<div style="text-align: center"><a href="#" class="button button-rounded button-flat-caution">Submit</a></div>
+		<div style="text-align: center"><input type="submit" name="action" value= <?php if (isset($_GET['un'])) echo "update"; else echo "add"; ?> class="button button-rounded button-flat-caution"></div>
+		
+	
 	</div>
-
+</form>
 					
 			</div>
+
 		</div>
 </body>
