@@ -13,11 +13,19 @@
 <?php
 
 function dbopen() {
-	return new mysqli("localhost", "root", "123", "videovol");
+	$db = new mysqli("localhost", "root", "123", "videovol");
 	if ($db->connect_errno) {
 	    printf("Connect failed: %s\n", $db->connect_error);
 	    exit();
 	}
+	/* change character set to utf8 */
+/*	if (!$db->set_charset("utf8")) {
+	    printf("Error loading character set utf8: %s\n", $db->error);
+	} else {
+	    printf("Current character set: %s\n", $db->character_set_name());
+	}
+*/
+	return $db;
 }
 
 function insertUID($db, $uid) {
@@ -27,8 +35,14 @@ function insertUID($db, $uid) {
 	}
 }
 
+function escape($db, &$data) {
+	for($i = 0; $i < count($data); $i++) {
+		$data[$i] = $db->real_escape_string($data[$i]);
+	}
+}
+
 function updateSQL($field, $value) {
-	if (!empty($value)) return " $field = '$value', ";
+	if (!empty($value)) return " $field = '" . $value . "', ";
 }
 
 function updatePostSQL($data) {
@@ -76,6 +90,7 @@ $db = dbopen();
 
 if (($handle = fopen("upload.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 10000, ",", '"')) !== FALSE) {
+    	escape($db, $data);
     	$num = count($data);
     	echo $num;
     	$uid = $data[0];
