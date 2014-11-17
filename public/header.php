@@ -28,11 +28,13 @@
     var date = $('#editMonthDate').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateReceivedDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateOfStoryDatePick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
-    var date = $('#impactMonthOrYearOfImpactDatepick').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014)
+    var date = $('#impactMonthOrYearOfImpactDatepick').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014) and impact-folloe-up-view.php
     var date = $('#dateFootageReceivedBySc').datepicker({ dateFormat: 'yy-mm-dd' }).val(); //currently placed in story-and-impact-tracker.php (recently-Nov-2014)
     var date = $('#dateFootageReceivedByScForReview').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateStoryPitched').datepicker({ dateFormat: 'yy-mm-dd' }).val();//in newStoryView.php
+    var date = $('#dateRawFootageReceivedInStateOfficeOrGoa').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In footage-check-view.php
+
 });
   $(function() {
 var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();

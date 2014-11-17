@@ -88,15 +88,15 @@
 
 /* Table properties*/
 
-th{
-	background-color:#555555;
-	color: white;
-	border:#555555 ;
-	text-align: center;
-	background-attachment: fixed;
+th {
+	/* background-color:#9de0ad; */
+	background-color:#9de0ad;
+	
+	
+	
+	
+
 }
-
-
 td
 {
 border:1px solid #f1f1f1 ;
@@ -119,4 +119,11 @@ li{
         padding: 5px;
       }
     }
+
+/* In TM-View.php */
+th{
+	/* border-right: 1px solid; */
+
+	
+}
 
