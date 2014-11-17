@@ -1,7 +1,11 @@
 <?php
 
 include('header.php');
-
+include'../controller/ImpactController.php';
+include'util.php';
+include_once("../model/StoryDB.php");
+$un = $_GET['un'];
+$storyData = getStoryByUniqueNumber($un);
 ?>
 
 <body>
@@ -10,6 +14,7 @@ include('header.php');
 			</div>
 			<div class="col-md-6" >
 				<table class="table table-bordered">
+					<form name="creatStory-form" method="GET" action="index.php">
 					<thead>
 						<tr><th>Impact Follow Up View</th><th>To Be Filled By State Coordinators and Mentors</th><tr>
     				</thead>
@@ -20,7 +25,7 @@ include('header.php');
 							</td>
 
 							<td>
-								<input type="text" class="form-control form-color" placeholder="temporarily placed. View only (non editable on spreadsheet)">
+								<input type="text" name= "uniquenumber"class="form-control form-color" placeholder=<?php echo "'" . $un . "'";?>>
 							</td>
 						</tr>
 
@@ -28,46 +33,35 @@ include('header.php');
 							<td valign="top"><label for="">Story Description :</label>
 							</td>
 							<td>
-								<textarea class="form-control" rows="2" placeholder="One Line Description for Story"></textarea>
+								<textarea name="description"class="form-control" rows="2" placeholder=<?php echo "'" . $storyData['description'] . "'";?>></textarea>
 							</td>
 						</tr>
 
 						<tr>
-							<td valign="top"><label for="">Impact Possible :</label>
-							</td>
-							<td>
-							<select name="select" class="form-control form-color">
-									<option value="" >Select an Option</option>
-									<option value="">Yes</option>
-									<option value="">No</option>
-							</select>
-						</td>
+							<!--<td valign="top"><label for="">Impact Possible :</label>-->
+							
+								<!--no matter what this needs to be here -->
+							<?php yesNoSelect('Impact Possible', 'impactpossible', $storyData['impactpossible']);?>
+							
 						</tr>
 
 						<tr>
 							<td valign="top"><label for="">Target Official :</label>
 							</td>
 							<td>
-								<textarea class="form-control" rows="2" placeholder="Target Official"></textarea>
+								<textarea name="targetofficial"class="form-control" rows="2" placeholder="Target Official"><?php echo "'" . $storyData['targetofficial'] . "'"?></textarea>
 							</td>
 						</tr>
 
 						<tr>
-							<td valign="top"><label for="">Impact Follow Up Happening :</label></td>
-							<td>
-								<select name="select" class="form-control form-color">
-									<option value="" >Select an Option</option>
-									<option value="">Yes</option>
-									<option value="">No</option>
-								</select>
-							</td>
-							
+							<?php yesNoSelect('Impact Follow Up Happening ', 'impactfollowup', $storyData['impactfollowup']);?>
+																			
 						</tr>
 
 						<tr>
 							<td valign="top"><label for="">If No, Why Not? :</label></td>
 							<td>
-								<textarea class="form-control" rows="2" placeholder="If No, Why Not?"></textarea>
+								<textarea name="impactfollowupnotes"class="form-control" rows="2" placeholder="If No, Why Not?"></textarea>
 							</td>
 							
 						</tr>
@@ -75,7 +69,7 @@ include('header.php');
 						<tr>
 							<td valign="top"><label for="">Impact Process :</label></td>
 							<td>
-								<textarea class="form-control" rows="2" placeholder="Impact Process"></textarea>
+								<textarea name="impactprocess"class="form-control" rows="2" placeholder="Impact Process"></textarea>
 							</td>
 							
 						</tr>
@@ -83,10 +77,18 @@ include('header.php');
 						<tr>
 							<td valign="top"><label for="">Impact Status :</label></td>
 							<td>
-								<select name="select" class="form-control form-color">
-									<option value="" >Select an Option</option>
-									<option value="">Acheived</option>
-									<option value="">Not Acheived</option>
+								<select name="impactstatus" class="form-control form-color">
+									<?php $value = $storyData['impactstatus']; ?>
+									<option value="Select"  	
+									<?php if (strcmp($value, "Select") == 0) echo " selected "; ?> 
+							           >Select</option>
+													<option value="Acheived"
+									<?php if (strcmp($value, "Acheived") == 0) echo " selected "; ?> 				
+									   >Acheived</option>
+													<option value="Not Acheived" 
+									<?php if (strcmp($value, "Not Acheived") == 0) echo " selected "; ?> 
+								       >Not Acheived</option>
+													
 								</select>
 							</td>
 							
@@ -203,6 +205,7 @@ include('header.php');
 					<div><p>Please check your entries carefully before submitting</p></div>
 					<div style="text-align: center"><a href="#" class="button button-rounded button-flat-caution">Submit</a></div>
 					</div>
+				</form>
 			</div>
 		</div>
 </body>

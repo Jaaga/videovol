@@ -43,7 +43,7 @@ function goodNotGoodSelect($label, $column, $value) {
 function yesNoSelect($label, $column, $value) {
 	echo "<tr><td valign='top'><label for='" . $column . "'>" . 
 		$label . " : " . $value . "</label></td>" .
-		"<td><select name='" . $column . "'>";
+		"<td><select name='" . $column . "' class='form-control form-color'> ";
 	if (isset($value) == FALSE) 
 		echo "<option value='0'>Select</option>";
 	echo "<option value = 'Yes'";
