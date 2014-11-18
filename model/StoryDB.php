@@ -66,7 +66,10 @@ function getDataByID($fid) {
 	$sql = "select uniquenumber, ccname, state, receiveddate, issuetopic, storydescription, uniquenumber, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible from storytrack where fid = '" . $fid . "'";
  	return getAsAssocArray($sql);
  }
-
+function getStoryByUniqueNumber($un){
+	$sql = "select UID,ccname,state,program,iutheme,description,storydate,ccpair,mentor,storytype,shootplan,impactpossible,targetofficial,desiredchange,impactplan from tracker where UID = '" . $un . "'";
+return getAsAssocArray($sql);
+}
 function getDataByUniqueNumber($un) {
 	$sql = "select fid, ccname, state, receiveddate, issuetopic, storydescription, dateofstory, ccpair, program, mentor, iutopic, videotreatment, shootplan, stage, impactpossible,targetofficial,desiredchange,ccimpactplan from storytrack where uniquenumber = '" . $un . "'";
  	return getAsAssocArray($sql);
@@ -122,18 +125,9 @@ function addStory($uniquenumber, $ccname, $state, $program,$iutheme,$storydescri
 	mysqli_close($db);
 }
 
-function updateStory($un, $uniquenumber, $ccname, $state, $dateReceived, $issue, $story, 
-				  $storydate, $ccpair, $program, $mentor, $iutopic, $videotreatment,
-				  $shootplan, $impactpossible,$targetofficial,$desiredchange,$ccimpactplan) {
-	$sql =  "update storytrack set uniquenumber = '" . $uniquenumber . "', ccname = '" . $ccname . "', state = '" . $state . "',".
-			" receiveddate = '" . $dateReceived . "', issuetopic = '" . $issue . "',".
-			" storydescription = '" . $story . "'," .
-			" dateofstory = '" . $storydate . "', ccpair = '" . $ccpair . "'," .
-			" program = '" . $program . "', mentor = '" . $mentor . "', " .
-			" iutopic = '" . $iutopic . "', videotreatment = '" . $videotreatment . "'," .
-			" shootplan = '" . $shootplan . "', targetofficial= '" .$targetofficial . "'," .
-			"desiredchange = '" . $desiredchange . "',ccimpactplan = '" . $ccimpactplan . "', ". "impactpossible = '" . $impactpossible ."'" .
-			" where uniquenumber = '" . $un . "'";
+function updateStory($uniquenumber, $ccname, $state, $program,$iutheme,$storydescription, $dateofstorypitched,$ccpair,$mentor,$storytype,$shootplan,$impactpossible,$targetofficial,$desiredchange,$impactplan) {
+	$sql =  "update tracker set UID = '" . $uniquenumber . "', ccname = '" . $ccname . "', state = '" . $state . "', program = '" . $program . "', iutheme = '" . $iutheme . "', description = '" . $storydescription . "', storydate = '" . $dateofstorypitched  . "', ccpair = '" . $ccpair . "', mentor = '" . $mentor . "', storytype= '" .  $storytype. "', shootplan = '" . $shootplan . "', impactpossible= '" . $impactpossible . " ',targetofficial= '" .$targetofficial . "',desiredchange = '" . $desiredchange . "',impactplan = '" . $impactplan . "'" .
+			" where UID= '" . $uniquenumber . "'";
 	$db=dbopen();
 	mysqli_query($db, $sql);
 	mysqli_close($db);

@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `ccdata`
+--
+
+DROP TABLE IF EXISTS `ccdata`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ccdata` (
+  `name` varchar(30) DEFAULT NULL,
+  `state` varchar(30) DEFAULT NULL,
+  `district` varchar(30) DEFAULT NULL,
+  `village` varchar(30) DEFAULT NULL,
+  `statecodes` varchar(20) DEFAULT NULL,
+  `ccid` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`ccid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ccdata`
+--
+
+LOCK TABLES `ccdata` WRITE;
+/*!40000 ALTER TABLE `ccdata` DISABLE KEYS */;
+INSERT INTO `ccdata` VALUES ('raju','karnataka','bangalore','sarjapur','KA',1),('ram','andhrapradesh','hyderabad','kookatpalli','AP',2);
+/*!40000 ALTER TABLE `ccdata` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `impacttracker`
 --
 
@@ -170,7 +198,7 @@ CREATE TABLE `storytrack` (
 
 LOCK TABLES `storytrack` WRITE;
 /*!40000 ALTER TABLE `storytrack` DISABLE KEYS */;
-INSERT INTO `storytrack` VALUES (1,'select cc name','select state name','2014-10-10','jjk','gmghmchcf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'KA_666','2014-10-10','jjk','kjbj','kbjkb','jb','jbjkb','jb		  				  				  		',NULL,'Yes','bkjb','jb','ftfhtjdxt							'),(3,'Abdul Hasib Khan','Andaman and Nicobar ','2014-11-10','jhku','lkjhkl		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kljhfuh','2014-11-10','bjk','jbkj','kjbb','jklblj','hjblj','blb		  		',NULL,'Yes','huj','jkj','jlblj				'),(4,'select cc name','select state name','2014-09-10','flood','DUE TO HEAVY RAIN IN JAND K THEIR WAS HEAVY RAIN 		  				  				  				  				  				  				  				  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'ka_222','2014-09-10','JIFJOI','LDFIJ','JNFJ','KJNVJDK','JFJ','JNDVJKNJKL		  				  				  				',NULL,'Yes','ccl','iii','hello how are you			'),(26,'Abdul Hasib Khan','Andaman and Nicobar ','2014-10-10','jnj','kljnkl		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hjh','2014-10-10','jbjk','kjbjk','kj','jkbjkb','jkb','jkbjkb		  		',NULL,'Yes','jkb','bjk','kjbjkbkjl				'),(374,'Jai_Kumar','Karnataka','2014-10-10','jbjkb','kjb		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'jkhdvkjh','2014-10-21','b','kjb','jbjk','hgdt','tdr','fjgxj		  		',NULL,'Yes','yfyf','ifytf','fyf				'),(47192,'jdj','Andhra Pradesh','2014-07-09','jhfj','jdnvjj		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bh_222','2014-07-09','ndj','jndvj','jdvj','jnvj','jvdj','d',NULL,'Yes',NULL,NULL,NULL),(47193,'Abdul Hasib Khan','Andaman and Nicobar ','2014-11-10','hihi','lhi		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'JH_111','2014-11-10','gug','kugiu','gg','kgk','kglug','gljgug		  		',NULL,'Yes','gjg','hglglj','jgjuglugiu				'),(8653187,'Abhishek Kr Das','Arunachal Pradesh','2014-11-10','environment','there is a wild fire 		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'BH_234','2014-11-10','hkj','jghk','kgjkl','jhljk','ulugh','uioy		  		',NULL,'Yes','kuuh','hlu','kjhlukh				'),(2147483647,'Abhishek Kr Das','Arunachal Pradesh','2014-11-12','identiy','lll		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'JA_333','2014-11-10','ll','','','','','		  		',NULL,'Yes','','','				');
+INSERT INTO `storytrack` VALUES (1,'select cc name','select state name','2014-10-10','jjk','SNA C,JKSkl',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'KA_666','2014-10-10','jjk','kjbj','kbjkb','jb','jbjkb','jb		  				  				  				  		',NULL,'Yes','bkjb','jb','ftfhtjdxt											'),(3,'Abdul Hasib Khan','Andaman and Nicobar ','2014-11-10','jhku','lkjhkl		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kljhfuh','2014-11-10','bjk','jbkj','kjbb','jklblj','hjblj','blb		  		',NULL,'Yes','huj','jkj','jlblj				'),(4,'select cc name','select state name','2014-09-10','flood','DUE TO HEAVY RAIN IN JAND K THEIR WAS HEAVY RAIN 		  				  				  				  				  				  				  				  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'ka_222','2014-09-10','JIFJOI','LDFIJ','JNFJ','KJNVJDK','JFJ','JNDVJKNJKL		  				  				  				',NULL,'Yes','ccl','iii','hello how are you			'),(26,'Abdul Hasib Khan','Andaman and Nicobar ','2014-10-10','jnj','kljnkl		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'hjh','2014-10-10','jbjk','kjbjk','kj','jkbjkb','jkb','jkbjkb		  		',NULL,'Yes','jkb','bjk','kjbjkbkjl				'),(374,'Jai_Kumar','Karnataka','2014-10-10','jbjkb','kjb		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'jkhdvkjh','2014-10-21','b','kjb','jbjk','hgdt','tdr','fjgxj		  		',NULL,'Yes','yfyf','ifytf','fyf				'),(47192,'jdj','Andhra Pradesh','2014-07-09','jhfj','jdnvjj		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'bh_222','2014-07-09','ndj','jndvj','jdvj','jnvj','jvdj','d',NULL,'Yes',NULL,NULL,NULL),(47193,'Abdul Hasib Khan','Andaman and Nicobar ','2014-11-10','hihi','lhi		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'JH_111','2014-11-10','gug','kugiu','gg','kgk','kglug','gljgug		  		',NULL,'Yes','gjg','hglglj','jgjuglugiu				'),(8653187,'Abhishek Kr Das','Arunachal Pradesh','2014-11-10','environment','there is a wild fire 		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'BH_234','2014-11-10','hkj','jghk','kgjkl','jhljk','ulugh','uioy		  		',NULL,'Yes','kuuh','hlu','kjhlukh				'),(2147483647,'Abhishek Kr Das','Arunachal Pradesh','2014-11-12','identiy','lll		  		',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'JA_333','2014-11-10','ll','','','','','		  		',NULL,'Yes','','','				');
 /*!40000 ALTER TABLE `storytrack` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -186,7 +214,7 @@ CREATE TABLE `tracker` (
   `ccname` varchar(20) DEFAULT NULL,
   `state` varchar(20) DEFAULT NULL,
   `program` varchar(30) DEFAULT NULL,
-  `issue` varchar(20) DEFAULT NULL,
+  `iutheme` varchar(20) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `storydate` date DEFAULT NULL,
   `ccpair` varchar(30) DEFAULT NULL,
@@ -248,6 +276,7 @@ CREATE TABLE `tracker` (
 
 LOCK TABLES `tracker` WRITE;
 /*!40000 ALTER TABLE `tracker` DISABLE KEYS */;
+INSERT INTO `tracker` VALUES ('42da131a-6a76-11e4-9','raju','1','PACS','Forced Eviction','jhjlu','2014-11-12','raju','raju','Profile Video','ghjgkjgkhgf',NULL,'Yes ','jmghjg','jjhgj','hjghjg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('7b64bd99-6a62-11e4-9','raju','karnataka','','','hello world','2014-11-01','raju','ram','','world hello',NULL,'','vodeovol','','impact',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('81c4a3e1-6a68-11e4-9','1','1','OAK','','vvvvvvvvvvvvvvvvvv','2014-11-12','1','1','','CCCCC',NULL,' ','CCCCC','CCCCC','CCCCC',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('87d02b60-6af5-11e4-9','raju','andhrapradesh','OAK','Art/Culture','hjfgdfjf,jegflugfui','2014-11-13','1','raju','Issue','hfhfkj,jgefouitg',NULL,'Yes ',',jhfkfkyjyfuywuiey','hgjkhlkghikhgktgjglug','khk;ghi;h;ilshgd;ilhomfjyjyuru',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('adac6e2c-6af4-11e4-9','raju','karnataka','OAK','Conflict','hgdhgjhg','2014-11-13','raju','ram','Documentary','mjg,jjgkk.ugk.t',NULL,'Yes','bjmjmb','vmvbmnbvm','bbmnbm',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('ee99ac9f-6a67-11e4-9','ram','andhrapradesh','PACS','Caste/Identity','mnb,fdjkhjhkjhjgyfj','2014-11-12','raju','raju','Issue','mjsfuljkgfug,ujal',NULL,'Yes',',fljkhjkmjdfglu','','NKJHH,VLKA8DIQ ',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tracker` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,4 +331,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-11  3:40:16
+-- Dump completed on 2014-11-17 10:14:18
