@@ -103,8 +103,8 @@ include('header.php');
 									<option value="" >Select an Option</option>
 									<option value="">1 - Poor</option>
 									<option value="">2 - Average</option>
-									<option value="">1 - Good</option>
-									<option value="">2 - Excellent</option>
+									<option value="">3 - Good</option>
+									<option value="">4 - Excellent</option>
 								</select>
 							</td>
 						</tr>

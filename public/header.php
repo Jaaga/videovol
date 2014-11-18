@@ -37,6 +37,8 @@
     var date = $('#dateRawFootageReceivedInGoaFromStateOffice').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
     var date = $('#dateEditedVideoReceivedInGoaFromStateOffice').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
     var date = $('#dateRoughCutDone').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
+    var date = $('#dateEditIsCompleteInGoa').datepicker({ dateFormat: 'yy-mm-dd' }).val();// In editorView.php
+    var date = $('#dateUploadedToYouTube').datepicker({ dateFormat: 'yy-mm-dd' }).val();// In editorView.php
 });
   $(function() {
 var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
