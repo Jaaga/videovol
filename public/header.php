@@ -34,7 +34,9 @@
     var date = $('.datepick').datepicker({ dateFormat: 'yy-mm-dd' }).val();
     var date = $('#dateStoryPitched').datepicker({ dateFormat: 'yy-mm-dd' }).val();//in newStoryView.php
     var date = $('#dateRawFootageReceivedInStateOfficeOrGoa').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In footage-check-view.php
-
+    var date = $('#dateRawFootageReceivedInGoaFromStateOffice').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
+    var date = $('#dateEditedVideoReceivedInGoaFromStateOffice').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
+    var date = $('#dateRoughCutDone').datepicker({ dateFormat: 'yy-mm-dd' }).val();//In receivedForPostProduction.php
 });
   $(function() {
 var date = $('#datepick1').datepicker({ dateFormat: 'yy-mm-dd' }).val();
