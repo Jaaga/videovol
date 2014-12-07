@@ -10,11 +10,16 @@
 <style>
   .form-color{
     background-color:#e7e6dd;
-;
+  }
+  #home{
+    float: none;
+    position: fixed;
+    margin-left: 75%;
+  }
+  #navbar{
+    width:100%;
 
   }
-
-
 </style>
 <script src="./jqueryui/js/jquery.js"></script>
 <script src="./jqueryui/js/jquery-ui.min.js"></script>
@@ -74,9 +79,9 @@ var date = $('#datepick3').datepicker({ dateFormat: 'yy-mm-dd' }).val();
 </head>
 <body>
 <header>
-	<div class="nav">
+	<div class="nav"  id="navbar">
 		<a href="index.php"><h1>VideoVolunteers</h1></a>
-		<a href="index.php"><h4>Home Page</h4></a>
+		<a href="index.php" id="home"><h4>Home Page</h4></a>
 		<!--<a href="login.php"><h3>Log-in/Sign-up</h3></a>-->
 
 	</div>

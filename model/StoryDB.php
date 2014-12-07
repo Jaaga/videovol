@@ -155,4 +155,33 @@ function getDataForProjectManager(){
 	return getAs2DArray($sql);
 }
 
+function getDataForTMView(){
+		$db=dbopen();
+		$data = array();
+		$sql = "SELECT uid FROM tracker WHERE storydate > DATE_SUB( NOW( ) , INTERVAL 14 DAY ) LIMIT 0 , 30";
+		//$sql = "select uid from tracker";
+		$result = mysqli_query($db, $sql); // Run the query
+		$uid = array();
+		while($data = mysqli_fetch_array($result,MYSQL_NUM)){
+			$uid[] = $data[0];
+		}
+		mysqli_close($db);
+		return $uid;
+}
+function getDataForTMFootage(){
+	$db=dbopen();
+	$data = array();
+	$sql = "SELECT footageinstate, assignededitor, footagefromstate, editedvideofromstate, editstatus, footagereview, roughcutreview, footagerating, paymentapproved, roughcutdate FROM tracker LIMIT 0 , 30";
+	$result = mysqli_query($db, $sql); // Run the query
+	mysqli_close($db);
+	return $result;
+}
+function getDataForTMImpact(){
+	$sql = "SELECT impactpossible, targetofficial, desiredchange, impactplan, impactfollowup, impactfollowupnotes, impactprocess, impactstatus, impactdate, screeningdone, screeningheadcount, screeningnotes, officialinvolved, officialsatscreening, ofiicialscreeningnotes, collaborations, peopleinvolved, peopleimpacted, villagesimpacted FROM tracker LIMIT 0 , 30";
+	$db=dbopen();
+	$data = array();
+	$result = mysqli_query($db, $sql); // Run the query
+	mysqli_close($db);
+	return $result;
+}
 ?>
